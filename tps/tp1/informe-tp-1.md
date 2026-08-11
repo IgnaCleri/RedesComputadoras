@@ -101,7 +101,7 @@ La demodulación es el proceso inverso a la modulación: recupera los datos orig
 
 ## Parte 2: Análisis Práctico
 
-### Punto b) Frecuencia y longitud de onda
+### Punto b
 
 **Datos extraídos del gráfico:**
 
@@ -125,3 +125,32 @@ $$f = \frac{c}{\lambda} = \frac{3 \times 10^8 \text{ m/s}}{0{,}06 \text{ m}} = 5
 |---|---|
 | Longitud de onda (λ) | 0,06 m (60 mm) |
 | Frecuencia (f) | 5 × 10⁹ Hz = 5 GHz |
+
+### Punto c
+
+**Marco de referencia normativo:**
+
+Para la clasificación sistemática del espectro electromagnético, se consulta el Artículo 2, Sección 2.1 de las Regulaciones de Radiocomunicaciones de la Unión Internacional de Telecomunicaciones (ITU-R Radio Regulations). Este documento establece la división internacional del espectro de radiofrecuencias en bandas designadas, cada una identificada por un rango específico de frecuencias.
+
+**Bandas de frecuencia según ITU-R (Artículo 2, Sección 2.1):**
+
+El espectro se organiza en las siguientes bandas principales:
+
+| Designación | Rango de Frecuencia | Región del Espectro EM        |
+| ----------- | ------------------- | ----------------------------- |
+| VHF         | 30 MHz – 300 MHz    | Ondas de Radio                |
+| UHF         | 300 MHz – 3 GHz     | Ondas de Radio/Microondas     |
+| **SHF**     | **3 GHz – 30 GHz**  | **Microondas**                |
+| EHF         | 30 GHz – 300 GHz    | Microondas/Ondas Milimétricas |
+
+**Clasificación de la onda analizada:**
+
+Con una frecuencia de **5 GHz**, la onda electromagnética estudiada se ubica específicamente en:
+
+- **Banda ITU:** SHF (Super High Frequency)
+- **Región del Espectro EM:** Microondas
+- **Rango:** 3 GHz < 5 GHz < 30 GHz 
+
+**Conclusión:**
+
+La onda electromagnética con frecuencia de 5 GHz opera en la **banda SHF del espectro de radiofrecuencias** según las definiciones de la ITU, perteneciendo a la región de **microondas** del espectro electromagnético.
