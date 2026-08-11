@@ -1,81 +1,74 @@
-# REDES DE COMPUTADORAS
-## Trabajo Práctico Nº1
+# Trabajo Práctico N°1 — Informe
 
----
-**Nombre del Grupo:**
 **Integrantes del Grupo:**
 
 1. Benjamin Viberti - 46224179 - b.viberti@mi.unc.edu.ar
-2. 
-3. 
+2.
+3.
 
-**Profesor:**
+## 1) Consigna 1
 
----
+### Parte 1: Resumen de Conceptos Teóricos
 
-# Consigna 1
+#### 1.1. Onda Electromagnética
 
-## Parte 1: Resumen de Conceptos Teóricos
-
-### 1.1. Onda Electromagnética
-
-#### Definición
+##### Definición
 
 Una onda electromagnética es la propagación de energía producida por campos eléctricos y magnéticos que varían periódicamente en el tiempo y el espacio. En el contexto de redes de computadoras, **es el medio fundamental para la transmisión de datos** tanto en medios guiados (cables de cobre, fibra óptica) como no guiados (aire, espacio libre).
 
-#### Características Principales
+##### Características Principales
 
 **Naturaleza de la señal:** Toda onda electromagnética, considerada como función del tiempo, puede representarse como una señal analógica o digital.
 
 **Composición en frecuencia:** Según el análisis de Fourier, cualquier onda electromagnética está constituida por una superposición de componentes sinusoidales, cada una con:
 - Amplitud específica
-- Frecuencia propia  
+- Frecuencia propia
 - Fase característica
 
 **Universalidad:** Sumando un número suficiente de señales sinusoidales con sus correspondientes amplitudes, frecuencias y fases, se puede construir y representar cualquier onda electromagnética.
 
-### 1.2. Señal de Tiempo Continuo
+#### 1.2. Señal de Tiempo Continuo
 
-#### Definición
+##### Definición
 
 Una señal de tiempo continuo es aquella que está definida para cualquier valor de tiempo y varía de manera continua sin saltos ni discontinuidades. En el dominio de la transmisión de datos, una **señal analógica** es una onda electromagnética que varía continuamente en el tiempo.
 
-#### Características
+##### Características
 
 - Varía suavemente en el tiempo
 - Los datos analógicos (voz, vídeo, temperatura) ocupan un espectro de frecuencias limitado
 - Se pueden representar mediante ondas electromagnéticas que ocupen el mismo espectro
 - Pueden propagarse a través de medios guiados (par trenzado, cable coaxial, fibra óptica) o no guiados (atmósfera, espacio)
 
-#### Parámetros de una Onda Sinusoidal
+##### Parámetros de una Onda Sinusoidal
 
 Base del análisis de Fourier:
 - **Amplitud:** valor máximo de la señal (medido en voltios)
 - **Frecuencia:** razón de repetición (ciclos por segundo o Hertz)
 - **Fase:** posición relativa de la señal dentro de un período
 
-### 1.3. Señal de Tiempo Discreto
+#### 1.3. Señal de Tiempo Discreto
 
-#### Definición
+##### Definición
 
 Una señal de tiempo discreto es aquella que solo está definida en valores específicos y separados del tiempo. En el contexto de transmisión de datos, una **señal digital** es una secuencia de pulsos de tensión con valores constantes durante intervalos de tiempo determinados.
 
-#### Características
+##### Características
 
 - La intensidad se mantiene constante durante intervalos de tiempo, luego cambia a otro valor constante
 - Los datos digitales toman valores discretos (ejemplo: cadenas de texto, números enteros)
 - Se puede transmitir a través de medios conductores usando diferentes niveles de tensión
 - Ejemplo: nivel de tensión positiva representa un bit 0, nivel negativo representa un bit 1
 
-#### Ventajas sobre Señales Analógicas
+##### Ventajas sobre Señales Analógicas
 
 - Más económica en términos generales
 - Menos susceptible a interferencias de ruido
 - Mejor integridad de datos en transmisión digital
 
-### 1.4. Modulación/Demodulación
+#### 1.4. Modulación/Demodulación
 
-#### Modulación
+##### Modulación
 
 La modulación es el proceso mediante el cual se codifican datos en una onda electromagnética variando alguno de los parámetros característicos de una señal denominada **portadora**. Permite adaptar los datos al canal de transmisión disponible, haciendo posible la transmisión de datos digitales a través de medios diseñados para señales analógicas.
 
@@ -86,7 +79,7 @@ La modulación es el proceso mediante el cual se codifican datos en una onda ele
 
 **Aplicación práctica:** Los módems convencionales representan datos binarios en el espectro de la voz, permitiendo que datos digitales se transmitan a través de líneas telefónicas convencionales (medios diseñados originalmente para señales analógicas).
 
-#### Demodulación
+##### Demodulación
 
 La demodulación es el proceso inverso a la modulación: recupera los datos originales a partir de una señal modulada. Es esencial para recibir e interpretar correctamente la información transmitida.
 
@@ -97,11 +90,9 @@ La demodulación es el proceso inverso a la modulación: recupera los datos orig
 
 **Analogía con datos analógicos (codec):** Un codec (codificador-decodificador) realiza una operación similar pero en dirección opuesta a los módems: toma una señal analógica (tiempo continuo) y la aproxima mediante una cadena de bits (tiempo discreto). En el receptor, estos bits se usan para reconstruir la señal analógica original.
 
----
+### Parte 2: Análisis Práctico
 
-## Parte 2: Análisis Práctico
-
-### Punto b
+#### Punto b
 
 **Datos extraídos del gráfico:**
 
@@ -126,7 +117,7 @@ $$f = \frac{c}{\lambda} = \frac{3 \times 10^8 \text{ m/s}}{0{,}06 \text{ m}} = 5
 | Longitud de onda (λ) | 0,06 m (60 mm) |
 | Frecuencia (f) | 5 × 10⁹ Hz = 5 GHz |
 
-### Punto c
+#### Punto c
 
 **Marco de referencia normativo:**
 
@@ -137,7 +128,7 @@ Para la clasificación sistemática del espectro electromagnético, se consulta 
 El espectro se organiza en las siguientes bandas principales:
 
 | Designación | Rango de Frecuencia | Región del Espectro EM        |
-| ----------- | ------------------- | ----------------------------- |
+| ----------- | ------------------- | ------------------------------ |
 | VHF         | 30 MHz – 300 MHz    | Ondas de Radio                |
 | UHF         | 300 MHz – 3 GHz     | Ondas de Radio/Microondas     |
 | **SHF**     | **3 GHz – 30 GHz**  | **Microondas**                |
@@ -149,8 +140,24 @@ Con una frecuencia de **5 GHz**, la onda electromagnética estudiada se ubica es
 
 - **Banda ITU:** SHF (Super High Frequency)
 - **Región del Espectro EM:** Microondas
-- **Rango:** 3 GHz < 5 GHz < 30 GHz 
+- **Rango:** 3 GHz < 5 GHz < 30 GHz
 
 **Conclusión:**
 
 La onda electromagnética con frecuencia de 5 GHz opera en la **banda SHF del espectro de radiofrecuencias** según las definiciones de la ITU, perteneciendo a la región de **microondas** del espectro electromagnético.
+
+## 3) Modulación de señales digitales
+
+### a) Técnica de modulación representada
+
+La técnica representada es **PSK (Phase Shift Keying / Modulación por desplazamiento de fase)**, en su variante binaria (**BPSK**).
+
+En el gráfico, la portadora senoidal mantiene su **amplitud y frecuencia constantes** a lo largo de toda la transmisión; lo único que cambia entre símbolos es su **fase**: los intervalos donde el bit vale "1" muestran la onda con una fase (por ejemplo 0°), y los intervalos donde el bit vale "0" muestran la misma onda invertida 180° respecto a la anterior. Por eso se ve un "quiebre" o inversión en la forma de onda justo en las transiciones entre bits distintos, mientras que entre bits iguales consecutivos la señal continúa sin discontinuidad. Como el parámetro modulado es la fase de la portadora (y no su amplitud ni su frecuencia), se trata de PSK.
+
+### b) Señal modulada para la secuencia `0 1 1 1 0 1 1 0`
+
+Aplicando el mismo principio (PSK) a la secuencia de bits `0 1 1 1 0 1 1 0`, la señal digital de entrada y su correspondiente portadora modulada en fase se ven así:
+
+![Modulación PSK de la secuencia 0 1 1 1 0 1 1 0](images/ej3b-psk-modulacion.svg)
+
+Arriba se muestra la señal digital (nivel bajo = "0", nivel alto = "1") y abajo la portadora senoidal resultante: amplitud y frecuencia constantes en toda la señal, con un cambio (inversión) de fase de 180° cada vez que el bit cambia de valor respecto al anterior.
