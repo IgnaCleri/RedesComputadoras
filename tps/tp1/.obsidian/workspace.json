@@ -91,7 +91,8 @@
               "title": "Marcadores"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -203,8 +204,9 @@
   },
   "active": "0dead7c6517d07d5",
   "lastOpenFiles": [
-    "informe-tp-1.md.tmp.15011.0bed7d2dbdba",
+    "informe-tp-1.md.tmp.18283.a4674f705c05",
     "RC - TP N1.pdf",
-    "informe-tp-1.md"
+    "informe-tp-1.md",
+    "informe-tp-1.md.tmp.15011.0bed7d2dbdba"
   ]
 }
