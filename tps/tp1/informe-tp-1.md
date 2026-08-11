@@ -101,4 +101,27 @@ La demodulación es el proceso inverso a la modulación: recupera los datos orig
 
 ## Parte 2: Análisis Práctico
 
-### Punto b
+### Punto b) Frecuencia y longitud de onda
+
+**Datos extraídos del gráfico:**
+
+A partir del gráfico se identifica que la onda completa un ciclo cada 60 mm, por lo que la longitud de onda es:
+
+$$\lambda = 60 \text{ mm} = 0{,}06 \text{ m}$$
+
+**Cálculo de la frecuencia:**
+
+La longitud de onda se relaciona con la velocidad de propagación y la frecuencia mediante la expresión:
+
+$$\lambda \cdot f = v$$
+
+Dado que la onda viaja exactamente a la velocidad de la luz ($c \approx 3 \times 10^8 \text{ m/s}$), despejando la frecuencia se obtiene:
+
+$$f = \frac{c}{\lambda} = \frac{3 \times 10^8 \text{ m/s}}{0{,}06 \text{ m}} = 5 \times 10^9 \text{ Hz} = 5 \text{ GHz}$$
+
+**Resultado:**
+
+| Parámetro | Valor |
+|---|---|
+| Longitud de onda (λ) | 0,06 m (60 mm) |
+| Frecuencia (f) | 5 × 10⁹ Hz = 5 GHz |
