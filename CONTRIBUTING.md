@@ -46,11 +46,13 @@ Hacé tus commits en esa rama.
 
 ## Pull Requests
 
+`master` está protegida: no se puede pushear directo a esa rama, todo cambio tiene que entrar por Pull Request.
+
 Cuando quieras subir contenido a `master`:
 
 1. Pusheá tu rama personal (`trabajo-<nombre>`).
 2. Abrí un Pull Request contra `master`.
-3. El PR necesita la aprobación de al menos una persona antes de mergearse.
+3. El PR necesita **2 aprobaciones** antes de poder mergearse.
 
 ## Mantener esto actualizado
 
