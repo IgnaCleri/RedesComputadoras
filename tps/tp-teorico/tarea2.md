@@ -91,6 +91,48 @@ En la práctica, muchas señales (por ejemplo, cualquier onda digital) tienen un
 
 **Relación con la transmisión real:** Ningún sistema de transmisión puede portar un ancho de banda infinito, y cuanto mayor es el ancho de banda transmitido, mayor es el costo. Por eso, en la práctica se transmite una versión de ancho de banda limitado de la señal original. Esta limitación introduce distorsión: cuanto más se restringe el ancho de banda respecto del espectro original, mayor es la distorsión y mayor la probabilidad de errores en el receptor.
 
+
+## 3.7. ¿Qué es la atenuación?
+
+La atenuación es la pérdida de energía que sufre una señal a medida que se propaga a través de un medio de transmisión, decayendo con la distancia recorrida. Es una de las dificultades fundamentales de la transmisión, junto con la distorsión de retardo y el ruido, y provoca que la señal recibida difiera de la señal originalmente transmitida (degradando su calidad en señales analógicas, o generando bits erróneos en señales digitales).
+
+**Comportamiento según el tipo de medio:**
+
+- **Medios guiados:** La atenuación suele ser exponencial, por lo que se expresa como un valor constante en decibelios por unidad de longitud.
+- **Medios no guiados:** La atenuación es una función más compleja de la distancia, dependiente además de las condiciones atmosféricas.
+
+**Consideraciones respecto a la atenuación:**
+
+1. La señal recibida debe tener suficiente energía para que el receptor pueda detectarla adecuadamente.
+2. Debe conservar un nivel notoriamente mayor que el del ruido para poder recibirse sin error.
+3. La atenuación es, habitualmente, una función creciente de la frecuencia (afecta más a las frecuencias altas).
+
+**Mitigación:** Los dos primeros problemas se resuelven controlando la energía de la señal mediante amplificadores o repetidores, ubicados a distancias adecuadas cuando la atenuación acumulada se vuelve inaceptable. El tercer problema se aborda con técnicas de ecualización de la atenuación en una banda de frecuencias dada.
+
+## 3.8. Defina la capacidad de un canal
+
+Se denomina **capacidad del canal** a la velocidad máxima a la que se pueden transmitir datos en un canal (o ruta de comunicación de datos) bajo unas condiciones dadas. Para el caso de datos digitales, la pregunta que responde es en qué medida los efectos nocivos que distorsionan o corrompen la señal limitan la velocidad de transmisión.
+
+## 3.9. ¿Qué factores clave afectan a la capacidad de un canal?
+
+Hay **cuatro conceptos relacionados entre sí** que determinan la capacidad de un canal:
+
+- **La velocidad de transmisión de los datos:** Velocidad, expresada en bits por segundo (bps), a la que se pueden transmitir los datos.
+- **El ancho de banda:** Ancho de banda de la señal transmitida, limitado por el transmisor y por la naturaleza del medio; se mide en hercios.
+- **El ruido:** Nivel medio de ruido presente en el camino de transmisión.
+- **La tasa de errores:** Tasa a la que ocurren errores (recibir un 1 habiendo transmitido un 0, o viceversa).
+
+**Relación entre estos factores:**
+
+- **Ancho de banda de Nyquist** (canal sin ruido): dado un ancho de banda $B$, la máxima velocidad de señal alcanzable es $2B$. Para señales con $M$ niveles discretos, la capacidad es
+							$C = 2B \log_2 M$.
+
+- **Capacidad de Shannon** (canal con ruido): relaciona la capacidad con el ancho de banda y la relación señal-ruido (SNR):
+
+$$C = B \log_2(1 + SNR)$$
+
+Esta fórmula representa el límite teórico máximo: dado un ancho de banda y un nivel de ruido, mayor SNR permite mayor capacidad. En la práctica se obtienen velocidades menores, ya que la fórmula supone únicamente ruido térmico y no contempla otros efectos como el ruido impulsivo o las distorsiones de atenuación y retardo.
+
 ---
 
 ## Bibliografía
