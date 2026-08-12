@@ -24,9 +24,37 @@ En ambos tipos de medios la comunicación se realiza mediante ondas electromagn�
 - **Medio no guiado (inalámbrico):** La onda se propaga libremente, sin estar confinada a un camino físico. Ejemplos: propagación a través del aire, el mar o el vacío.
 
 
-3.2. ¿Cuáles son las diferencias entre una señal electromagnética analógica y una digital? 
+## 3.2. ¿Cuáles son las diferencias entre una señal electromagnética analógica y una digital?
 
+Toda señal electromagnética, considerada como función del tiempo, puede ser tanto analógica como digital. La diferencia entre ambas está en cómo varía la intensidad de la señal en el tiempo:
+
+- **Señal analógica:** es una onda electromagnética que varía continuamente en el tiempo, sin saltos ni discontinuidades, y puede tomar cualquier valor dentro de un rango continuo. Según su espectro, puede propagarse tanto por medios guiados (par trenzado, cable coaxial, fibra óptica) como no guiados (atmósfera, espacio).
+
+- **Señal digital:** es una secuencia de pulsos de tensión que se mantiene constante durante un intervalo de tiempo, tras el cual cambia abruptamente a otro valor constante. Por ejemplo, un nivel de tensión positiva puede representar un bit 0 y un nivel de tensión negativa un bit 1.
+
+**Ventajas y desventajas de la señalización digital frente a la analógica:**
+
+- *Ventaja:* en términos generales es más económica y menos susceptible a las interferencias de ruido.
+- *Desventaja:* las señales digitales sufren más con la atenuación que las señales analógicas.
+
+
+## 3.3. ¿Cuáles son las tres características más importantes de una señal periódica?
+
+Una señal periódica se caracteriza por contener un patrón que se repite a lo largo del tiempo. Matemáticamente, una señal s(t) es periódica si y solo si:
+
+$$s(t + T) = s(t), \quad -\infty < t < \infty$$
+
+donde T es el período de la señal (el menor valor que verifica la ecuación).
+
+Las **tres características más importantes** que definene a una señal periódica son:
+
+- **Amplitud (A):** El valor máximo que alcanza la señal en el tiempo (amplitud de pico), normalmente medido en voltios.
+
+- **Frecuencia (f):** La razón, en ciclos por segundo o Hercios (Hz), a la que la señal se repite. Su parámetro equivalente es el período (T), definido como el tiempo transcurrido entre dos repeticiones consecutivas, cumpliéndose que T = 1/f.
+
+- **Fase (φ):** Una medida de la posición relativa de la señal dentro de un período de la misma.
 
 
 ---
-
+Bibliografia
+Libro: Comunicación y redes de computadoras - Stallings
