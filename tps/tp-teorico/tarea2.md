@@ -55,6 +55,37 @@ Las **tres características más importantes** que definene a una señal periód
 - **Fase (φ):** Una medida de la posición relativa de la señal dentro de un período de la misma.
 
 
+## 3.4. ¿Cuántos radianes hay en 360°?
+
+El radián es la unidad de medida angular basada en la relación entre el arco y el radio de una circunferencia: un ángulo de 1 radián es aquel que subtiende un arco de longitud igual al radio.
+
+Dado que el perímetro completo de una circunferencia equivale a $2\pi$ veces su radio, una vuelta completa (360°) equivale a $2\pi$ radianes:
+
+$$360° = 2\pi \text{ radianes} $$
+
+## 3.5. ¿Cuál es la relación entre la longitud de onda y la frecuencia en una onda seno?
+
+La longitud de onda ($\lambda$) se define como la distancia que ocupa un ciclo de la señal, o equivalentemente, la distancia entre dos puntos de igual fase en dos ciclos consecutivos. Representa la contraparte espacial del período (T), que es su equivalente en el dominio temporal.
+
+Si la señal se propaga a una velocidad $v$, la longitud de onda se relaciona con el período mediante:
+
+$$\lambda = v \cdot T$$
+
+Dado que $T = 1/f$, esta expresión es equivalente a:
+
+$$\lambda \cdot f = v$$
+
+Es decir, **la longitud de onda y la frecuencia son inversamente proporcionales**: a mayor frecuencia, menor longitud de onda, y viceversa, para una misma velocidad de propagación $v$.
+
+
+3.6. ¿Cuál es la relación entre el espectro de una señal y su ancho de banda?
+
+
+3.7. ¿Qué es la atenuación?
+
+
 ---
-Bibliografia
-Libro: Comunicación y redes de computadoras - Stallings
+
+## Bibliografía
+
+Stallings, W. *Comunicaciones y Redes de Computadoras*.
