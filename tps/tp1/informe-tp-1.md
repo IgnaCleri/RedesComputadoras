@@ -18,7 +18,12 @@ Este router está trabajando con una frecuencia de 2.4 GHz (este router también
 
 ![alt text](imagenes/image.png)
 
-El router, independientemente de si es 2.4 GHz o 5 GHz, está trabajando en la banda de microondas del espectro electromagnético.
+El router, independientemente de si es 2.4 GHz o 5 GHz, está trabajando en la banda de microondas del espectro electromagnético. 
+
+![ancho-banda](imagenes/image-16.png)
+
+Este opera entre las frecuencias $(2,412Ghz , 2,462Ghz)$, el ancho de banda de operacion es $2,412Ghz - 2,462Ghz = 0.050Ghz$ 
+
 
 ## PC de escritorio
 
