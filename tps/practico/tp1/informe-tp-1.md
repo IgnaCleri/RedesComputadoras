@@ -2,16 +2,15 @@
 
 **Integrantes del Grupo:**
 
-
-| Name                          | DNI | Mail UNC | Github |
-|-------------------------------|-----|----------|--------|
-| Viberti, Benjamin | 46224179 | b.viberti@mi.unc.edu.ar | [@benjaviberti](https://github.com/benjaviberti) |
-| Espinoza Sutta, Aaron Alejandro | 96009173| aaron.espinoza_4500@mi.unc.edu.ar| [@Aaron45000](https://github.com/Aaron45000) | 
-| Cleri, Juan Ignacio | 46452662 | ignacio.cleri@mi.unc.edu.ar | [@IgnaCleri](https://github.com/IgnaCleri)|
-| Pineda, Juan Ignacio | 45591343 | juan.ignacio.pineda@mi.unc.edu.ar | [@juanignaciopineda-dot](https://github.com/juanignaciopineda-dot)|
-| Grafión, Atilio Leonel | 43940195 | atilio.grafion@mi.unc.edu.ar | NA |
-| Badenes, Tomas | 44785038 | tomasbadenes@mi.unc.edu.ar | NA |
-| Oviedo, Ignacio Nicolas | 43940195 | ignacio.oviedo.239@mi.unc.edu.ar | NA |
+| Name                            | DNI      | Mail UNC                          | Github                                                            |
+| ------------------------------- | -------- | --------------------------------- | ----------------------------------------------------------------- |
+| Viberti, Benjamin               | 46224179 | b.viberti@mi.unc.edu.ar           | [@benjaviberti](https://github.com/benjaviberti)                   |
+| Espinoza Sutta, Aaron Alejandro | 96009173 | aaron.espinoza_4500@mi.unc.edu.ar | [@Aaron45000](https://github.com/Aaron45000)                       |
+| Cleri, Juan Ignacio             | 46452662 | ignacio.cleri@mi.unc.edu.ar       | [@IgnaCleri](https://github.com/IgnaCleri)                         |
+| Pineda, Juan Ignacio            | 45591343 | juan.ignacio.pineda@mi.unc.edu.ar | [@juanignaciopineda-dot](https://github.com/juanignaciopineda-dot) |
+| Grafión, Atilio Leonel         | 43940195 | atilio.grafion@mi.unc.edu.ar      | NA                                                                |
+| Badenes, Tomas                  | 44785038 | tomasbadenes@mi.unc.edu.ar        | NA                                                                |
+| Oviedo, Ignacio Nicolas         | 43940195 | ignacio.oviedo.239@mi.unc.edu.ar  | NA                                                                |
 
 ## 1) Consigna 1
 
@@ -28,6 +27,7 @@ Una onda electromagnética es la propagación de energía producida por campos e
 **Naturaleza de la señal:** Toda onda electromagnética, considerada como función del tiempo, puede representarse como una señal analógica o digital.
 
 **Composición en frecuencia:** Según el análisis de Fourier, cualquier onda electromagnética está constituida por una superposición de componentes sinusoidales, cada una con:
+
 - Amplitud específica
 - Frecuencia propia
 - Fase característica
@@ -50,6 +50,7 @@ Una señal de tiempo continuo es aquella que está definida para cualquier valor
 ##### Parámetros de una Onda Sinusoidal
 
 Base del análisis de Fourier:
+
 - **Amplitud:** valor máximo de la señal (medido en voltios)
 - **Frecuencia:** razón de repetición (ciclos por segundo o Hertz)
 - **Fase:** posición relativa de la señal dentro de un período
@@ -80,6 +81,7 @@ Una señal de tiempo discreto es aquella que solo está definida en valores espe
 La modulación es el proceso mediante el cual se codifican datos en una onda electromagnética variando alguno de los parámetros característicos de una señal denominada **portadora**. Permite adaptar los datos al canal de transmisión disponible, haciendo posible la transmisión de datos digitales a través de medios diseñados para señales analógicas.
 
 **Proceso de modulación digital (módem):**
+
 - Convierte una serie de pulsos binarios discretos (datos digitales en tiempo discreto) en una señal analógica de tiempo continuo
 - Codifica los datos digitales variando la amplitud, frecuencia o fase de la portadora
 - La señal resultante ocupa un espectro de frecuencias centrado en la frecuencia de la portadora
@@ -91,6 +93,7 @@ La modulación es el proceso mediante el cual se codifican datos en una onda ele
 La demodulación es el proceso inverso a la modulación: recupera los datos originales a partir de una señal modulada. Es esencial para recibir e interpretar correctamente la información transmitida.
 
 **Proceso de demodulación (módem receptor):**
+
 - Recibe la señal modulada en tiempo continuo
 - Extrae los datos digitales originales (en tiempo discreto) que fueron codificados en la portadora
 - Recupera la secuencia de bits binarios original
@@ -105,24 +108,30 @@ La demodulación es el proceso inverso a la modulación: recupera los datos orig
 
 A partir del gráfico se identifica que la onda completa un ciclo cada 60 mm, por lo que la longitud de onda es:
 
-$$\lambda = 60 \text{ mm} = 0{,}06 \text{ m}$$
+$$
+\lambda = 60 \text{ mm} = 0{,}06 \text{ m}
+$$
 
 **Cálculo de la frecuencia:**
 
 La longitud de onda se relaciona con la velocidad de propagación y la frecuencia mediante la expresión:
 
-$$\lambda \cdot f = v$$
+$$
+\lambda \cdot f = v
+$$
 
 Dado que la onda viaja exactamente a la velocidad de la luz ($c \approx 3 \times 10^8 \text{ m/s}$), despejando la frecuencia se obtiene:
 
-$$f = \frac{c}{\lambda} = \frac{3 \times 10^8 \text{ m/s}}{0{,}06 \text{ m}} = 5 \times 10^9 \text{ Hz} = 5 \text{ GHz}$$
+$$
+f = \frac{c}{\lambda} = \frac{3 \times 10^8 \text{ m/s}}{0{,}06 \text{ m}} = 5 \times 10^9 \text{ Hz} = 5 \text{ GHz}
+$$
 
 **Resultado:**
 
-| Parámetro | Valor |
-|---|---|
-| Longitud de onda (λ) | 0,06 m (60 mm) |
-| Frecuencia (f) | 5 × 10⁹ Hz = 5 GHz |
+| Parámetro            | Valor                |
+| --------------------- | -------------------- |
+| Longitud de onda (λ) | 0,06 m (60 mm)       |
+| Frecuencia (f)        | 5 × 10⁹ Hz = 5 GHz |
 
 #### Punto c
 
@@ -134,12 +143,12 @@ Para la clasificación sistemática del espectro electromagnético, se consulta 
 
 El espectro se organiza en las siguientes bandas principales:
 
-| Designación | Rango de Frecuencia | Región del Espectro EM        |
-| ----------- | ------------------- | ------------------------------ |
-| VHF         | 30 MHz – 300 MHz    | Ondas de Radio                |
-| UHF         | 300 MHz – 3 GHz     | Ondas de Radio/Microondas     |
-| **SHF**     | **3 GHz – 30 GHz**  | **Microondas**                |
-| EHF         | 30 GHz – 300 GHz    | Microondas/Ondas Milimétricas |
+| Designación  | Rango de Frecuencia       | Región del Espectro EM        |
+| ------------- | ------------------------- | ------------------------------ |
+| VHF           | 30 MHz – 300 MHz         | Ondas de Radio                 |
+| UHF           | 300 MHz – 3 GHz          | Ondas de Radio/Microondas      |
+| **SHF** | **3 GHz – 30 GHz** | **Microondas**           |
+| EHF           | 30 GHz – 300 GHz         | Microondas/Ondas Milimétricas |
 
 **Clasificación de la onda analizada:**
 
@@ -152,6 +161,30 @@ Con una frecuencia de **5 GHz**, la onda electromagnética estudiada se ubica es
 **Conclusión:**
 
 La onda electromagnética con frecuencia de 5 GHz opera en la **banda SHF del espectro de radiofrecuencias** según las definiciones de la ITU, perteneciendo a la región de **microondas** del espectro electromagnético.
+
+#### Punto c
+
+Los sistemas de comunicacion mas usados dentro de la banda SHF, son:
+
+En comunicaciones satelitales:
+
+* Antenas VSAT
+
+- Antenas de receptores TV (DIRECTV, MovistarTV)
+
+En Redes Wifi y conectividad local
+
+- Routers Wifi (Wifi 2.4Ghz - Wifi 5Ghz)
+
+- Telefonía móvil
+
+- Las redes 5G
+
+Radares (aunque no sean para comunicación principalmente)
+
+- Radares meteorológicos
+- Radares de aeropuertos
+- Radares militares
 
 ## 3) Modulación de señales digitales
 
@@ -189,12 +222,11 @@ Seguridad WPA2-PSK:
 
 ![alt text](imagenes/image.png)
 
-2) El router, independientemente de si es 2.4 GHz o 5 GHz, está trabajando en la banda de microondas del espectro electromagnético. 
+2) El router, independientemente de si es 2.4 GHz o 5 GHz, está trabajando en la banda de microondas del espectro electromagnético.
 
 ![ancho-banda](imagenes/image-16.png)
 
 3) Este opera entre las frecuencias $(2,412Ghz , 2,462Ghz)$, el ancho de banda de operacion es $2,412Ghz - 2,462Ghz = 0.050Ghz$ en la clasificacion de la ITU entra en la banda SHF (Super High Frecuency).
-
 
 ### PC de escritorio
 
@@ -203,7 +235,6 @@ Seguridad WPA2-PSK:
 La PC de escritorio ya está conectada a la red con la IP 192.168.0.101 vía Ethernet.
 
 ![ip-pc](imagenes/image-8.png)
-
 
 ### Laptop
 
@@ -217,7 +248,6 @@ Ahora comprobemos si tiene conexión con la PC que está conectada a la red vía
 
 ![ping-con-pc](imagenes/image-13.png)
 
-
 ### Comprobación de conexiones
 
 Ahora comprobaremos la conexión entre la PC y la laptop en distintas posiciones:
@@ -225,7 +255,6 @@ Ahora comprobaremos la conexión entre la PC y la laptop en distintas posiciones
 #### Caso 1: Ambas en la oficina
 
 ![ping-con-pc-ofi](imagenes/image-12.png)
-
 
 En este caso, el ping salió de esta manera:
 
@@ -240,7 +269,6 @@ En este caso, el ping salió de esta manera:
 ![ping-cmd-caso2](imagenes/image-13.png)
 
 Un poco mayor al anterior.
-
 
 #### Caso 3: Fuera del límite
 
