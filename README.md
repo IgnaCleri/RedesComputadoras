@@ -74,4 +74,4 @@ Cuando quieras subir contenido a `master`:
 
 ### Mantener esto actualizado
 
-Si agregás una categoría nueva de material, reorganizás carpetas, o cambiás el flujo de ramas/PRs, actualizá esta sección y también [`AGENTS.md`](./AGENTS.md) en el mismo cambio. Esto vale tanto para colaboradores humanos como para agentes: no dejes que la documentación quede desactualizada respecto a la estructura real del repo.
+Si agregás una categoría nueva de material, reorganizás carpetas, o cambiás el flujo de ramas/PRs, actualizá esta sección en el mismo cambio para que no quede desactualizada respecto a la estructura real del repo.
