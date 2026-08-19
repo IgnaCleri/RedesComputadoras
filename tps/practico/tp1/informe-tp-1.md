@@ -175,9 +175,7 @@ En comunicaciones satelitales:
 En Redes Wifi y conectividad local
 
 - Routers Wifi (Wifi 2.4Ghz - Wifi 5Ghz)
-
 - Telefonía móvil
-
 - Las redes 5G
 
 Radares (aunque no sean para comunicación principalmente)
@@ -185,6 +183,10 @@ Radares (aunque no sean para comunicación principalmente)
 - Radares meteorológicos
 - Radares de aeropuertos
 - Radares militares
+
+#### Punto D
+
+La linea roja visualizada en la imagen, se puede ver la en la grafica la inscripcion "amplitud" resulta ser la grafica envolvente de la señal que indica la aplitud de esta y su atenuacion.
 
 ## 3) Modulación de señales digitales
 
