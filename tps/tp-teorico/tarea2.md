@@ -153,7 +153,20 @@ En este caso depende exactamente de como este implementado el medio de transmisi
 
 Si una señal tiene una frencuencia fundamental $f=1000hz \rightarrow T=\frac{1}{f}=\frac{1}{1000hz}= 1ms$
 
+##  3.3 Simplifique las siguientes expresiones:
 
+### a)
+
+$$
+\sin(2\pi ft - \pi) + \sin(2\pi ft + \pi) = -\sin(2\pi ft) + \left(-\sin(2\pi ft)\right) = -2\sin(2\pi ft)
+$$
+
+
+### b)
+
+$$
+\sin(2\pi f t) + \sin(2\pi f t - \pi) = \sin(2\pi f t) + (-\sin(2\pi f t)) = 0
+$$
 
 
 # Bibliografía
