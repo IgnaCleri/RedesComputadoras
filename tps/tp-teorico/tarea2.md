@@ -149,6 +149,11 @@ En este caso depende exactamente de como este implementado el medio de transmisi
  - Desventajas:
  El sistema es menos optimo ya que puede que el canal sea necesitado por alguna central pero no usado ya que no es el turno de la central que la necesita
 
+## 3.2 Una señal tiene una frecuencia fundamental de 1000 Hz. ¿Cuál es su periodo?
+
+Si una señal tiene una frencuencia fundamental $f=1000hz \rightarrow T=\frac{1}{f}=\frac{1}{1000hz}= 1ms$
+
+
 
 
 # Bibliografía
