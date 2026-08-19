@@ -162,7 +162,7 @@ Una señal digital escalonada (como las señales de tiempo discreto vistas en 1.
 Eso la vuelve poco apta para un medio no guiado, por dos razones que son en realidad las dos caras de un mismo problema:
 
 - **Ningún canal tiene ancho de banda infinito.** Un canal inalámbrico real está limitado en frecuencia, tanto por la regulación del espectro como por las propias características del medio; al transmitir una señal de espectro tan amplio sin adaptarla, se pierden o distorsionan sus componentes de alta frecuencia, degradando la señal recibida.
-- **Las antenas no pueden radiar eficientemente componentes de muy baja frecuencia.** Para irradiar con eficiencia a una frecuencia $f$, una antena necesita un tamaño del orden de la longitud de onda asociada (típicamente $\lambda/2$); a frecuencias muy bajas (cercanas a continua), $\lambda$ es enorme. Stallings (Cap. 5, §5.4) señala que "en los medios no guiados es prácticamente imposible transmitir señales en banda base, ya que el tamaño de las antenas tendría que ser de varios kilómetros de diámetro" —el argumento se plantea allí para señales analógicas de voz, pero el mismo principio físico aplica a cualquier señal en banda base, incluida una señal digital escalonada.
+- **Las antenas no pueden radiar eficientemente componentes de muy baja frecuencia.** Para irradiar con eficiencia a una frecuencia $f$, una antena necesita un tamaño del orden de la longitud de onda asociada (típicamente $\lambda/2$); a frecuencias muy bajas (cercanas a continua), $\lambda$ es enorme, del orden de kilómetros. Como una señal escalonada tiene justamente energía concentrada cerca de esas frecuencias, transmitirla directamente por el aire exigiría antenas de un tamaño completamente impracticable.
 
 Por eso, para transmitir de forma inalámbrica es necesario **modular** la señal: trasladar su espectro desde banda base hacia una banda angosta centrada en una portadora $f_c$, elegida de forma compatible con el tamaño práctico de antena y con las bandas de frecuencia asignadas por la regulación (ver 1.c y el Ejercicio 4, donde el router opera en la banda ITU SHF). Como beneficio adicional, modular también permite que varias transmisiones convivan en el mismo medio compartido, asignando a cada una una banda distinta (multiplexación por división en frecuencia).
 
@@ -203,8 +203,6 @@ En el punto anterior vimos que PSK codifica los bits variando la **fase** de la 
 
 Todas estas técnicas comparten el principio de la Sección 3.a: codificar información digital modificando uno o más parámetros (amplitud, frecuencia, fase) de una portadora senoidal.
 
-*Fuente: Stallings, W., "Comunicaciones y Redes de Computadoras", 7ª ed., Capítulo 5.*
-
 ### d) Bit Error Rate (BER) y comparación de prestaciones
 
 **¿Qué es el BER?**
@@ -234,8 +232,6 @@ Las técnicas basadas en fase (PSK, DPSK) presentan, para un mismo $E_b/N_0$, un
 Dentro de las variantes multinivel, QPSK es un caso particular: duplica la eficiencia espectral respecto de BPSK (2 bits por símbolo en lugar de 1) **sin penalizar el BER**, porque equivale a transmitir dos canales BPSK ortogonales de forma simultánea (uno en fase y otro en cuadratura). La degradación del BER para un mismo $E_b/N_0$ recién aparece a partir de 8-PSK en adelante: a mayor cantidad de estados M, mayor la velocidad de transmisión alcanzable para un ancho de banda dado, pero los símbolos quedan más próximos entre sí en la constelación y el ruido los confunde con mayor facilidad. Existe entonces un **compromiso entre eficiencia espectral (bits por símbolo) y prestaciones de BER**, salvo en el salto puntual de BPSK a QPSK.
 
 **Conclusión:** de las técnicas presentadas, **PSK (en su forma binaria, BPSK)** es la que ofrece las mejores prestaciones en términos de BER para un mismo $E_b/N_0$, superando a ASK y FSK binarias en aproximadamente 3 dB.
-
-*Fuente: Stallings, W., "Comunicaciones y Redes de Computadoras", 7ª ed., Capítulo 3 (cociente $E_b/N_0$) y Capítulo 5 (Figura 5.4, comparación de BER entre técnicas).*
 
 ## 4 Red simple en Packet Tracer
 
