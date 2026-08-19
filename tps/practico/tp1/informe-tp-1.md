@@ -155,6 +155,19 @@ La onda electromagnética con frecuencia de 5 GHz opera en la **banda SHF del es
 
 ## 3) Modulación de señales digitales
 
+### Por qué no conviene transmitir una señal escalonada de forma inalámbrica
+
+Una señal digital escalonada (como las señales de tiempo discreto vistas en 1.3) mantiene niveles de tensión constantes durante intervalos de tiempo, con transiciones abruptas entre ellos. Por análisis de Fourier (ver 1.1), esa forma de onda se descompone en una suma de componentes senoidales que se extiende desde muy baja frecuencia —incluso continua, ya que la señal permanece tramos largos en un mismo nivel— hasta frecuencias muy altas, ya que los flancos abruptos requieren armónicos de orden elevado para reconstruirse. Es decir, su espectro es, en la práctica, de ancho muy amplio y con energía significativa cerca de los 0 Hz.
+
+Eso la vuelve poco apta para un medio no guiado, por dos razones que son en realidad las dos caras de un mismo problema:
+
+- **Ningún canal tiene ancho de banda infinito.** Un canal inalámbrico real está limitado en frecuencia, tanto por la regulación del espectro como por las propias características del medio; al transmitir una señal de espectro tan amplio sin adaptarla, se pierden o distorsionan sus componentes de alta frecuencia, degradando la señal recibida.
+- **Las antenas no pueden radiar eficientemente componentes de muy baja frecuencia.** Para irradiar con eficiencia a una frecuencia $f$, una antena necesita un tamaño del orden de la longitud de onda asociada (típicamente $\lambda/2$); a frecuencias muy bajas (cercanas a continua), $\lambda$ es enorme, del orden de kilómetros. Como una señal escalonada tiene justamente energía concentrada cerca de esas frecuencias, transmitirla directamente por el aire exigiría antenas de un tamaño completamente impracticable.
+
+Por eso, para transmitir de forma inalámbrica es necesario **modular** la señal: trasladar su espectro desde banda base hacia una banda angosta centrada en una portadora $f_c$, elegida de forma compatible con el tamaño práctico de antena y con las bandas de frecuencia asignadas por la regulación (ver 1.c y el Ejercicio 4, donde el router opera en la banda ITU SHF). Como beneficio adicional, modular también permite que varias transmisiones convivan en el mismo medio compartido, asignando a cada una una banda distinta (multiplexación por división en frecuencia).
+
+Las preguntas sobre el gráfico de ejemplo mencionado en la consigna se responden en los puntos a), b), c) y d) a continuación.
+
 ### a) Técnica de modulación representada
 
 La técnica representada es **PSK (Phase Shift Keying / Modulación por desplazamiento de fase)**, en su variante binaria (**BPSK**).
@@ -168,6 +181,57 @@ Aplicando el mismo principio (PSK) a la secuencia de bits `0 1 1 1 0 1 1 0`, la 
 ![Modulación PSK de la secuencia 0 1 1 1 0 1 1 0](imagenes/ej3b-psk-modulacion.svg)
 
 Arriba se muestra la señal digital (nivel bajo = "0", nivel alto = "1") y abajo la portadora senoidal resultante: amplitud y frecuencia constantes en toda la señal, con un cambio (inversión) de fase de 180° cada vez que el bit cambia de valor respecto al anterior.
+
+### c) Otras técnicas de modulación basadas en los mismos principios
+
+En el punto anterior vimos que PSK codifica los bits variando la **fase** de la portadora, dejando fijas su amplitud y su frecuencia. La fase es solo uno de los tres parámetros modulables de una onda senoidal (ver 1.2); existen técnicas análogas para los otros dos parámetros, además de variantes multinivel y combinaciones de ellas:
+
+**Basadas en los otros parámetros de la portadora:**
+
+- **ASK (Amplitude Shift Keying):** varía la **amplitud** de la portadora, con frecuencia y fase constantes. Su caso binario más simple, en el que un bit se representa con presencia/ausencia de portadora, se conoce como **OOK (On-Off Keying)**.
+- **FSK (Frequency Shift Keying):** varía la **frecuencia** de la portadora, con amplitud y fase constantes. En su forma binaria (BFSK), cada bit se asocia a una de dos frecuencias distintas.
+
+**Variantes multinivel (M-arias) de PSK:** en lugar de codificar un único bit por símbolo, se usa un conjunto de $M = 2^L$ fases posibles para codificar $L$ bits por cada elemento de señal, aumentando la velocidad de transmisión sin aumentar el ancho de banda:
+
+- **QPSK (Quadrature PSK):** 4 fases posibles (desplazadas 90° entre sí), codifica 2 bits por símbolo.
+- **M-PSK (8-PSK, 16-PSK, ...):** generaliza el esquema a 8, 16 o más fases, codificando 3, 4 o más bits por símbolo.
+- **DPSK (Differential PSK):** la información se codifica en el *cambio* de fase respecto al símbolo anterior en lugar de en la fase absoluta, evitando que el receptor necesite una referencia de fase coherente.
+
+**Técnica híbrida:**
+
+- **QAM (Quadrature Amplitude Modulation):** combina ASK y PSK, modulando simultáneamente amplitud y fase. Puede verse como una generalización de QPSK en la que, además de la fase, también varía la amplitud, permitiendo constelaciones de 16, 64 o 256 estados (16-QAM, 64-QAM, 256-QAM). Es la técnica que usan, por ejemplo, las redes Wi-Fi (como la del Ejercicio 4) y los módems de banda ancha (ADSL, DOCSIS).
+
+Todas estas técnicas comparten el principio de la Sección 3.a: codificar información digital modificando uno o más parámetros (amplitud, frecuencia, fase) de una portadora senoidal.
+
+### d) Bit Error Rate (BER) y comparación de prestaciones
+
+**¿Qué es el BER?**
+
+El **Bit Error Rate (BER)**, o tasa de error de bit, es la fracción de bits recibidos con error respecto del total de bits transmitidos:
+
+$$BER = \frac{\text{bits erróneos}}{\text{bits totales transmitidos}}$$
+
+Es la métrica de referencia para evaluar la calidad de un enlace digital. El BER es función decreciente del cociente $E_b/N_0$ (energía de la señal por bit sobre densidad de potencia de ruido): a mayor $E_b/N_0$, menor BER, para una técnica de modulación dada. A diferencia de la SNR, $E_b/N_0$ no depende del ancho de banda utilizado, por lo que es el parámetro adecuado para comparar de forma justa distintas técnicas de modulación.
+
+**Comparación de prestaciones**
+
+La comparación entre técnicas solo es válida a **igual $E_b/N_0$** (no a igual potencia de señal ni igual SNR), ya que ese cociente ya normaliza por la energía empleada en cada bit transmitido. Bajo ese criterio:
+
+| Técnica | Parámetro modulado | Prestación de BER (a igual $E_b/N_0$) |
+|---|---|---|
+| ASK / OOK | Amplitud | Peor |
+| FSK binaria | Frecuencia | Peor (equivalente a ASK) |
+| **PSK / BPSK** | Fase | **Mejor** |
+| DPSK | Fase (diferencial) | Equivalente a BPSK |
+| QPSK (M = 4) | Fase (multinivel) | Equivalente a BPSK (2 bits/símbolo) |
+| M-PSK (M ≥ 8) | Fase (multinivel) | Empeora a medida que crece M |
+| QAM (M niveles) | Amplitud y fase | Empeora a medida que crece M |
+
+Las técnicas basadas en fase (PSK, DPSK) presentan, para un mismo $E_b/N_0$, una tasa de error menor que ASK y FSK binarias: las mejoran en aproximadamente **3 dB**. Dicho de otro modo, para alcanzar el mismo BER, ASK y FSK necesitan aproximadamente el doble de energía por bit ($E_b/N_0$) que PSK.
+
+Dentro de las variantes multinivel, QPSK es un caso particular: duplica la eficiencia espectral respecto de BPSK (2 bits por símbolo en lugar de 1) **sin penalizar el BER**, porque equivale a transmitir dos canales BPSK ortogonales de forma simultánea (uno en fase y otro en cuadratura). La degradación del BER para un mismo $E_b/N_0$ recién aparece a partir de 8-PSK en adelante: a mayor cantidad de estados M, mayor la velocidad de transmisión alcanzable para un ancho de banda dado, pero los símbolos quedan más próximos entre sí en la constelación y el ruido los confunde con mayor facilidad. Existe entonces un **compromiso entre eficiencia espectral (bits por símbolo) y prestaciones de BER**, salvo en el salto puntual de BPSK a QPSK.
+
+**Conclusión:** de las técnicas presentadas, **PSK (en su forma binaria, BPSK)** es la que ofrece las mejores prestaciones en términos de BER para un mismo $E_b/N_0$, superando a ASK y FSK binarias en aproximadamente 3 dB.
 
 ## 4 Red simple en Packet Tracer
 
