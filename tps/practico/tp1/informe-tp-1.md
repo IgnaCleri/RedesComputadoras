@@ -9,7 +9,7 @@
 | Espinoza Sutta, Aaron Alejandro | 96009173| aaron.espinoza_4500@mi.unc.edu.ar| [@Aaron45000](https://github.com/Aaron45000) | 
 | Cleri, Juan Ignacio | 46452662 | ignacio.cleri@mi.unc.edu.ar | [@IgnaCleri](https://github.com/IgnaCleri)|
 | Pineda, Juan Ignacio | 45591343 | juan.ignacio.pineda@mi.unc.edu.ar | [@juanignaciopineda-dot](https://github.com/juanignaciopineda-dot)|
-| Grafión, Atilio Leonel | 43940195 | atilio.grafion@mi.unc.edu.ar | NA |
+| Grafión, Atilio Leonel | 43940195 | atilio.grafion@mi.unc.edu.ar | [@Aollgn](https://github.com/Aollgn) |
 | Badenes, Tomas | 44785038 | tomasbadenes@mi.unc.edu.ar | NA |
 | Oviedo, Ignacio Nicolas | 43940195 | ignacio.oviedo.239@mi.unc.edu.ar | NA |
 
@@ -173,13 +173,14 @@ Para lograr una comunicación **rápida y bidireccional** se debe utilizar un en
 
 ### c) Codificar la 4ª letra del nombre del grupo
 
-
+La cuarta letra del nombre de nuestro grupo es la letra 'e', que en ASCII es `0 1 1 0 0 1 0 1`
+![0 1 1 0 0 1 0 1](imagenes/image-17.png)
 
 ### d) ¿Dónde conviene muestrear la señal considerando las pendientes?
 
 Las flechas rojas del gráfico muestran que el cambio entre un 0 y un 1 no ocurre de forma instantanea, sino que tiene un tiempo de subida y bajada. Si tomáramos la muestra durante ese tramo inclinado, el nivel de tensión sería ***ambiguo** y el receptor no sabría si interpretar un valor **alto o bajo**.
 
-Por eso, se debe muestrear justo en el **centro** de cada bit, alejándose de las transiciones para tomar la señal cuando su nivel ya está **estabilizado**.
+Por eso, se debe muestrear justo en el **centro** de cada bit, alejándose de las transiciones para tomar la señal cuando su nivel ya está **estabilizado**. En el gráfico de ejemplo son los instantes T0, T2 y T4.
 
 ## 3) Modulación de señales digitales
 
