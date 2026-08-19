@@ -1,4 +1,4 @@
-# PREGUNTAS DE REPASO (RESPUESTAS)
+# b) PREGUNTAS DE REPASO 
 
 ## 3.1. ¿En qué se diferencia un medio guiado de un medio no guiado?
 
@@ -120,6 +120,37 @@ Esta fórmula representa el límite teórico máximo: dado un ancho de banda y u
 
 ---
 
-## Bibliografía
+
+
+# c) Ejercicios (3.1 a 3.20)
+
+
+## 3.1
+
+### a) En una configuración multipunto, sólo un dispositivo puede trasmitir cada vez, ¿por qué?
+
+En este caso depende exactamente de como este implementado el medio de transmisión, si este cuenta con mas de un canal de transmisión de datos (usando Multiplexación por División de Frecuencias), pero en un caso basico con un unico canal, si se puede decir que solo se puede transmitir un dispositivo a la vez.
+
+### b) Hay dos posibles aproximaciones que refuerzan la idea de que, en un momento dado, sólo un dispositivo puede transmitir. En un sistema centralizado, una estación es la responsable del control y podrá transmitir o decidir que lo haga cualquier otra. En el método descentralizado, las estaciones cooperan entre sí, estableciéndose una serie de turnos. ¿Qué ventajas y desventajas presentan ambas aproximaciones?
+
+#### Caso 1: Sistema Centralizado.
+
+ - Ventajas:
+ Es mas sencillo evitar transmisiones a la vez ya que el que daria la orden directamente seria la estación de control, tambien al evitar el sistema de turnos en teoria puedes optimizar el uso del medio de transmisión.
+ 
+ - Desventajas: 
+ Todo el control depende de una unica estación la cual puede quedar fuera de servicio y parar en seco las transmisiones todas las demas estaciones.
+
+#### Caso 2: Sistema Descentralizado.
+
+ - Ventajas:
+ Puede seguir funcionando incluso si una o varias estaciones estan fuera de servicio
+
+ - Desventajas:
+ El sistema es menos optimo ya que puede que el canal sea necesitado por alguna central pero no usado ya que no es el turno de la central que la necesita
+
+
+
+# Bibliografía
 
 Stallings, W. *Comunicaciones y Redes de Computadoras*.
