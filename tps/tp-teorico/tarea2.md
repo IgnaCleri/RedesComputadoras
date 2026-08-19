@@ -141,7 +141,7 @@ En este caso depende exactamente de como este implementado el medio de transmisi
 
 Hay dos posibles aproximaciones que refuerzan la idea de que, en un momento dado, sólo un dispositivo puede transmitir. En un sistema centralizado, una estación es la responsable del control y podrá transmitir o decidir que lo haga cualquier otra. En el método descentralizado, las estaciones cooperan entre sí, estableciéndose una serie de turnos. ¿Qué ventajas y desventajas presentan ambas aproximaciones?
 
-#### Respuestas:
+#### Respuesta:
 
 ##### Caso 1: Sistema Centralizado.
 
@@ -161,9 +161,11 @@ Hay dos posibles aproximaciones que refuerzan la idea de que, en un momento dado
 
 ## 3.2 
 
-Pregunta:
+### Pregunta:
 
 Una señal tiene una frecuencia fundamental de 1000 Hz. ¿Cuál es su periodo?
+
+### Respuesta:
 
 Si una señal tiene una frencuencia fundamental $f=1000hz \rightarrow T=\frac{1}{f}=\frac{1}{1000hz}= 1ms$
 
@@ -177,7 +179,7 @@ a) $\sin(2\pi ft - \pi) + \sin(2\pi ft + \pi)$
 
 b) $\sin(2\pi f t) + \sin(2\pi f t - \pi)$
 
-### Respuestas:
+### Respuesta:
 
 #### a)
 
@@ -215,7 +217,7 @@ Podemos ver como a mayor la frecuencia de la nota, menor es la longitud de onda.
 
 ## 3.5 
 
-### Pregunta
+### Pregunta:
 
 Si la curva trazada con una línea continua de la Figura 3.17 representa al $\sin(2nt)$, ¿qué función corresponde a la línea discontinua? En otras palabras, la línea discontinua se puede expresar como $A\sin(2nft+\phi)$, ¿qué son $A$, $f$ y $\phi$?
 
