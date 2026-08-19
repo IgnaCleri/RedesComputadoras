@@ -168,6 +168,21 @@ $$
 \sin(2\pi f t) + \sin(2\pi f t - \pi) = \sin(2\pi f t) + (-\sin(2\pi f t)) = 0
 $$
 
+## 3.4 El sonido se puede modelar mediante funciones sinusoidales. Compare la frecuencia relativa y la longitud de onda de las notas musicales. Piense que la velocidad del sonido es igual a 330 m/s y que las frecuencias de una escala musical son:
+
+Sea $v$ velocidad del sonido, $\lambda$ la longitud de onda y $f$ frecuencia de la nota
+
+$$ \lambda = \frac{v}{f}$$
+
+
+
+| Nota | DO | RE | MI | FA | SOL | LA | SI | DO |
+|---|---|---|---|---|---|---|---|---|
+| **f (Hz)** | 264 | 297 | 330 | 352 | 396 | 440 | 495 | 528 |
+| **λ (m)** | 1.2500 | 1.1111 | 1.0000 | 0.9375 | 0.8333 | 0.7500 | 0.6667 | 0.6250 |
+
+Podemos ver como a mayor la frecuencia de la nota, menor es la longitud de onda.
+
 
 # Bibliografía
 
