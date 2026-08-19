@@ -153,6 +153,34 @@ Con una frecuencia de **5 GHz**, la onda electromagnética estudiada se ubica es
 
 La onda electromagnética con frecuencia de 5 GHz opera en la **banda SHF del espectro de radiofrecuencias** según las definiciones de la ITU, perteneciendo a la región de **microondas** del espectro electromagnético.
 
+## 2) Consigna 2
+
+### a) Tipo y modo de transmisión 
+
+En el gráfico se pueden ver dos módulos de comunicación conectados por dos flechas: una encargada de la transferencia de datos y otra destinada al reloj. Ambas señales viajan en un único sentido, de izquierda a derecha.
+
+- **Tipo:** Se trata de una transmisión **simplex**. En este tipo de esquema las señales se transmiten en una sola dirección. Al no existir ningún canal o línea de retorno en el diagrama, el módulo de la izquierda solo transmite y el módulo de la derecha solo recibe.
+- **Modo:** Es una transmisión **síncrona**. En lugar de ir integrada dentro de la propia señal de datos, la señal de reloj se envía a través de una línea independiente y dedicada.
+
+### b) ¿Es el mejor paradigma para transmitir rápido y de forma bidireccional?
+
+No es el esquema adecuado por dos motivos:
+
+- **No es bidireccional**: El modo **simplex** solo permite transmitir en un único sentido. Para comunicar en ambos lados se necesitaría un esquema **half-duplex** o **full-duplex**.
+- **La línea de reloj no escala**: Mantener un cable dedicado para el reloj solo sirve a **cortas distancias**. Al aumentar la distancia o la velocidad, el reloj sufre **atenuaciones y desfasajes**.
+
+Para lograr una comunicación **rápida y bidireccional** se debe utilizar un enlace **full-duplex** y aplicar la **codificación Manchester**, la cual integra la señal de reloj directamente dentro de los datos.
+
+### c) Codificar la 4ª letra del nombre del grupo
+
+
+
+### d) ¿Dónde conviene muestrear la señal considerando las pendientes?
+
+Las flechas rojas del gráfico muestran que el cambio entre un 0 y un 1 no ocurre de forma instantanea, sino que tiene un tiempo de subida y bajada. Si tomáramos la muestra durante ese tramo inclinado, el nivel de tensión sería ***ambiguo** y el receptor no sabría si interpretar un valor **alto o bajo**.
+
+Por eso, se debe muestrear justo en el **centro** de cada bit, alejándose de las transiciones para tomar la señal cuando su nivel ya está **estabilizado**.
+
 ## 3) Modulación de señales digitales
 
 ### a) Técnica de modulación representada
