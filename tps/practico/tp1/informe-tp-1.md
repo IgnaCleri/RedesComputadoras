@@ -155,6 +155,19 @@ La onda electromagnética con frecuencia de 5 GHz opera en la **banda SHF del es
 
 ## 3) Modulación de señales digitales
 
+### Por qué no conviene transmitir una señal escalonada de forma inalámbrica
+
+Una señal digital escalonada (como las señales de tiempo discreto vistas en 1.3) mantiene niveles de tensión constantes durante intervalos de tiempo, con transiciones abruptas entre ellos. Por análisis de Fourier (ver 1.1), esa forma de onda se descompone en una suma de componentes senoidales que se extiende desde muy baja frecuencia —incluso continua, ya que la señal permanece tramos largos en un mismo nivel— hasta frecuencias muy altas, ya que los flancos abruptos requieren armónicos de orden elevado para reconstruirse. Es decir, su espectro es, en la práctica, de ancho muy amplio y con energía significativa cerca de los 0 Hz.
+
+Eso la vuelve poco apta para un medio no guiado, por dos razones que son en realidad las dos caras de un mismo problema:
+
+- **Ningún canal tiene ancho de banda infinito.** Un canal inalámbrico real está limitado en frecuencia, tanto por la regulación del espectro como por las propias características del medio; al transmitir una señal de espectro tan amplio sin adaptarla, se pierden o distorsionan sus componentes de alta frecuencia, degradando la señal recibida.
+- **Las antenas no pueden radiar eficientemente componentes de muy baja frecuencia.** Para irradiar con eficiencia a una frecuencia $f$, una antena necesita un tamaño del orden de la longitud de onda asociada (típicamente $\lambda/2$); a frecuencias muy bajas (cercanas a continua), $\lambda$ es enorme. Stallings (Cap. 5, §5.4) señala que "en los medios no guiados es prácticamente imposible transmitir señales en banda base, ya que el tamaño de las antenas tendría que ser de varios kilómetros de diámetro" —el argumento se plantea allí para señales analógicas de voz, pero el mismo principio físico aplica a cualquier señal en banda base, incluida una señal digital escalonada.
+
+Por eso, para transmitir de forma inalámbrica es necesario **modular** la señal: trasladar su espectro desde banda base hacia una banda angosta centrada en una portadora $f_c$, elegida de forma compatible con el tamaño práctico de antena y con las bandas de frecuencia asignadas por la regulación (ver 1.c y el Ejercicio 4, donde el router opera en la banda ITU SHF). Como beneficio adicional, modular también permite que varias transmisiones convivan en el mismo medio compartido, asignando a cada una una banda distinta (multiplexación por división en frecuencia).
+
+Las preguntas sobre el gráfico de ejemplo mencionado en la consigna se responden en los puntos a), b), c) y d) a continuación.
+
 ### a) Técnica de modulación representada
 
 La técnica representada es **PSK (Phase Shift Keying / Modulación por desplazamiento de fase)**, en su variante binaria (**BPSK**).
