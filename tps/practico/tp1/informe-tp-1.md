@@ -2,16 +2,15 @@
 
 **Integrantes del Grupo:**
 
-
-| Name                          | DNI | Mail UNC | Github |
-|-------------------------------|-----|----------|--------|
-| Viberti, Benjamin | 46224179 | b.viberti@mi.unc.edu.ar | [@benjaviberti](https://github.com/benjaviberti) |
-| Espinoza Sutta, Aaron Alejandro | 96009173| aaron.espinoza_4500@mi.unc.edu.ar| [@Aaron45000](https://github.com/Aaron45000) | 
-| Cleri, Juan Ignacio | 46452662 | ignacio.cleri@mi.unc.edu.ar | [@IgnaCleri](https://github.com/IgnaCleri)|
-| Pineda, Juan Ignacio | 45591343 | juan.ignacio.pineda@mi.unc.edu.ar | [@juanignaciopineda-dot](https://github.com/juanignaciopineda-dot)|
-| Grafión, Atilio Leonel | 43940195 | atilio.grafion@mi.unc.edu.ar | [@Aollgn](https://github.com/Aollgn) |
-| Badenes, Tomas | 44785038 | tomasbadenes@mi.unc.edu.ar | NA |
-| Oviedo, Ignacio Nicolas | 43940195 | ignacio.oviedo.239@mi.unc.edu.ar | NA |
+| Name                            | DNI      | Mail UNC                          | Github                                                            |
+| ------------------------------- | -------- | --------------------------------- | ----------------------------------------------------------------- |
+| Viberti, Benjamin               | 46224179 | b.viberti@mi.unc.edu.ar           | [@benjaviberti](https://github.com/benjaviberti)                   |
+| Espinoza Sutta, Aaron Alejandro | 96009173 | aaron.espinoza_4500@mi.unc.edu.ar | [@Aaron45000](https://github.com/Aaron45000)                       |
+| Cleri, Juan Ignacio             | 46452662 | ignacio.cleri@mi.unc.edu.ar       | [@IgnaCleri](https://github.com/IgnaCleri)                         |
+| Pineda, Juan Ignacio            | 45591343 | juan.ignacio.pineda@mi.unc.edu.ar | [@juanignaciopineda-dot](https://github.com/juanignaciopineda-dot) |
+| Grafión, Atilio Leonel         | 43940195 | atilio.grafion@mi.unc.edu.ar      | [@Aollgn](https://github.com/Aollgn)                               |
+| Badenes, Tomas                  | 44785038 | tomasbadenes@mi.unc.edu.ar        | NA                                                                |
+| Oviedo, Ignacio Nicolas         | 43940195 | ignacio.oviedo.239@mi.unc.edu.ar  | NA                                                                |
 
 ## 1) Consigna 1
 
@@ -190,7 +189,7 @@ Radares (aunque no sean para comunicación principalmente)
 La linea roja visualizada en la imagen, se puede ver la en la grafica la inscripcion "amplitud" resulta ser la grafica envolvente de la señal que indica la aplitud de esta y su atenuacion.
 ## 2) Consigna 2
 
-### a) Tipo y modo de transmisión 
+### a) Tipo y modo de transmisión
 
 En el gráfico se pueden ver dos módulos de comunicación conectados por dos flechas: una encargada de la transferencia de datos y otra destinada al reloj. Ambas señales viajan en un único sentido, de izquierda a derecha.
 
@@ -211,7 +210,7 @@ Para lograr una comunicación **rápida y bidireccional** se debe utilizar un en
 La cuarta letra del nombre de nuestro grupo es la letra 'e', que en ASCII es `0 1 1 0 0 1 0 1`
 ![0 1 1 0 0 1 0 1](imagenes/image-17.png)
 
-### d) ¿Dónde conviene muestrear la señal considerando las pendientes?
+### d) ¿Dónde conviene muestrear la señal considerando las pendientes?2
 
 Las flechas rojas del gráfico muestran que el cambio entre un 0 y un 1 no ocurre de forma instantanea, sino que tiene un tiempo de subida y bajada. Si tomáramos la muestra durante ese tramo inclinado, el nivel de tensión sería ***ambiguo** y el receptor no sabría si interpretar un valor **alto o bajo**.
 
@@ -273,7 +272,9 @@ Todas estas técnicas comparten el principio de la Sección 3.a: codificar infor
 
 El **Bit Error Rate (BER)**, o tasa de error de bit, es la fracción de bits recibidos con error respecto del total de bits transmitidos:
 
-$$BER = \frac{\text{bits erróneos}}{\text{bits totales transmitidos}}$$
+$$
+BER = \frac{\text{bits erróneos}}{\text{bits totales transmitidos}}
+$$
 
 Es la métrica de referencia para evaluar la calidad de un enlace digital. El BER es función decreciente del cociente $E_b/N_0$ (energía de la señal por bit sobre densidad de potencia de ruido): a mayor $E_b/N_0$, menor BER, para una técnica de modulación dada. A diferencia de la SNR, $E_b/N_0$ no depende del ancho de banda utilizado, por lo que es el parámetro adecuado para comparar de forma justa distintas técnicas de modulación.
 
@@ -281,15 +282,15 @@ Es la métrica de referencia para evaluar la calidad de un enlace digital. El BE
 
 La comparación entre técnicas solo es válida a **igual $E_b/N_0$** (no a igual potencia de señal ni igual SNR), ya que ese cociente ya normaliza por la energía empleada en cada bit transmitido. Bajo ese criterio:
 
-| Técnica | Parámetro modulado | Prestación de BER (a igual $E_b/N_0$) |
-|---|---|---|
-| ASK / OOK | Amplitud | Peor |
-| FSK binaria | Frecuencia | Peor (equivalente a ASK) |
-| **PSK / BPSK** | Fase | **Mejor** |
-| DPSK | Fase (diferencial) | Equivalente a BPSK |
-| QPSK (M = 4) | Fase (multinivel) | Equivalente a BPSK (2 bits/símbolo) |
-| M-PSK (M ≥ 8) | Fase (multinivel) | Empeora a medida que crece M |
-| QAM (M niveles) | Amplitud y fase | Empeora a medida que crece M |
+| Técnica             | Parámetro modulado | Prestación de BER (a igual$E_b/N_0$) |
+| -------------------- | ------------------- | --------------------------------------- |
+| ASK / OOK            | Amplitud            | Peor                                    |
+| FSK binaria          | Frecuencia          | Peor (equivalente a ASK)                |
+| **PSK / BPSK** | Fase                | **Mejor**                         |
+| DPSK                 | Fase (diferencial)  | Equivalente a BPSK                      |
+| QPSK (M = 4)         | Fase (multinivel)   | Equivalente a BPSK (2 bits/símbolo)    |
+| M-PSK (M ≥ 8)       | Fase (multinivel)   | Empeora a medida que crece M            |
+| QAM (M niveles)      | Amplitud y fase     | Empeora a medida que crece M            |
 
 Las técnicas basadas en fase (PSK, DPSK) presentan, para un mismo $E_b/N_0$, una tasa de error menor que ASK y FSK binarias: las mejoran en aproximadamente **3 dB**. Dicho de otro modo, para alcanzar el mismo BER, ASK y FSK necesitan aproximadamente el doble de energía por bit ($E_b/N_0$) que PSK.
 
