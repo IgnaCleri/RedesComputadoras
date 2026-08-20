@@ -1,4 +1,4 @@
-# PREGUNTAS DE REPASO (RESPUESTAS)
+# b) PREGUNTAS DE REPASO 
 
 ## 3.1. ¿En qué se diferencia un medio guiado de un medio no guiado?
 
@@ -120,6 +120,116 @@ Esta fórmula representa el límite teórico máximo: dado un ancho de banda y u
 
 ---
 
-## Bibliografía
+# c) Ejercicios (3.1 a 3.20)
+
+
+## 3.1
+
+### a) 
+
+#### Pregunta:
+
+En una configuración multipunto, sólo un dispositivo puede trasmitir cada vez, ¿por qué?
+
+#### Respuesta: 
+
+En este caso depende exactamente de como este implementado el medio de transmisión, si este cuenta con mas de un canal de transmisión de datos (usando Multiplexación por División de Frecuencias), pero en un caso basico con un unico canal, si se puede decir que solo se puede transmitir un dispositivo a la vez.
+
+### b) 
+
+#### Pregunta:
+
+Hay dos posibles aproximaciones que refuerzan la idea de que, en un momento dado, sólo un dispositivo puede transmitir. En un sistema centralizado, una estación es la responsable del control y podrá transmitir o decidir que lo haga cualquier otra. En el método descentralizado, las estaciones cooperan entre sí, estableciéndose una serie de turnos. ¿Qué ventajas y desventajas presentan ambas aproximaciones?
+
+#### Respuesta:
+
+##### Caso 1: Sistema Centralizado.
+
+ - Ventajas:
+ Es mas sencillo evitar transmisiones a la vez ya que el que daria la orden directamente seria la estación de control, tambien al evitar el sistema de turnos en teoria puedes optimizar el uso del medio de transmisión.
+ 
+ - Desventajas: 
+ Todo el control depende de una unica estación la cual puede quedar fuera de servicio y parar en seco las transmisiones todas las demas estaciones.
+
+##### Caso 2: Sistema Descentralizado.
+
+ - Ventajas:
+ Puede seguir funcionando incluso si una o varias estaciones estan fuera de servicio
+
+ - Desventajas:
+ El sistema es menos optimo ya que puede que el canal sea necesitado por alguna central pero no usado ya que no es el turno de la central que la necesita
+
+## 3.2 
+
+### Pregunta:
+
+Una señal tiene una frecuencia fundamental de 1000 Hz. ¿Cuál es su periodo?
+
+### Respuesta:
+
+Si una señal tiene una frencuencia fundamental $f=1000hz \rightarrow T=\frac{1}{f}=\frac{1}{1000hz}= 1ms$
+
+##  3.3 
+
+### Pregunta:
+
+Simplifique las siguientes expresiones:
+
+a) $\sin(2\pi ft - \pi) + \sin(2\pi ft + \pi)$
+
+b) $\sin(2\pi f t) + \sin(2\pi f t - \pi)$
+
+### Respuesta:
+
+#### a)
+
+$$
+\sin(2\pi ft - \pi) + \sin(2\pi ft + \pi) = -\sin(2\pi ft) + \left(-\sin(2\pi ft)\right) = -2\sin(2\pi ft)
+$$
+
+
+#### b)
+
+$$
+\sin(2\pi f t) + \sin(2\pi f t - \pi) = \sin(2\pi f t) + (-\sin(2\pi f t)) = 0
+$$
+
+## 3.4 
+
+### Pregunta:
+
+El sonido se puede modelar mediante funciones sinusoidales. Compare la frecuencia relativa y la longitud de onda de las notas musicales. Piense que la velocidad del sonido es igual a 330 m/s y que las frecuencias de una escala musical son:
+
+### Respuesta:
+
+Sea $v$ velocidad del sonido, $\lambda$ la longitud de onda y $f$ frecuencia de la nota
+
+$$ \lambda = \frac{v}{f}$$
+
+
+
+| Nota | DO | RE | MI | FA | SOL | LA | SI | DO |
+|---|---|---|---|---|---|---|---|---|
+| **f (Hz)** | 264 | 297 | 330 | 352 | 396 | 440 | 495 | 528 |
+| **λ (m)** | 1.2500 | 1.1111 | 1.0000 | 0.9375 | 0.8333 | 0.7500 | 0.6667 | 0.6250 |
+
+Podemos ver como a mayor la frecuencia de la nota, menor es la longitud de onda.
+
+## 3.5 
+
+### Pregunta:
+
+Si la curva trazada con una línea continua de la Figura 3.17 representa al $\sin(2nt)$, ¿qué función corresponde a la línea discontinua? En otras palabras, la línea discontinua se puede expresar como $A\sin(2nft+\phi)$, ¿qué son $A$, $f$ y $\phi$?
+
+
+
+![figura 3.17](imagenes/image.png)
+
+### Respuesta:
+
+La linea discontinua corresponda a una funcion seno a la cual se le cambio la frecuencia $f$ (esta paso a ser el doble de la anterior), se le aplico un desfasaje $\phi$ (de mas o menos $0.5$) y ademas se le aumento la amplitud $A$ (Una amplitud mayor a 1)
+
+
+# Bibliografía
 
 Stallings, W. *Comunicaciones y Redes de Computadoras*.
