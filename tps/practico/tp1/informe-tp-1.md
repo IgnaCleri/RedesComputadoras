@@ -2,18 +2,16 @@
 
 **Integrantes del Grupo:**
 
-
-| Name                          | DNI | Mail UNC | Github |
-|-------------------------------|-----|----------|--------|
-| Viberti, Benjamin | 46224179 | b.viberti@mi.unc.edu.ar | [@benjaviberti](https://github.com/benjaviberti) |
-| Espinoza Sutta, Aaron Alejandro | 96009173| aaron.espinoza_4500@mi.unc.edu.ar| [@Aaron45000](https://github.com/Aaron45000) | 
-| Cleri, Juan Ignacio | 46452662 | ignacio.cleri@mi.unc.edu.ar | [@IgnaCleri](https://github.com/IgnaCleri)|
-| Pineda, Juan Ignacio | 45591343 | juan.ignacio.pineda@mi.unc.edu.ar | [@juanignaciopineda-dot](https://github.com/juanignaciopineda-dot)|
-| Grafión, Atilio Leonel | 43940195 | atilio.grafion@mi.unc.edu.ar | [@Aollgn](https://github.com/Aollgn) |
-| Badenes, Tomas | 44785038 | tomasbadenes@mi.unc.edu.ar | NA |
-| Oviedo, Ignacio Nicolas | 43940195 | ignacio.oviedo.239@mi.unc.edu.ar | NA |
-| Mendez, Jorge Nicolas | 41301342 | jorge.mendez@mi.unc.edu.ar | [jorge088](https://github.com/jorge088) |
-
+| Name                            | DNI      | Mail UNC                          | Github                                                            |
+| ------------------------------- | -------- | --------------------------------- | ----------------------------------------------------------------- |
+| Viberti, Benjamin               | 46224179 | b.viberti@mi.unc.edu.ar           | [@benjaviberti](https://github.com/benjaviberti)                   |
+| Espinoza Sutta, Aaron Alejandro | 96009173 | aaron.espinoza_4500@mi.unc.edu.ar | [@Aaron45000](https://github.com/Aaron45000)                       |
+| Cleri, Juan Ignacio             | 46452662 | ignacio.cleri@mi.unc.edu.ar       | [@IgnaCleri](https://github.com/IgnaCleri)                         |
+| Pineda, Juan Ignacio            | 45591343 | juan.ignacio.pineda@mi.unc.edu.ar | [@juanignaciopineda-dot](https://github.com/juanignaciopineda-dot) |
+| Grafión, Atilio Leonel         | 43940195 | atilio.grafion@mi.unc.edu.ar      | [@Aollgn](https://github.com/Aollgn)                               |
+| Badenes, Tomas                  | 44785038 | tomasbadenes@mi.unc.edu.ar        | NA                                                                |
+| Oviedo, Ignacio Nicolas         | 43940195 | ignacio.oviedo.239@mi.unc.edu.ar  | NA                                                                |
+| Mendez, Jorge Nicolas           | 41301342 | jorge.mendez@mi.unc.edu.ar        | [jorge088](https://github.com/jorge088)                            |
 
 ## 1) Consigna 1
 
@@ -104,6 +102,12 @@ La demodulación es el proceso inverso a la modulación: recupera los datos orig
 **Analogía con datos analógicos (codec):** Un codec (codificador-decodificador) realiza una operación similar pero en dirección opuesta a los módems: toma una señal analógica (tiempo continuo) y la aproxima mediante una cadena de bits (tiempo discreto). En el receptor, estos bits se usan para reconstruir la señal analógica original.
 
 ### Parte 2: Análisis Práctico
+
+#### a)
+
+![Gráfico de intensidad vs. distancia](imagenes/image-18.png)
+
+El gráfico representa una señal periódica: en el eje vertical se mide la intensidad de la onda y en el eje horizontal la distancia recorrida (en mm). La curva sólida es una onda senoidal que completa un ciclo cada 60 mm, tal como indican las marcas en 60 mm y 120 mm sobre el eje. Por encima de esa onda se dibuja, con línea de trazos roja, una segunda curva que sigue la forma de los picos de la señal pero decrece gradualmente a medida que aumenta la distancia.
 
 #### b)
 
