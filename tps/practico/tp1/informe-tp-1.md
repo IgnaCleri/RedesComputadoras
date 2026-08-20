@@ -162,6 +162,15 @@ Con una frecuencia de **5 GHz**, la onda electromagnética estudiada se ubica es
 
 La onda electromagnética con frecuencia de 5 GHz opera en la **banda SHF del espectro de radiofrecuencias** según las definiciones de la ITU, perteneciendo a la región de **microondas** del espectro electromagnético.
 
+Punto g
+
+**i) Telefonía celular:** Sí, la afecta ya que las ondas electromagnéticas que viajan por el aire se atenúan con la distancia recorrida, y además se atenúan más por obstáculos como paredes, edificios, etc. 
+
+**ii) Cable coaxial:** Sí, también sufre atenuación porque la señal eléctrica pierde energía por efecto Joule (resistencia del conductor) y por pérdidas dieléctricas en el aislante. 
+
+**iii) Fibra óptica:** También sufre atenuación, pero en menor medida que el cable coaxial. Las pérdidas se deben principalmente a la absorción del material y a la dispersión de la luz dentro de la fibra (dispersión de Rayleigh, impurezas, etc.). 
+
+
 #### Punto c
 
 Los sistemas de comunicacion mas usados dentro de la banda SHF, son:
