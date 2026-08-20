@@ -1,9 +1,36 @@
-# Redes de Computadoras - Ingeniería En Computación - FCEFyN - UNC
+# WireGuardians
+
+**Redes de Computadoras — Ingeniería en Computación — FCEFyN — UNC— 2026**
+
+## Trabajos Prácticos
+
+| TP                  | Informe                                            | Enunciado                                          |
+| ------------------- | -------------------------------------------------- | -------------------------------------------------- |
+| TP1 — Práctico    | [informe-tp-1.md](tps/practico/tp1/informe-tp-1.md) | [RC - TP N1.pdf](<tps/practico/tp1/RC - TP N1.pdf>) |
+| TP2 — Práctico    | [InformeTP2.md](tps/practico/TP2/InformeTP2.md)     | [RC - TP N2.pdf](<tps/practico/TP2/RC - TP N2.pdf>) |
+| Tarea 2 — Teórico | [tarea2.md](tps/tp-teorico/tarea2.md)               | —                                                 |
+
+### Esquema de archivos
+
+```
+tps/
+├── practico/
+│   ├── tp1/
+│   │   ├── informe-tp-1.md
+│   │   ├── RC - TP N1.pdf
+│   │   └── imagenes/
+│   └── TP2/
+│       ├── InformeTP2.md
+│       └── RC - TP N2.pdf
+└── tp-teorico/
+    ├── tarea2.md
+    └── imagenes/
+```
 
 ## Horario de cursada
 
-| Día    | Tipo     | Inicio | Finaliza | Sede      |
-| ------ | -------- | ------ | -------- | --------- |
+| Día   | Tipo      | Inicio | Finaliza | Sede      |
+| ------ | --------- | ------ | -------- | --------- |
 | Lunes  | Teórico  | 18:30  | 21:00    | CU107 Lab |
 | Jueves | Práctica | 18:30  | 21:00    | CU301     |
 
@@ -21,14 +48,14 @@ Este repositorio guarda el material de estudio de la materia: trabajos práctico
 
 ### Estructura de carpetas
 
-| Tipo de contenido | Carpeta destino |
-|---|---|
-| TP del práctico | `tps/practico/tpN/` |
-| TP del teórico | `tps/teorico/tpN/` |
-| Apuntes de clase teórica | `Material/clases/teorico/claseN/` |
-| Apuntes de clase práctica | `Material/clases/practico/claseN/` |
-| Resúmenes | `Material/resumenes/` |
-| Bibliografía (libros, programa) | `Material/Bibliografia/` |
+| Tipo de contenido                | Carpeta destino                      |
+| -------------------------------- | ------------------------------------ |
+| TP del práctico                 | `tps/practico/tpN/`                |
+| TP del teórico                  | `tps/teorico/tpN/`                 |
+| Apuntes de clase teórica        | `Material/clases/teorico/claseN/`  |
+| Apuntes de clase práctica       | `Material/clases/practico/claseN/` |
+| Resúmenes                       | `Material/resumenes/`              |
+| Bibliografía (libros, programa) | `Material/Bibliografia/`           |
 
 Si un archivo no encaja en ninguna categoría existente, creá la carpeta que corresponda siguiendo el mismo criterio (tipo de contenido, no persona ni fecha) y documentala acá (ver [Mantener esto actualizado](#mantener-esto-actualizado)).
 
