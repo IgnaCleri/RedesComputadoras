@@ -2,15 +2,18 @@
 
 **Integrantes del Grupo:**
 
-| Name                            | DNI      | Mail UNC                          | Github                                                            |
-| ------------------------------- | -------- | --------------------------------- | ----------------------------------------------------------------- |
-| Viberti, Benjamin               | 46224179 | b.viberti@mi.unc.edu.ar           | [@benjaviberti](https://github.com/benjaviberti)                   |
-| Espinoza Sutta, Aaron Alejandro | 96009173 | aaron.espinoza_4500@mi.unc.edu.ar | [@Aaron45000](https://github.com/Aaron45000)                       |
-| Cleri, Juan Ignacio             | 46452662 | ignacio.cleri@mi.unc.edu.ar       | [@IgnaCleri](https://github.com/IgnaCleri)                         |
-| Pineda, Juan Ignacio            | 45591343 | juan.ignacio.pineda@mi.unc.edu.ar | [@juanignaciopineda-dot](https://github.com/juanignaciopineda-dot) |
-| Grafión, Atilio Leonel         | 43940195 | atilio.grafion@mi.unc.edu.ar      | [@Aollgn](https://github.com/Aollgn)                               |
-| Badenes, Tomas                  | 44785038 | tomasbadenes@mi.unc.edu.ar        | NA                                                                |
-| Oviedo, Ignacio Nicolas         | 43940195 | ignacio.oviedo.239@mi.unc.edu.ar  | NA                                                                |
+
+| Name                          | DNI | Mail UNC | Github |
+|-------------------------------|-----|----------|--------|
+| Viberti, Benjamin | 46224179 | b.viberti@mi.unc.edu.ar | [@benjaviberti](https://github.com/benjaviberti) |
+| Espinoza Sutta, Aaron Alejandro | 96009173| aaron.espinoza_4500@mi.unc.edu.ar| [@Aaron45000](https://github.com/Aaron45000) | 
+| Cleri, Juan Ignacio | 46452662 | ignacio.cleri@mi.unc.edu.ar | [@IgnaCleri](https://github.com/IgnaCleri)|
+| Pineda, Juan Ignacio | 45591343 | juan.ignacio.pineda@mi.unc.edu.ar | [@juanignaciopineda-dot](https://github.com/juanignaciopineda-dot)|
+| Grafión, Atilio Leonel | 43940195 | atilio.grafion@mi.unc.edu.ar | [@Aollgn](https://github.com/Aollgn) |
+| Badenes, Tomas | 44785038 | tomasbadenes@mi.unc.edu.ar | NA |
+| Oviedo, Ignacio Nicolas | 43940195 | ignacio.oviedo.239@mi.unc.edu.ar | NA |
+| Mendez, Jorge Nicolas | 41301342 | jorge.mendez@mi.unc.edu.ar | [jorge088](https://github.com/jorge088) |
+
 
 ## 1) Consigna 1
 
@@ -99,6 +102,10 @@ La demodulación es el proceso inverso a la modulación: recupera los datos orig
 - Recupera la secuencia de bits binarios original
 
 **Analogía con datos analógicos (codec):** Un codec (codificador-decodificador) realiza una operación similar pero en dirección opuesta a los módems: toma una señal analógica (tiempo continuo) y la aproxima mediante una cadena de bits (tiempo discreto). En el receptor, estos bits se usan para reconstruir la señal analógica original.
+
+#### Punto F
+
+Si, este fenomeno si afecta a los dispositivos mencionados anteriormente porque la atenuacion es la perdida de intensidad de una señal electromagnetica a medida que viaja en un medio fisico. Siendo el Router Wifi uno de los ejemplos dados: Al usar un celular alejado del router o estando en otra habitacion hará que la distancia y los obstaculos (paredes) disipen la energía de la onda. Como consecuencia de esta atenuación, el dispositivo móvil recibirá una señal con menor amplitud, lo que se traduce en una pérdida de "rayitas" de cobertura wifi.
 
 ### Parte 2: Análisis Práctico
 
