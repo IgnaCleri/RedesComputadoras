@@ -105,7 +105,7 @@ La demodulación es el proceso inverso a la modulación: recupera los datos orig
 
 ### Parte 2: Análisis Práctico
 
-#### Punto b
+#### b)
 
 **Datos extraídos del gráfico:**
 
@@ -136,7 +136,7 @@ $$
 | Longitud de onda (λ) | 0,06 m (60 mm)       |
 | Frecuencia (f)        | 5 × 10⁹ Hz = 5 GHz |
 
-#### Punto c
+#### c)
 
 **Marco de referencia normativo:**
 
@@ -165,7 +165,7 @@ Con una frecuencia de **5 GHz**, la onda electromagnética estudiada se ubica es
 
 La onda electromagnética con frecuencia de 5 GHz opera en la **banda SHF del espectro de radiofrecuencias** según las definiciones de la ITU, perteneciendo a la región de **microondas** del espectro electromagnético.
 
-#### Punto d
+#### d)
 
 Los sistemas de comunicacion mas usados dentro de la banda SHF, son:
 
@@ -187,15 +187,15 @@ Radares (aunque no sean para comunicación principalmente)
 - Radares de aeropuertos
 - Radares militares
 
-#### Punto e
+#### e)
 
 La linea roja visualizada en la imagen, se puede ver la en la grafica la inscripcion "amplitud" resulta ser la grafica envolvente de la señal que indica la aplitud de esta y su atenuacion.
 
-#### Punto f
+#### f)
 
 Si, este fenomeno si afecta a los dispositivos mencionados anteriormente porque la atenuacion es la perdida de intensidad de una señal electromagnetica a medida que viaja en un medio fisico. Siendo el Router Wifi uno de los ejemplos dados: Al usar un celular alejado del router o estando en otra habitacion hará que la distancia y los obstaculos (paredes) disipen la energía de la onda. Como consecuencia de esta atenuación, el dispositivo móvil recibirá una señal con menor amplitud, lo que se traduce en una pérdida de "rayitas" de cobertura wifi.
 
-#### Punto g
+#### g)
 
 **i) Telefonía celular:** Sí, la afecta ya que las ondas electromagnéticas que viajan por el aire se atenúan con la distancia recorrida, y además se atenúan más por obstáculos como paredes, edificios, etc.
 
