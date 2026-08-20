@@ -107,7 +107,7 @@ La demodulación es el proceso inverso a la modulación: recupera los datos orig
 
 ![Gráfico de intensidad vs. distancia](imagenes/image-18.png)
 
-En la imagen semuestra una onda senoidal con período espacial constante de 60 mm, pero de amplitud decreciente: no es estrictamente periódica, ya que se va atenuando a medida que aumenta la distancia.
+En la imagen se muestra una onda senoidal con período espacial constante de 60 mm, pero de amplitud decreciente: no es estrictamente periódica, ya que se va atenuando a medida que aumenta la distancia.
 
 ### b) Frecuencia y longitud de onda
 
