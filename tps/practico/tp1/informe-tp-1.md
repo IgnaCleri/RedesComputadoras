@@ -2,18 +2,16 @@
 
 **Integrantes del Grupo:**
 
-
-| Name                          | DNI | Mail UNC | Github |
-|-------------------------------|-----|----------|--------|
-| Viberti, Benjamin | 46224179 | b.viberti@mi.unc.edu.ar | [@benjaviberti](https://github.com/benjaviberti) |
-| Espinoza Sutta, Aaron Alejandro | 96009173| aaron.espinoza_4500@mi.unc.edu.ar| [@Aaron45000](https://github.com/Aaron45000) | 
-| Cleri, Juan Ignacio | 46452662 | ignacio.cleri@mi.unc.edu.ar | [@IgnaCleri](https://github.com/IgnaCleri)|
-| Pineda, Juan Ignacio | 45591343 | juan.ignacio.pineda@mi.unc.edu.ar | [@juanignaciopineda-dot](https://github.com/juanignaciopineda-dot)|
-| Grafión, Atilio Leonel | 43940195 | atilio.grafion@mi.unc.edu.ar | [@Aollgn](https://github.com/Aollgn) |
-| Badenes, Tomas | 44785038 | tomasbadenes@mi.unc.edu.ar | NA |
-| Oviedo, Ignacio Nicolas | 43940195 | ignacio.oviedo.239@mi.unc.edu.ar | NA |
-| Mendez, Jorge Nicolas | 41301342 | jorge.mendez@mi.unc.edu.ar | [jorge088](https://github.com/jorge088) |
-
+| Name                            | DNI      | Mail UNC                          | Github                                                            |
+| ------------------------------- | -------- | --------------------------------- | ----------------------------------------------------------------- |
+| Viberti, Benjamin               | 46224179 | b.viberti@mi.unc.edu.ar           | [@benjaviberti](https://github.com/benjaviberti)                   |
+| Espinoza Sutta, Aaron Alejandro | 96009173 | aaron.espinoza_4500@mi.unc.edu.ar | [@Aaron45000](https://github.com/Aaron45000)                       |
+| Cleri, Juan Ignacio             | 46452662 | ignacio.cleri@mi.unc.edu.ar       | [@IgnaCleri](https://github.com/IgnaCleri)                         |
+| Pineda, Juan Ignacio            | 45591343 | juan.ignacio.pineda@mi.unc.edu.ar | [@juanignaciopineda-dot](https://github.com/juanignaciopineda-dot) |
+| Grafión, Atilio Leonel         | 43940195 | atilio.grafion@mi.unc.edu.ar      | [@Aollgn](https://github.com/Aollgn)                               |
+| Badenes, Tomas                  | 44785038 | tomasbadenes@mi.unc.edu.ar        | [@b-Tomas](https://github.com/b-Tomas)                             |
+| Oviedo, Ignacio Nicolas         | 43940195 | ignacio.oviedo.239@mi.unc.edu.ar  | [@GIX02](https://github.com/GIX02)                                 |
+| Mendez, Jorge Nicolas           | 41301342 | jorge.mendez@mi.unc.edu.ar        | [jorge088](https://github.com/jorge088)                            |
 
 ## 1) Consigna 1
 
@@ -103,13 +101,15 @@ La demodulación es el proceso inverso a la modulación: recupera los datos orig
 
 **Analogía con datos analógicos (codec):** Un codec (codificador-decodificador) realiza una operación similar pero en dirección opuesta a los módems: toma una señal analógica (tiempo continuo) y la aproxima mediante una cadena de bits (tiempo discreto). En el receptor, estos bits se usan para reconstruir la señal analógica original.
 
-#### Punto F
-
-Si, este fenomeno si afecta a los dispositivos mencionados anteriormente porque la atenuacion es la perdida de intensidad de una señal electromagnetica a medida que viaja en un medio fisico. Siendo el Router Wifi uno de los ejemplos dados: Al usar un celular alejado del router o estando en otra habitacion hará que la distancia y los obstaculos (paredes) disipen la energía de la onda. Como consecuencia de esta atenuación, el dispositivo móvil recibirá una señal con menor amplitud, lo que se traduce en una pérdida de "rayitas" de cobertura wifi.
-
 ### Parte 2: Análisis Práctico
 
-#### Punto b
+### a) Descripción del gráfico
+
+![Gráfico de intensidad vs. distancia](imagenes/image-18.png)
+
+En la imagen se muestra una onda senoidal con período espacial constante de 60 mm, pero de amplitud decreciente: no es estrictamente periódica, ya que se va atenuando a medida que aumenta la distancia.
+
+### b) Frecuencia y longitud de onda
 
 **Datos extraídos del gráfico:**
 
@@ -140,7 +140,7 @@ $$
 | Longitud de onda (λ) | 0,06 m (60 mm)       |
 | Frecuencia (f)        | 5 × 10⁹ Hz = 5 GHz |
 
-#### Punto c
+### c) Banda y región del espectro
 
 **Marco de referencia normativo:**
 
@@ -154,7 +154,7 @@ El espectro se organiza en las siguientes bandas principales:
 | ------------- | ------------------------- | ------------------------------ |
 | VHF           | 30 MHz – 300 MHz         | Ondas de Radio                 |
 | UHF           | 300 MHz – 3 GHz          | Ondas de Radio/Microondas      |
-| **SHF** | **3 GHz – 30 GHz** | **Microondas**           |
+| **SHF**       | **3 GHz – 30 GHz**       | **Microondas**                 |
 | EHF           | 30 GHz – 300 GHz         | Microondas/Ondas Milimétricas |
 
 **Clasificación de la onda analizada:**
@@ -169,23 +169,13 @@ Con una frecuencia de **5 GHz**, la onda electromagnética estudiada se ubica es
 
 La onda electromagnética con frecuencia de 5 GHz opera en la **banda SHF del espectro de radiofrecuencias** según las definiciones de la ITU, perteneciendo a la región de **microondas** del espectro electromagnético.
 
-Punto g
+### d) Dispositivos que operan en la banda SHF
 
-**i) Telefonía celular:** Sí, la afecta ya que las ondas electromagnéticas que viajan por el aire se atenúan con la distancia recorrida, y además se atenúan más por obstáculos como paredes, edificios, etc. 
-
-**ii) Cable coaxial:** Sí, también sufre atenuación porque la señal eléctrica pierde energía por efecto Joule (resistencia del conductor) y por pérdidas dieléctricas en el aislante. 
-
-**iii) Fibra óptica:** También sufre atenuación, pero en menor medida que el cable coaxial. Las pérdidas se deben principalmente a la absorción del material y a la dispersión de la luz dentro de la fibra (dispersión de Rayleigh, impurezas, etc.). 
-
-
-#### Punto c
-
-Los sistemas de comunicacion mas usados dentro de la banda SHF, son:
+Los sistemas de comunicación más usados dentro de la banda SHF, son:
 
 En comunicaciones satelitales:
 
-* Antenas VSAT
-
+- Antenas VSAT
 - Antenas de receptores TV (DIRECTV, MovistarTV)
 
 En Redes Wifi y conectividad local
@@ -200,9 +190,22 @@ Radares (aunque no sean para comunicación principalmente)
 - Radares de aeropuertos
 - Radares militares
 
-#### Punto D
+### e) Significado de la línea de trazos roja
 
-La linea roja visualizada en la imagen, se puede ver la en la grafica la inscripcion "amplitud" resulta ser la grafica envolvente de la señal que indica la aplitud de esta y su atenuacion.
+La línea roja visualizada en la imagen, se puede ver en la gráfica la inscripción "amplitud", resulta ser la gráfica envolvente de la señal que indica la amplitud de esta y su atenuación.
+
+### f) ¿El fenómeno afecta a los dispositivos?
+
+Sí, este fenómeno sí afecta a los dispositivos mencionados anteriormente porque la atenuación es la pérdida de intensidad de una señal electromagnética a medida que viaja en un medio físico. Siendo el Router Wifi uno de los ejemplos dados: al usar un celular alejado del router o estando en otra habitación hará que la distancia y los obstáculos (paredes) disipen la energía de la onda. Como consecuencia de esta atenuación, el dispositivo móvil recibirá una señal con menor amplitud, lo que se traduce en una pérdida de "rayitas" de cobertura wifi.
+
+### g) ¿Afecta a otras transmisiones?
+
+**i) Telefonía celular:** Sí, la afecta ya que las ondas electromagnéticas que viajan por el aire se atenúan con la distancia recorrida, y además se atenúan más por obstáculos como paredes, edificios, etc.
+
+**ii) Cable coaxial:** Sí, también sufre atenuación porque la señal eléctrica pierde energía por efecto Joule (resistencia del conductor) y por pérdidas dieléctricas en el aislante.
+
+**iii) Fibra óptica:** También sufre atenuación, pero en menor medida que el cable coaxial. Las pérdidas se deben principalmente a la absorción del material y a la dispersión de la luz dentro de la fibra (dispersión de Rayleigh, impurezas, etc.).
+
 ## 2) Consigna 2
 
 ### a) Tipo y modo de transmisión
@@ -224,9 +227,10 @@ Para lograr una comunicación **rápida y bidireccional** se debe utilizar un en
 ### c) Codificar la 4ª letra del nombre del grupo
 
 La cuarta letra del nombre de nuestro grupo es la letra 'e', que en ASCII es `0 1 1 0 0 1 0 1`
+
 ![0 1 1 0 0 1 0 1](imagenes/image-17.png)
 
-### d) ¿Dónde conviene muestrear la señal considerando las pendientes?2
+### d) ¿Dónde conviene muestrear la señal considerando las pendientes?
 
 Las flechas rojas del gráfico muestran que el cambio entre un 0 y un 1 no ocurre de forma instantanea, sino que tiene un tiempo de subida y bajada. Si tomáramos la muestra durante ese tramo inclinado, el nivel de tensión sería ***ambiguo** y el receptor no sabría si interpretar un valor **alto o bajo**.
 
@@ -298,11 +302,11 @@ Es la métrica de referencia para evaluar la calidad de un enlace digital. El BE
 
 La comparación entre técnicas solo es válida a **igual $E_b/N_0$** (no a igual potencia de señal ni igual SNR), ya que ese cociente ya normaliza por la energía empleada en cada bit transmitido. Bajo ese criterio:
 
-| Técnica             | Parámetro modulado | Prestación de BER (a igual$E_b/N_0$) |
+| Técnica             | Parámetro modulado | Prestación de BER (a igual $E_b/N_0$) |
 | -------------------- | ------------------- | --------------------------------------- |
 | ASK / OOK            | Amplitud            | Peor                                    |
 | FSK binaria          | Frecuencia          | Peor (equivalente a ASK)                |
-| **PSK / BPSK** | Fase                | **Mejor**                         |
+| **PSK / BPSK**       | Fase                | **Mejor**                               |
 | DPSK                 | Fase (diferencial)  | Equivalente a BPSK                      |
 | QPSK (M = 4)         | Fase (multinivel)   | Equivalente a BPSK (2 bits/símbolo)    |
 | M-PSK (M ≥ 8)       | Fase (multinivel)   | Empeora a medida que crece M            |
@@ -314,7 +318,7 @@ Dentro de las variantes multinivel, QPSK es un caso particular: duplica la efici
 
 **Conclusión:** de las técnicas presentadas, **PSK (en su forma binaria, BPSK)** es la que ofrece las mejores prestaciones en términos de BER para un mismo $E_b/N_0$, superando a ASK y FSK binarias en aproximadamente 3 dB.
 
-## 4 Red simple en Packet Tracer
+## 4) Red simple en Packet Tracer
 
 ### Router
 
@@ -328,17 +332,23 @@ IP y máscara de subred:
 
 Seguridad WPA2-PSK:
 
-![alt text](imagenes/image-4.png)
+![Configuración de seguridad WPA2-PSK](imagenes/image-4.png)
 
-1) Este router está trabajando con una frecuencia de 2.4 GHz (este router también tiene la posibilidad de trabajar con frecuencia de 5 GHz, pero la desactivé para mantener la simplicidad).
+#### 1) Frecuencia de operación
 
-![alt text](imagenes/image.png)
+Este router está trabajando con una frecuencia de 2,4 GHz (este router también tiene la posibilidad de trabajar con frecuencia de 5 GHz, pero la desactivé para mantener la simplicidad).
 
-2) El router, independientemente de si es 2.4 GHz o 5 GHz, está trabajando en la banda de microondas del espectro electromagnético.
+![Configuración de frecuencia del router](imagenes/image.png)
+
+#### 2) Región del espectro
+
+El router, independientemente de si es 2,4 GHz o 5 GHz, está trabajando en la banda de microondas del espectro electromagnético.
 
 ![ancho-banda](imagenes/image-16.png)
 
-3) Este opera entre las frecuencias $(2,412Ghz , 2,462Ghz)$, el ancho de banda de operacion es $2,412Ghz - 2,462Ghz = 0.050Ghz$ en la clasificacion de la ITU entra en la banda SHF (Super High Frecuency).
+#### 3) Banda ITU y ancho de banda de operación
+
+Este opera entre las frecuencias $(2{,}412 \text{ GHz}, 2{,}462 \text{ GHz})$, el ancho de banda de operación es $2{,}462 \text{ GHz} - 2{,}412 \text{ GHz} = 0{,}050 \text{ GHz}$, en la clasificación de la ITU entra en la banda SHF (Super High Frequency).
 
 ### PC de escritorio
 
