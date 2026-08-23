@@ -229,6 +229,70 @@ Si la curva trazada con una línea continua de la Figura 3.17 representa al $\si
 
 La linea discontinua corresponda a una funcion seno a la cual se le cambio la frecuencia $f$ (esta paso a ser el doble de la anterior), se le aplico un desfasaje $\phi$ (de mas o menos $0.5$) y ademas se le aumento la amplitud $A$ (Una amplitud mayor a 1)
 
+## 3.6
+
+### Pregunta:
+
+Exprese la señal _(1 + 0,1 $\cos 5t$) $\cos 100t$_ como combinación lineal de funciones sinusoidales; encuentre la amplitud, frecuencia y fase de cada una de las componentes. _(Sugerencia: use la expresión del cos a cos b)_.
+
+### Respuesta:
+ 
+- Distribuímos el producto
+$$s(t) = (1)(\cos100t) + (0{,}1\cos5t)(\cos100t) = \cos100t + 0{,}1\cos5t\cos100t$$
+ 
+- Aplicamos la identidad trigonométrica que nos suguiere la consigna en el segundo termino: $\cos a\cos b=\tfrac12[\cos(a-b)+\cos(a+b)]$ 
+ 
+$$0{,}1\cos100t\cos5t = 0{,}1\cdot\frac12\big[\cos(100t-5t)+\cos(100t+5t)\big] = 0{,}1\cdot\frac12\big[\cos95t+\cos105t\big] = 0{,}05\cos95t+0{,}05\cos105t$$
+ 
+$$s(t) = \cos100t + 0{,}05\cos95t + 0{,}05\cos105t$$
+ 
+| Término | Amplitud | ω (rad/s) | f = ω/2π (Hz) | Fase |
+|---|---|---|---|---|
+| $\cos100t$ | 1 | 100 | ≈15,92 | 0 |
+| $0{,}05\cos95t$ | 0,05 | 95 | ≈15,12 | 0 |
+| $0{,}05\cos105t$ | 0,05 | 105 | ≈16,71 | 0 |
+
+## 3.7
+
+### Pregunta: 
+
+Encuentre el periodo de la función $f(t)=(10\cos t)^2$.
+
+### Respuesta: 
+
+$$f(t) = (10\cos t)^2 = 100\cos^2t$$
+  
+- Usar la identidad de ángulo doble $\cos^2t = \dfrac{1+\cos2t}{2}$:
+ 
+$$f(t) = 100\cdot\frac{1+\cos2t}{2}= 50 + 50\cos2t$$
+ 
+- Frecuencia angular es $\omega=2$ rad/s, y el periodo es $T=2\pi/\omega$:
+ 
+$$T = \frac{2\pi}{2} = \pi$$
+
+## 3.9
+
+### Pregunta:
+
+La Figura 3.4 muestra el efecto resultante al eliminar las componentes de alta frecuencia de un pulso cuadrado, considerando sólo las componentes de baja frecuencia. ¿Cómo sería la señal resultante en el caso contrario (es decir, quedándose con todos los armónicos de frecuencia alta y eliminando los de bajas frecuencias)?
+_
+![figura 3.4](imagenes/image-1.png)
+
+### Respuesta:
+
+La señal resultante quedándose con todos los armónicos de frecuencias altas y eliminando los de bajas frecuencias, se pierde todo lo "plano" de la onda cuadrada. Lo que sobrevive son unos picos angostos justo donde antes había un salto brusco (los flancos).
+
+## 3.10
+
+### Pregunta:
+
+La Figura 3.5b muestra la función correspondiente a un pulso rectangular en el dominio de la frecuencia. Este pulso puede corresponder a un 1 digital en un sistema de comunicación. Obsérvese que se necesita un número infinito de frecuencias (con amplitud decreciente cuanto mayor es la frecuencia). ¿Qué implicaciones tiene este hecho en un sistema de transmisión real?
+
+![figura 3.5b](imagenes/image-2.png)
+
+### Respuesta:
+
+Las implicaciones que tiene este hecho en un sistema real son: como ningún canal de transmisión tiene ancho de banda infinito, en algún punto se pierden las componentes de frecuencia más alta del pulso, que son justamente las que le dan sus bordes filosos. Como consecuencia, el pulso que llega al receptor ya no conserva la forma rectangular ideal, sino que aparece con los flancos redondeados y estirado en el tiempo. Cuanto menor sea el ancho de banda disponible, mayor es esa distorsión.
 
 # Bibliografía
 
