@@ -504,6 +504,58 @@ $C = 300 \times log_2(2,99) = 474,04\ bps$
 
 La capacidad es de **474,76**
 
+## 3.16
+
+### Pregunta:
+
+Para operar a 9.600 bps se usa un sistema de señalización digital:
+
+a) Si cada elemento de señal codifica una palabra de 4 bits, ¿cuál es el ancho de banda mínimo necesario?
+
+b) ¿Y para palabras de 8 bits?
+
+### Respuesta:
+
+Por Nyquist, $C = 2B\log_2 M$, con $M=2^n$ para una palabra de $n$ bits. Entonces $C = 2Bn \Rightarrow B = \dfrac{C}{2n}$, con $C=9600$ bps.
+
+**a)** $n=4 \Rightarrow B = \dfrac{9600}{2\times4} = 1200\ \text{Hz}$
+
+**b)** $n=8 \Rightarrow B = \dfrac{9600}{2\times8} = 600\ \text{Hz}$
+
+## 3.17
+
+### Pregunta:
+
+¿Cuál es el nivel de ruido térmico para un canal de ancho de banda de 10 kHz y 1000 W de potencia operando a 50°C?
+
+### Respuesta:
+
+$N = kTB$, con $k=1{,}38\times10^{-23}\ J/K$, $T=50+273=323\ K$ y $B=10\ 000\ Hz$ (la potencia de 1000 W no interviene en el ruido térmico, solo la temperatura y el ancho de banda).
+
+$$
+N = 1{,}38\times10^{-23} \times 323 \times 10\,000 \approx 4{,}46\times10^{-17}\ W
+$$
+
+En decibelios: $N_{dBW} = 10\log_{10}(4{,}46\times10^{-17}) \approx -163{,}5\ dBW$
+
+## 3.18
+
+### Pregunta:
+
+Considérense los trabajos de Shannon y Nyquist sobre la capacidad del canal. Cada uno de ellos estableció un límite superior para la razón de bits del canal basándose en dos aproximaciones diferentes. ¿Cómo se pueden relacionar ambas aproximaciones?
+
+### Respuesta:
+
+Nyquist ($C=2B\log_2 M$) da la capacidad de un canal sin ruido en función del ancho de banda y la cantidad de niveles discretos $M$. Shannon ($C=B\log_2(1+SNR)$) da la capacidad máxima de un canal con ruido en función del ancho de banda y la SNR.
+
+Igualando ambas expresiones para una misma capacidad y ancho de banda:
+
+$$
+2B\log_2 M = B\log_2(1+SNR) \;\Rightarrow\; M = \sqrt{1+SNR}
+$$
+
+Esto relaciona ambos enfoques: dado el ruido de un canal (SNR), Shannon determina la capacidad máxima teórica alcanzable, y esa expresión indica cuántos niveles discretos $M$ tendría que usar un esquema de señalización (a la Nyquist) para aproximarse a ese límite.
+
 ## 3.19
 
 ### Pregunta:
