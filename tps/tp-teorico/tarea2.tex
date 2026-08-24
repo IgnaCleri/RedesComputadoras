@@ -145,6 +145,31 @@
 \pagenumbering{arabic}
 \setcounter{page}{1}
 
+% ==================== a) LECTURA ====================
+\seccionprincipal{a) Lectura}
+
+Stallings, W. \textit{Comunicaciones y Redes de Computadores}, 7\textsuperscript{a} ed. Parte II -- Comunicaciones de Datos: Capítulo 3, Transmisión de Datos.
+
+\begin{itemize}
+    \item 3.1. Conceptos y terminología
+    \begin{itemize}
+        \item Terminología utilizada en transmisión de datos
+        \item Frecuencia, espectro y ancho de banda
+    \end{itemize}
+    \item 3.2. Transmisión de datos analógicos y digitales
+    \begin{itemize}
+        \item Datos analógicos y digitales
+        \item Señales analógicas y digitales
+        \item Transmisión analógica y digital
+    \end{itemize}
+    \item 3.3. Dificultades en la transmisión
+    \begin{itemize}
+        \item Atenuación
+        \item Distorsión de retardo
+        \item Ruido
+    \end{itemize}
+\end{itemize}
+
 % ==================== b) PREGUNTAS DE REPASO ====================
 \seccionprincipal{b) Preguntas de repaso}
 
@@ -443,6 +468,28 @@ T = \frac{2\pi}{2} = \pi
 \]
 \end{respuesta}
 
+\subseccion{Ejercicio 3.8}
+\begin{pregunta}
+Sean dos funciones periódicas $f_1(t)$ y $f_2(t)$, con periodos $T_1$ y $T_2$ respectivamente. ¿Es periódica la función $f(t) = f_1(t) + f_2(t)$? Si es así, demuéstrelo. Si no, ¿bajo qué condiciones $f(t)$ será periódica?
+\end{pregunta}
+\begin{respuesta}
+No siempre. La suma $f(t) = f_1(t) + f_2(t)$ es periódica \textbf{si y solo si el cociente $T_1/T_2$ es un número racional}, es decir, si los períodos son conmensurables.
+
+\textbf{Demostración (caso racional):} Si $T_1/T_2 = p/q$ con $p$ y $q$ enteros positivos, entonces existe un período común
+\[
+T = q\,T_1 = p\,T_2
+\]
+Como $T$ es múltiplo entero de $T_1$, $f_1(t+T) = f_1(t)$; y como también es múltiplo entero de $T_2$, $f_2(t+T) = f_2(t)$. Sumando:
+\[
+f(t+T) = f_1(t+T) + f_2(t+T) = f_1(t) + f_2(t) = f(t)
+\]
+Por lo tanto $f(t)$ es periódica, con período $T$ (el mínimo común múltiplo de $T_1$ y $T_2$, tomando $p$ y $q$ coprimos).
+
+\textbf{Caso irracional:} Si $T_1/T_2$ es irracional, no existen enteros $n,m$ tales que $nT_1 = mT_2$ (si existieran, $T_1/T_2=m/n$ sería racional). En consecuencia, $f_1$ y $f_2$ nunca vuelven a estar en fase simultáneamente: $f(t)$ no es periódica.
+
+\textbf{Conclusión:} $f(t)$ es periódica exactamente cuando $T_1$ y $T_2$ son conmensurables; en ese caso su período es el mínimo común múltiplo de ambos.
+\end{respuesta}
+
 \subseccion{Ejercicio 3.9}
 \begin{pregunta}
 La Figura 3.4 muestra el efecto resultante al eliminar las componentes de alta frecuencia de un pulso cuadrado, considerando sólo las componentes de baja frecuencia. ¿Cómo sería la señal resultante en el caso contrario (es decir, quedándose con todos los armónicos de frecuencia alta y eliminando los de bajas frecuencias)?
@@ -465,6 +512,179 @@ La Figura 3.5b muestra la función correspondiente a un pulso rectangular en el 
 \end{pregunta}
 \begin{respuesta}
 Las implicaciones que tiene este hecho en un sistema real son: como ningún canal de transmisión tiene ancho de banda infinito, en algún punto se pierden las componentes de frecuencia más alta del pulso, que son justamente las que le dan sus bordes filosos. Como consecuencia, el pulso que llega al receptor ya no conserva la forma rectangular ideal, sino que aparece con los flancos redondeados y estirado en el tiempo. Cuanto menor sea el ancho de banda disponible, mayor es esa distorsión.
+\end{respuesta}
+
+\subseccion{Ejercicio 3.11}
+\begin{pregunta}
+El IRA es un código de 7 bits que permite la definición de 128 caracteres. En los años setenta, muchos medios de comunicación recibían las noticias a través de un servicio que usaba 6 bits denominado TTS. Este código transmitía caracteres en mayúsculas y minúsculas, así como caracteres especiales y órdenes de control. Generalmente, se utilizan 100 caracteres. ¿Cómo cree que se puede conseguir esto?
+\end{pregunta}
+\begin{respuesta}
+Un código de 6 bits ofrece $2^6 = 64$ combinaciones distintas. Para transmitir más de 100 caracteres diferentes utilizando solo 6 bits, el sistema TTS empleaba caracteres especiales de control o desplazamiento (shift codes, equivalentes a Shift In / Shift Out o Letters / Figures). Al transmitir un código de cambio de modo, el receptor reinterpreta las siguientes combinaciones dentro de un segundo conjunto de caracteres (por ejemplo, alternando entre el modo letras y el modo números/símbolos), lo que permite duplicar la capacidad efectiva a casi 126 caracteres distintos.
+\end{respuesta}
+
+\subseccion{Ejercicio 3.12}
+\begin{pregunta}
+¿Cuál es el incremento posible en la resolución horizontal para una señal de vídeo de ancho de banda 5 MHz? ¿Y para la resolución vertical? Responda ambas cuestiones por separado, es decir, utilice el incremento de ancho de banda para aumentar la resolución horizontal o la vertical, pero no ambas.
+\end{pregunta}
+\begin{respuesta}
+Partimos sabiendo que el ancho de banda de una señal de video es aproximadamente 4 MHz con: resolución vertical $N_v=483$ líneas, resolución horizontal $N_h=450$ líneas, frecuencia de barrido $f=30$ barridos/s.
+
+\textbf{Solo resolución horizontal:} el ancho de banda es proporcional a la cantidad de elementos horizontales por línea.
+\[
+N'_h = N_h \times \frac{B_{\text{nuevo}}}{B_{\text{base}}} = 450 \times \frac{5\text{ MHz}}{4\text{ MHz}} = 450 \times 1{,}25 = 562{,}5 \text{ elementos}
+\]
+Incremento de 112 elementos, aproximadamente 25\%.
+
+\textbf{Solo resolución vertical:}
+\[
+N'_v = N_v \times \frac{B_{\text{nuevo}}}{B_{\text{base}}} = 483 \times \frac{5\text{ MHz}}{4\text{ MHz}} = 483 \times 1{,}25 = 603{,}75 \text{ líneas}
+\]
+Incremento de 121 elementos, aproximadamente 25\%.
+\end{respuesta}
+
+\subseccion{Ejercicio 3.13}
+\begin{pregunta}
+\textbf{a)} Suponga que se transmite una imagen digitalizada de TV de 480 x 500 puntos, en la que cada punto puede tomar uno de entre 32 posibles valores de intensidad. Supóngase que se envían 30 imágenes por segundo. Determine la velocidad de transmisión R de la fuente en bps.
+
+\textbf{b)} Suponga que la fuente anterior se transmite por un canal de 4,5 MHz de ancho de banda con una relación señal-ruido de 35 dB. Encuentre la capacidad del canal en bps.
+
+\textbf{c)} ¿Cómo se deberían modificar los parámetros del apartado (a) para permitir la transmisión de la señal de TV en color sin incrementar el valor de R?
+\end{pregunta}
+\begin{respuesta}
+\textbf{a)} Puntos por imagen $=480\times500=240\,000$. Bits por punto $=\log_2(32)=5$. Imágenes por segundo $=30$.
+\[
+R = 30 \times 240\,000 \times 5 = 36\,000\,000\ \text{bps} = 36\ \text{Mbps}
+\]
+
+\textbf{b)} $B=4{,}5$ MHz, $SNR = 35\text{ dB} = 10^{35/10} = 3162{,}3$.
+\[
+C = B \times \log_2(1 + SNR) = 4{,}5\times10^6 \times \log_2(3163{,}3) = 52\,322\,466{,}01\ \text{bps} = 52{,}32\ \text{Mbps}
+\]
+Como $R < C$, la transmisión es factible con margen.
+
+\textbf{c)} Reducir el número de niveles de cuantificación (menos de 32, es decir, menos de 5 bits/punto) para la luminancia y/o crominancia, liberando bits para las componentes de color; o reducir la resolución espacial de las componentes de color (submuestreo de crominancia, el mismo principio que usan los formatos 4:2:2 o 4:2:0), aprovechando la menor sensibilidad del ojo humano al detalle del color.
+\end{respuesta}
+
+\subseccion{Ejercicio 3.14}
+\begin{pregunta}
+Dado un amplificador con una temperatura efectiva de ruido de 10.000\textdegree K y con un ancho de banda de 10 MHz, ¿cuánto será el nivel de ruido térmico a la salida?
+\end{pregunta}
+\begin{respuesta}
+$N = k \times T \times B$, con $k=1{,}38\times10^{-23}$ J/K, $T=10\,000$ K y $B=10$ MHz:
+\[
+N = k \times T \times B \approx 1{,}38\times10^{-12}\ \text{W}
+\]
+\end{respuesta}
+
+\subseccion{Ejercicio 3.15}
+\begin{pregunta}
+¿Cuál es la capacidad para un canal de un «teletipo» de 300 Hz de ancho de banda con una relación señal-ruido de 3 dB?
+\end{pregunta}
+\begin{respuesta}
+$B=300$ Hz, $SNR = 3\text{ dB} = 1{,}99$.
+\[
+C = B \times \log_2(1+SNR) = 300 \times \log_2(2{,}99) = 474{,}04\ \text{bps}
+\]
+\end{respuesta}
+
+\subseccion{Ejercicio 3.16}
+\begin{pregunta}
+Para operar a 9.600 bps se usa un sistema de señalización digital:
+
+\textbf{a)} Si cada elemento de señal codifica una palabra de 4 bits, ¿cuál es el ancho de banda mínimo necesario?
+
+\textbf{b)} ¿Y para palabras de 8 bits?
+\end{pregunta}
+\begin{respuesta}
+Por Nyquist, $C=2B\log_2 M$, con $M=2^n$ para una palabra de $n$ bits, entonces $C=2Bn \Rightarrow B=\dfrac{C}{2n}$, con $C=9600$ bps.
+
+\textbf{a)} $n=4 \Rightarrow B = \dfrac{9600}{2\times4} = 1200$ Hz
+
+\textbf{b)} $n=8 \Rightarrow B = \dfrac{9600}{2\times8} = 600$ Hz
+\end{respuesta}
+
+\subseccion{Ejercicio 3.17}
+\begin{pregunta}
+¿Cuál es el nivel de ruido térmico para un canal de ancho de banda de 10 kHz y 1000 W de potencia operando a 50\textdegree C?
+\end{pregunta}
+\begin{respuesta}
+$N=kTB$, con $k=1{,}38\times10^{-23}$ J/K, $T=50+273=323$ K y $B=10\,000$ Hz (la potencia de 1000 W no interviene en el ruido térmico, solo la temperatura y el ancho de banda).
+\[
+N = 1{,}38\times10^{-23} \times 323 \times 10\,000 \approx 4{,}46\times10^{-17}\ \text{W}
+\]
+En decibelios: $N_{dBW} = 10\log_{10}(4{,}46\times10^{-17}) \approx -163{,}5$ dBW
+\end{respuesta}
+
+\subseccion{Ejercicio 3.18}
+\begin{pregunta}
+Considérense los trabajos de Shannon y Nyquist sobre la capacidad del canal. Cada uno de ellos estableció un límite superior para la razón de bits del canal basándose en dos aproximaciones diferentes. ¿Cómo se pueden relacionar ambas aproximaciones?
+\end{pregunta}
+\begin{respuesta}
+Nyquist ($C=2B\log_2 M$) da la capacidad de un canal sin ruido en función del ancho de banda y la cantidad de niveles discretos $M$. Shannon ($C=B\log_2(1+SNR)$) da la capacidad máxima de un canal con ruido en función del ancho de banda y la SNR. Igualando ambas expresiones para una misma capacidad y ancho de banda:
+\[
+2B\log_2 M = B\log_2(1+SNR) \;\Rightarrow\; M = \sqrt{1+SNR}
+\]
+Esto relaciona ambos enfoques: dado el ruido de un canal (SNR), Shannon determina la capacidad máxima teórica alcanzable, y esa expresión indica cuántos niveles discretos $M$ tendría que usar un esquema de señalización (a la Nyquist) para aproximarse a ese límite.
+\end{respuesta}
+
+\subseccion{Ejercicio 3.19}
+\begin{pregunta}
+Sea un canal con una capacidad de 20 Mbps. El ancho de banda de dicho canal es 3 MHz. ¿Cuál es la relación señal-ruido admisible para conseguir la mencionada capacidad?
+\end{pregunta}
+\begin{respuesta}
+Aplicación directa de la fórmula de Shannon:
+\[
+C = B\log_2(1 + SNR) \Rightarrow SNR = 2^{C/B} - 1
+\]
+Con $C=20\times10^6$ bps y $B=3\times10^6$ Hz: $C/B = 20/3 \approx 6{,}667$ bps/Hz.
+\[
+SNR = 2^{6{,}667} - 1 \approx 100{,}6 \qquad SNR_{dB} = 10\log_{10}(100{,}6) \approx 20\ \text{dB}
+\]
+\end{respuesta}
+
+\subseccion{Ejercicio 3.20}
+\begin{pregunta}
+La onda cuadrada de la Figura 3.7c, con $T=1$ ms, se transmite a través de un filtro paso bajo ideal de ganancia unidad con frecuencia de corte a 8 kHz.
+
+\textbf{a)} Determine la potencia de la señal de salida.
+
+\textbf{b)} Suponiendo que a la entrada del filtro hay un ruido térmico con $N_0=0{,}1$ W/Hz, encuentre la relación señal-ruido en dB a la salida.
+\end{pregunta}
+\begin{respuesta}
+La onda cuadrada de amplitudes $A$ y $-A$ se descompone en armónicos impares de la fundamental:
+\[
+s(t) = A\,\frac{4}{\pi}\sum_{k\ \text{impar}} \frac{\sin(2\pi k f t)}{k}
+\]
+Con $T=1$ ms, la fundamental es $f=1/T=1$ kHz, así que las componentes están en 1, 3, 5, 7, 9\ldots kHz. El filtro con corte en 8 kHz deja pasar solo 1, 3, 5 y 7 kHz. La componente $k$-ésima tiene amplitud $V_k=\dfrac{4A}{k\pi}$ y potencia $P_k=V_k^2/2$ (con $A=1$ y resistencia normalizada):
+
+\textbf{a) Potencia de salida}
+
+\begin{center}
+\begin{tabular}{ccccc}
+    \toprule
+    $k$ & $f$ & $V_k=4/k\pi$ & $P_k=V_k^2/2$ \\
+    \midrule
+    1 & 1 kHz & 1,2732 & 0,8106 W \\
+    3 & 3 kHz & 0,4244 & 0,0901 W \\
+    5 & 5 kHz & 0,2546 & 0,0324 W \\
+    7 & 7 kHz & 0,1819 & 0,0165 W \\
+    \bottomrule
+\end{tabular}
+\end{center}
+
+\[
+P_{salida} = \frac{8}{\pi^2}\left(1+\frac{1}{9}+\frac{1}{25}+\frac{1}{49}\right) \approx 0{,}95\ \text{W}
+\]
+
+\textbf{b) Relación señal-ruido a la salida}
+
+El ruido a la salida está limitado por el ancho de banda del filtro, $B=8$ kHz:
+\[
+N = N_0 B = (0{,}1\times10^{-6}\ \text{W/Hz})(8\times10^3\ \text{Hz}) = 8\times10^{-4}\ \text{W} = 0{,}8\ \text{mW}
+\]
+\[
+SNR = \frac{P_{salida}}{N} = \frac{0{,}95}{8\times10^{-4}} \approx 1187 \qquad SNR_{dB} = 10\log_{10}(1187) \approx 30{,}7\ \text{dB}
+\]
 \end{respuesta}
 
 % ==================== d) MODULACIÓN AM ====================
