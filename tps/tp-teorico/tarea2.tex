@@ -425,24 +425,27 @@ s(t) = (1)(\cos100t) + (0{,}1\cos5t)(\cos100t) = \cos100t + 0{,}1\cos5t\cos100t
 
 Aplicamos la identidad trigonométrica que sugiere la consigna en el segundo término: $\cos a\cos b=\tfrac12[\cos(a-b)+\cos(a+b)]$
 
-\[
-0{,}1\cos100t\cos5t = 0{,}1\cdot\frac12\big[\cos(100t-5t)+\cos(100t+5t)\big] = 0{,}1\cdot\frac12\big[\cos95t+\cos105t\big] = 0{,}05\cos95t+0{,}05\cos105t
-\]
+\begin{align*}
+0{,}1\cos100t\cos5t &= 0{,}1\cdot\frac12\big[\cos(100t-5t)+\cos(100t+5t)\big] = 0{,}1\cdot\frac12\big[\cos95t+\cos105t\big] \\
+&= 0{,}05\cos95t+0{,}05\cos105t
+\end{align*}
 
 \[
 s(t) = \cos100t + 0{,}05\cos95t + 0{,}05\cos105t
 \]
 
 \begin{center}
-\begin{tabular}{lcccc}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}lrrrr@{}}
     \toprule
-    Término & Amplitud & $\omega$ (rad/s) & $f=\omega/2\pi$ (Hz) & Fase \\
+    \textbf{Término} & \textbf{Amplitud} & \textbf{$\omega$ (rad/s)} & \textbf{$f=\omega/2\pi$ (Hz)} & \textbf{Fase} \\
     \midrule
-    $\cos100t$ & 1 & 100 & $\approx 15{,}92$ & 0 \\
-    $0{,}05\cos95t$ & 0,05 & 95 & $\approx 15{,}12$ & 0 \\
-    $0{,}05\cos105t$ & 0,05 & 105 & $\approx 16{,}71$ & 0 \\
+    $\cos100t$ & $1$ & $100$ & $\approx 15{,}92$ & $0$ \\
+    $0{,}05\cos95t$ & $0{,}05$ & $95$ & $\approx 15{,}12$ & $0$ \\
+    $0{,}05\cos105t$ & $0{,}05$ & $105$ & $\approx 16{,}71$ & $0$ \\
     \bottomrule
 \end{tabular}
+\renewcommand{\arraystretch}{1}
 \end{center}
 \end{respuesta}
 
