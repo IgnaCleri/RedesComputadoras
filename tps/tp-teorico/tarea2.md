@@ -307,6 +307,50 @@ $$
 T = \frac{2\pi}{2} = \pi
 $$
 
+## 3.8
+
+### Pregunta:
+
+Sean dos funciones periódicas $f_1(t)$ y $f_2(t)$, con periodos $T_1$ y $T_2$ respectivamente. ¿Es periódica la función $f(t) = f_1(t) + f_2(t)$? Si es así, demuéstrelo. Si no, ¿bajo qué condiciones $f(t)$ será periódica?
+
+### Respuesta:
+
+No siempre. La suma $f(t) = f_1(t) + f_2(t)$ es periódica **si y solo si el cociente $T_1/T_2$ es un número racional**, es decir, si los períodos son conmensurables.
+
+**Demostración (caso racional):**
+
+Si $T_1/T_2 = p/q$ con $p$ y $q$ enteros positivos, entonces existe un período común
+
+$$
+T = q\,T_1 = p\,T_2
+$$
+
+Como $T$ es múltiplo entero de $T_1$:
+
+$$
+f_1(t+T) = f_1(t + qT_1) = f_1(t)
+$$
+
+y como $T$ también es múltiplo entero de $T_2$:
+
+$$
+f_2(t+T) = f_2(t + pT_2) = f_2(t)
+$$
+
+Sumando ambas igualdades:
+
+$$
+f(t+T) = f_1(t+T) + f_2(t+T) = f_1(t) + f_2(t) = f(t)
+$$
+
+Por lo tanto $f(t)$ es periódica, con período $T$ (el mínimo común múltiplo de $T_1$ y $T_2$, tomando $p$ y $q$ coprimos).
+
+**Caso irracional:**
+
+Si $T_1/T_2$ es irracional, no existen enteros $n$ y $m$ tales que $nT_1 = mT_2$ (si existieran, $T_1/T_2 = m/n$ sería racional, lo cual contradice la hipótesis). En consecuencia, no hay ningún valor $T$ que sea múltiplo entero de $T_1$ y de $T_2$ a la vez, por lo que $f_1$ y $f_2$ nunca vuelven a estar en fase simultáneamente: $f(t)$ no es periódica.
+
+**Conclusión:** $f(t)$ es periódica exactamente cuando $T_1$ y $T_2$ son conmensurables (su cociente es racional); en ese caso su período es el mínimo común múltiplo de $T_1$ y $T_2$.
+
 ## 3.9
 
 ### Pregunta:
