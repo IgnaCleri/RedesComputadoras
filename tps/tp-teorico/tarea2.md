@@ -331,6 +331,135 @@ La Figura 3.5b muestra la función correspondiente a un pulso rectangular en el 
 
 Las implicaciones que tiene este hecho en un sistema real son: como ningún canal de transmisión tiene ancho de banda infinito, en algún punto se pierden las componentes de frecuencia más alta del pulso, que son justamente las que le dan sus bordes filosos. Como consecuencia, el pulso que llega al receptor ya no conserva la forma rectangular ideal, sino que aparece con los flancos redondeados y estirado en el tiempo. Cuanto menor sea el ancho de banda disponible, mayor es esa distorsión.
 
+## 3.11
+
+### Pregunta:
+
+El IRA es un código de 7 bits que permite la definición de 128 caracteres. En los años setenta, muchos medios de comunicación recibían las noticias a través de un servicio que usaba 6 bits denominado TTS. Este código transmitía caracteres en mayúsculas y minúsculas, así como caracteres especiales y órdenes de control. Generalmente, se utilizan 100 caracteres. ¿Cómo cree que se puede conseguir esto? 
+
+
+### Respuesta: 
+
+Un código de 6 bits ofrece $2^6 = 64$ combinaciones distintas. Para transmitir más de 100 caracteres diferentes utilizando solo 6 bits, el sistema TTS empleaba caracteres especiales de control o desplazamiento (shift codes, equivalentes a Shift In / Shift Out o Letters / Figures). Al transmitir un código de cambio de modo, el receptor reinterpreta las siguientes combinaciones dentro de un segundo conjunto de caracteres (por ejemplo, alternando entre el modo letras y el modo números/símbolos), lo que permite duplicar la capacidad efectiva a casi 126 caracteres distintos.  
+
+## 3.12
+
+### Pregunta:
+
+¿Cuál es el incremento posible en la resolución horizontal para una señal de vídeo de ancho de banda 5 MHz? ¿Y para la resolución vertical? Responda ambas cuestiones por separado;es decir, utilice el incremento de ancho de banda para aumentar la resolución horizontal o la vertical, pero no ambas. 
+
+### Respuesta: 
+
+Partimos sabiendo que el ancho de banda de una señal de video es aproximadamente 4 MHz con:
+
+**Resolucion vertical: $N_v$ = 483 líneas**
+
+**Resolucion horizontal: $N_h$ = 450 línea**
+
+**frecuencia de barrido: $f$ = 30 barridos/s**
+
+**- Solo resolución horizontal**
+Como el ancho de banda es proporcional a la cantidad de elementos horizontales por línea.
+
+**Nueva resolucion horizontal: $N'_h$**
+
+$$N'_h = N_h \times \frac{B_{\text{nuevo}}}{B_{\text{base}}}$$
+$$N'_h = 450 \times \frac{5\text{ MHz}}{4\text{ MHz}} = 450 \times 1{,}25 = 562{,}5\text{ elementos}$$
+
+Por lo que hay un incremento de 112 elementos, o sea aproximadamente un 25%
+
+**- Solo resolución vertical**
+
+**Nueva resolucion horizontal: $N'_v$**
+
+
+$$N'_v = N_v \times \frac{B_{\text{nuevo}}}{B_{\text{base}}}$$
+
+$$N'_v = 483 \times \frac{5\text{ MHz}}{4\text{ MHz}} = 483 \times 1{,}25 = 603{,}75\text{ líneas}$$
+
+Por lo que hay un incremento de 121 elementos, o sea aproximadamente un 25%
+
+## 3.13
+
+### Pregunta:
+
+**a)** Suponga que se transmite una imagen digitalizada de TV de 480 x 500 puntos, en la que cada punto puede tomar uno de entre 32 posibles valores de intensidad. Supóngase que se envían 30 imágenes por segundo (esta fuente digital es aproximadamente igual que los estándares adoptados para la difusión de TV). Determine la velocidad de transmisión R de la fuente en bps.
+
+**b)** Suponga que la fuente anterior se transmite por un canal de 4,5 MHz de ancho de banda con una relación señal-ruido de 35 dB. Encuentre la capacidad del canal en bps.
+
+**c)** ¿Cómo se deberían modificar los parámetros del apartado (a) para permitir la transmisión de la señal de TV en color sin incrementar el valor de R? 
+
+
+### Respuesta: 
+
+**a)**
+
+
+**Puntos por imagen =** $480 \times 500 = 240000\ puntos$
+
+**Bits por punto =** $log_2(32) = 5\ bits/punto$
+
+**imágenes por segundo =** $30\ imágenes/s$
+
+$R = 30\ \times 240 000\ \times 5 = 36 000 000\ bps = 36\ Mbps$
+
+**b)**
+
+
+**Ancho de banda:** $B = 4,5 MHz$
+
+$SNR = 35\ dB = 10 ^ {35/10} = 3 162,3$
+
+
+$C = B \times log_2(1 + SNR)$
+
+$C = 4,5 \times 10 ^ 6 \times log_2(1 + 3162,3) = 52322466,01\ bps = 52,32\ Mbps$
+
+
+La velocidadde transmision de la fuente es de  **36 000 000 bps**
+  
+**c)**
+
+
+**Reducir el número de niveles de cuantificación:** (menos de 32, es decir, menos de 5 bits/punto) para la luminancia y/o crominancia, liberando bits para las nuevas componentes de color.
+
+**Reducir la resolución espacial de las componentes de color** (submuestreo de crominancia, el mismo principio que usan los formatos 4:2:2 o 4:2:0 reales): reducir la resolución espacial del color en comparación con la luminancia (brillo), aprovechando la menor sensibilidad del ojo humano al detalle del color. 
+
+## 3.14
+
+### Pregunta:
+
+Dado un amplificador con una temperatura efectiva de ruido de 10.000°K y con un ancho de banda de 10 MHz, ¿cuánto será el nivel de ruido térmico a la salida? 
+
+
+### Respuesta: 
+
+**constante de Boltzmann:** $k = 1,38 \times 10^{-23} J/K$
+
+$T = 10000\ K$
+
+$B = 10\ MHz$
+
+$N = k \times T \times B = 1,38 \times 10^{-12} \times 10 \times 10^6 =  1,38 \times 10^{-12}$
+
+## 3.15
+
+### Pregunta:
+
+¿Cuál es la capacidad para un canal de un «teletipo» de 300 Hz de ancho de banda con una relación señal-ruido de 3 dB?
+
+### Respuesta: 
+
+$B = 300 Hz$
+
+$SNR = 3\ dB = 1,99$
+
+$C = B \times log_2(1 + SNR)$
+
+$C = 300 \times log_2(2,99) = 474,04\ bps$
+
+La capacidad es de **474,76**
+
 ## 3.19
 
 ### Pregunta:
@@ -363,7 +492,7 @@ $$
 
 Resultado: $SNR \approx 100,6,$ es decir unos $20\ dB$.
 
-## 3.19
+## 3.20
 
 ### Pregunta:
 
