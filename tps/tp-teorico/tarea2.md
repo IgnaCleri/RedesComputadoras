@@ -550,6 +550,103 @@ $$
 
 **Resultado: $30,7\ dB$.**
 
+# d) Modulación en AM en Python
+
+Para este punto se implementó el código de graficación de la modulación AM que aparece en el blog indicado en la consigna (el cual también incluye un segundo script que reproduce las mismas señales como audio, pero no se usó porque no se ajusta al objetivo de "ver" el efecto de cada parámetro). El código, tal como se implementó, es el siguiente:
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+A_m = 5 #amplitud de la moduladora
+f_m = 4000 #frecuencia de la moduladora
+A_p = 5 #amplitud de la portadora
+f_p = 40000 #frecuencia de la portadora
+ka = 3 #indice de modulacion
+t = np.linspace(0, 1, 1000)
+
+moduladora = A_m*np.cos(2*np.pi*f_m*t)
+portadora = A_p*np.cos(2*np.pi*f_p*t)
+modulacion_AM = A_p*(1+ka*np.cos(2*np.pi*f_m*t))*np.cos(2*np.pi*f_p*t)
+
+# señal moduladora
+plt.subplot(3,1,1)
+plt.title("Señal de Mensaje o Moduladora")
+plt.plot(moduladora,'g')
+plt.ylabel('Amplitud')
+
+# señal portadora
+plt.subplot(3,1,2)
+plt.title("Señal Portadora")
+plt.plot(portadora,'r')
+plt.ylabel('Amplitud')
+
+# señal AM
+plt.subplot(3,1,3)
+plt.title("Modulacion AM")
+plt.plot(modulacion_AM, color='purple')
+plt.ylabel('Amplitud')
+plt.xlabel('Señal AM')
+
+plt.show()
+```
+
+El código grafica tres señales: la moduladora (la que contiene la información), la portadora (de mayor frecuencia) y el resultado de modularlas en amplitud. La señal AM se calcula como $A_p \cdot (1 + k_a \cos(2\pi f_m t)) \cdot \cos(2\pi f_p t)$: el término entre paréntesis es la envolvente, y $k_a$ controla cuánto varía esa envolvente respecto a la portadora.
+
+Al correr el código con distintos parámetros notamos que la ventana de tiempo original (de 0 a 1 segundo, con solo 1000 muestras) no alcanza a representar bien portadoras de decenas de miles de Hz: para que se vean correctamente sus oscilaciones hace falta muestrear muchas más veces por segundo. Por eso, para las pruebas que siguen ajustamos la ventana de tiempo y la cantidad de muestras según la frecuencia usada en cada caso (sin tocar las fórmulas del código original), de forma de poder ver con claridad unos pocos ciclos de la envolvente con la portadora bien resuelta dentro de cada uno.
+
+Como caso de referencia partimos de $A_p=5$, $f_p=40000$ Hz, $A_m=5$, $f_m=4000$ Hz y $k_a=1$ (el valor de $k_a$ que da la modulación "ideal", en la que la envolvente llega justo a cero en sus mínimos sin cruzarlo):
+
+![Corrida base](imagenes/am-r1-base.png)
+
+Se distinguen los 40 ciclos de portadora que corresponden a 40000 Hz durante 1 ms, y los 4 ciclos de moduladora que corresponden a 4000 Hz en esa misma ventana. La envolvente de la señal AM sigue exactamente la forma de la moduladora, tocando el cero en cada mínimo.
+
+### Variando la portadora
+
+Primero probamos subir la amplitud de la portadora a 10, manteniendo todo lo demás igual:
+
+![Portadora con mayor amplitud](imagenes/am-r2-portadora-amplitud.png)
+
+El resultado tiene exactamente la misma forma que la corrida base, pero escalada al doble: tanto la portadora como la señal AM llegan ahora al doble de su valor anterior. Tiene sentido, porque $A_p$ multiplica a toda la expresión de la señal AM, así que cambiarla solo estira o achica verticalmente el gráfico sin modificar la forma de la envolvente.
+
+Después bajamos la frecuencia de la portadora a 20000 Hz:
+
+![Portadora con menor frecuencia](imagenes/am-r3-portadora-frecuencia.png)
+
+Acá sí cambia algo relevante: en la misma ventana de 1 ms ahora entran 20 ciclos de portadora en lugar de 40, es decir la mitad. La envolvente, que depende de la moduladora y no de la portadora, se mantiene igual. Esto confirma que $f_p$ solo determina qué tan rápido oscila la portadora dentro de cada lóbulo de la envolvente, sin afectar la forma de esa envolvente.
+
+### Variando la moduladora
+
+Con la portadora en sus valores originales, bajamos la amplitud de la moduladora a 1:
+
+![Moduladora con menor amplitud](imagenes/am-r4-moduladora-amplitud.png)
+
+Este fue el resultado más llamativo de todas las pruebas: aunque la señal moduladora graficada aparte se ve mucho más chica, la señal AM final queda idéntica a la de la corrida base. Revisando la fórmula usada en el código, $A_m$ no aparece en ningún lado del cálculo de la modulación AM: solo se usa para graficar la moduladora como señal independiente. La profundidad de la modulación (cuánto "se hunde" la envolvente) queda determinada únicamente por $k_a$, no por la amplitud real de la señal de mensaje.
+
+Por último, subimos la frecuencia de la moduladora a 10000 Hz (achicando la ventana de tiempo para seguir viendo la misma cantidad de ciclos de envolvente):
+
+![Moduladora con mayor frecuencia](imagenes/am-r5-moduladora-frecuencia.png)
+
+Al acercarse la frecuencia de la moduladora a la de la portadora, entran muchos menos ciclos de portadora dentro de cada lóbulo de la envolvente. Se nota que la envolvente ya no queda tan prolija: con pocos ciclos de portadora para dibujarla, se pierde la suavidad del contorno. Esto ilustra por qué en un sistema real la portadora tiene que ser bastante más rápida que la señal de mensaje: si no hay suficientes ciclos de portadora por cada variación de la moduladora, la envolvente deja de representarse con fidelidad.
+
+### Variando el índice de modulación
+
+Volviendo a los valores de la corrida base, probamos dos valores de $k_a$ distintos de 1. Con $k_a=0.3$ (submodulación):
+
+![Submodulación](imagenes/am-r6-submodulacion.png)
+
+La envolvente ya no llega a tocar el cero: se queda oscilando entre valores siempre positivos. Esto es la submodulación: se está usando menos rango dinámico del que la portadora podría aprovechar, lo que en un sistema real significa transmitir con menos eficiencia de la posible.
+
+Con $k_a=2.5$ (sobremodulación):
+
+![Sobremodulación](imagenes/am-r7-sobremodulacion.png)
+
+Se ve claramente un rizado adicional cerca de los cruces por cero de la envolvente, que no estaba presente en la corrida base. Esa es la distorsión típica de la sobremodulación: al superar $k_a=1$, la envolvente se cruza consigo misma y ya no representa fielmente a la señal moduladora, lo que en la práctica generaría errores al recuperar la información en el receptor.
+
+### Conclusión
+
+Jugando con los parámetros del código pudimos separar el efecto de cada uno sobre la señal AM resultante. La amplitud de la portadora ($A_p$) solo escala el resultado sin cambiar su forma, y la frecuencia de la portadora ($f_p$) solo cambia cuántos ciclos de portadora entran por cada lóbulo de la envolvente, también sin afectar su forma. En cambio, la amplitud de la moduladora ($A_m$) no tiene ningún efecto sobre la señal AM en esta implementación: todo el peso de la modulación depende del índice $k_a$. La frecuencia de la moduladora ($f_m$), en cambio, sí es crítica: cuanto más se acerca a la frecuencia de la portadora, menos ciclos de portadora quedan disponibles para dibujar cada lóbulo de la envolvente, y la modulación se vuelve menos fiel. Finalmente, el índice de modulación resultó ser el parámetro más determinante de todos: valores menores a 1 dejan la envolvente sin llegar a cero (submodulación, poco eficiente), y valores mayores a 1 la distorsionan con rizado adicional (sobremodulación, poco fiel). En conjunto, estas pruebas muestran por qué en un sistema de comunicación real la relación entre $f_p$ y $f_m$, y el ajuste correcto de $k_a$, son decisiones de diseño tan importantes: determinan tanto la fidelidad como la eficiencia de la transmisión.
+
 # Bibliografía
 
 Stallings, W. *Comunicaciones y Redes de Computadoras*.
