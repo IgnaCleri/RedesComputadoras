@@ -42,3 +42,11 @@ Al estar en el aire y no haber señal el celular trabaja al maximo en busqueda d
 Desde el aire, como no hay obstaculos que tapen la señal, el celular localiza cientos de antenas en tierra al mismo tiempo. Al intentar conectarse a todas las que encuentra satura la red celular de esa localidad mientras pasa.
 
 Sí esta relacionado con el efecto Doppler. Las antenas terrestres están preparadas para recibir señales de celulares que se mueven a velocidad de caminata, auto, etc (hasta 200km/h). Como el avión viaja a casi 900 km/h, la velocidad deforma la onda de radio del celular mucho más rápido de lo que las antenas pueden procesar. Esto hace que las antenas en tierra se desorienten y la conexión se corte de inmediato.
+
+## Consigna 2
+
+## Consigna 3
+
+## Consigna 4
+
+## Consigna 5
