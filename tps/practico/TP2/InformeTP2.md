@@ -50,3 +50,7 @@ Sí esta relacionado con el efecto Doppler. Las antenas terrestres están prepar
 ## Consigna 4
 
 ## Consigna 5
+
+La resolución completa (programa en Go, formato de las tramas, anomalías encontradas y mensaje reconstruido) está documentada en:
+
+[Extracción de Payloads — Ejercicio 5](extraccion-de-payloads/Ejercicio_5.md)
