@@ -32,9 +32,11 @@ $$\Delta f = \frac{v}{c} f_0$$
 
 ### b)
 
-Las bandas más afectadas son las de alta y muy alta frecuencia (SHF y EHF), que se usan en enlaces satelitales y enlaces de microondas.
+Las bandas más afectadas son las de alta y muy alta frecuencia, principalmente **SHF (3 GHz – 30 GHz)** y **EHF (30 GHz – 300 GHz)**, utilizadas en enlaces satelitales y enlaces de microondas.
 
-Las bandas más resilientes son las de de baja frecuencia (HF, MF, LF), donde al ser la portadora de menor frecuencia, el corrimiento en Hz provocado por el Doppler es insignificante.
+Esto se explica con la misma fórmula del punto anterior ($\Delta f = \frac{v}{c} f_0$): el corrimiento Doppler es directamente proporcional a la frecuencia de la portadora ($f_0$). Entonces, para una misma velocidad relativa $v$ (la de un satélite en órbita, por ejemplo), cuanto más alta es la portadora, mayor es el corrimiento absoluto en Hz. Como en SHF y EHF las portadoras ya son del orden de los GHz, ese corrimiento puede llegar a valores de kHz o incluso MHz, que resultan significativos frente al ancho de canal (generalmente angosto en estas bandas para aprovechar mejor el espectro). Esto desalinea la portadora recibida respecto de lo que espera el receptor, degradando la sincronización y elevando la tasa de error.
+
+Las bandas más resilientes son las de baja frecuencia: **LF (30 kHz – 300 kHz)**, **MF (300 kHz – 3 MHz)** y **HF (3 MHz – 30 MHz)**. Al ser $f_0$ mucho menor, el mismo corrimiento relativo ($v/c$) produce un $\Delta f$ absoluto mucho más chico (del orden de fracciones de Hz a pocos Hz), insignificante frente al ancho de banda del canal. Además, estas bandas suelen usarse en enlaces terrestres o marítimos con velocidades relativas bajas (radio AM, comunicaciones marítimas, radioaficionados), lo que reduce todavía más el impacto del efecto Doppler.
 
 ### c)
 
@@ -43,7 +45,7 @@ No se debe encender el celular arriba de un avion para evitar molestias a los pi
 - **Interferencia en la cabina:** Al estar en el aire y no haber señal el celular trabaja al maximo en busqueda de una antena. Esa transmisión a máxima potencia puede generar ruidos en los auriculares de los pilotos e interferir con los equipos de medición en el avion.
 - **Saturación en redes de tierra:** Desde el aire, como no hay obstaculos que tapen la señal, el celular localiza cientos de antenas en tierra al mismo tiempo. Al intentar conectarse a todas las que encuentra satura la red celular de esa localidad mientras pasa.
 
-Sí esta relacionado con el efecto Doppler. Las antenas terrestres están preparadas para recibir señales de celulares que se mueven a velocidad de caminata, auto, etc (hasta 200km/h). Como el avión viaja a casi 900 km/h, la velocidad deforma la onda de radio del celular mucho más rápido de lo que las antenas pueden procesar. Esto hace que las antenas en tierra se desorienten y la conexión se corte de inmediato.
+Posee un vínculo directo con los puntos anteriores, ya que, tal como se explicó en el punto a), el corrimiento Doppler ($\Delta f = \frac{v}{c} f_0$) es proporcional a la velocidad relativa entre emisor y receptor. Las antenas terrestres están diseñadas para compensar el corrimiento típico de un usuario que se desplaza a velocidad de caminata, auto o incluso tren (hasta unos 200 km/h), mediante mecanismos de sincronización de portadora. Como el avión viaja a casi 900 km/h, el $\Delta f$ resultante excede el rango que esos mecanismos son capaces de corregir, por lo que la antena no logra engancharse establemente a la señal del celular y la conexión se corta de inmediato. Esto además retroalimenta el problema de saturación descripto en el punto anterior, ya que el equipo reintenta constantemente la búsqueda y conexión con nuevas antenas sin lograrlo.
 
 ## Consigna 2
 
