@@ -61,6 +61,8 @@ Sus principales características son:
 
 - **No es continuo:** a diferencia del ruido térmico (constante, predecible), aparece como pulsos o picos irregulares. Corta duración pero amplitud relativamente grande (picos de energía breves e intensos).
 - **No es predecible:** no sigue un patrón constante ni predecible, por eso es más difícil de combatir mediante diseño del sistema que el ruido térmico.
+- **Espectro ancho:** al ser un pulso de muy corta duración en el dominio del tiempo, por la dualidad de Fourier su energía se reparte en un rango amplio de frecuencias en lugar de concentrarse en una sola. Esto explica por qué su efecto conviene analizarlo banda por banda.
+- **Mayor impacto en señales digitales que en analógicas:** en una transmisión digital de alta tasa de bits, el período de cada bit es muy corto, por lo que un mismo pulso de ruido impulsivo puede llegar a corromper varios bits consecutivos y generar un error en ráfaga (*burst error*). En una señal analógica de voz, en cambio, ese mismo pulso apenas se percibe como un breve chasquido.
 
 ### b)
 
