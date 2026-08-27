@@ -55,10 +55,11 @@ El fenómeno físico observado representa el **ruido impulsivo**: un tipo de rui
 
 Se identifica en la Figura ya que la onda se transmite de forma limpia y periódica tanto al comienzo, cerca de la antena, como al final, cerca del celular; sin embargo, en el tramo intermedio (coincidente con la posición del operador y su equipo de radio), la forma de onda se distorsiona abruptamente en un conjunto de picos irregulares de mayor amplitud, para luego retomar su forma original. Esa alteración puntual es la representación gráfica característica del ruido impulsivo.
 
+Sus causas pueden ser perturbaciones electromagnéticas externas (como tormentas atmosféricas) o fallos y defectos en los propios sistemas de comunicación.
+
 Sus principales características son:
 
 - **No es continuo:** a diferencia del ruido térmico (constante, predecible), aparece como pulsos o picos irregulares. Corta duración pero amplitud relativamente grande (picos de energía breves e intensos).
-- **Causas:** perturbaciones electromagnéticas externas (tormentas atmosféricas) o fallos/defectos en los propios sistemas de comunicación.
 - **No es predecible:** no sigue un patrón constante ni predecible, por eso es más difícil de combatir mediante diseño del sistema que el ruido térmico.
 
 ### b)
