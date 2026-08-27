@@ -8,6 +8,86 @@
 | Espinoza Sutta, Aaron Alejandro | 96009173 | aaron.espinoza_4500@mi.unc.edu.ar | [@Aaron45000](https://github.com/Aaron45000)                       |
 | Cleri, Juan Ignacio             | 46452662 | ignacio.cleri@mi.unc.edu.ar       | [@IgnaCleri](https://github.com/IgnaCleri)                         |
 | Pineda, Juan Ignacio            | 45591343 | juan.ignacio.pineda@mi.unc.edu.ar | [@juanignaciopineda-dot](https://github.com/juanignaciopineda-dot) |
-| Grafión, Atilio Leonel         | 43940195 | atilio.grafion@mi.unc.edu.ar      | [@Aollgn](https://github.com/Aollgn)                               |
+| Grafión, Atilio Leonel          | 43940195 | atilio.grafion@mi.unc.edu.ar      | [@Aollgn](https://github.com/Aollgn)                               |
 | Badenes, Tomas                  | 44785038 | tomasbadenes@mi.unc.edu.ar        | NA                                                                |
 | Oviedo, Ignacio Nicolas         | 43940195 | ignacio.oviedo.239@mi.unc.edu.ar  | NA                                                                |
+| Mendez, Jorge Nicolas           | 41301342 | jorge.mendez@mi.unc.edu.ar        | NA                                                                |
+
+## Consigna 1
+### a) 
+
+El fenómeno físico representado es el Efecto Doppler, ocasionado por el movimiento relativo entre la fuente emisora (barco) y el receptor (satélite).
+
+Sus caracteristicas principales son:
+
+* Compresión de la onda: Al reducirse la distancia entre el emisor y el receptor, cada nueva cresta de la onda se emite desde una posición más cercana que la anterior. Esto disminuye la longitud de onda ($\lambda$) y aumenta la frecuencia percibida ($f$) en el receptor.
+* Dependencia de la velocidad y frecuencia: La desviación de frecuencia ($\Delta f$) es directamente proporcional a la velocidad relativa ($v$) entre los cuerpos y a la frecuencia central de la señal ($f_0$):
+$$\Delta f = \frac{v}{c} f_0$$
+* Comportamiento dinámico: Mientras el satélite se aproxima, la frecuencia recibida es mayor que la emitida ($f' > f$). Una vez que sobrepasa la vertical de la estación y comienza a alejarse, la frecuencia disminuye por debajo del valor nominal ($f' < f$).
+
+### b) 
+
+ Las bandas más afectadas son las de alta y muy alta frecuencia (SHF y EHF), que se usan en enlaces satelitales y enlaces de microondas.
+ 
+ Las bandas más resilientes son las de de baja frecuencia (HF, MF, LF), donde al ser la portadora de menor frecuencia, el corrimiento en Hz provocado por el Doppler es insignificante.
+
+### c) 
+
+No se debe encender el celular arriba de un avion para evitar molestias a los pilotos y no saturar las antenas en tierra.
+
+* Interferencia en la cabina:
+Al estar en el aire y no haber señal el celular trabaja al maximo en busqueda de una antena. Esa transmisión a máxima potencia puede generar ruidos en los auriculares de los pilotos e interferir con los equipos de medición en el avion.
+
+2. Saturación en redes de tierra:
+Desde el aire, como no hay obstaculos que tapen la señal, el celular localiza cientos de antenas en tierra al mismo tiempo. Al intentar conectarse a todas las que encuentra satura la red celular de esa localidad mientras pasa.
+
+Sí esta relacionado con el efecto Doppler. Las antenas terrestres están preparadas para recibir señales de celulares que se mueven a velocidad de caminata, auto, etc (hasta 200km/h). Como el avión viaja a casi 900 km/h, la velocidad deforma la onda de radio del celular mucho más rápido de lo que las antenas pueden procesar. Esto hace que las antenas en tierra se desorienten y la conexión se corte de inmediato.
+
+## Consigna 2
+
+## Consigna 3
+¿Cómo ayudan los sistemas de transmisión digital a detectar y corregir errores producidos por ruido en el canal?
+
+Los sistemas de transmisión digital logran detectar y corregir errores mediante la adición de redundancia estructurada a los datos antes de enviarlos. El ruido en un canal puede alterar los bits transmitidos, pero las técnicas de codificación permiten al receptor identificar la alteración y, en muchos casos, reconstruir el mensaje original sin pedir una retransmisión.
+
+El Principio Básico: Redundancia y Distancia
+
+Si se envía únicamente la información pura (por ejemplo, $101$), el receptor no tiene forma de saber si el ruido cambió un bit a $111$. Para evitar esto, el emisor añade bits adicionales calculados mediante fórmulas matemáticas específicas.
+
+Esto se basa en la distancia de Hamming: la cantidad de posiciones en las que dos cadenas de bits difieren. Al espaciar matemáticamente las combinaciones válidas de datos, un bit alterado por ruido dará como resultado una combinación "no válida", alertando inmediatamente al receptor.
+
+Los mecanismos principales son:
+- Deteccion por paridad (Para casos muy locales)
+Parecido al bit de paridad en transmisiones serie de microcontroladores o de un bus de transmision de una memmoria ram.
+- CRC (Comprobacion de redundancia fisica)
+Aplica una división polinómica sobre los datos para generar un residuo fijo al final del paquete. Es extremadamente eficiente para detectar ráfagas de ruido.
+- ARQ (Peticion de retransmision automatica)
+Combina un método de detección con confirmaciones. Si el receptor detecta un error, solicita retransmitir el paquete afectado. Muy usado en el protocolo TCP/IP.
+- FEC (Correccion de errores adelante)
+Añade suficiente redundancia para que el receptor no solo detecte el error, sino que calcule la posición exacta del bit alterado y lo invierta automáticamente. Usado en fibra optica o conexion 5G
+
+¿Y a compensar cambios en la frecuencia?
+Los cambios de frecuencia en la señal recibida son causados principalmente por dos factores: 
+- Desviaciones en los osciladores
+- Efecto Doppler
+
+Para compensarlo, se utilizan mecanismos de sincronización de portadora y procesamiento digital de señales (DSP).
+
+1) Sincronizacion de portadora 
+El receptor utiliza circuitos de realimentación y algoritmos en el dominio del tiempo para rastrear y enganchar la frecuencia de la señal entrante. Particularmente:
+
+- Lazos de Seguimiento de Fase (PLL / Costas Loop)
+- Bucles de Control de Frecuencia (FLL)
+
+2 Estimación y Compensación Digital (Dominio de Frecuencia)
+En modulaciones modernas de banda ancha (como Wi-Fi, 4G, 5G y redes satelitales), la compensación se procesa digitalmente mediante algoritmos. Estos son:
+
+- Secuencias de Entrenamiento y Símbolos Pilot:
+- Transformada Rápida de Fourier (FFT)
+
+3. Modulación OFDM y Prefijo Cíclico
+En redes masivas como Wi-Fi 6, 4G y 5G, se emplea OFDM (Multiplexación por División de Frecuencias Ortogonales). La señal total se divide en subportadoras muy juntas pero ortogonales. Si ocurre un desplazamiento de frecuencia, se pierde la ortogonalidad.  Para resolverlo, los sistemas digitales añaden un Prefijo Cíclico (CP) al inicio de cada bloque de datos. Este funciona como un colchón temporal que permite al receptor estimar el desfase de frecuencia antes de procesar el símbolo y corregir la rotación de los datos mediante ecualizadores digitales
+
+## Consigna 4
+
+## Consigna 5
