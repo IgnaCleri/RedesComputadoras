@@ -45,6 +45,39 @@ Sí esta relacionado con el efecto Doppler. Las antenas terrestres están prepar
 
 ## Consigna 2
 
+### a) 
+
+La **sincronización en la comunicación digital** requiere que el emisor y el receptor coordinen su temporización. El receptor debe conocer el instante exacto en que inicia cada bit y la velocidad a la que llegan. Así, puede muestrearlos en el momento correcto para evitar pérdidas o mezclas de información.
+
+- **Sincronización de bits**: Le dice al receptor exactamente cuándo empieza y termina cada bit individual.
+
+- **Sincronización de trama**: Le dice al receptor dónde empieza y dónde termina el bloque completo de bits (la trama), es decir, cuándo arranca y cuándo termina el mensaje entero.
+
+- **La diferencia**: la sincronización de bits pasa muchas veces por segundo (una por cada bit), mientras que la sincronización de trama pasa una sola vez por cada bloque de datos completo. 
+
+### b) 
+
+Una **trama** (frame) es un bloque de bits organizado que agrupa la información a enviar junto con datos de control necesarios para que el receptor la entienda correctamente.
+
+Comparación de sus tres partes:
+
+- **Header (encabezado)**: va al principio. Contiene información de control (direcciones, tipo de trama, etc.).
+- **Payload (carga útil)**: va en el medio. Es el contenido real, los datos que efectivamente le interesan al usuario (lo que se quiere transmitir).
+- **Trailer (tráiler)**: va al final. Contiene información de cierre y control de errores.
+- **La diferencia principal**: header y trailer son "metadatos" que ayudan a transportar y verificar la información, mientras que el payload es la información en sí misma.
+
+### c) 
+
+El **preámbulo** es un patrón fijo de bits que se coloca al **inicio de una trama** para indicar al receptor dónde comienza un mensaje nuevo. Este elemento **no forma parte de los datos útiles** que se desean transmitir, sino que funciona estrictamente como una señalización de control y se descarta una vez que cumple su función.
+
+### d) 
+
+| Método | Cómo funciona | Ventaja | Desventaja |
+|---|---|---|---|
+| **Longitud fija** | Todas las tramas miden exactamente lo mismo | Simple, no hace falta contar ni buscar nada | Desperdicia espacio si los datos son más cortos que el tamaño fijo |
+| **Campo de longitud** | Un campo en el header dice cuántos bytes tiene la trama | Flexible, tramas de tamaño variable | Si ese campo se corrompe por ruido, se pierde la sincronización de toda la trama |
+| **Delimitadores** | Un patrón especial de bits marca inicio y fin | Robusto, el receptor solo busca el patrón | Requiere "relleno de bits o caracteres" (*bit/character stuffing*) si el patrón aparece por casualidad en los datos.|
+
 ## Consigna 3
 
 ## Consigna 4
