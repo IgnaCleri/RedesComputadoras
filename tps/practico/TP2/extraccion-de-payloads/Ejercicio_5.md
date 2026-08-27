@@ -18,9 +18,7 @@ El enunciado define:
        +0              +5            +6                  +7
 ```
 
-`GROUP` son los primeros 5 caracteres del nombre del grupo, en minúscula y sin
-acentos: `TCPánico` → `tcpan`, `Los Red(ondos)` → `los r`. De eso se encarga
-`groupKey()`.
+`GROUP` son los primeros 5 caracteres de los nombres de los grupos
 
 ## Resultado
 
@@ -58,10 +56,9 @@ https://www.youtube.com/shorts/dbbe_ln6Lnw
 | 24 | 1283 | `wan-d` | 2 | `n6` | WAN-direction |
 | 25 | 1101 | `wireg` | 3 | `Lnw` | WireGuardians |
 
-## Anomalías
+## Problemas
 
-El programa las reporta como avisos, pero **no** las corrige: hay que
-interpretarlas a mano.
+Estos problemas son reportados por el programa, estos son los que principalmente evitan que los payloads sean extraidos de forma correcta
 
 1. **SEQ 7 — `Group Not Found :(`**: el byte de `SEQ` vale `0x20` en
    lugar de `0x07`.
@@ -88,5 +85,7 @@ Además:
 | `searchPayloads()` | Recorre los grupos y separa los que no tienen trama. |
 | `printable()` | Descarta payloads que no son ASCII (tramas mal alineadas). |
 
-En `main()` está comentada la lista original de la planilla (24 grupos) y activa
-la lista de los que realmente tienen trama: sin `Bitless` y con `ferne` agregado aunque esto siga retornando un resultado erroneo.
+En `main()` está comentada la lista original enviada (24 grupos) y la activa es
+la lista de los que realmente tienen trama: sin `Bitless` y con `ferne` agregado,
+
+Aunque esto siga retornando un resultado erroneo.
