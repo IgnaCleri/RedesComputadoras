@@ -248,7 +248,16 @@ func main() {
 
 		seen[p.seq] = p
 
-		if p.seq > maxSeq {
+		// Si la secuencia va de 1 a N sin huecos, ningun SEQ puede superar la
+		// cantidad de tramas leidas: los que lo hacen estan corruptos y no
+		// deben estirar el rango que se controla mas abajo.
+		if int(p.seq) > len(packets) {
+
+			fmt.Fprintf(os.Stderr, "aviso: %s tiene SEQ %d (0x%02x), fuera del rango 1..%d\n",
+				p.group, p.seq, p.seq, len(packets))
+
+		} else if p.seq > maxSeq {
+
 			maxSeq = p.seq
 		}
 
