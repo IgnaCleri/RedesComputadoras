@@ -45,6 +45,36 @@ Sí esta relacionado con el efecto Doppler. Las antenas terrestres están prepar
 
 ## Consigna 2
 
+ 
+### a)
+
+El fenómeno físico observado representa el ruido impulsivo. Sus principales características son:
+
++ **No es continuo:** a diferencia del ruido térmico (constante, predecible), aparece como pulsos o picos irregulares.
+Corta duración pero amplitud relativamente grande (picos de energía breves e intensos).
++ **Causas:** perturbaciones electromagnéticas externas (tormentas atmosféricas) o fallos/defectos en los propios sistemas de comunicación.
++ No sigue un patrón constante ni predecible, por eso es más difícil de combatir mediante diseño del sistema que el ruido térmico.
+
+### b) 
+
+- **VHF (30 MHz – 300 MHz) — Más afectada:** Es la banda más susceptible al ruido impulsivo, tanto de origen atmosférico (descargas eléctricas) como de origen humano (ignición de motores, conmutación en líneas eléctricas, electrodomésticos), cuyas interferencias concentran gran parte de su energía en este rango.
+
+- **UHF (300 MHz – 3 GHz) — Afectación intermedia-baja:** Comienza a alejarse del grueso de energía del ruido impulsivo típico, por lo que su afectación disminuye respecto a VHF, aunque todavía conserva cierta sensibilidad a interferencias de equipos electrónicos cercanos.
+
+- **SHF (3 GHz – 30 GHz) — Más resiliente al ruido impulsivo:** El ruido impulsivo deja de ser un problema relevante en esta banda; sin embargo, al tratarse de microondas de longitud de onda corta, aparecen otros fenómenos limitantes, como la atenuación por lluvia y por obstáculos físicos.
+
+- **EHF (30 GHz – 300 GHz) — La más resiliente al ruido impulsivo:** Es la banda menos afectada por este fenómeno de las cuatro, pero paga el costo de ser la más vulnerable a la atenuación atmosférica (absorción por gases, lluvia, vapor de agua), lo que en la práctica limita su alcance más que el propio ruido impulsivo.
+
+### c)
+
+La **SNR** (Signal-to-Noise Ratio ó Relación Señal-Ruido) es el cociente entre la potencia de la señal y la potencia del ruido en un punto del medio de transmisión, expresado normalmente en decibelios:
+
+### $SNR(dB) = 10 \times log_{10}(\frac{potencia\ señal}{potencia\ ruido})$
+
+Una SNR alta indica que la señal recibida es de buena calidad —predomina claramente sobre el ruido de fondo— mientras que una SNR baja significa que el ruido está "contaminando" la señal de forma considerable, dificultando su correcta interpretación.
+
+Respecto al BER (tasa de error de bit) Sí, están directamente relacionados, y de forma inversa: a mayor SNR, menor BER (menos errores por bit), y a menor SNR, mayor BER, ya que si la señal es mucho más fuerte que el ruido (SNR alta), el receptor puede distinguir con claridad si un bit corresponde a un 0 o un 1. Cuando el ruido se acerca en magnitud a la señal (SNR baja), aumenta la probabilidad de que el receptor confunda un bit por otro, elevando el BER.
+
 ## Consigna 3
 
 ## Consigna 4
