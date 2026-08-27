@@ -66,10 +66,14 @@ Sus principales características son:
 
 ### b)
 
+Si bien el ruido impulsivo tiene un espectro ancho (según lo descripto en el punto a), su energía no se reparte de forma pareja entre bandas: se concentra principalmente en frecuencias bajas y medias, y disminuye a medida que aumenta la frecuencia de la portadora. Por eso su impacto real varía según la banda de transmisión:
+
 - **VHF (30 MHz – 300 MHz) — Más afectada:** Es la banda más susceptible al ruido impulsivo, tanto de origen atmosférico (descargas eléctricas) como de origen humano (ignición de motores, conmutación en líneas eléctricas, electrodomésticos), cuyas interferencias concentran gran parte de su energía en este rango.
 - **UHF (300 MHz – 3 GHz) — Afectación intermedia-baja:** Comienza a alejarse del grueso de energía del ruido impulsivo típico, por lo que su afectación disminuye respecto a VHF, aunque todavía conserva cierta sensibilidad a interferencias de equipos electrónicos cercanos.
 - **SHF (3 GHz – 30 GHz) — Más resiliente al ruido impulsivo:** El ruido impulsivo deja de ser un problema relevante en esta banda; sin embargo, al tratarse de microondas de longitud de onda corta, aparecen otros fenómenos limitantes, como la atenuación por lluvia y por obstáculos físicos.
 - **EHF (30 GHz – 300 GHz) — La más resiliente al ruido impulsivo:** Es la banda menos afectada por este fenómeno de las cuatro, pero paga el costo de ser la más vulnerable a la atenuación atmosférica (absorción por gases, lluvia, vapor de agua), lo que en la práctica limita su alcance más que el propio ruido impulsivo.
+
+En conclusión, los tipos de transmisión más afectados por el ruido impulsivo son los que operan en **VHF** y, en menor medida, **UHF**, ya que ambas bandas coinciden con el rango de frecuencias donde se concentra la mayor parte de la energía de este ruido. Los más resilientes son **SHF** y, sobre todo, **EHF**, donde la energía del ruido impulsivo ya resulta prácticamente insignificante, a costa de quedar expuestos a otros fenómenos limitantes propios de las microondas (atenuación por lluvia y por obstáculos físicos).
 
 ### c)
 
@@ -83,7 +87,7 @@ Respecto al BER (tasa de error de bit) Sí, están directamente relacionados, y 
 
 ## Consigna 3
 
-### a) ¿Cómo ayudan los sistemas de transmisión digital a detectar y corregir errores producidos por ruido en el canal?
+### ¿Cómo ayudan los sistemas de transmisión digital a detectar y corregir errores producidos por ruido en el canal?
 
 Los sistemas de transmisión digital logran detectar y corregir errores mediante la adición de redundancia estructurada a los datos antes de enviarlos. El ruido en un canal puede alterar los bits transmitidos, pero las técnicas de codificación permiten al receptor identificar la alteración y, en muchos casos, reconstruir el mensaje original sin pedir una retransmisión.
 
@@ -100,7 +104,7 @@ Esto se basa en la distancia de Hamming: la cantidad de posiciones en las que do
 - **ARQ (Peticion de retransmision automatica):** Combina un método de detección con confirmaciones. Si el receptor detecta un error, solicita retransmitir el paquete afectado. Muy usado en el protocolo TCP/IP.
 - **FEC (Correccion de errores adelante):** Añade suficiente redundancia para que el receptor no solo detecte el error, sino que calcule la posición exacta del bit alterado y lo invierta automáticamente. Usado en fibra optica o conexion 5G.
 
-### b) ¿Y a compensar cambios en la frecuencia?
+### ¿Y a compensar cambios en la frecuencia?
 
 Los cambios de frecuencia en la señal recibida son causados principalmente por dos factores:
 
