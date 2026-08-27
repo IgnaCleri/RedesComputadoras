@@ -54,7 +54,7 @@ https://www.youtube.com/shorts/dbbe_ln6Lnw
 | 22 | 483 | `red h` | 2 | `be` | Red Hot Chilli Packets |
 | 23 | 98 | `tcpan` | 2 | `_l` | TCPánico |
 | 24 | 1283 | `wan-d` | 2 | `n6` | WAN-direction |
-| 25 | 1101 | `wireg` | 3 | `Lnw` | WireGuardians |
+| 25 | 1101 | `wireg` | 3 | `Lnw` | **WireGuardians (nuestro grupo)** |
 
 ## Problemas
 
