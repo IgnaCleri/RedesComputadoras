@@ -8,10 +8,10 @@
 | Espinoza Sutta, Aaron Alejandro | 96009173 | aaron.espinoza_4500@mi.unc.edu.ar | [@Aaron45000](https://github.com/Aaron45000)                       |
 | Cleri, Juan Ignacio             | 46452662 | ignacio.cleri@mi.unc.edu.ar       | [@IgnaCleri](https://github.com/IgnaCleri)                         |
 | Pineda, Juan Ignacio            | 45591343 | juan.ignacio.pineda@mi.unc.edu.ar | [@juanignaciopineda-dot](https://github.com/juanignaciopineda-dot) |
-| Grafión, Atilio Leonel         | 43940195 | atilio.grafion@mi.unc.edu.ar      | [@Aollgn](https://github.com/Aollgn)                               |
+| Grafión, Atilio Leonel          | 43940195 | atilio.grafion@mi.unc.edu.ar      | [@Aollgn](https://github.com/Aollgn)                               |
 | Badenes, Tomas                  | 44785038 | tomasbadenes@mi.unc.edu.ar        | NA                                                                |
 | Oviedo, Ignacio Nicolas         | 43940195 | ignacio.oviedo.239@mi.unc.edu.ar  | NA                                                                |
-| Mendez, Jorge Nicolas         | 41301342 | jorge.mendez@mi.unc.edu.ar  | NA                                                                |
+| Mendez, Jorge Nicolas           | 41301342 | jorge.mendez@mi.unc.edu.ar        | NA                                                                |
 
 ## Consigna 1
 ### a) 
@@ -76,11 +76,48 @@ Una SNR alta indica que la señal recibida es de buena calidad —predomina clar
 Respecto al BER (tasa de error de bit) Sí, están directamente relacionados, y de forma inversa: a mayor SNR, menor BER (menos errores por bit), y a menor SNR, mayor BER, ya que si la señal es mucho más fuerte que el ruido (SNR alta), el receptor puede distinguir con claridad si un bit corresponde a un 0 o un 1. Cuando el ruido se acerca en magnitud a la señal (SNR baja), aumenta la probabilidad de que el receptor confunda un bit por otro, elevando el BER.
 
 ## Consigna 3
+¿Cómo ayudan los sistemas de transmisión digital a detectar y corregir errores producidos por ruido en el canal?
+
+Los sistemas de transmisión digital logran detectar y corregir errores mediante la adición de redundancia estructurada a los datos antes de enviarlos. El ruido en un canal puede alterar los bits transmitidos, pero las técnicas de codificación permiten al receptor identificar la alteración y, en muchos casos, reconstruir el mensaje original sin pedir una retransmisión.
+
+El Principio Básico: Redundancia y Distancia
+
+Si se envía únicamente la información pura (por ejemplo, $101$), el receptor no tiene forma de saber si el ruido cambió un bit a $111$. Para evitar esto, el emisor añade bits adicionales calculados mediante fórmulas matemáticas específicas.
+
+Esto se basa en la distancia de Hamming: la cantidad de posiciones en las que dos cadenas de bits difieren. Al espaciar matemáticamente las combinaciones válidas de datos, un bit alterado por ruido dará como resultado una combinación "no válida", alertando inmediatamente al receptor.
+
+Los mecanismos principales son:
+- Deteccion por paridad (Para casos muy locales)
+Parecido al bit de paridad en transmisiones serie de microcontroladores o de un bus de transmision de una memmoria ram.
+- CRC (Comprobacion de redundancia fisica)
+Aplica una división polinómica sobre los datos para generar un residuo fijo al final del paquete. Es extremadamente eficiente para detectar ráfagas de ruido.
+- ARQ (Peticion de retransmision automatica)
+Combina un método de detección con confirmaciones. Si el receptor detecta un error, solicita retransmitir el paquete afectado. Muy usado en el protocolo TCP/IP.
+- FEC (Correccion de errores adelante)
+Añade suficiente redundancia para que el receptor no solo detecte el error, sino que calcule la posición exacta del bit alterado y lo invierta automáticamente. Usado en fibra optica o conexion 5G
+
+¿Y a compensar cambios en la frecuencia?
+Los cambios de frecuencia en la señal recibida son causados principalmente por dos factores: 
+- Desviaciones en los osciladores
+- Efecto Doppler
+
+Para compensarlo, se utilizan mecanismos de sincronización de portadora y procesamiento digital de señales (DSP).
+
+1) Sincronizacion de portadora 
+El receptor utiliza circuitos de realimentación y algoritmos en el dominio del tiempo para rastrear y enganchar la frecuencia de la señal entrante. Particularmente:
+
+- Lazos de Seguimiento de Fase (PLL / Costas Loop)
+- Bucles de Control de Frecuencia (FLL)
+
+2 Estimación y Compensación Digital (Dominio de Frecuencia)
+En modulaciones modernas de banda ancha (como Wi-Fi, 4G, 5G y redes satelitales), la compensación se procesa digitalmente mediante algoritmos. Estos son:
+
+- Secuencias de Entrenamiento y Símbolos Pilot:
+- Transformada Rápida de Fourier (FFT)
+
+3. Modulación OFDM y Prefijo Cíclico
+En redes masivas como Wi-Fi 6, 4G y 5G, se emplea OFDM (Multiplexación por División de Frecuencias Ortogonales). La señal total se divide en subportadoras muy juntas pero ortogonales. Si ocurre un desplazamiento de frecuencia, se pierde la ortogonalidad.  Para resolverlo, los sistemas digitales añaden un Prefijo Cíclico (CP) al inicio de cada bloque de datos. Este funciona como un colchón temporal que permite al receptor estimar el desfase de frecuencia antes de procesar el símbolo y corregir la rotación de los datos mediante ecualizadores digitales
 
 ## Consigna 4
 
 ## Consigna 5
-
-La resolución completa (programa en Go, formato de las tramas, anomalías encontradas y mensaje reconstruido) está documentada en:
-
-[Extracción de Payloads — Ejercicio 5](extraccion-de-payloads/Ejercicio_5.md)
