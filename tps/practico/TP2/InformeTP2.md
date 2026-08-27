@@ -51,7 +51,11 @@ Posee un vínculo directo con los puntos anteriores, ya que, tal como se explic�
 
 ### a)
 
-El fenómeno físico observado representa el ruido impulsivo. Sus principales características son:
+El fenómeno físico observado representa el **ruido impulsivo**: un tipo de ruido eléctrico que se manifiesta como picos de amplitud elevada y de muy corta duración, que se superponen momentáneamente a la señal, a diferencia del ruido térmico, que es constante y de baja amplitud.
+
+Se identifica en la Figura ya que la onda se transmite de forma limpia y periódica tanto al comienzo, cerca de la antena, como al final, cerca del celular; sin embargo, en el tramo intermedio (coincidente con la posición del operador y su equipo de radio), la forma de onda se distorsiona abruptamente en un conjunto de picos irregulares de mayor amplitud, para luego retomar su forma original. Esa alteración puntual es la representación gráfica característica del ruido impulsivo.
+
+Sus principales características son:
 
 - **No es continuo:** a diferencia del ruido térmico (constante, predecible), aparece como pulsos o picos irregulares. Corta duración pero amplitud relativamente grande (picos de energía breves e intensos).
 - **Causas:** perturbaciones electromagnéticas externas (tormentas atmosféricas) o fallos/defectos en los propios sistemas de comunicación.
