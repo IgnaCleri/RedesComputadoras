@@ -135,11 +135,11 @@ En redes masivas como Wi-Fi 6, 4G y 5G, se emplea OFDM (Multiplexación por Divi
 
 ### a)
 
-La **sincronización en la comunicación digital** requiere que el emisor y el receptor coordinen su temporización. El receptor debe conocer el instante exacto en que inicia cada bit y la velocidad a la que llegan. Así, puede muestrearlos en el momento correcto para evitar pérdidas o mezclas de información.
+La **sincronización en la comunicación digital** es el mecanismo por el cual el emisor y el receptor comparten una referencia temporal común, de modo que el receptor pueda interpretar correctamente la señal recibida y distinguir dónde empieza y termina cada unidad de información. Esto ocurre en más de un nivel de granularidad: tanto a nivel de cada bit individual como a nivel del bloque completo de datos, dando lugar a la sincronización de bits y a la sincronización de trama respectivamente.
 
-- **Sincronización de bits:** Le dice al receptor exactamente cuándo empieza y termina cada bit individual.
-- **Sincronización de trama:** Le dice al receptor dónde empieza y dónde termina el bloque completo de bits (la trama), es decir, cuándo arranca y cuándo termina el mensaje entero.
-- **La diferencia:** la sincronización de bits pasa muchas veces por segundo (una por cada bit), mientras que la sincronización de trama pasa una sola vez por cada bloque de datos completo.
+- **Sincronización de bits:** le indica al receptor el instante exacto en que inicia y termina cada bit, y a qué velocidad llegan, para que pueda muestrearlos en el momento correcto y evitar pérdidas o mezclas de información.
+- **Sincronización de trama:** le indica al receptor dónde empieza y dónde termina el bloque completo de bits (la trama), es decir, cuándo arranca y cuándo termina el mensaje entero.
+- **La diferencia:** la sincronización de bits ocurre muchas veces por segundo (una por cada bit), mientras que la sincronización de trama ocurre una sola vez por cada bloque de datos completo.
 
 ### b)
 
@@ -193,7 +193,7 @@ La trama correspondiente a **WireGuardians** se localiza mediante la etiqueta `w
 | --- | --- | ---: | ---: | ---: | --- |
 | WireGuardians | `wireg` | 1101 | 25 | 3 | `Lnw` |
 
-Al ser `SEQ` 25 —el número de secuencia más alto de todo el archivo— nuestra carga útil es la que cierra el mensaje: los tres últimos caracteres del enlace reconstruido.
+Al ser `SEQ` 25 (el número de secuencia más alto de todo el archivo) nuestra carga útil es la que cierra el mensaje: los tres últimos caracteres del enlace reconstruido.
 
 ### Observaciones
 
@@ -201,4 +201,4 @@ Al ser `SEQ` 25 —el número de secuencia más alto de todo el archivo— nuest
 - Tres tramas presentan anomalías que impiden una extracción totalmente automática: los `SEQ` 7 y 10 llegan con valores corruptos (`0x20` y `0x0d` en lugar de `0x07` y `0x0a`) y la trama del `SEQ` 12 tiene bytes de relleno intercalados antes de su header.
 - El grupo `Bitless` no tiene ninguna trama en el archivo, `NetRunners` es el único con dos, y aparece una etiqueta `ferne` que no figura en la planilla compartida.
 
-El detalle completo —tabla de las 25 tramas con offset, `SEQ`, `LENGTH` y payload de cada grupo, y la descripción de cada función del programa— está en [`Ejercicio_5.md`](extraccion-de-payloads/Ejercicio_5.md).
+El detalle completo (tabla de las 25 tramas con offset, `SEQ`, `LENGTH` y payload de cada grupo, y la descripción de cada función del programa) está en [`Ejercicio_5.md`](extraccion-de-payloads/Ejercicio_5.md).
