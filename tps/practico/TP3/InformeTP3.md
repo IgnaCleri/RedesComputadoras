@@ -51,4 +51,36 @@
 
 ## Consigna 4
 
+![Comunicacion con el servidor](imagenes/image.png)
 
+
+![Captura de paquetes en Wireshark](imagenes/image-1.png)
+
+
+| Nombre | Seq | Payload |
+|--------|-----|---------|
+|#hiddenSSID| 1   | ht      |
+|Auracast| 2   | tp      |
+|BitBros| 3   | s:      |
+|Bitless| 4   | //      |
+|ClickByte| 5   | ww      |
+|Death Net| 6   | w.      |
+|Fernet Modulation| 7   | yo      |
+|Group Not Found :(| 8   | u       |
+|Grupo| 9   | t       |
+|LA LA LAN| 10  | ub      |
+|LAN-gustia| 11  | e       |
+|Los Red(ondos)| 12  | .c      |
+|Los simuLANdores| 13  | om      |
+|Los_CondIPcionales| 14  | /w      |
+|Los-Tios-Networks| 15  | a       |
+|Lost-Pointer-2.4| 16  | t       |
+|MACac OS| 17  | ch      |
+|MiLANesas| 18  | ?       |
+|NetRunners| 19  | v=      |
+|PandaBasic| 20  | d       |
+|Ping Floyd| 21  | Qw      |
+|Red Hot Chilli Packets| 22  | 4w      |
+|TCPanico| 23  | 9W      |
+|WAN-direction| 24  | gX      |
+|WireGuardians| 25  | cQ      |
