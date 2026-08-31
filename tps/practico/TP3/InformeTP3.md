@@ -85,8 +85,7 @@ conversación con el servidor. Sobre los paquetes capturados se puede observar:
 - Los números de secuencia y de acuse avanzan exactamente en la cantidad de bytes
   transportados: `Seq=1 Len=5` (`hola\r`) → el servidor responde con `Ack=6` y `Len=8`
   (`hola :)\n`), y así sucesivamente hasta `Seq=25 Ack=35`
-- El detalle del *frame* 182 muestra el encapsulamiento completo de las capas vistas en el
-  práctico: **Ethernet II** (Src `00:e0:4c:68:0e:87`) → **IPv4** (Src `192.168.0.106`,
+- El detalle del *frame* 182 muestra el encapsulamiento completo de las capas **Ethernet II** (Src `00:e0:4c:68:0e:87`) → **IPv4** (Src `192.168.0.106`,
   Dst `34.136.251.235`) → **TCP** (Src Port `40527`, Dst Port `5555`) → **Data (5 bytes)**.
 - En el panel de bytes se lee la carga útil en claro: `hola\r`.
 
@@ -155,6 +154,8 @@ Wireshark confirma que la conversación quedó registrada íntegramente:
 
 Al reunir realizar el experimento con el nombre de todos los demas grupos  y ordenarlos por número de secuencia, los fragmentos se concatenan reconstruyendo el mensaje oculto que el servidor repartió entre todos los grupos:
 
+[Link de Resultado nada sospechoso](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+
 
 | Nombre | Seq | Payload |
 |--------|-----|---------|
@@ -184,9 +185,6 @@ Al reunir realizar el experimento con el nombre de todos los demas grupos  y ord
 |WAN-direction| 24  | gX      |
 |WireGuardians| 25  | cQ      |
 
-Concatenando los payloads en orden de secuencia se obtiene:
 
-
-[Link de Resultado nada sospechoso](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
 
 
