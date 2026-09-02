@@ -92,6 +92,15 @@ Vale la pena notar que el destino **no** es el servidor remoto (`datadoghq.com`,
 
 ### b)
 
+Dentro de la misma trama, se expandió la sección **Internet Protocol Version 4** del panel de detalle, donde está encapsulado el paquete IP:
+
+| Campo | Dirección IP |
+| --- | --- |
+| **Source Address** | `192.168.0.163` |
+| **Destination Address** | `34.149.66.165` |
+
+La dirección de origen es la IP privada que el router le asignó a esta computadora dentro de la red local, osea, la misma máquina identificada por la MAC de origen en el punto a). La dirección de destino es la IP pública del servidor remoto al que se dirige la conexión: en este caso, el servidor de Datadog cuyo nombre (`http-intake.logs.us5.datadoghq.com`) ya se había visto en el campo SNI del *Client Hello* de TLS.
+
 ### c)
 
 ### d)
