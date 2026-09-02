@@ -48,6 +48,19 @@ Un cable de fibra óptica tiene forma cilíndrica y está compuesto por tres sec
 
 ## 4.5. ¿Qué ventajas y desventajas tiene la transmisión de microondas?
 
+**Ventajas:**
+
+- Para una distancia dada, requiere menos repetidores o amplificadores que el cable coaxial.
+- Su atenuación crece con el cuadrado de la distancia, no exponencialmente como en el par trenzado o el coaxial, por lo que los repetidores pueden espaciarse mucho más: entre 10 km y 100 km, frente a los pocos km de los medios guiados.
+- A mayor frecuencia utilizada, mayor ancho de banda potencial y, por lo tanto, mayor velocidad de transmisión alcanzable.
+- A frecuencias más altas, las antenas necesarias son más pequeñas y más económicas.
+
+**Desventajas:**
+
+- Exige que las antenas estén perfectamente alineadas entre sí, siguiendo la línea visual directa, y montadas de forma rígida.
+- La atenuación aumenta con la lluvia, un efecto especialmente marcado por encima de los 10 GHz.
+- Al ser un medio cada vez más popular, las áreas de cobertura tienden a solaparse, generando riesgo de interferencias, lo que exige una regulación estricta en la asignación de bandas.
+
 ## 4.6. ¿Qué es la difusión directa por satélite (DBS, Direct Broadcast Satellite)?
 
 ## 4.7. ¿Por qué un satélite debe usar frecuencias ascendentes y descendentes distintas?
