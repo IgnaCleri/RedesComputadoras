@@ -67,6 +67,8 @@ DBS es la aplicación más reciente de la tecnología satelital a la televisión
 
 ## 4.7. ¿Por qué un satélite debe usar frecuencias ascendentes y descendentes distintas?
 
+Porque un satélite no puede transmitir y recibir simultáneamente en el mismo rango de frecuencias sin generar interferencia entre ambas señales: si usara la misma banda para el canal ascendente (estación terrestre → satélite) y el descendente (satélite → estación terrestre), la propia retransmisión del satélite se mezclaría con la señal entrante. Por eso, la señal recibida en una frecuencia dada debe reenviarse necesariamente en una frecuencia distinta.
+
 ## 4.8. Indique las diferencias más significativas entre la difusión de radio y las microondas.
 
 ## 4.9. ¿Qué dos funciones realiza una antena?
