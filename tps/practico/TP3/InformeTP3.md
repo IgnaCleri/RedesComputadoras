@@ -19,6 +19,24 @@
 
 ### a)
 
+La ISO adoptó, para el diseño de OSI, el principio de división en capas: las funciones de comunicación se organizan en un conjunto jerárquico en el que cada capa se apoya en los servicios de la capa inmediatamente inferior y, a su vez, ofrece servicios a la capa superior, ocultándole los detalles de implementación. Esta separación permite que un cambio dentro de una capa no repercuta sobre el resto de la arquitectura.
+
+Dentro de esa jerarquía, la **capa de enlace de datos** se ubica inmediatamente por encima de la capa física. Mientras que la capa física se limita a transmitir bits crudos por el medio —sin garantizar una tasa de error aceptable—, la capa de enlace existe para **fiabilizar ese enlace físico**. Concretamente, le presta a la capa de red los siguientes servicios:
+
+- **Activación, mantenimiento y desactivación del enlace**: gestiona el ciclo de vida de la conexión punto a punto sobre el medio físico.
+- **Detección y control de errores**: su servicio principal. Si el protocolo de enlace funciona correctamente, la capa superior puede asumir que la transmisión sobre *ese* enlace está libre de errores.
+- **Estructuración en tramas**: organiza los bits en unidades delimitadas (tramas), en lugar del flujo continuo de bits que maneja la capa física.
+
+#### Flujo de la información
+
+La capa de enlace recibe de la capa de red (capa 3) el paquete a transmitir y le añade una cabecera y una cola (encapsulado), formando una **trama**. Esa trama se entrega a la capa física para su transmisión como una secuencia de bits sobre el medio. En el extremo receptor ocurre el proceso inverso: la capa física entrega los bits recibidos, la capa de enlace reconstruye la trama, verifica y retira su cabecera y su cola, y entrega el paquete resultante a la capa de red.
+
+#### Tipo de comunicación que resuelve
+
+La capa de enlace resuelve la comunicación **entre dos sistemas conectados directamente**, a través de un único enlace físico. De hecho, en ese caso puntual ni siquiera hace falta una capa de red: la propia capa de enlace alcanza para gestionar el enlace.
+
+Cuando los sistemas **no** están conectados de forma directa, la ruta se compone de varios enlaces de datos en serie, cada uno operando de forma independiente (cada salto tiene su propia capa de enlace y su propia capa física). Esto tiene una consecuencia importante: la garantía de "transmisión libre de errores" que ofrece la capa de enlace es válida únicamente **por tramo**, no de punta a punta. La capa superior no queda liberada de la responsabilidad del control de errores a lo largo de todo el camino — esa es justamente la función que cumple la capa de red, que aparece recién cuando hace falta encaminar información a través de nodos intermedios.
+
 ### b)
 
 ### c)
