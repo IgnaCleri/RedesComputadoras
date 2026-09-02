@@ -63,6 +63,8 @@ Un cable de fibra óptica tiene forma cilíndrica y está compuesto por tres sec
 
 ## 4.6. ¿Qué es la difusión directa por satélite (DBS, Direct Broadcast Satellite)?
 
+DBS es la aplicación más reciente de la tecnología satelital a la televisión, en la que la señal de video se transmite directamente desde el satélite a los domicilios de los usuarios, sin pasar por estaciones terrestres intermedias que redistribuyan la programación. Se volvió económicamente viable gracias a la reducción en costo y tamaño de las antenas receptoras domésticas, lo que a su vez permitió aumentar la cantidad de canales disponibles.
+
 ## 4.7. ¿Por qué un satélite debe usar frecuencias ascendentes y descendentes distintas?
 
 ## 4.8. Indique las diferencias más significativas entre la difusión de radio y las microondas.
