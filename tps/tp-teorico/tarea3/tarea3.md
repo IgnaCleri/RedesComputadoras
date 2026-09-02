@@ -56,7 +56,16 @@ Un cable de fibra óptica tiene forma cilíndrica y está compuesto por tres sec
 
 ## 4.9. ¿Qué dos funciones realiza una antena?
 
+Una antena es un conductor eléctrico (o un conjunto de conductores) que sirve para radiar o captar energía electromagnética, y cumple dos funciones opuestas:
+
+- **Transmitir**: convierte la energía eléctrica que le llega del transmisor en energía electromagnética, y la radia hacia el entorno cercano (la atmósfera, el espacio o el agua).
+- **Recibir**: captura energía electromagnética del entorno y la convierte en energía eléctrica, que entrega al receptor.
+
+En comunicaciones bidireccionales suele usarse la misma antena para ambas funciones, ya que sus características de transferencia de energía son idénticas en los dos sentidos, transmitiendo o recibiendo, siempre que se use la misma frecuencia.
+
 ## 4.10. ¿Qué es una antena isotrópica?
+
+Es una antena ideal, sin equivalente físico real, definida como un punto en el espacio que radia potencia de igual forma en todas las direcciones. Su diagrama de radiación (la representación gráfica de cómo radia potencia según la dirección) es, por lo tanto, una esfera perfecta centrada en la posición de la antena. Al ser el caso más simple e igual en todas direcciones, se usa como referencia para medir la ganancia de otras antenas reales.
 
 # Bibliografía
 
