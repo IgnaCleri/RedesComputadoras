@@ -76,6 +76,19 @@ De la lista filtrada se seleccionó el paquete N.º 35 (`Client Hello`, dirigido
 ![Detalle del paquete 35: capas Ethernet II, IPv4 y TCP](imagenes/image-3.png)
 
 ### a)
+Se expandió la sección **Ethernet II** del panel de detalle, donde figuran las direcciones MAC de origen y destino de la trama:
+
+| Campo | Dirección MAC | Fabricante (OUI) |
+| --- | --- | --- |
+| **Source** | `58:11:22:48:01:66` | ASUSTek Computer |
+| **Destination** | `f0:81:75:35:a4:4f` | Sagemcom Broadband |
+
+Wireshark resuelve automáticamente los primeros tres bytes de cada dirección MAC (el OUI, *Organizationally Unique Identifier*) contra el fabricante registrado de la tarjeta de red, lo que da una pista directa sobre a qué dispositivo pertenece cada una:
+
+- La dirección **origen** corresponde a la **placa de red de la propia computadora** que realizó la captura (interfaz `enp7s0`): el fabricante ASUS es consistente con el hardware de esta máquina.
+- La dirección **destino** corresponde al **router/módem del hogar**: Sagemcom es un fabricante conocido de equipos de acceso (módems/routers) entregados por proveedores de internet.
+
+Vale la pena notar que el destino **no** es el servidor remoto (`datadoghq.com`, IP `34.149.66.165`): como se estableció en el punto 1-b, la dirección MAC solo tiene validez dentro del propio segmento de LAN. La computadora no conoce la MAC de un servidor ubicado en otra red; solo conoce la del siguiente salto dentro de su propia red local, que es el router. Es este último quien luego se encarga de reenviar el paquete hacia internet.
 
 ### b)
 
