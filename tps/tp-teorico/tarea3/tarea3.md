@@ -71,6 +71,13 @@ Porque un satélite no puede transmitir y recibir simultáneamente en el mismo r
 
 ## 4.8. Indique las diferencias más significativas entre la difusión de radio y las microondas.
 
+- **Direccionalidad**: las ondas de radio son omnidireccionales, mientras que las microondas tienen un diagrama de radiación mucho más direccional. Por eso las ondas de radio no requieren antenas parabólicas ni montajes rígidos para mantener la alineación, a diferencia de las microondas.
+- **Rango de frecuencias**: las ondas de radio (en el sentido informal usado aquí, VHF y parte de UHF) ocupan de 30 MHz a 1 GHz, un rango bastante más bajo que el de las microondas terrestres (1 a 40 GHz).
+- **Sensibilidad a la lluvia**: las microondas se ven significativamente afectadas por la atenuación por lluvia, sobre todo por encima de los 10 GHz; las ondas de radio son mucho menos sensibles a este efecto.
+- **Atenuación con la distancia**: ambas siguen la misma relación con la distancia, pero al tener una longitud de onda mayor, las ondas de radio sufren, en términos relativos, menor atenuación que las microondas.
+- **Aplicación característica**: la naturaleza omnidireccional de las ondas de radio las hace ideales para difusión simultánea a múltiples destinos (por ejemplo, radio FM o TV VHF/UHF); las microondas, en cambio, se usan típicamente para enlaces punto a punto, ya que necesitan que ambas antenas estén alineadas entre sí.
+- **Interferencia característica**: las ondas de radio son propensas a interferencias por multitrayectoria (reflexiones en el suelo, el mar u otros objetos, que pueden generar imágenes fantasma en receptores de TV); las microondas, en cambio, son más susceptibles a interferencias por solapamiento de áreas de cobertura entre enlaces cercanos.
+
 ## 4.9. ¿Qué dos funciones realiza una antena?
 
 Una antena es un conductor eléctrico (o un conjunto de conductores) que sirve para radiar o captar energía electromagnética, y cumple dos funciones opuestas:
