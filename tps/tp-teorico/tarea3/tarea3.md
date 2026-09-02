@@ -35,7 +35,16 @@ La diferencia está en si el par de cables está protegido o no por una malla me
 
 - **Par trenzado no apantallado (UTP, *Unshielded Twisted Pair*)**: es el más común, sobre todo en telefonía. Es el medio de transmisión más económico de todos, y también el más simple de instalar y manipular, pero al no tener protección adicional resulta más vulnerable a interferencias electromagnéticas externas, incluyendo las de pares cercanos o fuentes de ruido próximas.
 - **Par trenzado apantallado (STP, *Shielded Twisted Pair*)**: el par de cables se recubre con una malla metálica que reduce las interferencias externas. Esto le permite ofrecer mejores prestaciones a velocidades de transmisión más altas, a cambio de ser más costoso y más difícil de manipular que el UTP.
+
 ## 4.4. Describir los principales componentes del cable de fibra óptica.
+
+La fibra óptica es un medio flexible y muy delgado (entre 2 y 125 μm), capaz de confinar un haz de luz en su interior. Se puede fabricar con distintos materiales, con una relación directa entre costo y pérdidas: las fibras de silicio ultrapuro fundido son las que menos pérdidas presentan, pero también las más difíciles de fabricar; las fibras de cristal multicomponente son más económicas a cambio de mayores pérdidas; y las fibras de plástico son las más baratas de todas, aptas para enlaces cortos donde son aceptables pérdidas más altas.
+
+Un cable de fibra óptica tiene forma cilíndrica y está compuesto por tres secciones concéntricas:
+
+- **Núcleo**: la sección más interna, formada por una o varias fibras de cristal o plástico, con un diámetro de entre 8 y 100 μm. Es por donde efectivamente viaja el haz de luz.
+- **Revestimiento**: rodea a cada fibra individualmente. Es también cristal o plástico, pero con propiedades ópticas distintas a las del núcleo. La frontera entre núcleo y revestimiento actúa como un reflector que confina el haz de luz dentro del núcleo, sin el cual la luz escaparía.
+- **Cubierta**: la capa más exterior, que envuelve a uno o varios revestimientos. Está hecha de plástico y otros materiales dispuestos en capas, con una función puramente de protección física: contra la humedad, la abrasión, aplastamientos y otros daños.
 
 ## 4.5. ¿Qué ventajas y desventajas tiene la transmisión de microondas?
 
