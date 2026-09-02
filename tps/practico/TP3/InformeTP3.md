@@ -139,6 +139,8 @@ El **EtherType** es el campo que le indica al receptor qué protocolo de capa su
 
 ### a)
 
+Ethernet e IP proporcionan un servicio de "mejor esfuerzo" (best-effort), sin conexión y no confiable en donde los datos pueden perderse, desordenarse o dañarse durante la transmisión. TCP resuelve esto en la capa de transporte convirtiendo ese canal imperfecto en una comunicación confiable, orientada a conexión y estrictamente ordenada entre aplicaciones.
+
 ### b)
 
 ### c)
