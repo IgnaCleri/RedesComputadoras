@@ -60,8 +60,19 @@ La diferencia se nota en lo que ocurre en cada salto del camino origen-destino:
 En definitiva, la dirección MAC resuelve el direccionamiento **dentro de un único enlace o segmento físico** (coherente con el alcance de la capa de enlace descripto en el punto a), mientras que la dirección IP resuelve el direccionamiento **de punta a punta**, a través de una o varias redes interconectadas.
 
 ### c)
+Que es una trama ethernet?
+Una trama Ethernet es la unidad básica de datos (PDU) que se envía a través de una red local (LAN) en la capa de enlace de datos. Es el que empaqueta los datos reales para llevarlos de una tarjeta de red a otra mediante direcciones físicas MAC.
 
+| Campo | Tamaño | Funcion |  
+|--- |--- | --- |
+| Preambulo y SFD | 8 bytes | Sincroniza el reloj receptor e indica el inicio exacto de la trama |
+| MAC Destino| 6 bytes  | Direccion fisica del dispositivo que debe recibir el paquete|
+| MAC origen| 6 bytes  | Direccion fisica del la tarjeta de red que envia el paquete |
+|  EtherType / Longitud| 2 bytes| Identifica el protocolo de capa superior|
+| Datos |  46 a 15000 bytes| La informacion real transportada |
+| FCS (CRC)| 4 bytes|Secuencia de verificacion para detectar si la trama llego corrupta |
 ### d)
+El EtherType es el campo de la trama que perimite identificar el protocolo de la capa superior. 
 
 ## Consigna 2
 
