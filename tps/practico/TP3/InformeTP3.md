@@ -116,6 +116,14 @@ Esto confirma, con datos reales, lo planteado en el punto 1-b): la dirección MA
 
 ### d)
 
+Dentro de la sección **Ethernet II** ya expandida en el punto a), el último campo es **Type**:
+
+```
+Type: IPv4 (0x0800)
+```
+
+El **EtherType** es el campo que le indica al receptor qué protocolo de capa superior viene encapsulado inmediatamente después de la cabecera Ethernet, para que sepa con qué reglas interpretar el resto de la trama. El valor `0x0800` es el código reservado para **IPv4**, y coincide exactamente con lo encontrado en el punto b): el paquete encapsulado en esta trama es, en efecto, un paquete **Internet Protocol Version 4**.
+
 ## Consigna 3
 
 ### a)
