@@ -65,6 +65,16 @@ En definitiva, la dirección MAC resuelve el direccionamiento **dentro de un ún
 
 ## Consigna 2
 
+### Captura de tráfico
+
+Se generó tráfico real navegando a GitHub desde el navegador, mientras Wireshark capturaba sobre la interfaz `enp7s0`. Para aislar la conversación de interés se aplicó el filtro de visualización `tls`:
+
+![Paquetes TLS capturados, filtrados con `tls`](imagenes/image-2.png)
+
+De la lista filtrada se seleccionó el paquete N.º 35 (`Client Hello`, dirigido a `34.149.66.165`) para analizar en detalle sus distintas capas:
+
+![Detalle del paquete 35: capas Ethernet II, IPv4 y TCP](imagenes/image-3.png)
+
 ### a)
 
 ### b)
