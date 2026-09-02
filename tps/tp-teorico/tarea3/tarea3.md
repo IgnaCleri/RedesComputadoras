@@ -22,6 +22,13 @@ Además, al ser dos conductores trenzados entre sí y muy próximos, ambos queda
 
 ## 4.2. ¿Cuáles son las limitaciones del par trenzado?
 
+Comparado con otros medios guiados (cable coaxial y fibra óptica), el par trenzado presenta varias limitaciones:
+
+- **Menor ancho de banda, distancia y velocidad de transmisión**: su rango de frecuencias útil (hasta 1 MHz para cables multipar) y la separación entre repetidores (apenas 2 km) son mucho menores que los del cable coaxial (hasta 500 MHz, repetidores cada 1-9 km) o la fibra óptica (hasta 370 THz, repetidores cada 40 km).
+- **Atenuación fuertemente dependiente de la frecuencia**: a mayor frecuencia de la señal, mayor es la pérdida de energía por unidad de longitud.
+- **Alta susceptibilidad a interferencias y ruido**: al acoplarse fácilmente con campos electromagnéticos externos, un par trenzado tendido en paralelo a una línea de alta tensión, por ejemplo, capta la energía de 50/60 Hz de esa línea. También es vulnerable al ruido impulsivo.
+- **Necesidad frecuente de regeneración de la señal**: para transmisión analógica requiere amplificadores cada 5-6 km, y para transmisión digital, repetidores cada 2-3 km, un espaciado mucho más corto que el de otros medios guiados.
+
 ## 4.3. ¿Cuál es la diferencia entre el par trenzado no apantallado y el par trenzado apantallado?
 
 ## 4.4. Describir los principales componentes del cable de fibra óptica.
