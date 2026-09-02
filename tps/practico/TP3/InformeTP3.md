@@ -103,6 +103,17 @@ La dirección de origen es la IP privada que el router le asignó a esta computa
 
 ### c)
 
+Comparando los cuatro valores obtenidos en los puntos a) y b):
+
+| | MAC | IP |
+| --- | --- | --- |
+| **Origen** | `58:11:22:48:01:66` (esta PC) | `192.168.0.163` (esta PC) |
+| **Destino** | `f0:81:75:35:a4:4f` (el router de casa) | `34.149.66.165` (el servidor de Datadog) |
+
+**No representan lo mismo.** Del lado del origen coinciden en apuntar al mismo dispositivo físico (esta computadora), simplemente porque la trama analizada corresponde al primer tramo de la conexión, todavía dentro de la LAN. Pero del lado del destino la diferencia es evidente: la MAC destino es la del **router**, mientras que la IP destino es la del **servidor remoto final**. Si se capturara esta misma conexión en cualquier otro punto más adelante del camino (por ejemplo, del otro lado del router), la IP destino seguiría siendo `34.149.66.165`, pero la MAC destino ya sería otra completamente distinta.
+
+Esto confirma, con datos reales, lo planteado en el punto 1-b): la dirección MAC identifica un punto de conexión físico válido solo dentro del segmento de LAN actual (cambia en cada salto), mientras que la dirección IP identifica al sistema final de la comunicación y se mantiene constante a lo largo de toda la ruta.
+
 ### d)
 
 ## Consigna 3
