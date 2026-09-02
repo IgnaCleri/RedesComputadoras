@@ -38,6 +38,26 @@ La capa de enlace resuelve la comunicación **entre dos sistemas conectados dire
 Cuando los sistemas **no** están conectados de forma directa, la ruta se compone de varios enlaces de datos en serie, cada uno operando de forma independiente (cada salto tiene su propia capa de enlace y su propia capa física). Esto tiene una consecuencia importante: la garantía de "transmisión libre de errores" que ofrece la capa de enlace es válida únicamente **por tramo**, no de punta a punta. La capa superior no queda liberada de la responsabilidad del control de errores a lo largo de todo el camino — esa es justamente la función que cumple la capa de red, que aparece recién cuando hace falta encaminar información a través de nodos intermedios.
 
 ### b)
+Tanto la dirección MAC como la dirección IP identifican a un dispositivo dentro de una red, pero operan en capas distintas de la arquitectura de protocolos y resuelven problemas distintos.
+
+#### ¿Qué es una dirección MAC?
+
+La dirección MAC (*Media Access Control*) es el identificador que usa la **subcapa MAC**, dentro de la capa de enlace de datos, para reconocer el **punto de conexión físico** de un dispositivo en una LAN. Cada trama MAC incluye una dirección de origen y una de destino, que identifican respectivamente la interfaz física que emite y la que debe recibir esa trama.
+
+Es una dirección de alcance **local**: solo tiene significado dentro del segmento de LAN en el que se transmite la trama, no viaja más allá del primer salto.
+
+#### ¿Qué es una dirección IP?
+
+La dirección IP es el identificador que usa la **capa de red** (capa internet en el modelo TCP/IP) para reconocer a un **sistema final** (computador) dentro del conjunto de redes interconectadas, y es la que habilita el servicio de encaminamiento a través de varias redes. A diferencia de la MAC, la dirección IP se implementa tanto en los sistemas finales como en los encaminadores (*routers*) intermedios, y es justamente la que estos últimos consultan para decidir hacia qué red reenviar cada paquete.
+
+#### Diferencia principal
+
+La diferencia se nota en lo que ocurre en cada salto del camino origen-destino:
+
+- La **dirección IP** de destino permanece igual durante todo el trayecto: identifica al computador final y es la referencia que usa cada encaminador intermedio para decidir el próximo salto.
+- La **dirección MAC**, en cambio, cambia en cada salto: identifica únicamente el próximo punto de conexión físico dentro del segmento de LAN actual. Al llegar a un encaminador intermedio, éste retira la cabecera de acceso a la red (con las direcciones MAC de ese salto) y agrega una nueva cabecera con nuevas direcciones MAC para reenviar el paquete por la siguiente subred, mientras que la dirección IP de destino dentro del datagrama se mantiene sin cambios.
+
+En definitiva, la dirección MAC resuelve el direccionamiento **dentro de un único enlace o segmento físico** (coherente con el alcance de la capa de enlace descripto en el punto a), mientras que la dirección IP resuelve el direccionamiento **de punta a punta**, a través de una o varias redes interconectadas.
 
 ### c)
 
