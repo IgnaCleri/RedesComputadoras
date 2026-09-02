@@ -31,6 +31,10 @@ Comparado con otros medios guiados (cable coaxial y fibra óptica), el par trenz
 
 ## 4.3. ¿Cuál es la diferencia entre el par trenzado no apantallado y el par trenzado apantallado?
 
+La diferencia está en si el par de cables está protegido o no por una malla metálica adicional:
+
+- **Par trenzado no apantallado (UTP, *Unshielded Twisted Pair*)**: es el más común, sobre todo en telefonía. Es el medio de transmisión más económico de todos, y también el más simple de instalar y manipular, pero al no tener protección adicional resulta más vulnerable a interferencias electromagnéticas externas, incluyendo las de pares cercanos o fuentes de ruido próximas.
+- **Par trenzado apantallado (STP, *Shielded Twisted Pair*)**: el par de cables se recubre con una malla metálica que reduce las interferencias externas. Esto le permite ofrecer mejores prestaciones a velocidades de transmisión más altas, a cambio de ser más costoso y más difícil de manipular que el UTP.
 ## 4.4. Describir los principales componentes del cable de fibra óptica.
 
 ## 4.5. ¿Qué ventajas y desventajas tiene la transmisión de microondas?
