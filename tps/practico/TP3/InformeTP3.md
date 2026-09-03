@@ -143,7 +143,116 @@ El **EtherType** es el campo que le indica al receptor qué protocolo de capa su
 
 ### c)
 
+### Three-Way Handshake (establecimiento de conexión)
+
+El Three-Way Handshake es un proceso que se realiza antes del envío de datos el cual permite establecer conexión segura entre cliente y servidor, consta de 3 pasos los cuales son:
+
+**Paso 1 - SYN:** El cliente [C] envía un segmento con el flag SYN [Seq] activado, indicando su número de secuencia inicial.
+
+`C → S: Seq = X`
+
+**Paso 2 - SYN + ACK:** El servidor [S] responde con un segmento que tiene activados SYN [Seq] y ACK [Ack] al mismo tiempo, para confirmar que
+- Confirma haber recibido el SYN del cliente con una flag en ACK: $Ack = X + 1$
+- Envía su propio número de secuencia inicial: $Seq = Y$
+    
+`S → C: Seq = Y, Ack = X + 1`
+
+**Paso 3 - ACK:** El cliente [C] confirma el SYN [Seq] del servidor y envía un paquete ACK [Ack], lo cual confirma la conexión y queda establecida para la transferencia de datos:
+
+`C → S: Ack = Y + 1`
+
+Si los dos extremos emiten SYN cruzados, no se produce ningún problema, ambos lados
+responden con SYN/ACK
+
+### Four-Way Handshake (cierre de conexión)
+
+El Four-Way Handshake es un proceso que permite cerrar la conexión entre cliente y servidor de manera segura. Ya que el TCP es full-duplex (los datos viajan en ambas direcciones de forma independiente) se requiere que cada lado cierre su parte de la conexión, es por eso que consta de 4 pasos, los cuales son:
+
+**Paso 1- FIN:** El cliente no necesita transmitir más datos y envía un segmento con el flag FIN [Seq], para indicar el cierre en ese sentido.
+
+`C → S: Seq = X`
+
+**Paso 2 - ACK:** El servidor recibe el FIN [Seq] y en este punto el cliente ya no puede enviar más datos, pero el servidor todavía puede seguir enviando, y responde con un paquete ACK [Ack], lo cual confirma la solicitud de cierre del cliente.
+
+`S → C: Ack = X + 1`
+
+**Paso 3 - FIN:** Una vez el servidor también termina de enviar sus datos, también envía un segmento con el flag FIN [Seq] para informar su cierre de conexión.
+
+`S → C: Seq = Y`
+
+**Paso 4 - ACK:** El cliente confirma el FIN del servidor enviando un ACK [Ack] final, y de esa forma la conexión queda totalmente cerrada en ambas direcciones.
+
+`C → S: Ack = Y + 1`
+
+## Packet sender
+
+### Instancia del cliente
+
+![Instancia del cliente packet sender](imagenes/packet_sender_cli.jpg)
+
+### Instancia del servidor
+
+![Instancia del servidor packet sender](imagenes/packet_sender_ser.jpg)
+
+### Puerto del cliente -  61414
+### Puerto del servidor - 61373
+
+<br>
+
+## Wireshark
+
+![inicio wireshark](imagenes/wireshark_setup.jpg)
+
+Hacemos doble click a Adapter for loopback traffic capture para empezar a capturar
+
+Haciendo uso del filtro `tcp.dstport == 61373` podemos observar los paquetes que tienen como destino el puerto elegido, eso quiere decir que solo veremos los paquetes que se **reciben**.
+
+![usando el comando tcp.dstport](imagenes/wireshark_dstport.jpg)
+
 ### d)
+
+Teniendo en cuenta el filtro usado en el punto anterior, si queremos observar los paquetes que se **emiten** y **reciben** desde ese puerto se hace uso del filtro `tcp.port == 61373`.
+
+![usando el comando tcp.port](imagenes/wireshark_port.jpg)
+
+<br>
+
+**Three-Way Handshake (establecimiento de conexión)**
+
+| Paquete | Significado |
+| --- | --- |
+| **253** | El cliente pide iniciar la conexión |
+| **254** | El servidor confirma el SYN del cliente y a la vez manda su propio SYN |
+| **255** | El cliente confirma el SYN del servidor. Conexión establecida |
+
+<br>
+
+
+**Paquete de datos: “Hola servidor!”**
+
+| Paquete | Significado |
+| --- | --- |
+| **256** | El cliente envía datos (14 bytes de payload) y pide que se entreguen de inmediato a la aplicación (flag PSH) |
+| **257** | El servidor confirma haber recibido los 14 bytes |
+
+<br>
+
+![paquete 256](imagenes/wireshark_paq_256.jpg)
+
+Podemos observar la siguiente información del paquete
+
+|Campo | Valor |
+| --- | --- |
+| **Paquete** | 256 |
+| **Protocolo** | TCP |
+| **Puerto origen** (cliente) | 61414
+| **Puerto destino** (servidor) | 61373
+| **Flags** | PSH, ACK
+| **Seq/Ack** | Seq = 1, Ack = 1
+| **Longitud de paquete** | 58 bytes
+| **Longitud de payload** | 14 bytes
+| **Payload (ASCII)** | Hola servidor!
+| **Payload (HEX)** | 48 6f 6c 61 20 73 65 72 76 69 64 6f 72 21
 
 ### e)
 
