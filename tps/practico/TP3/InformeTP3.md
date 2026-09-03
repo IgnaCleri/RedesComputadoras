@@ -143,6 +143,21 @@ Ethernet e IP proporcionan un servicio de "mejor esfuerzo" (best-effort), sin co
 
 ### b)
 
+#### Campos más importantes de la metadata en un frame TCP
+
+| Campo | Función |
+|---|---|
+| **Puerto origen / Puerto destino** | Identifican los procesos/aplicaciones en cada extremo de la comunicación. |
+| **Número de secuencia** | Identifica el primer octeto de datos que transporta el segmento. |
+| **Número de confirmación (ACK)** | Indica el próximo octeto de datos que la entidad TCP espera recibir. |
+| **Longitud de cabecera** | Número de palabras de 32 bits de la cabecera. |
+| **Reservado** | Bits reservados para uso futuro. |
+| **Indicadores** | URG, ACK, PSH, RST, SYN, FIN — controlan el estado y comportamiento de la conexión. |
+| **Ventana** | Cantidad de octetos que el receptor está dispuesto a aceptar.|
+| **Suma de comprobación (CRC)** | Detecta errores en el segmento, y se calcula incluyendo una pseudocabecera con datos tomados de la cabecera IP. |
+| **Puntero urgente** | Señala el final de los datos urgentes dentro del segmento (último octeto). |
+| **Opciones** | Campo de longitud variable. Un ejemplo lo constituye la opción que especifica la longitud máxima de segmento que será aceptada.|
+
 ### c)
 
 ### Three-Way Handshake (establecimiento de conexión)
