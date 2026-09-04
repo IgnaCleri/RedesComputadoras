@@ -273,6 +273,30 @@ Podemos observar la siguiente información del paquete
 
 ### e)
 
+Al finalizar la conexión TCP desde PacketSender se captura el  _four-way handshake_:
+
+![four-way handshake](imagenes/wireshark_paq_256_close.jpg)
+
+<br>
+
+**Four-Way Handshake (cierre de conexión)**
+
+| Paquete | Significado |
+| --- | --- |
+| **1078** | El cliente envía un paquete con el flag FIN para cerrar la conexión |
+| **1079** | El servidor confirma el FIN del cliente |
+| **1080** | El servidor envía un paquete con el flag FIN para cerrar su lado de la conexión |
+| **1081** | El cliente confirma el FIN del servidor |
+
+<br>
+
+
+En ciertos casos puede suceder que el server combine los flags FIN y ACK (confirmación del FIN del cliente) en un solo paquete como en el siguiente caso:
+
+![four-way handshake con piggyback](imagenes/wireshark_four_way_handshake_piggyback.png)
+
+Cuando el servidor no tiene datos para enviar, combina las señáles en un solo paquete realizando lo que se conoce como **piggybacking**: se realiza **piggyback** del flag FIN en el paquete que corresponde al ACK, cerrando su lado de la conexión inmediatamente.
+    
 ### f)
 
 ## Consigna 4
@@ -410,7 +434,3 @@ Al reunir realizar el experimento con el nombre de todos los demas grupos  y ord
 |TCPanico| 23  | 9W      |
 |WAN-direction| 24  | gX      |
 |WireGuardians| 25  | cQ      |
-
-
-
-
