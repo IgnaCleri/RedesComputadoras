@@ -1,0 +1,13 @@
+# Versión de las herramientas del repo. Instalar con `mise install` (ver README).
+# typst 0.15.x es la que trae la extensión tinymist 0.15.x de VSCode: si cambiás
+# una, cambiá la otra (tinymist alinea su minor con la de typst).
+[tools]
+typst = "0.15.1"
+
+[tasks.pdf]
+description = "Compila un .typ a PDF: mise run pdf tps/template/main.typ"
+run = "typst compile"
+
+[tasks.watch]
+description = "Recompila al guardar: mise run watch tps/template/main.typ"
+run = "typst watch"
