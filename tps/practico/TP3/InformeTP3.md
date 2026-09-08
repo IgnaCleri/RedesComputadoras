@@ -275,6 +275,12 @@ Podemos observar la siguiente información del paquete
 
 ### f)
 
+En estos casos se observó tráfico entre cliente y servidor TCP desde la misma computadora en la que se realizaban conexiones, pero con la misma facilidad se pueden inspeccionar paquetes que sean recibidos por cualquier interfaz de red que tenga el dispositivo. Con interfaces de red en modo promiscuo esto puede significar incluso inspeccionar paquetes dirigidos a otros dispositivos de la misma red, lo que nos lleva a las siguientes conclusiones:
+- Los paquetes de una red pueden ser interceptados por cualquier individuo que se encuentre en su camino.
+- Una red no es privada gracias a ninguno de los servicios analizados en este trabajo, si no que la privacidad debe ser implementada por protocolos de capas superiores tales como TLS, como la resolución de la consigna 2 muestra (nunca se pudo interpretar el contenido del tráfico entre el cliente y DataDog). Ethernet, IP y TCP proveen corrección de errores e integridad de datos que protegen el tráfico de errores accidentales, pero no de operación intencional.
+- El _sniffing_ puede ser pasivo y no dejar ningun rastro que indique que un paquete fue leido.
+- Los metadatos de las PDU de cada capa son necesarios para poder encaminar los paquetes, pero también permiten rasterarlos. Como se mostró en la consigna 2 es muy fácil identificar la dirección IP de origen y destino de un paquete e incluso direcciones MAC que permiten rastrear hardware.
+
 ## Consigna 4
 
 ### Configuración del cliente
@@ -410,7 +416,3 @@ Al reunir realizar el experimento con el nombre de todos los demas grupos  y ord
 |TCPanico| 23  | 9W      |
 |WAN-direction| 24  | gX      |
 |WireGuardians| 25  | cQ      |
-
-
-
-
