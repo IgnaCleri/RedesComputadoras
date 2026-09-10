@@ -128,6 +128,39 @@ La refracción es el fenómeno físico que ocurre cuando una onda electromagnét
 
 La difracción es fenómeno físicoo en el que una onda se desvía, dobla o esparce al encontrar un obstáculo o al atravesar una abertura pequeña. En cambio la dispersion es el fenomeno en el que una onda se separa en distintas componentes de distinta frecuencia o longitud de onda cuando atraviesan un medio material.
 
+# c) PROBLEMAS
+
+## 4.1
+
+
+### Pregunta
+
+Supóngase que unos datos se almacenan en disquetes de $1,4 Mb$ que pesan $30 g$ cada
+uno y que una compañía aérea transporta $10^4 kg$ de disquetes a una velocidad de $1.000 km/h$
+sobre una distancia de $5.000 km$. ¿Cuál es la velocidad de transmisión en bits por segundo
+de este sistema?
+
+### Respuesta
+
+Primero tenemos que que ver cuantos disquetes se pueden tranportar en cada viaje:
+
+$$ \frac{30g}{(10⁴* 1000)g} = 333333.333$$
+
+Entonces por cada viaje viajan: $$\text{Total de bytes} = 333.333{,}33 \text{ disquetes} \times (1{,}4 \times 10^6 \text{ bytes/disquete}) \approx 4{,}66667 \times 10^{11} \text{ bytes}$$
+
+
+En bits eso seria: $$\text{Total de bits} = 4{,}66667 \times 10^{11} \text{ bytes} \times 8 \text{ bits/byte} \approx 3{,}73333 \times 10^{12} \text{ bits}$$
+
+Ahora el tiempo que le toma el avion para recorrer esa distancia es: $$\text{Tiempo } (t) = \frac{5.000 \text{ km}}{1.000 \text{ km/h}} = 5 \text{ horas}$$
+
+La velocidad de transmision en $bps$ es: 
+
+$$\text{Velocidad} = \frac{3{,}73333 \times 10^{12} \text{ bits}}{5h*3600 \text{s/h}} \approx 207.407.407 \text{ bps}$$
+
+Entonces la velocidad de transmision en Mbps seria: $207,41\text{Mbps}$
+
+
+
 
 # Bibliografía
 
