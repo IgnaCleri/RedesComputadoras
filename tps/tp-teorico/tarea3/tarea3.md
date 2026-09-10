@@ -95,6 +95,27 @@ Es una antena ideal, sin equivalente físico real, definida como un punto en el 
 
 Su geometría consigue un haz paralelo sin dispersión. De igual forma, y en la recepción, si las ondas recibidas entran paralelas al eje de la parábola reflectante, la señal resultante se concentrará en el foco de la antena. Tambien cuanto mayor sea el diámetro de la antena parabólica, más direccional será el haz generado
 
+## 4.12 ¿Qué factores determinan la ganancia de una antena?
+
+Los factores que determinan la ganancia de una antena pueden sacarse de la ecuacion para determinar la ganancia de una antena:
+
+$$ \frac{4\pi A_e}{\lambda²} = \frac{4 \pi f² A_e}{c^2}$$
+
+- $G$: ganancia de la antena.
+
+- $f$: frecuencia de la portadora.
+
+- $c$: velocidad de la luz ( $3 108 m s$).
+
+- $\lambda$: longitud de onda de la portadora
+
+- $A_e$: área efectiva.
+
+el área efectiva de una antena isotrópica ideal es $\frac{\lambda^2}{4\pi}$, siendo la ganancia en potencia igual a 1;
+
+Y el área efectiva de una antena parabólica de área $A$ será $0,56A$, siendo la ganancia en
+potencia igual a $\frac{7A}{\lambda²}$
+
 
 # Bibliografía
 
