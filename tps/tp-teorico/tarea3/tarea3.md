@@ -124,6 +124,9 @@ La principal causa es la pérdida en el espacio libre, la cual es la atenuacion 
 
 La refracción es el fenómeno físico que ocurre cuando una onda electromagnética pasa de un medio con una densidad a otro con una densidad distinta, lo que provoca un cambio en su velocidad y una desviación en su dirección.
 
+## 4.15 ¿Qué diferencia hay entre difracción y dispersión?
+
+La difracción es fenómeno físicoo en el que una onda se desvía, dobla o esparce al encontrar un obstáculo o al atravesar una abertura pequeña. En cambio la dispersion es el fenomeno en el que una onda se separa en distintas componentes de distinta frecuencia o longitud de onda cuando atraviesan un medio material.
 
 
 # Bibliografía
