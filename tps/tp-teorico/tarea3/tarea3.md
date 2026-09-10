@@ -159,6 +159,31 @@ $$\text{Velocidad} = \frac{3{,}73333 \times 10^{12} \text{ bits}}{5h*3600 \text{
 
 Entonces la velocidad de transmision en Mbps seria: $207,41\text{Mbps}$
 
+## 4.2
+
+### Pregunta
+
+Sea una línea telefónica caracterizada por una pérdida de $20 dB$. La potencia de la señal a
+la entrada es de $0,5 W$ y el nivel del ruido a la salida es de $4,5 \mu W$ Calcule la relación
+señal ruido para la línea en $dB$.
+
+
+### Respuesta
+
+$$10 *\log_{10}(\frac{0,5}{P_s}) = 20 \implies 10^2 = \frac{0{,}5}{P_{\text{salida}}} \implies 100 = \frac{0{,}5}{P_{\text{salida}}} \implies P_{\text{salida}} = \frac{0{,}5\text{ W}}{100} = 0{,}005\text{ W} = 5\text{ mW}$$
+
+Entonces la relacion señal ruido va a ser:
+
+$$\text{SNR}_{\text{dB}} = 10 \log_{10}\left(\frac{0{,}005\text{ W}}{4{,}5 \times 10^{-6}\text{ W}}\right) = 10 \log_{10}(1.111{,}11) \approx \mathbf{30{,}46\text{ dB}}$$
+
+## 4.3
+
+### Pregunta
+
+
+
+### Respuesta
+
 
 
 
