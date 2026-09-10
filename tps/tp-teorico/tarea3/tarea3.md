@@ -262,8 +262,19 @@ $$L_{\text{dB}_2} = L_{\text{dB}} + 20 \log_{10}(2) \approx L_{\text{dB}} + 20 \
 
 ### Pregunta
 
+La profundidad en el océano a la que se detectan las señales electromagnéticas generadas desde aeronaves crece con la longitud de onda. Por tanto, los militares encontraron que usando longitudes de onda muy grandes, correspondientes a 30 Hz, podrían comunicarse con cualquier submarino alrededor del mundo. La longitud de las antenas es deseable que sea del orden de la mitad de la longitud de onda. ¿Cuál debería ser la longitud típica de las antenas para operar a esas frecuencias?
 
 ### Respuesta
+
+Para estas antenas la longitud de onda esta dada por:
+
+$$\lambda = \frac{c}{f} \implies \lambda = \frac{3*10⁸\text{m/s}}{30\text{Hz}} = 10.000.000 \text{ m} = 10.000 \text{Km}$$
+
+Como la longitud tiene que ser de el orde de la mitad de la longitud de onda nos queda:
+
+$$\text{Longitud de la antena} = \frac{\lambda}{2} = \frac{10.000\text{ km}}{2} = \mathbf{5.000\text{ km}}$$
+
+
 
 
 
