@@ -331,6 +331,15 @@ $$\lambda = \frac{c}{f} \implies 2\text{m} = \frac{3*10⁸\text{m/s}}{f} \implie
 
 ### Pregunta
 
+En la Sección 4.2 se ha establecido que si una fuente de energía electromagnética se sitúa en el foco de un paraboloide, y que si el paraboloide tiene una superficie reflectante, entonces, la onda se reflejará en líneas paralelas al eje del paraboloide. Para demostrar esto considérese, por ejemplo, la parábola mostrada en la Figura 4.12. Sea $P(x_1, y_1)$ un punto de la parábola y sea $PF$ la línea que une $P$ con el foco. Construya la línea $L$ que pasa por $P$ paralela al eje $x$ y la recta $M$ tangente a la parábola en $P$. El ángulo entre $L$ y $M$ es $\beta$ y el ángulo entre $PF$ y $M$ es $\alpha$. El ángulo $\alpha$ es el ángulo con el que el rayo que pasa por $F$ incide en la parábola en $P$. Debido a que el ángulo de incidencia es igual al ángulo de reflexión, el rayo reflejado por $P$ debe ser igual al ángulo $\alpha$. Por tanto, si se demuestra que $\alpha = \beta$, se habrá demostrado que los rayos que se emitan desde $F$ y sean reflejados por la parábola serán paralelos al eje $x$.
+
+![Parábola de reflexión](./assets/4_12-parabola_de_reflexion.png)
+
+a) Demuestre primero que $\tan \beta = (p/y_1)$. *Sugerencia*: recuérdese de trigonometría que la pendiente de una recta es igual a la tangente del ángulo que forma esa recta con el eje $x$ positivo. Igualmente, recuérdese que la pendiente de una recta tangente a una curva en un punto dado es igual a la derivada de la curva en ese punto.
+
+b) Ahora demuéstrese que $\tan \alpha = (p/y_1)$, lo que demostraría que $\alpha = \beta$. *Sugerencia*: recuérdese de trigonometría que la fórmula de la tangente de la diferencia entre dos ángulos $\alpha_1$ y $\alpha_2$, es
+
+$$\tan(\alpha_2 - \alpha_1) = \frac{\tan \alpha_2 - \tan \alpha_1}{1 + \tan \alpha_2 \times \tan \alpha_1}$$
 
 ### Respuesta
 
