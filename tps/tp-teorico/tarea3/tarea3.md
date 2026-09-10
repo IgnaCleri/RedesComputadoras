@@ -120,6 +120,11 @@ potencia igual a $\frac{7A}{\lambda²}$
 
 La principal causa es la pérdida en el espacio libre, la cual es la atenuacion dada por la distancia entre las antenas emisoras y receptoras. En comunicaciones vía satélite ésta es la principal causa de las pérdidas. Esta perdida se puede expresar en terminos de la potencia radiada $P_t$ y la recibidad $P_r$.
 
+## 4.14 ¿Qué es la refracción?
+
+La refracción es el fenómeno físico que ocurre cuando una onda electromagnética pasa de un medio con una densidad a otro con una densidad distinta, lo que provoca un cambio en su velocidad y una desviación en su dirección.
+
+
 
 # Bibliografía
 
