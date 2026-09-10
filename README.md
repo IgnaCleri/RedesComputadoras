@@ -23,10 +23,45 @@ tps/
 │   └── TP2/
 │       ├── InformeTP2.md
 │       └── RC - TP N2.pdf
-└── tp-teorico/
-    ├── tarea2.md
-    └── imagenes/
+├── tp-teorico/
+│   ├── tarea2.md
+│   └── imagenes/
+└── template/          # plantilla Typst para informes (práctico y teórico)
+    ├── main.typ
+    ├── bibliografia.bib
+    └── assets/
 ```
+
+## Informes en Typst
+
+Los informes se escriben en [Typst](https://typst.app/docs/) partiendo de `tps/template/`:
+
+```
+cp -r tps/template tps/{teorico|practico}/TP{N}
+```
+
+y se completan `asignatura`, `trabajo`, `titulo` y `resumen` al principio de `main.typ`.
+
+### Con VSCode (recomendado)
+
+1. Abrir el repo en VSCode: aparece el aviso de extensiones recomendadas → **Install**. Es [Tinymist](https://marketplace.visualstudio.com/items?itemName=myriad-dreamin.tinymist) (`myriad-dreamin.tinymist`), que trae su propio compilador de Typst: no hace falta instalar nada más.
+2. Usar la versión **0.15.x** de la extensión (probada: 0.15.6). Tinymist alinea su versión *minor* con la de Typst, así que una 0.14.x o 0.16.x compilaría con otro compilador y el informe puede romperse. Para fijarla: engranaje de la extensión → *Install Specific Version...*.
+3. Con un `.typ` abierto: botón de lupa/preview arriba a la derecha para ver el render en vivo. Al guardar se genera el PDF al lado del `.typ` (configurado en `.vscode/settings.json`).
+
+### Por consola
+
+La versión de Typst está fijada en `mise.toml` (hoy `0.15.1`), así que todos compilamos con la misma:
+
+```
+curl https://mise.run | sh     # una sola vez, ver https://mise.jdx.dev
+mise install                   # instala el typst de mise.toml
+mise run pdf tps/template/main.typ     # compila una vez
+mise run watch tps/template/main.typ   # recompila al guardar
+```
+
+Sin `mise` también funciona instalando Typst a mano (`cargo install typst-cli --locked` o el paquete del sistema) **siempre que sea 0.15.x**, y compilando con `typst compile main.typ` / `typst watch main.typ`. Verificar con `typst --version`.
+
+> Typst todavía no tiene un archivo de versión propio ([RFC abierto](https://github.com/typst/typst/issues/5995)), por eso el pin vive en `mise.toml`. Si en el futuro subimos de versión, cambiar `mise.toml` y la versión de la extensión juntas.
 
 ## Horario de cursada
 

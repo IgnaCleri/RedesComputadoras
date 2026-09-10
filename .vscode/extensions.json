@@ -1,0 +1,6 @@
+{
+  // Tinymist: LSP + preview + export a PDF de Typst.
+  // Usar la 0.15.x para que coincida con el typst de mise.toml
+  // (VSCode > extensión > flecha del botón Desinstalar > "Install Specific Version...").
+  "recommendations": ["myriad-dreamin.tinymist"]
+}

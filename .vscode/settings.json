@@ -1,0 +1,9 @@
+{
+  // Genera el PDF al lado del .typ cada vez que se guarda
+  "tinymist.exportPdf": "onSave",
+  "tinymist.formatterMode": "typstyle",
+  "[typst]": {
+    "editor.defaultFormatter": "myriad-dreamin.tinymist",
+    "editor.formatOnSave": true
+  }
+}
