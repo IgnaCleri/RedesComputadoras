@@ -343,6 +343,29 @@ $$\tan(\alpha_2 - \alpha_1) = \frac{\tan \alpha_2 - \tan \alpha_1}{1 + \tan \alp
 
 ### Respuesta
 
+a)
+
+Se busca probar que $\tan \beta = (p/y_1)$. Siguiendo la sugerencia, $\tan \beta$ será igual a la pendiente de la recta $M$.
+
+Dado el foco de la parábola, esta se puede modelar como $y^2 = 2px$. Luego para obtener la recta tangente a la parábola para una abscisa arbitraria se deriva la ecuación en función de $x$:
+
+$$\begin{aligned}
+
+\frac{dy}{dx} y^2 &= \frac{dy}{dx} 2px \\
+2y \frac{dy}{dx}(x)  &= 2p \\
+ \frac{dy}{dx}(x) &= \frac{p}{y}
+
+\end{aligned}$$
+
+La pendiente de la recta $M$ será la pendinte de la recta tangente a la parábola de reflexión en el punto $(x_1, y_1)$, y se obtiene evaluando la ecuación anterior en $x_1$:
+
+$$\frac{dy}{dx}(x_1) = \frac{p}{y_1}$$
+
+luego
+
+$$\tan \beta = \frac{dy}{dx}(x_1) = \frac{p}{y_1}$$
+
+
 ## 4.12
 
 ### Pregunta
