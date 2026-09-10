@@ -116,6 +116,10 @@ el área efectiva de una antena isotrópica ideal es $\frac{\lambda^2}{4\pi}$, s
 Y el área efectiva de una antena parabólica de área $A$ será $0,56A$, siendo la ganancia en
 potencia igual a $\frac{7A}{\lambda²}$
 
+## 4.13 ¿Cuál es la principal causa de la pérdida de señal en comunicaciones vía satélite?
+
+La principal causa es la pérdida en el espacio libre, la cual es la atenuacion dada por la distancia entre las antenas emisoras y receptoras. En comunicaciones vía satélite ésta es la principal causa de las pérdidas. Esta perdida se puede expresar en terminos de la potencia radiada $P_t$ y la recibidad $P_r$.
+
 
 # Bibliografía
 
