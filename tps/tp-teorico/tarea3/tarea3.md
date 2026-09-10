@@ -91,6 +91,229 @@ En comunicaciones bidireccionales suele usarse la misma antena para ambas funcio
 
 Es una antena ideal, sin equivalente físico real, definida como un punto en el espacio que radia potencia de igual forma en todas las direcciones. Su diagrama de radiación (la representación gráfica de cómo radia potencia según la dirección) es, por lo tanto, una esfera perfecta centrada en la posición de la antena. Al ser el caso más simple e igual en todas direcciones, se usa como referencia para medir la ganancia de otras antenas reales.
 
+## 4.11 ¿Cuál es la ventaja de una antena parabólica por reflexión?
+
+Su geometría consigue un haz paralelo sin dispersión. De igual forma, y en la recepción, si las ondas recibidas entran paralelas al eje de la parábola reflectante, la señal resultante se concentrará en el foco de la antena. Tambien cuanto mayor sea el diámetro de la antena parabólica, más direccional será el haz generado
+
+## 4.12 ¿Qué factores determinan la ganancia de una antena?
+
+Los factores que determinan la ganancia de una antena pueden sacarse de la ecuacion para determinar la ganancia de una antena:
+
+$$ \frac{4\pi A_e}{\lambda²} = \frac{4 \pi f² A_e}{c^2}$$
+
+- $G$: ganancia de la antena.
+
+- $f$: frecuencia de la portadora.
+
+- $c$: velocidad de la luz ( $3 108 m s$).
+
+- $\lambda$: longitud de onda de la portadora
+
+- $A_e$: área efectiva.
+
+el área efectiva de una antena isotrópica ideal es $\frac{\lambda^2}{4\pi}$, siendo la ganancia en potencia igual a 1;
+
+Y el área efectiva de una antena parabólica de área $A$ será $0,56A$, siendo la ganancia en
+potencia igual a $\frac{7A}{\lambda²}$
+
+## 4.13 ¿Cuál es la principal causa de la pérdida de señal en comunicaciones vía satélite?
+
+La principal causa es la pérdida en el espacio libre, la cual es la atenuacion dada por la distancia entre las antenas emisoras y receptoras. En comunicaciones vía satélite ésta es la principal causa de las pérdidas. Esta perdida se puede expresar en terminos de la potencia radiada $P_t$ y la recibidad $P_r$.
+
+## 4.14 ¿Qué es la refracción?
+
+La refracción es el fenómeno físico que ocurre cuando una onda electromagnética pasa de un medio con una densidad a otro con una densidad distinta, lo que provoca un cambio en su velocidad y una desviación en su dirección.
+
+## 4.15 ¿Qué diferencia hay entre difracción y dispersión?
+
+La difracción es fenómeno físicoo en el que una onda se desvía, dobla o esparce al encontrar un obstáculo o al atravesar una abertura pequeña. En cambio la dispersion es el fenomeno en el que una onda se separa en distintas componentes de distinta frecuencia o longitud de onda cuando atraviesan un medio material.
+
+# c) PROBLEMAS
+
+## 4.1
+
+
+### Pregunta
+
+Supóngase que unos datos se almacenan en disquetes de $1,4 Mb$ que pesan $30 g$ cada
+uno y que una compañía aérea transporta $10^4 kg$ de disquetes a una velocidad de $1.000 km/h$
+sobre una distancia de $5.000 km$. ¿Cuál es la velocidad de transmisión en bits por segundo
+de este sistema?
+
+### Respuesta
+
+Primero tenemos que que ver cuantos disquetes se pueden tranportar en cada viaje:
+
+$$ \frac{30g}{(10⁴* 1000)g} = 333333.333$$
+
+Entonces por cada viaje viajan: $$\text{Total de bytes} = 333.333{,}33 \text{ disquetes} \times (1{,}4 \times 10^6 \text{ bytes/disquete}) \approx 4{,}66667 \times 10^{11} \text{ bytes}$$
+
+
+En bits eso seria: $$\text{Total de bits} = 4{,}66667 \times 10^{11} \text{ bytes} \times 8 \text{ bits/byte} \approx 3{,}73333 \times 10^{12} \text{ bits}$$
+
+Ahora el tiempo que le toma el avion para recorrer esa distancia es: $$\text{Tiempo } (t) = \frac{5.000 \text{ km}}{1.000 \text{ km/h}} = 5 \text{ horas}$$
+
+La velocidad de transmision en $bps$ es: 
+
+$$\text{Velocidad} = \frac{3{,}73333 \times 10^{12} \text{ bits}}{5h*3600 \text{s/h}} \approx 207.407.407 \text{ bps}$$
+
+Entonces la velocidad de transmision en Mbps seria: $207,41\text{Mbps}$
+
+## 4.2
+
+### Pregunta
+
+Sea una línea telefónica caracterizada por una pérdida de $20 dB$. La potencia de la señal a
+la entrada es de $0,5 W$ y el nivel del ruido a la salida es de $4,5 \mu W$ Calcule la relación
+señal ruido para la línea en $dB$.
+
+
+### Respuesta
+
+$$10 *\log_{10}(\frac{0,5}{P_s}) = 20 \implies 10^2 = \frac{0{,}5}{P_{\text{salida}}} \implies 100 = \frac{0{,}5}{P_{\text{salida}}} \implies P_{\text{salida}} = \frac{0{,}5\text{ W}}{100} = 0{,}005\text{ W} = 5\text{ mW}$$
+
+Entonces la relacion señal ruido va a ser:
+
+$$\text{SNR}_{\text{dB}} = 10 \log_{10}\left(\frac{0{,}005\text{ W}}{4{,}5 \times 10^{-6}\text{ W}}\right) = 10 \log_{10}(1.111{,}11) \approx \mathbf{30{,}46\text{ dB}}$$
+
+## 4.3
+
+### Pregunta
+
+Dada una fuente de 100 W, determine la máxima longitud alcanzable en los siguientes me-
+dios de transmisión, si la potencia a recibir es 1 vatio:
+- a) Un par trenzado de 0,5 mm (24 gauges) a 300 kHz.
+- b) Un par trenzado de 0,5 mm (24 gauges) a 1 MHz.
+- c) Un cable coaxial de 9,5 mm a 1 MHz.
+- d) Un cable coaxial de 9,5 mm a 25 MHz.
+- e) Una fibra óptica trabajando a su frecuencia óptima.
+
+### Respuesta
+
+
+
+Potencia de Transmision:
+
+$$P_{\text{(dBW)}} = 10 \log_{10}(100) \implies 20 \text{dB} $$
+
+Potencia Recibida:
+
+$$P_{\text{(dBW)}} = 10 \log_{10}(1) \implies 0 \text{dB} $$
+
+Perdida total de Potencia:
+
+$$L_{\text{máx (dB)}} = 20\text{dB} - 0\text{dB} \implies 20\text{dB}$$
+
+Entonces la distancia se calcula de esta manera para cada Alpha especifico.
+
+$$d = \frac{L_{\text{máx}}}{\alpha}$$
+
+- a) $d = \frac{20\text{dB}}{18\text{dB/km}} \implies d = 1,11\text{Km}$
+- b) $d = \frac{20\text{dB}}{29\text{dB/km}} \implies d = 0,69\text{Km}$
+- c) $d = \frac{20\text{dB}}{2,5\text{dB/km}} \implies d = 8\text{Km}$
+- d) $d = \frac{20\text{dB}}{11\text{dB/km}} \implies d = 1,82\text{Km}$
+- e) $\alpha = 0{,}2 \text{ a } 0{,}5\text{ dB/km}$ , 
+
+    Distancia máxima: Para $\alpha = 0{,}5\text{ dB/km}$: $d = \frac{20\text{ dB}}{0{,}5\text{ dB/km}} = \mathbf{40\text{ km}}$
+    
+    Para $\alpha = 0{,}2\text{ dB/km}$: $d = \frac{20\text{ dB}}{0{,}2\text{ dB/km}} = \mathbf{100\text{ km}}$
+    Entonces va de 40km a 100km
+
+
+## 4.4
+
+### Pregunta
+
+El cable coaxial es un sistema de transmisión con dos conductores. ¿Qué ventaja tiene co-
+nectar la malla exterior a tierra?
+
+### Respuesta
+
+Conectar la malla exterior a tierra en un cable coaxial hace que esta absorba las interferencias electromagnéticas del entorno y las deriva a tierra. Tambien evita que señales o cables vecinos acoplen ruido en la línea de transmisión.
+
+## 4.5
+
+### Pregunta
+
+Demuestre que duplicando la frecuencia de transmisión o duplicando la distancia entre las antenas de transmisión y recepción, la potencia recibida se atenúa en 6 dB
+
+### Respuesta
+
+La formula para calcular la perdida en el espacio libre es:
+
+$$L_{\text{dB}} = 20 \log_{10}\left(\frac{4\pi \cdot f \cdot d}{c}\right) \implies L_{\text{dB}} = 20 \log_{10}(f) + 20 \log_{10}(d) + 20 \log_{10}\left(\frac{4\pi}{c}\right)$$
+
+Entonces al duplicar la distancia:
+
+$$L_{\text{dB}} = 20 \log_{10}(f) + 20 \log_{10}(2d) + 20 \log_{10}\left(\frac{4\pi}{c}\right) \implies L_{\text{dB}} = 20 \log_{10}(f) + 20( \log_{10}(d) + \log_{10}(2)) + 20 \log_{10}\left(\frac{4\pi}{c}\right)$$
+
+Entonces podemos decir que para el caso de 2d tenemos
+$$L_{\text{dB}_2} = L_{\text{dB}} + 20 \log_{10}(2) \approx L_{\text{dB}} + 20 \cdot (0{,}30103) \approx  L_{\text{dB}} + \mathbf{6{,}02\text{ dB}}$$
+
+De la misma manera se puede llegar a la expresion con la frecuencia:
+
+$$L_{\text{dB}} = 20 \log_{10}(2f) + 20 \log_{10}(d) + 20 \log_{10}\left(\frac{4\pi}{c}\right) \implies L_{\text{dB}} = 20 (\log_{10}(f)+ \log_{10}(2))  + 20\log_{10}(d) + 20 \log_{10}\left(\frac{4\pi}{c}\right)$$
+
+Entonces:
+
+$$L_{\text{dB}_2} = L_{\text{dB}} + 20 \log_{10}(2) \approx L_{\text{dB}} + 20 \cdot (0{,}30103) \approx  L_{\text{dB}} + \mathbf{6{,}02\text{ dB}}$$
+
+## 4.6
+
+### Pregunta
+
+La profundidad en el océano a la que se detectan las señales electromagnéticas generadas desde aeronaves crece con la longitud de onda. Por tanto, los militares encontraron que usando longitudes de onda muy grandes, correspondientes a 30 Hz, podrían comunicarse con cualquier submarino alrededor del mundo. La longitud de las antenas es deseable que sea del orden de la mitad de la longitud de onda. ¿Cuál debería ser la longitud típica de las antenas para operar a esas frecuencias?
+
+### Respuesta
+
+Para estas antenas la longitud de onda esta dada por:
+
+$$\lambda = \frac{c}{f} \implies \lambda = \frac{3*10⁸\text{m/s}}{30\text{Hz}} = 10.000.000 \text{ m} = 10.000 \text{Km}$$
+
+Como la longitud tiene que ser de el orde de la mitad de la longitud de onda nos queda:
+
+$$\text{Longitud de la antena} = \frac{\lambda}{2} = \frac{10.000\text{ km}}{2} = \mathbf{5.000\text{ km}}$$
+
+## 4.7
+
+### Pregunta
+
+La potencia de la señal de voz está concentrada en torno a los 300 Hz. Las antenas para transmitir esta frecuencia deberían tener un tamaño enormemente grande. Esto hace que, para transmitir voz por radio, la señal deba enviarse modulando una señal de frecuencia superior (portadora) para la que la antena correspondiente requiera un tamaño menor.
+
+a) ¿Cuál debe ser la longitud de una antena, equivalente a la mitad de la longitud de onda, para enviar una señal de 300 Hz?
+
+b) Una posible alternativa es emplear algún esquema de modulación, como los descritos en el Capítulo 5, de tal manera que la señal a transmitir tenga un ancho de banda estrecho, centrado en torno a la frecuencia portadora. Supóngase que quisiéramos una antena de 1 metro de longitud. ¿Qué frecuencia de portadora debería utilizarse?
+
+### Respuesta
+
+#### a)
+
+$$\lambda = \frac{c}{f} \implies \lambda = \frac{3*10⁸\text{m/s}}{300\text{Hz}} = 1.000.000 \text{ m} = 1.000 \text{Km}$$
+
+Como la longitud tiene que ser de el orde de la mitad de la longitud de onda nos queda:
+
+$$\text{Longitud de la antena} = \frac{\lambda}{2} = \frac{1.000\text{ km}}{2} = \mathbf{500\text{ km}}$$
+
+#### b)
+
+$$\text{Longitud de la antena} = \frac{\lambda}{2} \implies 2 * \text{Longitud de la antena} = \lambda$$
+
+Entonces $\text{Longitud de la antena} = 1 \text{m}$:
+
+$$ 2 * 1 = \lambda \implies \lambda = 2$$
+
+Ahora despejamos la frencuencia de:
+
+$$\lambda = \frac{c}{f} \implies 2\text{m} = \frac{3*10⁸\text{m/s}}{f} \implies f = \frac{3*10⁸\text{m/s}}{2 \text{m}} = 150 \text{Mhz}$$
+
+## 4.8
+
+### Pregunta
+
+
+### Respuesta
+
+
 # Bibliografía
 
 Stallings, W. *Comunicaciones y Redes de Computadoras*.
