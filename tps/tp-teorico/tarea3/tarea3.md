@@ -180,11 +180,51 @@ $$\text{SNR}_{\text{dB}} = 10 \log_{10}\left(\frac{0{,}005\text{ W}}{4{,}5 \time
 
 ### Pregunta
 
-
+Dada una fuente de 100 W, determine la máxima longitud alcanzable en los siguientes me-
+dios de transmisión, si la potencia a recibir es 1 vatio:
+- a) Un par trenzado de 0,5 mm (24 gauges) a 300 kHz.
+- b) Un par trenzado de 0,5 mm (24 gauges) a 1 MHz.
+- c) Un cable coaxial de 9,5 mm a 1 MHz.
+- d) Un cable coaxial de 9,5 mm a 25 MHz.
+- e) Una fibra óptica trabajando a su frecuencia óptima.
 
 ### Respuesta
 
 
+
+Potencia de Transmision:
+
+$$P_{\text{(dBW)}} = 10 \log_{10}(100) \implies 20 \text{dB} $$
+
+Potencia Recibida:
+
+$$P_{\text{(dBW)}} = 10 \log_{10}(1) \implies 0 \text{dB} $$
+
+Perdida total de Potencia:
+
+$$L_{\text{máx (dB)}} = 20\text{dB} - 0\text{dB} \implies 20\text{dB}$$
+
+Entonces la distancia se calcula de esta manera para cada Alpha especifico.
+
+$$d = \frac{L_{\text{máx}}}{\alpha}$$
+
+- a) $d = \frac{20\text{dB}}{18\text{dB/km}} \implies d = 1,11\text{Km}$
+- b) $d = \frac{20\text{dB}}{29\text{dB/km}} \implies d = 0,69\text{Km}$
+- c) $d = \frac{20\text{dB}}{2,5\text{dB/km}} \implies d = 8\text{Km}$
+- d) $d = \frac{20\text{dB}}{11\text{dB/km}} \implies d = 1,82\text{Km}$
+- e) $\alpha = 0{,}2 \text{ a } 0{,}5\text{ dB/km}$ , 
+
+    Distancia máxima: Para $\alpha = 0{,}5\text{ dB/km}$: $d = \frac{20\text{ dB}}{0{,}5\text{ dB/km}} = \mathbf{40\text{ km}}$
+    
+    Para $\alpha = 0{,}2\text{ dB/km}$: $d = \frac{20\text{ dB}}{0{,}2\text{ dB/km}} = \mathbf{100\text{ km}}$
+    Entonces va de 40km a 100km
+
+
+## 4.4
+
+### Pregunta
+
+### Respuesta
 
 
 # Bibliografía
