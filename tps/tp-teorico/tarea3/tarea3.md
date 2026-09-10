@@ -313,6 +313,70 @@ $$\lambda = \frac{c}{f} \implies 2\text{m} = \frac{3*10⁸\text{m/s}}{f} \implie
 
 ### Respuesta
 
+## 4.9
+
+### Pregunta
+
+
+### Respuesta
+
+## 4.10
+
+### Pregunta
+
+
+### Respuesta
+
+## 4.11
+
+### Pregunta
+
+
+### Respuesta
+
+## 4.12
+
+### Pregunta
+
+
+### Respuesta
+
+## 4.13
+
+### Pregunta
+
+
+### Respuesta
+
+## 4.14
+
+### Pregunta
+
+
+### Respuesta
+
+## 4.15
+
+### Pregunta
+
+
+### Respuesta
+
+## 4.16
+
+### Pregunta
+
+
+### Respuesta
+
+## 4.17
+
+### Pregunta
+
+
+### Respuesta
+
+
 
 # Bibliografía
 
