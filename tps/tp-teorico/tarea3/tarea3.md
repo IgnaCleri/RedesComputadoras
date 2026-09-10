@@ -91,6 +91,11 @@ En comunicaciones bidireccionales suele usarse la misma antena para ambas funcio
 
 Es una antena ideal, sin equivalente físico real, definida como un punto en el espacio que radia potencia de igual forma en todas las direcciones. Su diagrama de radiación (la representación gráfica de cómo radia potencia según la dirección) es, por lo tanto, una esfera perfecta centrada en la posición de la antena. Al ser el caso más simple e igual en todas direcciones, se usa como referencia para medir la ganancia de otras antenas reales.
 
+## 4.11 ¿Cuál es la ventaja de una antena parabólica por reflexión?
+
+Su geometría consigue un haz paralelo sin dispersión. De igual forma, y en la recepción, si las ondas recibidas entran paralelas al eje de la parábola reflectante, la señal resultante se concentrará en el foco de la antena. Tambien cuanto mayor sea el diámetro de la antena parabólica, más direccional será el haz generado
+
+
 # Bibliografía
 
 Stallings, W. *Comunicaciones y Redes de Computadoras*.
