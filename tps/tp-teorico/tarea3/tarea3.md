@@ -235,9 +235,36 @@ Conectar la malla exterior a tierra en un cable coaxial hace que esta absorba la
 
 ### Pregunta
 
+Demuestre que duplicando la frecuencia de transmisión o duplicando la distancia entre las antenas de transmisión y recepción, la potencia recibida se atenúa en 6 dB
+
+### Respuesta
+
+La formula para calcular la perdida en el espacio libre es:
+
+$$L_{\text{dB}} = 20 \log_{10}\left(\frac{4\pi \cdot f \cdot d}{c}\right) \implies L_{\text{dB}} = 20 \log_{10}(f) + 20 \log_{10}(d) + 20 \log_{10}\left(\frac{4\pi}{c}\right)$$
+
+Entonces al duplicar la distancia:
+
+$$L_{\text{dB}} = 20 \log_{10}(f) + 20 \log_{10}(2d) + 20 \log_{10}\left(\frac{4\pi}{c}\right) \implies L_{\text{dB}} = 20 \log_{10}(f) + 20( \log_{10}(d) + \log_{10}(2)) + 20 \log_{10}\left(\frac{4\pi}{c}\right)$$
+
+Entonces podemos decir que para el caso de 2d tenemos
+$$L_{\text{dB}_2} = L_{\text{dB}} + 20 \log_{10}(2) \approx L_{\text{dB}} + 20 \cdot (0{,}30103) \approx  L_{\text{dB}} + \mathbf{6{,}02\text{ dB}}$$
+
+De la misma manera se puede llegar a la expresion con la frecuencia:
+
+$$L_{\text{dB}} = 20 \log_{10}(2f) + 20 \log_{10}(d) + 20 \log_{10}\left(\frac{4\pi}{c}\right) \implies L_{\text{dB}} = 20 (\log_{10}(f)+ \log_{10}(2))  + 20\log_{10}(d) + 20 \log_{10}\left(\frac{4\pi}{c}\right)$$
+
+Entonces:
+
+$$L_{\text{dB}_2} = L_{\text{dB}} + 20 \log_{10}(2) \approx L_{\text{dB}} + 20 \cdot (0{,}30103) \approx  L_{\text{dB}} + \mathbf{6{,}02\text{ dB}}$$
+
+## 4.6
+
+### Pregunta
 
 
 ### Respuesta
+
 
 
 # Bibliografía
