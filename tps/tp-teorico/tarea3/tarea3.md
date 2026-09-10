@@ -224,6 +224,19 @@ $$d = \frac{L_{\text{máx}}}{\alpha}$$
 
 ### Pregunta
 
+El cable coaxial es un sistema de transmisión con dos conductores. ¿Qué ventaja tiene co-
+nectar la malla exterior a tierra?
+
+### Respuesta
+
+Conectar la malla exterior a tierra en un cable coaxial hace que esta absorba las interferencias electromagnéticas del entorno y las deriva a tierra. Tambien evita que señales o cables vecinos acoplen ruido en la línea de transmisión.
+
+## 4.5
+
+### Pregunta
+
+
+
 ### Respuesta
 
 
