@@ -274,8 +274,44 @@ Como la longitud tiene que ser de el orde de la mitad de la longitud de onda nos
 
 $$\text{Longitud de la antena} = \frac{\lambda}{2} = \frac{10.000\text{ km}}{2} = \mathbf{5.000\text{ km}}$$
 
+## 4.7
+
+### Pregunta
+
+La potencia de la señal de voz está concentrada en torno a los 300 Hz. Las antenas para transmitir esta frecuencia deberían tener un tamaño enormemente grande. Esto hace que, para transmitir voz por radio, la señal deba enviarse modulando una señal de frecuencia superior (portadora) para la que la antena correspondiente requiera un tamaño menor.
+
+a) ¿Cuál debe ser la longitud de una antena, equivalente a la mitad de la longitud de onda, para enviar una señal de 300 Hz?
+
+b) Una posible alternativa es emplear algún esquema de modulación, como los descritos en el Capítulo 5, de tal manera que la señal a transmitir tenga un ancho de banda estrecho, centrado en torno a la frecuencia portadora. Supóngase que quisiéramos una antena de 1 metro de longitud. ¿Qué frecuencia de portadora debería utilizarse?
+
+### Respuesta
+
+#### a)
+
+$$\lambda = \frac{c}{f} \implies \lambda = \frac{3*10⁸\text{m/s}}{300\text{Hz}} = 1.000.000 \text{ m} = 1.000 \text{Km}$$
+
+Como la longitud tiene que ser de el orde de la mitad de la longitud de onda nos queda:
+
+$$\text{Longitud de la antena} = \frac{\lambda}{2} = \frac{1.000\text{ km}}{2} = \mathbf{500\text{ km}}$$
+
+#### b)
+
+$$\text{Longitud de la antena} = \frac{\lambda}{2} \implies 2 * \text{Longitud de la antena} = \lambda$$
+
+Entonces $\text{Longitud de la antena} = 1 \text{m}$:
+
+$$ 2 * 1 = \lambda \implies \lambda = 2$$
+
+Ahora despejamos la frencuencia de:
+
+$$\lambda = \frac{c}{f} \implies 2\text{m} = \frac{3*10⁸\text{m/s}}{f} \implies f = \frac{3*10⁸\text{m/s}}{2 \text{m}} = 150 \text{Mhz}$$
+
+## 4.8
+
+### Pregunta
 
 
+### Respuesta
 
 
 # Bibliografía
