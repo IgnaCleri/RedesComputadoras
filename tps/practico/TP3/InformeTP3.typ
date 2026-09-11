@@ -279,16 +279,16 @@ El Four-Way Handshake es un proceso que permite cerrar la conexión entre client
 
 `C → S: Ack = Y + 1`
 
-= Packet sender
+== Packet sender
 
-== Instancia del cliente
+=== Instancia del cliente
 
 #figure(
   image("imagenes/packet_sender_cli.jpg", width: 55%),
   caption: [Instancia del cliente packet sender],
 )
 
-== Instancia del servidor
+=== Instancia del servidor
 
 #figure(
   image("imagenes/packet_sender_ser.jpg", width: 55%),
@@ -305,7 +305,7 @@ El Four-Way Handshake es un proceso que permite cerrar la conexión entre client
   caption: [Puertos utilizados por PacketSender],
 )
 
-= Wireshark
+== Wireshark
 
 #figure(
   image("imagenes/wireshark_setup.jpg", width: 80%),
@@ -321,7 +321,7 @@ Haciendo uso del filtro `tcp.dstport == 61373` podemos observar los paquetes que
   caption: [Filtro `tcp.dstport == 61373`],
 )
 
-== d)
+=== d)
 
 Teniendo en cuenta el filtro usado en el punto anterior, si queremos observar los paquetes que se *emiten* y *reciben* desde ese puerto se hace uso del filtro `tcp.port == 61373`.
 
@@ -380,7 +380,7 @@ Podemos observar la siguiente información del paquete
   caption: [Campos del paquete 256],
 )
 
-== e)
+=== e)
 
 Al finalizar la conexión TCP desde PacketSender se captura el _four-way handshake_:
 
@@ -412,7 +412,7 @@ En ciertos casos puede suceder que el server combine los flags FIN y ACK (confir
 
 Cuando el servidor no tiene datos para enviar, combina las señáles en un solo paquete realizando lo que se conoce como *piggybacking*: se realiza *piggyback* del flag FIN en el paquete que corresponde al ACK, cerrando su lado de la conexión inmediatamente.
 
-== f)
+=== f)
 
 En estos casos se observó tráfico entre cliente y servidor TCP desde la misma computadora en la que se realizaban conexiones, pero con la misma facilidad se pueden inspeccionar paquetes que sean recibidos por cualquier interfaz de red que tenga el dispositivo. Con interfaces de red en modo promiscuo esto puede significar incluso inspeccionar paquetes dirigidos a otros dispositivos de la misma red, lo que nos lleva a las siguientes conclusiones:
 
