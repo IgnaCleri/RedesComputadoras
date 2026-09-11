@@ -314,6 +314,128 @@ $$\lambda = \frac{c}{f} \implies 2\text{m} = \frac{3*10⁸\text{m/s}}{f} \implie
 
 ### Respuesta
 
+## 4.9
+
+### Pregunta
+
+
+### Respuesta
+
+## 4.10
+
+### Pregunta
+
+
+### Respuesta
+
+## 4.11
+
+### Pregunta
+
+En la Sección 4.2 se ha establecido que si una fuente de energía electromagnética se sitúa en el foco de un paraboloide, y que si el paraboloide tiene una superficie reflectante, entonces, la onda se reflejará en líneas paralelas al eje del paraboloide. Para demostrar esto considérese, por ejemplo, la parábola mostrada en la Figura 4.12. Sea $P(x_1, y_1)$ un punto de la parábola y sea $PF$ la línea que une $P$ con el foco. Construya la línea $L$ que pasa por $P$ paralela al eje $x$ y la recta $M$ tangente a la parábola en $P$. El ángulo entre $L$ y $M$ es $\beta$ y el ángulo entre $PF$ y $M$ es $\alpha$. El ángulo $\alpha$ es el ángulo con el que el rayo que pasa por $F$ incide en la parábola en $P$. Debido a que el ángulo de incidencia es igual al ángulo de reflexión, el rayo reflejado por $P$ debe ser igual al ángulo $\alpha$. Por tanto, si se demuestra que $\alpha = \beta$, se habrá demostrado que los rayos que se emitan desde $F$ y sean reflejados por la parábola serán paralelos al eje $x$.
+
+![Parábola de reflexión](./assets/4_12-parabola_de_reflexion.png)
+
+a) Demuestre primero que $\tan \beta = (p/y_1)$. *Sugerencia*: recuérdese de trigonometría que la pendiente de una recta es igual a la tangente del ángulo que forma esa recta con el eje $x$ positivo. Igualmente, recuérdese que la pendiente de una recta tangente a una curva en un punto dado es igual a la derivada de la curva en ese punto.
+
+b) Ahora demuéstrese que $\tan \alpha = (p/y_1)$, lo que demostraría que $\alpha = \beta$. *Sugerencia*: recuérdese de trigonometría que la fórmula de la tangente de la diferencia entre dos ángulos $\alpha_1$ y $\alpha_2$, es
+
+$$\tan(\alpha_2 - \alpha_1) = \frac{\tan \alpha_2 - \tan \alpha_1}{1 + \tan \alpha_2 \cdot \tan \alpha_1}$$
+
+### Respuesta
+
+a)
+
+Se busca probar que $\tan \beta = (p/y_1)$. Siguiendo la sugerencia, $\tan \beta$ será igual a la pendiente de la recta $M$.
+
+Dado el foco de la parábola, esta se puede modelar como $y^2 = 2px$. Luego para obtener la recta tangente a la parábola para una abscisa arbitraria se deriva la ecuación en función de $x$:
+
+$$\begin{aligned}
+
+\frac{dy}{dx} y^2 &= \frac{dy}{dx} 2px \\
+2y \frac{dy}{dx}(x)  &= 2p \\
+ \frac{dy}{dx}(x) &= \frac{p}{y}
+
+\end{aligned}$$
+
+La pendiente de la recta $M$ será la pendinte de la recta tangente a la parábola de reflexión en el punto $(x_1, y_1)$, y se obtiene evaluando la ecuación anterior en $x_1$:
+
+$$\frac{dy}{dx}(x_1) = \frac{p}{y_1}$$
+
+luego
+
+$$\tan \beta = \frac{dy}{dx}(x_1) = \frac{p}{y_1}$$
+
+b) Se busca demostrar que $\tan \alpha = \tan \beta = (p/y_1)$.
+
+Definiendo al ángulo $\alpha_1$ como el ángulo entre el eje $x$ y la recta $PF$ (o la inclinación de $PF$) y recordando que $\beta$ es la inclinación de $M$, se tiene que el ángulo comprendido entre $PF$ y $M$ es $\alpha = \alpha_1 - \beta$.
+
+La pendiente de $PF$ es $m_{PF} = \frac{y_1}{x_1-p/2}$. Despejando $x_1$ en la ecuación de la parábola tenemos que:
+
+$$
+x_1=\frac{y_1^2}{2p} \implies m_{PF} = \frac{y_1}{\frac{y_1^2}{2p}-\frac{p}{2}} = \frac{2p y_1}{y_1^2-p^2} \\
+\tan(\alpha_1) = m_{PF} = \frac{2p y_1}{y_1^2-p^2}
+$$
+
+Luego, aplicando la propiedad sugerida:
+
+$$\begin{aligned}
+
+\tan(\alpha) &= \tan(\alpha_1 - \beta) \\
+             &= \frac{\tan(\alpha_1) - \tan(\beta)}{1 + \tan(\alpha_1) \cdot \tan(\beta)} \\
+             &= \frac{\frac{2p y_1}{y_1^2 - p^2} - \frac{p}{y_1}}{1 + \left(\frac{2p y_1}{y_1^2 - p^2}\right)\left(\frac{p}{y_1}\right)} \\
+             &= \frac{\frac{2p y_1^2 - p(y_1^2 - p^2)}{y_1(y_1^2 - p^2)}}{1 + \frac{2p^2}{y_1^2 - p^2}} \\
+             &= \frac{\frac{p y_1^2 + p^3}{y_1(y_1^2 - p^2)}}{\frac{(y_1^2 - p^2) + 2p^2}{y_1^2 - p^2}} \\
+             &= \frac{\frac{p(y_1^2 + p^2)}{y_1(y_1^2 - p^2)}}{\frac{y_1^2 + p^2}{y_1^2 - p^2}} \\
+             &= \frac{p(y_1^2 + p^2)}{y_1(y_1^2 - p^2)} \cdot \frac{y_1^2 - p^2}{y_1^2 + p^2} \\
+\tan(\alpha) &= \tan(\beta) = \frac{p}{y_1} \\
+\end{aligned}$$
+
+Concluyendo en que el ángulo de incidencia es igual al ángulo de reflexión: $\alpha = \beta$.
+
+## 4.12
+
+### Pregunta
+
+
+### Respuesta
+
+## 4.13
+
+### Pregunta
+
+
+### Respuesta
+
+## 4.14
+
+### Pregunta
+
+
+### Respuesta
+
+## 4.15
+
+### Pregunta
+
+
+### Respuesta
+
+## 4.16
+
+### Pregunta
+
+
+### Respuesta
+
+## 4.17
+
+### Pregunta
+
+
+### Respuesta
+
+
 
 # Bibliografía
 
