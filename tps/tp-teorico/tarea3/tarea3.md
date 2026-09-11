@@ -339,7 +339,7 @@ a) Demuestre primero que $\tan \beta = (p/y_1)$. *Sugerencia*: recuérdese de tr
 
 b) Ahora demuéstrese que $\tan \alpha = (p/y_1)$, lo que demostraría que $\alpha = \beta$. *Sugerencia*: recuérdese de trigonometría que la fórmula de la tangente de la diferencia entre dos ángulos $\alpha_1$ y $\alpha_2$, es
 
-$$\tan(\alpha_2 - \alpha_1) = \frac{\tan \alpha_2 - \tan \alpha_1}{1 + \tan \alpha_2 \times \tan \alpha_1}$$
+$$\tan(\alpha_2 - \alpha_1) = \frac{\tan \alpha_2 - \tan \alpha_1}{1 + \tan \alpha_2 \cdot \tan \alpha_1}$$
 
 ### Respuesta
 
@@ -365,6 +365,32 @@ luego
 
 $$\tan \beta = \frac{dy}{dx}(x_1) = \frac{p}{y_1}$$
 
+b) Se busca demostrar que $\tan \alpha = \tan \beta = (p/y_1)$.
+
+Definiendo al ángulo $\alpha_1$ como el ángulo entre el eje $x$ y la recta $PF$ (o la inclinación de $PF$) y recordando que $\beta$ es la inclinación de $M$, se tiene que el ángulo comprendido entre $PF$ y $M$ es $\alpha = \alpha_1 - \beta$.
+
+La pendiente de $PF$ es $m_{PF} = \frac{y_1}{x_1-p/2}$. Despejando $x_1$ en la ecuación de la parábola tenemos que:
+
+$$
+x_1=\frac{y_1^2}{2p} \implies m_{PF} = \frac{y_1}{\frac{y_1^2}{2p}-\frac{p}{2}} = \frac{2p y_1}{y_1^2-p^2} \\
+\tan(\alpha_1) = m_{PF} = \frac{2p y_1}{y_1^2-p^2}
+$$
+
+Luego, aplicando la propiedad sugerida:
+
+$$\begin{aligned}
+
+\tan(\alpha) &= \tan(\alpha_1 - \beta) \\
+             &= \frac{\tan(\alpha_1) - \tan(\beta)}{1 + \tan(\alpha_1) \cdot \tan(\beta)} \\
+             &= \frac{\frac{2p y_1}{y_1^2 - p^2} - \frac{p}{y_1}}{1 + \left(\frac{2p y_1}{y_1^2 - p^2}\right)\left(\frac{p}{y_1}\right)} \\
+             &= \frac{\frac{2p y_1^2 - p(y_1^2 - p^2)}{y_1(y_1^2 - p^2)}}{1 + \frac{2p^2}{y_1^2 - p^2}} \\
+             &= \frac{\frac{p y_1^2 + p^3}{y_1(y_1^2 - p^2)}}{\frac{(y_1^2 - p^2) + 2p^2}{y_1^2 - p^2}} \\
+             &= \frac{\frac{p(y_1^2 + p^2)}{y_1(y_1^2 - p^2)}}{\frac{y_1^2 + p^2}{y_1^2 - p^2}} \\
+             &= \frac{p(y_1^2 + p^2)}{y_1(y_1^2 - p^2)} \cdot \frac{y_1^2 - p^2}{y_1^2 + p^2} \\
+\tan(\alpha) &= \tan(\beta) = \frac{p}{y_1} \\
+\end{aligned}$$
+
+Concluyendo en que el ángulo de incidencia es igual al ángulo de reflexión: $\alpha = \beta$.
 
 ## 4.12
 
