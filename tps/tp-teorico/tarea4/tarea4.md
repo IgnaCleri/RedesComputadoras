@@ -17,6 +17,14 @@
 
 ## 15.1. ¿Qué diferencias hay entre los requisitos clave para las redes existentes en salas de computadores de aquellos necesarios para redes de área local de computadores personales?
 
+El libro relaciona "redes en salas de computadores" con redes de respaldo o *backend* comunicando centalizaciones de cómputo o almacenamiento de datos. Situándonos temporalmente en el año 2004 en el que se editó el libro, las redes "exitentes" eran redes de este tipo, y las redes LAN eran consideradas "recientes".
+
+Teniendo esto en cuenta, podemos decir que las diferencias entre los requisitos de las redes *backend* y las redes LAN de computadoras personales son:
+- Coste de la conexión a la red: En redes de computadoras personales el coste de acceso a la red debe ser significativamente menor que el coste del propio equipo, en general limitando la velocidad de la red.
+- Velocidad de la red: Como resultado del punto anterior las redes LAN de computadoras personales pueden estar limitadas en velocidad, mientras que para las redes de respaldo y almacenamiento la velocidad es un requisito clave.
+- Cobertura y cantidad de dispositivos: Una red LAN de computadoras personales puede abarcar una o varias oficinas y múltiples estaciones u otros dispositivos como impresoras, mientras que en redes *backend* la cobertura suele limitarse a unos pocos dispositivos de alto rendimiento ubicados en un mismo lugar.
+- Fiabilidad: En redes de *backend* se prioriza la fiabilidad para maximiza la productividad de los sistemas, mientas que en redes LAN la fiabilidad puede no ser crítica. Esto implica que para redes *backend* puede implementarse un acceso al medio distribuido mas eficiente que el control centralizado típico de una red LAN.
+
 ## 15.2. ¿Qué diferencias hay entre una red LAN de respaldo, una red SAN y una red LAN troncal?
 
 ## 15.3. ¿Qué es la topología de una red?
