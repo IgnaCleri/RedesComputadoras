@@ -23,9 +23,13 @@ Teniendo esto en cuenta, podemos decir que las diferencias entre los requisitos 
 - Coste de la conexión a la red: En redes de computadoras personales el coste de acceso a la red debe ser significativamente menor que el coste del propio equipo, en general limitando la velocidad de la red.
 - Velocidad de la red: Como resultado del punto anterior las redes LAN de computadoras personales pueden estar limitadas en velocidad, mientras que para las redes de respaldo y almacenamiento la velocidad es un requisito clave.
 - Cobertura y cantidad de dispositivos: Una red LAN de computadoras personales puede abarcar una o varias oficinas y múltiples estaciones u otros dispositivos como impresoras, mientras que en redes *backend* la cobertura suele limitarse a unos pocos dispositivos de alto rendimiento ubicados en un mismo lugar.
-- Fiabilidad: En redes de *backend* se prioriza la fiabilidad para maximiza la productividad de los sistemas, mientas que en redes LAN la fiabilidad puede no ser crítica. Esto implica que para redes *backend* puede implementarse un acceso al medio distribuido mas eficiente que el control centralizado típico de una red LAN.
+- Fiabilidad: En redes de *backend* se prioriza la fiabilidad para maximiza la productividad de los sistemas, mientas que en redes LAN la fiabilidad puede no ser crítica. Esto implica que para redes *backend* puede implementarse un acceso al medio distribuido mas eficiente que el control centralizado típico de una red LAN personal.
 
 ## 15.2. ¿Qué diferencias hay entre una red LAN de respaldo, una red SAN y una red LAN troncal?
+
+- Red LAN *backend*: conecta sistemas grandes como servidores, sistemas de cómputo y almacenamiento de datos priorizando velocidad y fiabilidad para la transferencia de datos entre pocos dispositivos.
+- Red SAN (*Storage Area Network*): es una red independiente de uso exclusivo para gestión y almacenamiento de datos, ofreciendo un servicio de almacenamiento compartido. A diferencia de una LAN típica donde los servidores tienen su sistema de almacenamiento local, en una SAN no hay servidor entre los dispositivos de almacenamiento y la red sino que los servidores y los dispositivos de almacenamiento están directamente conectados a la red. La red prioriza la comunicación entre dispositivos de almacenamiento (para, por ejemplo, crear réplicas de datos) y la eficiencia de acceso de los clientes al almacenamiento.
+- Red LAN troncal: su objetivo es interconectar distintas redes LAN de una misma organización, por lo que debe ser fiable y rápida, aunque por razones distintas que los otros tipos de redes LAN.
 
 ## 15.3. ¿Qué es la topología de una red?
 
