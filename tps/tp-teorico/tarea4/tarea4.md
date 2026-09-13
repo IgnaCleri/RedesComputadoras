@@ -33,7 +33,15 @@ Teniendo esto en cuenta, podemos decir que las diferencias entre los requisitos 
 
 ## 15.3. ¿Qué es la topología de una red?
 
+La topología de una red define la manera en que se conectan entre sí las estaciones de la red.
+
 ## 15.4. Enumere cuatro topologías comunes para redes LAN y describa brevemente su principio de funcionamiento.
+
+Las topologías mas comunes para redes LAN son cuatro:
+- **Bus**: las estaciones se conectan mediante *taps* *full-duplex* a un medio lineal (generalmente un cable coaxial) con terminadores resistivos en ambos extremos para evitar las reflexiones de la señal. Las transisiones de cualquier estación se propagan a todas las demás estaciones, que identifican si el mensaje está dirigido a ellas. Requiere arbitraje del medio para evitar colisiones.
+- **Árbol**: es una generalización del bus, donde el medio lineal se ramifica mediante concentradores (*hubs*) en segmentos.
+- **Anillo**: las estaciones se conectan en un anillo cerrado mediante repetidores. Una trama viaja a través del anillo completo, siendo copiada al pasar por la estación destino, y es eliminada del anillo al volver al emisor. También requiere control de acceso al medio para evitar colisiones.
+- **Estrella**: las estaciones se conectan a un nodo central común mediante dos enlaces punto a punto (uno para transmisión y el otro para recepción). En el caso de que el nodo central sea un *hub*, la red actúa como un bus produciendo la difusión de tramas en toda la red. En el caso de que el nodo central sea un conmutador (*switch*), las tramas viajan (en lo posible) únicamente al destino. Conectando varios nodos centrales entre sí se logran topologías mas complejas que requieren la implementación de sistemas de encaminamiento.
 
 ## 15.5. ¿Cuál es el propósito del comité IEEE 802?
 
