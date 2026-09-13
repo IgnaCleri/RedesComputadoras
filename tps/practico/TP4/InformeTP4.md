@@ -21,17 +21,53 @@
 
 > Investigar cómo se clasifican las redes según su alcance. Mencionar brevemente las características principales de cada una y colocar en cada cuadro de la Figura el acrónimo de red que corresponda.
 
+A falta una figura provista, se presenta la siguiente tabla con información relacionada. Notar que las fronteras entre las clasificaciones son difusas, conceptuales y no estrictas.
+
+| Nombre                      | Acrónimo | Alcance                                                | Características                                                                                                                                                                                                                        |
+| --------------------------- | -------- | ------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Redes de Área Amplia        | WAN      | Áreas geográficas extensas                             | En ocasiones combinan infraestructura administrada por distintos proveedores. Compuesta por una gran cantidad de nodos internos que rutean tráfico. No tiene mayor importancia el contenido de los datos.                              |
+| Redes de Área Metropolitana | MAN      | Múltiples edificios, regiones metropolitanas, ciudades | Punto medio entre LAN y WAN, en general administradas por una sola organización con una necesidad específica para conectar campus o ubicaciones particulares mediante redes privadas o públicas.                                       |
+| Redes de Área Local         | LAN      | Hogares, edificios, campus, oficinas                     | Generalmente administradas por una sola organización. Suelen ser privadas y de alta velocidad.                                                                                                                                         |
+| Redes de Área Personal      | PAN      | Entorno personal, pocos metros                         | Generalmente de corto alcance, para conectar dispositivos personales como teléfonos, computadoras y periféricos. Puede ser cableada (por ejemplo, mediante USB) o inalámbrica, también llamada WPAN (por ejemplo, mediante Bluetooth). |
+
+Notar las redes PAN no estan cubiertas por el libro de referencia "Comunicaciones y Redes de Computadoras" 7ma edición, William Stallings, que data del año 2004. La terminología PAN se popularizó con la masificación de tecnologías como Bluetooth y fue reconocida por Stallings en ediciones posteriores del mismo libro.
+
 ### b)
 
 > ¿Qué es una vLAN? ¿Cómo se clasifican?
+
+Una vLAN o *virtual* LAN es una red LAN lógica independiente de otras vLAN adyacentes pero contenida dentro de una red mayor. Se implementa mediante software en dispositivos de capa 2 y 3 (*switches* y *routers*) y permite que dispositivos de una misma vLAN se comuniquen entre sí como si estuvieran en la misma LAN, estando o no en la misma red física, y que dispositivos de distintas vLAN no se comuniquen entre sí, como si estuviesen en distintas redes físicas.
+
+Las vLAN se pueden clasificar por el modo de gestión de pertenencia a las vLAN de las estaciones:
+- **vLANs estáticas**: la pertenencia a una vLAN se define por la configuración del puerto del switch al que se conecta el dispositivo. La pertenencia no cambia a menos que un administrador cambie la configuración del puerto o la estación se conecte a un puerto distinto configurado para otra vLAN.
+- **vLANs dinámicas**: la pertenencia a una vLAN se define dinámicamente por atributos de la trama Ethernet como la dirección MAC, el protocolo de red usado, u otros factores. La pertenencia de un usuario a una vLAN puede cambiar automáticamente según estos criterios.
 
 ### c)
 
 > Investigar y resumir el protocolo IEEE 802.1Q. ¿Cómo se relaciona con las VLAN?
 
+El protocolo IEEE 802.1Q es el estándar de red que define las vLAN en una red IEEE 802.3 (Ethernet). Define la manera en que las tramas Ethernet son etiquetadas para identificar a qué vLAN pertenecen y así permitir el ruteo hecho por *switches* y *routers* en redes vLAN.
+
+A dia de hoy es el único estándar comúnmente soportad para la implementación de vLANs, existiendo otros estándares anteriores como Cisco ISL.
+
 ### d)
 
 > En el contexto de los dos ítems anteriores ¿Qué es el Tagging?
+
+
+Porciones de una red LAN pueden ser *vLAN aware*. Cuando una trama Ethernet entra a una porción *vLAN aware* de la red, el dispositivo que recibe la trama lo etiqueta (*tagging*) indicando a qué vLAN pertenece la trama. Cuando la trama sale de la porción *vLAN aware* de la red la etiqueta es eliminada.
+
+![VLAN Trunk](./imagenes/vlan_trunk.gif)
+
+De esta manera, una estación puede producir normalmente tramas Ethernet de forma transparente a las vLAN en un enlace de acceso y en el momento en que, por ejemplo, la trama ingresa a un *switch* ésta es etiquetada para luego continuar viaje por los denominados enlaces *trunk* que transportan tramas de múltiples vLAN. Cuando la trama llega al último nodo la etiqueta es eliminada y la trama es entregada a la estación destino normalmente.
+
+El estándar IEEE 802.1Q define 4 bytes a insertar en la trama Ethernet al momento de etiquetarla:
+- 2 bytes para el campo de tipo de protocolo (TPID) que identifica la trama como una trama etiquetada mediante IEEE 802.1Q (valor `0x8100`).
+- 3 bits para el código de prioridad (PCP) que indica la prioridad de la trama.
+- 1 bit para un flag que indica si la trama es descartable o no (DEI).
+- 12 bits para el campo de identificación de la vLAN (VID) que indica a qué vLAN pertenece la trama, permitiendo hasta 4096 vLANs distintas en una misma red física.
+
+![IEEE 802.1Q Tagging](./imagenes/vlan_tagging.png)
 
 ## Consigna 2 — VLANs entre dos switches en Packet Tracer
 
