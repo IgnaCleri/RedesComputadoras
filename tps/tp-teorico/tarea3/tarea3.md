@@ -314,6 +314,65 @@ $$\lambda = \frac{c}{f} \implies 2\text{m} = \frac{3*10⁸\text{m/s}}{f} \implie
 
 ### Respuesta
 
+## 4.15
+
+### Pregunta
+
+En la Sección 4.3 se afirma que si no hay obstáculos intermedios, la trayectoria visual óptica se puede expresar como d 3,75 h, donde d es la distancia entre la antena y el horizonte, en kilómetros, y h es la altura de la antena, en metros. Teniendo en cuenta que el radio de la Tierra es 6.370 km, obtenga la expresión anterior. Sugerencia: supóngase que la antena es perpendicular a la superficie terrestre y nótese que la recta que une el punto más alto de la antena y el horizonte es la tangente a la superficie terrestre en el horizonte. Para visualizar más claramente el problema, dibuje un gráfico con la antena, la trayectoria visual y el radio de la Tierra.
+
+### Respuesta
+
+
+
+## 4.16
+
+### Pregunta
+
+Calcule la altura de una antena de una emisora de TV que sea capaz de alcanzar clientes alejados a 80 km.
+
+### Respuesta
+
+Usando la fórmula de la línea de visión de radio con factor K = 4/3.
+
+$$d = 3{,}57\sqrt{Kh}$$
+ 
+Despejando h:
+ 
+$$h = \frac{(d/3{,}57)^2}{K} = \frac{(80/3{,}57)^2}{4/3} = \frac{(22{,}41)^2}{1{,}333} = \frac{502{,}2}{1{,}333} \approx 376{,}6 \text{ m}$$
+
+La altura de una antena de una emisora de TV debe ser de aproximadamente 376,6 metros.
+
+## 4.17
+
+### Pregunta
+
+Suponga que un rayo de luz visible pasa desde la atmósfera hasta el agua formando un ángulo con el horizonte de 30. ¿Cuál es el ángulo del rayo en el agua? Nota: en condiciones atmosféricas normales en la superficie terrestre, un valor razonable del índice de refracción es 1,0003. El valor típico del índice de refracción en el agua es 4/3.
+
+### Respuesta
+
+Usando la Ley de Snell
+ 
+$$n_1\sin\theta_i = n_2\sin\theta_r$$
+ 
+Como el ángulo dado (30°) es respecto al horizonte, el ángulo de incidencia respecto a la normal es:
+ 
+$$\theta_i = 90° - 30° = 60°$$
+ 
+Con n₁ = 1,0003 (aire) y n₂ = 4/3 (agua):
+ 
+$$1{,}0003\cdot\sin(60°) = \frac{4}{3}\sin\theta_r$$
+ 
+$$1{,}0003\cdot 0{,}8660 = 0{,}8663 = \frac{4}{3}\sin\theta_r$$
+ 
+$$\sin\theta_r = \frac{0{,}8663}{4/3} = 0{,}6497$$
+ 
+$$\theta_r = \arcsin(0{,}6497) \approx 40{,}5°$$
+ 
+Convirtiendo ese resultado a ángulo respecto al horizonte (mismo criterio que el dato original):
+ 
+$$90° - 40{,}5° \approx 49{,}5°$$
+
+El ángulo del rayo en el agua es de aproximadamente 40,5° respecto a la normal o 49,5° respecto al horizonte.
 
 # Bibliografía
 
