@@ -322,7 +322,25 @@ En la Sección 4.3 se afirma que si no hay obstáculos intermedios, la trayector
 
 ### Respuesta
 
+Suponiendo que la antena es perpendicular a la superficie terrestre, se puede formar un triángulo rectángulo entre el centro de la Tierra, la base de la antena y el horizonte, ya que la línea de visión es tangente a la superficie y por lo tanto perpendicular al radio en ese punto.
 
+![Geometría de la línea de visión](imagenes/image1.jpg)
+ 
+Aplicando el teorema de Pitágoras:
+ 
+$$(R+h)^2 = R^2 + d^2$$
+ 
+$$d^2 = 2Rh + h^2$$
+ 
+Como h es despreciable frente a R = 6.370 km, queda:
+ 
+$$d \approx \sqrt{2Rh}$$
+ 
+Ajustando unidades (h en metros → km, dividiendo por 1000):
+ 
+$$d = \sqrt{2\cdot 6.370\cdot \dfrac{h}{1000}} = \sqrt{12{,}74}\cdot\sqrt{h} \approx 3{,}57\sqrt{h}$$
+ 
+Por eso se llega a la expresión **d = 3,57√h**, que después se usa para resolver los ejercicios de línea de visión óptica y de radio.
 
 ## 4.16
 
@@ -368,7 +386,7 @@ $$\sin\theta_r = \frac{0{,}8663}{4/3} = 0{,}6497$$
  
 $$\theta_r = \arcsin(0{,}6497) \approx 40{,}5°$$
  
-Convirtiendo ese resultado a ángulo respecto al horizonte (mismo criterio que el dato original):
+Convirtiendo ese resultado a ángulo respecto al horizonte:
  
 $$90° - 40{,}5° \approx 49{,}5°$$
 
