@@ -17,11 +17,31 @@
 
 ## 15.1. ¿Qué diferencias hay entre los requisitos clave para las redes existentes en salas de computadores de aquellos necesarios para redes de área local de computadores personales?
 
+El libro relaciona "redes en salas de computadores" con redes de respaldo o *backend* comunicando centalizaciones de cómputo o almacenamiento de datos. Situándonos temporalmente en el año 2004 en el que se editó el libro, las redes "exitentes" eran redes de este tipo, y las redes LAN eran consideradas "recientes".
+
+Teniendo esto en cuenta, podemos decir que las diferencias entre los requisitos de las redes *backend* y las redes LAN de computadoras personales son:
+- Coste de la conexión a la red: En redes de computadoras personales el coste de acceso a la red debe ser significativamente menor que el coste del propio equipo, en general limitando la velocidad de la red.
+- Velocidad de la red: Como resultado del punto anterior las redes LAN de computadoras personales pueden estar limitadas en velocidad, mientras que para las redes de respaldo y almacenamiento la velocidad es un requisito clave.
+- Cobertura y cantidad de dispositivos: Una red LAN de computadoras personales puede abarcar una o varias oficinas y múltiples estaciones u otros dispositivos como impresoras, mientras que en redes *backend* la cobertura suele limitarse a unos pocos dispositivos de alto rendimiento ubicados en un mismo lugar.
+- Fiabilidad: En redes de *backend* se prioriza la fiabilidad para maximiza la productividad de los sistemas, mientas que en redes LAN la fiabilidad puede no ser crítica. Esto implica que para redes *backend* puede implementarse un acceso al medio distribuido mas eficiente que el control centralizado típico de una red LAN personal.
+
 ## 15.2. ¿Qué diferencias hay entre una red LAN de respaldo, una red SAN y una red LAN troncal?
+
+- Red LAN *backend*: conecta sistemas grandes como servidores, sistemas de cómputo y almacenamiento de datos priorizando velocidad y fiabilidad para la transferencia de datos entre pocos dispositivos.
+- Red SAN (*Storage Area Network*): es una red independiente de uso exclusivo para gestión y almacenamiento de datos, ofreciendo un servicio de almacenamiento compartido. A diferencia de una LAN típica donde los servidores tienen su sistema de almacenamiento local, en una SAN no hay servidor entre los dispositivos de almacenamiento y la red sino que los servidores y los dispositivos de almacenamiento están directamente conectados a la red. La red prioriza la comunicación entre dispositivos de almacenamiento (para, por ejemplo, crear réplicas de datos) y la eficiencia de acceso de los clientes al almacenamiento.
+- Red LAN troncal: su objetivo es interconectar distintas redes LAN de una misma organización, por lo que debe ser fiable y rápida, aunque por razones distintas que los otros tipos de redes LAN.
 
 ## 15.3. ¿Qué es la topología de una red?
 
+La topología de una red define la manera en que se conectan entre sí las estaciones de la red.
+
 ## 15.4. Enumere cuatro topologías comunes para redes LAN y describa brevemente su principio de funcionamiento.
+
+Las topologías mas comunes para redes LAN son cuatro:
+- **Bus**: las estaciones se conectan mediante *taps* *full-duplex* a un medio lineal (generalmente un cable coaxial) con terminadores resistivos en ambos extremos para evitar las reflexiones de la señal. Las transisiones de cualquier estación se propagan a todas las demás estaciones, que identifican si el mensaje está dirigido a ellas. Requiere arbitraje del medio para evitar colisiones.
+- **Árbol**: es una generalización del bus, donde el medio lineal se ramifica mediante concentradores (*hubs*) en segmentos.
+- **Anillo**: las estaciones se conectan en un anillo cerrado mediante repetidores. Una trama viaja a través del anillo completo, siendo copiada al pasar por la estación destino, y es eliminada del anillo al volver al emisor. También requiere control de acceso al medio para evitar colisiones.
+- **Estrella**: las estaciones se conectan a un nodo central común mediante dos enlaces punto a punto (uno para transmisión y el otro para recepción). En el caso de que el nodo central sea un *hub*, la red actúa como un bus produciendo la difusión de tramas en toda la red. En el caso de que el nodo central sea un conmutador (*switch*), las tramas viajan (en lo posible) únicamente al destino. Conectando varios nodos centrales entre sí se logran topologías mas complejas que requieren la implementación de sistemas de encaminamiento.
 
 ## 15.5. ¿Cuál es el propósito del comité IEEE 802?
 
