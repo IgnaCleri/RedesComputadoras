@@ -53,13 +53,26 @@ Las topologías mas comunes para redes LAN son cuatro:
 
 ## 15.9. Enumere algunas funciones básicas que se realicen en la capa MAC.
 
+1. Encapsulado de datos: Ensamblado y desarmado de tramas (agrega encabezado con direcciones MAC y tráiler de control).
+2. Control de acceso al medio: Regulación de la transmisión para compartir el canal físico entre múltiples dispositivos.
+3. Detección de errores: Identificación de tramas alteradas usando la secuencia de comprobación de trama.
+4. Direccionamiento físico: Identificación unívoca del emisor y receptor dentro de la red local.
+
 ## 15.10. ¿Qué funciones lleva a cabo un puente?
+* Filtrado y reenvío: Lee la dirección MAC de destino para decidir si transmite la trama a otro segmento o la descarta.
+* Aprendizaje automático: Inspecciona las direcciones de origen para construir dinámicamente una tabla de direcciones MAC asignadas a sus puertos.
+* Segmentación de red: Divide una red grande en dominios de colisión independientes para reducir el tráfico innecesario.
 
 ## 15.11. ¿Qué es un árbol de expansión?
+Es una topología lógica sin bucles generada por el protocolo STP. Bloquea de forma selectiva los puertos de enlaces redundantes para evitar tormentas de difusión (broadcast storms) y bucles de capa 2, garantizando una única ruta activa entre cualquier par de nodos.
 
 ## 15.12. ¿Qué diferencias existen entre un concentrador y un conmutador de capa 2?
+Hub (Capa 1): Es un repetidor pasivo que retransmite las señales a todos sus puertos por igual. Todos los equipos comparten un único dominio de colisión y el mismo ancho de banda.
+Switch L2 (Capa 2): Examina la trama y la reenvía únicamente al puerto de destino correspondiente. Otorga un dominio de colisión independiente por puerto y permite transmisiones simultáneas.
 
 ## 15.13. ¿Cuál es la diferencia entre un conmutador de almacenamiento y envío y uno rápido?
+Almacenamiento y envío: Recibe la trama completa en su memoria intermedia, verifica que no tenga errores mediante el código CRC/FCS y luego la reenvía. Mayor latencia, pero no propaga tramas corruptas.
+Conmutación rápida: Lee solo los primeros bytes para obtener la dirección MAC de destino y comienza a reenviar la trama de inmediato. Menor latencia, pero puede reenviar tramas dañadas.
 
 # Bibliografía
 
