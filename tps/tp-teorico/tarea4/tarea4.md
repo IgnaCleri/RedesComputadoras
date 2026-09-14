@@ -60,7 +60,7 @@ Tener un estándares para regular las redes de área local (LAN) y redes de áre
 
 ## 15.6. ¿Por qué existen diferentes normativas para redes LAN?
 
-Estas existen para cubrir los distintos medio fisicos de forma optima y los requerimentos del entorno (si es de bajo costo o maximo rendimiento). 
+Éstas existen para cubrir los distintos medio físicos de forma óptima y los requerimentos del entorno (si es de bajo costo o máximo rendimiento). 
 
 ## 15.7. Enumere y describa brevemente los servicios proporcionados por LLC.
 
