@@ -310,8 +310,29 @@ $$\lambda = \frac{c}{f} \implies 2\text{m} = \frac{3*10⁸\text{m/s}}{f} \implie
 ## 4.8
 
 ### Pregunta
+ Hay leyendas sobre gente que es capaz de recibir la señal de radio a través de los empastes de los dientes. Supóngase que tiene un empaste de 2,5 mm (0,0025 m) de largo que actuara a modo de antena, siendo igual su longitud a la mitad de la longitud de onda. ¿Qué frecuencia recibiría?
 
+### Respuesta
+Datos: 
+- Longitud de la antena = 0.025m
+- Velocidad de propagacion = $3*10^{8} \frac{m}{s}$
 
+$$L = \frac{\lambda}{2} \implies \lambda = 2 * 0.0025m = 0.005m$$
+
+Luego, sabiendo que: 
+$$c= \lambda * f \implies f = \frac{\lambda}{f} = \frac{3*10^8 \frac{m}{s}}{0.005m} = 6 * 10^{10}Hz$$
+
+La frecuencia que recibiraa travez de el empaste es de $60*10^{10} Hz$
+
+## 4.9
+
+### Pregunta
+ Suponga una comunicación entre dos satélites que cumple la ley del espacio libre. Suponga que la señal es muy débil. Se disponen de dos alternativas de diseño. Una consiste en utili zar una frecuencia igual al doble de la frecuencia actual y la otra consiste en duplicar el área efectiva de las dos antenas. Manteniendo todos los demás parámetros inalterados, ¿se conseguirá la misma potencia recibida? o, en caso contrario, ¿cuál de las dos alternativas proporcionaría una potencia recibida superior? ¿Cuál sería el incremento de potencia recibida en el mejor de los casos?
+### Respuesta
+
+## 4.10
+### Pregunta
+ En la transmisión de radio en el espacio libre, la potencia de la señal se reduce proporcio nalmente al cuadrado de la distancia recorrida desde la fuente, mientras que en una transmi sión en un cable, la atenuación es una cantidad fija en dB por kilómetro. En la siguiente tabla se muestra, en dB, la reducción relativa a una referencia dada para la transmisión en el espacio libre y en un cable uniforme. Rellene las celdas que faltan para completar la tabla.
 ### Respuesta
 
 ## 4.15
