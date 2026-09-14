@@ -327,12 +327,39 @@ La frecuencia que recibiraa travez de el empaste es de $60*10^{10} Hz$
 ## 4.9
 
 ### Pregunta
- Suponga una comunicación entre dos satélites que cumple la ley del espacio libre. Suponga que la señal es muy débil. Se disponen de dos alternativas de diseño. Una consiste en utili zar una frecuencia igual al doble de la frecuencia actual y la otra consiste en duplicar el área efectiva de las dos antenas. Manteniendo todos los demás parámetros inalterados, ¿se conseguirá la misma potencia recibida? o, en caso contrario, ¿cuál de las dos alternativas proporcionaría una potencia recibida superior? ¿Cuál sería el incremento de potencia recibida en el mejor de los casos?
+ Suponga una comunicación entre dos satélites que cumple la ley del espacio libre. Suponga que la señal es muy débil. Se disponen de dos alternativas de diseño. Una consiste en utilizar una frecuencia igual al doble de la frecuencia actual y la otra consiste en duplicar el área efectiva de las dos antenas. Manteniendo todos los demás parámetros inalterados, ¿se conseguirá la misma potencia recibida? o, en caso contrario, ¿cuál de las dos alternativas proporcionaría una potencia recibida superior? ¿Cuál sería el incremento de potencia recibida en el mejor de los casos?
 ### Respuesta
+ La potencia recibida ($P_r$) en una comunicación en espacio libre expresada en función de las áreas efectivas de las antenas transmisora y receptora 
+ ($A_{et}$ y $A_{er}$) es:
+ 
+ $$P_r = \frac{P_t * A_{et} * A_{er}}{d^2 * \lambda^2}$$
+ 
+ Luego: $\lambda = \frac{c}{f}$, sustituyendo:
+ 
+ $$P_r = \frac{P_t * A_{et} * A_{er} * f^2}{d^2 * c^2}$$
+ 
+ 
+ - Opcion 1 \
+Para 
+$$f_1 = 2f \implies P_r = \frac{P_t * A_{et} * A_{er} * (2f)^2}{d^2 * c^2}$$
+$$P_r = \frac{P_t * A_{et} * A_{er} * 4f^2}{d^2 * c^2}$$
+$$P_r = 4 * \frac{P_t * A_{et} * A_{er} * f^2}{d^2 * c^2}$$
+
+- Opcion 2
+$$ A_{et}' = 2A_{et}\ \ \  y\ \ \ A_{er}' = 2A_{er}$$
+Luego
+$$P_r = \frac{P_t * 2A_{et} * 2A_{er} * (f)^2}{d^2 * c^2}$$
+$$P_r = 4*\frac{P_t * A_{et} * A_{er} * f^2}{d^2 * c^2}$$
+
+
+¿Se conseguirá la misma potencia recibida?
+Sí, las dos ecuaciones son equivalentes y por tanto se obtiene lo mismo.
 
 ## 4.10
 ### Pregunta
- En la transmisión de radio en el espacio libre, la potencia de la señal se reduce proporcio nalmente al cuadrado de la distancia recorrida desde la fuente, mientras que en una transmi sión en un cable, la atenuación es una cantidad fija en dB por kilómetro. En la siguiente tabla se muestra, en dB, la reducción relativa a una referencia dada para la transmisión en el espacio libre y en un cable uniforme. Rellene las celdas que faltan para completar la tabla.
+ En la transmisión de radio en el espacio libre, la potencia de la señal se reduce proporcio nalmente al cuadrado de la distancia recorrida desde la fuente, mientras que en una transmisión en un cable, la atenuación es una cantidad fija en dB por kilómetro. En la siguiente tabla se muestra, en dB, la reducción relativa a una referencia dada para la transmisión en el espacio libre y en un cable uniforme. Rellene las celdas que faltan para completar la tabla.
+
+
 ### Respuesta
 
 ## 4.15
