@@ -314,6 +314,104 @@ $$\lambda = \frac{c}{f} \implies 2\text{m} = \frac{3*10⁸\text{m/s}}{f} \implie
 
 ### Respuesta
 
+## 4.13
+
+### Pregunta
+
+Suponga que un transmisor emite 50 W de potencia.
+
+a) Exprese la potencia transmitida en dBm y dBW.
+
+b) Si la potencia del transmisor se aplica a una antena con ganancia unidad, usando una frecuencia de portadora de 900 MHz, ¿cuál es la potencia recibida, en dBm, en el espacio libre a una distancia de 100 m?
+
+c) Repita el Apartado (b) para una distancia de 10 km.
+
+d) Repita (c) pero suponiendo una ganancia para la antena de recepción de 2.
+
+### Respuesta
+
+#### a) 
+
+$$P=50W=50000mW$$
+$$P(\mathrm{dBW}) = 10\times\log_{10}(50) = \text{ \textbf{16,98 dBW}}$$
+$$P(\mathrm{dBm}) = 10\times\log_{10}(50000) =  \text{ \textbf{46,98 dBm}} $$
+
+#### b)
+
+$$f=900\ MHz \quad y \quad d=100\ m$$
+
+Pérdida en el espacio libre:
+
+$$L_p(dB)=20\times log_{10} \frac{4\pi \times d \times f}{c}=20\times log_{10} \frac{4\pi \times 100 \times (900\times 10^6)}{3\times 10^8}=71,52\ dB$$
+
+Ya que las ganancias de las antenas son unitarias, es decir 0 dB, la potencia recibida es:
+
+$$P_r(dBm)=p_t(dBm)-L_p(dB)=46,98-71,52=\text{ \textbf{-24,54 dBm}}$$
+
+#### c)
+
+$$f=900\ MHz \quad y \quad distancia:d=10\ Km$$
+
+$$L_p(dB)=20\times log_{10} \frac{4\pi \times d \times f}{c}=20\times log_{10} \frac{4\pi \times (10\times 10^3) \times (900\times 10^6)}{3\times 10^8}=111,52\ dB$$
+
+
+$$P_r(dBm)=p_t(dBm)-L_p(dB)=46,98-111,52=\text{ \textbf{-64,54 dBm}}$$
+
+#### d)
+**ganacia de antena de receocion = 2dB**
+
+$$G_r(dB)=10\times log_{10}(2)=3,01\ dB$$
+
+$$P_r(dBm)=P_t(dBm)-L_p(dB)+G_r(dB)=46,98-111,52+3,01=\text{ \textbf{-61,53 dBm}}$$
+
+## 4.14
+
+### Pregunta
+Un transmisor de microondas tiene una salida de 0,1 W a 2 GHz. Suponga que este trans-
+misor se utiliza en un sistema de comunicación de microondas en el que las antenas trans-
+misora y receptora son parábolas, cada una con un diámetro igual a 1,2 m.
+
+a) ¿Cuál es la ganancia de cada antena en decibelios?
+
+b) Teniendo en cuenta la ganancia de la antena para la señal transmitida, ¿cuál es la potencia efectiva radiada?
+
+c) Si la antena receptora se sitúa a 24 km de la antena transmisora en el espacio libre, determine la potencia de la señal a la salida de la antena receptora en dBm.
+
+### Respuesta
+
+#### a)
+
+$$P=0,1\ W, \quad f=2\ GHz \quad y \quad diametro: D=1,2\ m$$
+
+$$\text{ \textbf{Area: }} A = \pi \times \left(\frac{D}{2}\right)^2= \pi \times \left(\frac{1,2}{2}\right)^2=1,13\ m^2$$
+
+$$\text{ \textbf{Longitud de onda: }} \lambda = \frac{c}{f}=\frac{3\times 10^8}{2\times 10^9}=0,15\ m$$
+
+Ganancia de una antena parabólica:
+
+$$G_p(\mathrm{dB})=10 \times \log_{10}\left(7 \times \frac{A}{\lambda^2}\right)=10 \times \log_{10}\left(7 \times \frac{1,13}{0,15^2}\right)=\text{ \textbf{25,45 dB}}$$
+
+Como ambas antenass son identicas, tienen la misma ganacia:
+
+$$G_t=G_r=\text{ \textbf{25,45 dB}}$$
+
+#### b)
+
+$$P_t(dBW)=10\times log_{10}(0,1)=-10\ dBW$$
+$$P_t(dBm)=-10+30=20\ dBm$$
+
+$$\text{ \textbf{Potencia efectiva radiada: }}EIRP(dBm)=P_t(dBm)+G_t(dB)=\text{ \textbf{45,45 dBm}}$$
+
+#### c)
+
+$$\text{ \textbf{distancia: }} d=24\ Km$$
+
+$$L_p(dB)=20\times log_{10} \frac{4\pi \times d \times f}{c}=20\times log_{10} \frac{4\pi \times (24\times 10^3) \times (2\times 10^9)}{3\times 10^8}=126,06\ dB$$
+
+<br>
+
+$$P_r(dBm)=P_t(dBm)-L_p(dB)+G_t(dB)+G_r(dB)=20-126,06+25,45+25,45=\text{ \textbf{-55,16 dBm}}$$
+
 ## 4.15
 
 ### Pregunta
