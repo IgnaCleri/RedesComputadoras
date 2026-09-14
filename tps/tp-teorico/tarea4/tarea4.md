@@ -110,12 +110,17 @@ Es un mecanismo en el que los puentes desarrollan automáticamente una tabla de 
 
 ## 15.12. ¿Qué diferencias existen entre un concentrador y un conmutador de capa 2?
 
-Hub (Capa 1): Es un repetidor pasivo que retransmite las señales a todos sus puertos por igual. Todos los equipos comparten un único dominio de colisión y el mismo ancho de banda.
-Switch L2 (Capa 2): Examina la trama y la reenvía únicamente al puerto de destino correspondiente. Otorga un dominio de colisión independiente por puerto y permite transmisiones simultáneas.
+**Concentrador/Hub (Capa 1):** Es un repetidor pasivo que retransmite las señales a todos sus puertos por igual. Todos los equipos comparten un único dominio de colisión y el mismo ancho de banda.
+
+**Switch L2 (Capa 2):** Examina la trama y la reenvía únicamente al puerto de destino correspondiente. Otorga un dominio de colisión independiente por puerto y permite transmisiones simultáneas.
+
 
 ## 15.13. ¿Cuál es la diferencia entre un conmutador de almacenamiento y envío y uno rápido?
-Almacenamiento y envío: Recibe la trama completa en su memoria intermedia, verifica que no tenga errores mediante el código CRC/FCS y luego la reenvía. Mayor latencia, pero no propaga tramas corruptas.
-Conmutación rápida: Lee solo los primeros bytes para obtener la dirección MAC de destino y comienza a reenviar la trama de inmediato. Menor latencia, pero puede reenviar tramas dañadas.
+
+**Almacenamiento y envío:** Recibe la trama completa en su memoria intermedia, verifica que no tenga errores mediante el código CRC/FCS y luego la reenvía. Mayor latencia, pero no propaga tramas corruptas.
+
+**Conmutación rápida:** Lee solo los primeros bytes para obtener la dirección MAC de destino y comienza a reenviar la trama de inmediato. Menor latencia, pero puede reenviar tramas dañadas.
+
 
 # Bibliografía
 
