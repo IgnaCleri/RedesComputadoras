@@ -332,6 +332,48 @@ $$\lambda = \frac{c}{f} \implies 2\text{m} = \frac{3*10⁸\text{m/s}}{f} \implie
 
 ### Pregunta
 
+
+### Respuesta
+
+## 4.12
+
+### Pregunta
+
+A menudo es más conveniente expresar las distancias en km en lugar de en m y las frecuencias en MHz en lugar de Hz. Rescriba la Ecuación (4.1) usando estas unidades.
+
+### Respuesta
+
+La ecuación 4.1 (página 111) describe la relación entre la ganancia de una antena y su area efectiva:
+
+$$
+G = \frac{4\pi A_e}{\lambda^2} = \frac{4\pi f^2 A_e}{c^2}
+$$
+
+Esta ecuación no es particularmente interesante para la consigna dada. Indagando un poco más, resulta que el problema 4.12 del libro tiene un error de traducción. En la versión en inglés de la 7ma edición del libro, el problema 4.12 hace referencia a la ecuación 4.2 (página 112), que describe la pérdida en el espacio libre:
+
+$$
+L=10 \log_{10} \left(\frac{4 \pi d}{\lambda}\right)^2 dB = 10 \log_{10} \left(\frac{4 \pi d f}{c}\right)^2 dB 
+$$
+
+Donde:
+- $L [dB]$: pérdida en el espacio libre.
+- $d [m]$: distancia.
+- $\lambda [m]$: longitud de onda.
+- $f [Hz]$: frecuencia de la onda.
+- $c [m/s]$: velocidad de la luz ($\approx 3 \times 10^8 m/s$).
+
+La ecuación equivalente expresando la distancia en $km$ y la frecuencia en $MHz$ es:
+
+$$\begin{aligned}
+
+L_{dB} &= 10 \log_{10} \left(\frac{4 \pi d f}{c}\right)^2 \\
+       &= 20 \log_{10} \left( \frac{4\pi (d_{km} \times 10^3) (f_{MHz} \times 10^6)}{3 \times 10^8} \right) \\
+       &= 20 \log_{10} \left( \frac{4\pi d_{km} f_{MHz} \times 10^9}{3 \times 10^8} \right) \\
+       &= 20 \log_{10} \left( \frac{40\pi}{3} \right) + 20 \log_{10}(d_{km}) + 20 \log_{10}(f_{MHz}) \\
+       &= 32,442 + 20 \log_{10}(d_{km}) + 20 \log_{10}(f_{MHz})
+
+\end{aligned}$$
+
 En la Sección 4.2 se ha establecido que si una fuente de energía electromagnética se sitúa en el foco de un paraboloide, y que si el paraboloide tiene una superficie reflectante, entonces, la onda se reflejará en líneas paralelas al eje del paraboloide. Para demostrar esto considérese, por ejemplo, la parábola mostrada en la Figura 4.12. Sea $P(x_1, y_1)$ un punto de la parábola y sea $PF$ la línea que une $P$ con el foco. Construya la línea $L$ que pasa por $P$ paralela al eje $x$ y la recta $M$ tangente a la parábola en $P$. El ángulo entre $L$ y $M$ es $\beta$ y el ángulo entre $PF$ y $M$ es $\alpha$. El ángulo $\alpha$ es el ángulo con el que el rayo que pasa por $F$ incide en la parábola en $P$. Debido a que el ángulo de incidencia es igual al ángulo de reflexión, el rayo reflejado por $P$ debe ser igual al ángulo $\alpha$. Por tanto, si se demuestra que $\alpha = \beta$, se habrá demostrado que los rayos que se emitan desde $F$ y sean reflejados por la parábola serán paralelos al eje $x$.
 
 ![Parábola de reflexión](./assets/4_12-parabola_de_reflexion.png)
@@ -392,13 +434,6 @@ $$\begin{aligned}
 \end{aligned}$$
 
 Concluyendo en que el ángulo de incidencia es igual al ángulo de reflexión: $\alpha = \beta$.
-
-## 4.12
-
-### Pregunta
-
-
-### Respuesta
 
 ## 4.13
 
