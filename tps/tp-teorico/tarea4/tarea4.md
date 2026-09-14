@@ -45,11 +45,36 @@ Las topologías mas comunes para redes LAN son cuatro:
 
 ## 15.5. ¿Cuál es el propósito del comité IEEE 802?
 
+Tener un estándares para regular las redes de área local (LAN) y redes de área metropolitana (MAN) principalmente
+
 ## 15.6. ¿Por qué existen diferentes normativas para redes LAN?
+
+Estas existen para cubrir los distintos medio fisicos de forma optima, los requerimentos del entorno (si es de bajo costo o maximo rendimiento). 
 
 ## 15.7. Enumere y describa brevemente los servicios proporcionados por LLC.
 
+Los servicios proporcionados por el Control de Enlace Logico son lo siguientes:
+
+- **Servicio no orientado a conexión sin confirmación:** este servicio es de tipo datagrama. Es muy sencillo, puesto que no incluye mecanismos de control de flujo ni de errores, por lo que no está garantizada la recepción de los datos.
+
+- **Servicio en modo conexión:** En este servicion se establece una conexión lógica entre dos usuarios que intercambian datos, existiendo control de flujo y de errores.
+
+- **Servicio no orientado a conexión con confirmación:** es una mezcla de los dos anteriores. Los datagramas son confirmados, pero no se establece conexión lógica previa.
+
 ## 15.8. Enumere y describa brevemente los modos de operación proporcionados por el protocolo LLC.
+
+### Operacion de Tipo 1:
+
+Transmite las tramas de datos sin establecer una sesión o conexión previa y sin requerir acuses de recibo. Tampoco implementa control de flujo ni corrección de errores en la subcapa LLC, aunque existe detección de errores y rechazo a nivel MAC.
+
+### Operacion de Tipo 2:
+
+En este modo se requiere el establecimiento previo de un enlace lógico entre los puntos de acceso al servicio (SAP) del emisor y del receptor antes de iniciar la transferencia de datos.
+
+### Operacion de Tipo 3:
+
+En este modo los datos se envían en sucesivas PDU de orden AC, y deben ser confirmadas usando una PDU de respuesta AC.
+
 
 ## 15.9. Enumere algunas funciones básicas que se realicen en la capa MAC.
 
