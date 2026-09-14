@@ -56,11 +56,11 @@ Las topologías mas comunes para redes LAN son cuatro:
 
 ## 15.5. ¿Cuál es el propósito del comité IEEE 802?
 
-Tener un estándares para regular las redes de área local (LAN) y redes de área metropolitana (MAN) principalmente
+Tener un estándares para regular las redes de área local (LAN) y redes de área metropolitana (MAN) segun su topologia
 
 ## 15.6. ¿Por qué existen diferentes normativas para redes LAN?
 
-Estas existen para cubrir los distintos medio fisicos de forma optima, los requerimentos del entorno (si es de bajo costo o maximo rendimiento). 
+Estas existen para cubrir los distintos medio fisicos de forma optima y los requerimentos del entorno (si es de bajo costo o maximo rendimiento). 
 
 ## 15.7. Enumere y describa brevemente los servicios proporcionados por LLC.
 
@@ -89,20 +89,27 @@ En este modo los datos se envían en sucesivas PDU de orden AC, y deben ser conf
 
 ## 15.9. Enumere algunas funciones básicas que se realicen en la capa MAC.
 
-1. Encapsulado de datos: Ensamblado y desarmado de tramas (agrega encabezado con direcciones MAC y tráiler de control).
-2. Control de acceso al medio: Regulación de la transmisión para compartir el canal físico entre múltiples dispositivos.
-3. Detección de errores: Identificación de tramas alteradas usando la secuencia de comprobación de trama.
-4. Direccionamiento físico: Identificación unívoca del emisor y receptor dentro de la red local.
+1) **Control de acceso al medio:** Regula y gestiona el uso del canal físico compartido entre múltiples dispositivos para evitar o gestionar conflictos de transmisión.
+
+2) **Encapsulado de datos y delimitación de tramas:** Ensambla los datos en tramas en la emisión y su desarmado en la recepción, incluyendo la identificación clara del inicio y fin de la trama.
+
+3) **Detección de errores:** Genera y comprueba la Secuencia de Comprobación de Trama (FCS / CRC) para detectar tramas alteradas durante la transmisión y proceder a su descarte.
+
+4) **Direccionamiento físico:** Incluye las direcciones MAC de origen y destino en la cabecera para la identificación unívoca de los dispositivos en la red local.
 
 ## 15.10. ¿Qué funciones lleva a cabo un puente?
-* Filtrado y reenvío: Lee la dirección MAC de destino para decidir si transmite la trama a otro segmento o la descarta.
-* Aprendizaje automático: Inspecciona las direcciones de origen para construir dinámicamente una tabla de direcciones MAC asignadas a sus puertos.
-* Segmentación de red: Divide una red grande en dominios de colisión independientes para reducir el tráfico innecesario.
+
+- **Filtrado y reenvío:** Lee la dirección MAC de destino para decidir si transmite la trama a otro segmento o la descarta.
+- **Aprendizaje automático:** Inspecciona las direcciones de origen para construir dinámicamente una tabla de direcciones MAC asignadas a sus puertos.
+- **Segmentación de red:** Divide una red grande en dominios de colisión independientes para reducir el tráfico innecesario.
+
 
 ## 15.11. ¿Qué es un árbol de expansión?
-Es una topología lógica sin bucles generada por el protocolo STP. Bloquea de forma selectiva los puertos de enlaces redundantes para evitar tormentas de difusión (broadcast storms) y bucles de capa 2, garantizando una única ruta activa entre cualquier par de nodos.
+
+Es un mecanismo en el que los puentes desarrollan automáticamente una tabla de encaminamiento y la actualizan en respuesta a cambios en la topología. El algoritmo consta de tres mecanismos: retransmisión de tramas, aprendizaje de direcciones y mecanismo para evitar bucles
 
 ## 15.12. ¿Qué diferencias existen entre un concentrador y un conmutador de capa 2?
+
 Hub (Capa 1): Es un repetidor pasivo que retransmite las señales a todos sus puertos por igual. Todos los equipos comparten un único dominio de colisión y el mismo ancho de banda.
 Switch L2 (Capa 2): Examina la trama y la reenvía únicamente al puerto de destino correspondiente. Otorga un dominio de colisión independiente por puerto y permite transmisiones simultáneas.
 
