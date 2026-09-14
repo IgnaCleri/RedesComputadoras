@@ -359,8 +359,46 @@ Sí, las dos ecuaciones son equivalentes y por tanto se obtiene lo mismo.
 ### Pregunta
  En la transmisión de radio en el espacio libre, la potencia de la señal se reduce proporcio nalmente al cuadrado de la distancia recorrida desde la fuente, mientras que en una transmisión en un cable, la atenuación es una cantidad fija en dB por kilómetro. En la siguiente tabla se muestra, en dB, la reducción relativa a una referencia dada para la transmisión en el espacio libre y en un cable uniforme. Rellene las celdas que faltan para completar la tabla.
 
+| Longitud  | Radio (dB)| Cable (dB) | 
+| -------   | --------- | ---------- | 
+|  1        |      -6   |     -3     |
+|  2        |           |            |
+|  4        |           |            |
+|  8        |           |            |
+|  16       |           |            |
 
 ### Respuesta
+
+Como, en un cable se atenua una unidad fija por km (-6dB), el calculo es simple
+- $1Km \implies -3 dB$
+- $2Km \implies -6\ dB$
+- $4Km \implies -12\ dB$
+- $8Km \implies -24\ dB$
+- $16Km \implies -48\ dB$
+
+Para el caso de la radio, como la potencia es inversamente proporiconal al cuadrado de la distancia, cada vez que se duplica la distancia la potencia se atenua:
+
+$$ X = \frac{1}{d^2} \implies X = \frac{1}{4}$$
+
+Eso en dB se traduce a $10 \log_{10}(4) \approx 6\text{ dB}$.
+
+Por lo tanto cada vez que se duplica la distancia se atenuan 6dB aproximadamente, luego:
+
+- $1Km \implies -6 dB$
+- $2Km \implies -12\ dB$
+- $4Km \implies -18\ dB$
+- $8Km \implies -24\ dB$
+- $16Km \implies -30\ dB$
+
+La tabla resulta: 
+| Longitud  | Radio (dB)| Cable (dB) | 
+| -------   | --------- | ---------- | 
+|  1        |      -6   |     -3     |
+|  2        |    -12    |    -6      |
+|  4        |  -18      |     -12    |
+|  8        |   -24     |    -24     |
+|  16       |  -30      |  -48       |
+
 
 ## 4.15
 
