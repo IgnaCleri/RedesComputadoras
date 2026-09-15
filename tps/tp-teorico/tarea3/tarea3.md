@@ -25,7 +25,7 @@ Además, al ser dos conductores trenzados entre sí y muy próximos, ambos queda
 
 Comparado con otros medios guiados (cable coaxial y fibra óptica), el par trenzado presenta varias limitaciones:
 
-- **Menor ancho de banda, distancia y velocidad de transmisión**: su rango de frecuencias útil (hasta 1 MHz para cables multipar) y la separación entre repetidores (apenas 2 km) son mucho menores que los del cable coaxial (hasta 500 MHz, repetidores cada 1-9 km) o la fibra óptica (hasta 370 THz, repetidores cada 40 km).
+- **Menor ancho de banda, distancia y velocidad de transmisión**: su rango de frecuencias útil (hasta 1 MHz para cables multipar) y la separación entre repetidores (apenas 2 km) son mucho menores que los del cable coaxial (hasta 500 MHz, repetidores cada 1-9 km) o la fibra óptica (de 180 a 370 THz, repetidores cada 40 km).
 - **Atenuación fuertemente dependiente de la frecuencia**: a mayor frecuencia de la señal, mayor es la pérdida de energía por unidad de longitud.
 - **Alta susceptibilidad a interferencias y ruido**: al acoplarse fácilmente con campos electromagnéticos externos, un par trenzado tendido en paralelo a una línea de alta tensión, por ejemplo, capta la energía de 50/60 Hz de esa línea. También es vulnerable al ruido impulsivo.
 - **Necesidad frecuente de regeneración de la señal**: para transmisión analógica requiere amplificadores cada 5-6 km, y para transmisión digital, repetidores cada 2-3 km, un espaciado mucho más corto que el de otros medios guiados.
@@ -100,13 +100,13 @@ Su geometría consigue un haz paralelo sin dispersión. De igual forma, y en la 
 
 Los factores que determinan la ganancia de una antena pueden sacarse de la ecuacion para determinar la ganancia de una antena:
 
-$$ \frac{4\pi A_e}{\lambda²} = \frac{4 \pi f² A_e}{c^2}$$
+$$G = \frac{4\pi A_e}{\lambda²} = \frac{4 \pi f² A_e}{c^2}$$
 
 - $G$: ganancia de la antena.
 
 - $f$: frecuencia de la portadora.
 
-- $c$: velocidad de la luz ( $3 108 m s$).
+- $c$: velocidad de la luz ($3\times10^8 \text{ m/s}$).
 
 - $\lambda$: longitud de onda de la portadora
 
@@ -141,7 +141,7 @@ uno y que una compañía aérea transporta $10^4 kg$ de disquetes a una velocida
 
 Primero tenemos que que ver cuantos disquetes se pueden tranportar en cada viaje:
 
-$$ \frac{30g}{(10⁴* 1000)g} = 333333.333$$
+$$ \frac{(10^4 \times 1000)\text{g}}{30\text{g}} = 333.333{,}33$$
 
 Entonces por cada viaje viajan: $$\text{Total de bytes} = 333.333{,}33 \text{ disquetes} \times (1{,}4 \times 10^6 \text{ bytes/disquete}) \approx 4{,}66667 \times 10^{11} \text{ bytes}$$
 
@@ -309,15 +309,15 @@ $$\lambda = \frac{c}{f} \implies 2\text{m} = \frac{3*10⁸\text{m/s}}{f} \implie
 
 ### Respuesta
 Datos: 
-- Longitud de la antena = 0.025m
+- Longitud de la antena = 0.0025m
 - Velocidad de propagacion = $3*10^{8} \frac{m}{s}$
 
 $$L = \frac{\lambda}{2} \implies \lambda = 2 * 0.0025m = 0.005m$$
 
 Luego, sabiendo que: 
-$$c= \lambda * f \implies f = \frac{\lambda}{f} = \frac{3*10^8 \frac{m}{s}}{0.005m} = 6 * 10^{10}Hz$$
+$$c= \lambda * f \implies f = \frac{c}{\lambda} = \frac{3*10^8 \frac{m}{s}}{0.005m} = 6 * 10^{10}Hz$$
 
-La frecuencia que recibiraa travez de el empaste es de $60*10^{10} Hz$
+La frecuencia que recibiría a través del empaste es de $6*10^{10} Hz$
 
 ## 4.9
 
@@ -565,7 +565,7 @@ $$G_p(\mathrm{dB})=10 \times \log_{10}\left(7 \times \frac{A}{\lambda^2}\right)=
 Como ambas antenass son identicas, tienen la misma ganacia:
 
 $$G_t=G_r=\text{ \textbf{25,45 dB}}$$
-La ganancia de cada antena es de 24,45dB.
+La ganancia de cada antena es de 25,45dB.
 #### b)
 
 $$P_t(dBW)=10\times log_{10}(0,1)=-10\ dBW$$
