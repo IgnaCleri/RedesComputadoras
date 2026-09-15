@@ -58,8 +58,8 @@
     ),
   ),
 
-  titulo: [Título del trabajo],
-  resumen: [*_Objetivo_ --- _(completar)_*],
+  titulo: [Preguntas de Repaso y Problemas],
+  resumen: none,
 
   fecha: datetime.today().display("[year]-[month]-[day]"),
 )
@@ -107,6 +107,14 @@
 #set par(
   spacing: 1.2em
 )
+
+#v(1fr)
+#align(center)[
+  #text(size: 10pt)[
+    *_Objetivo_ --- Resolver las preguntas de repaso y los problemas del Capítulo 4 de Stallings (2004)*
+  ]
+]
+#pagebreak()
 
 = Una Sección
 
