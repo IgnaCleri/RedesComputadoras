@@ -29,7 +29,7 @@
   unidad-academica: image("assets/FCEFyN.png"),
   institucion: image("assets/UNC.jpg"),
   asignatura: "09807 - Redes de Computadoras",
-  trabajo: "Trabajo Práctico Nº 4",
+  trabajo: "Trabajo Práctico Nº 3",
   equipo: "WireGuardians",
   autores: (
     (
