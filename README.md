@@ -4,37 +4,23 @@
 
 ## Trabajos Prácticos
 
-| TP                  | Informe                                            | Enunciado                                          |
-| ------------------- | -------------------------------------------------- | -------------------------------------------------- |
-| TP1 — Práctico    | [informe-tp-1.md](tps/practico/TP1/informe-tp-1.md) | [RC - TP N1.pdf](<tps/practico/tp1/RC - TP N1.pdf>) |
-| TP2 — Práctico    | [InformeTP2.md](tps/practico/TP2/InformeTP2.md)     | [RC - TP N2.pdf](<tps/practico/TP2/RC - TP N2.pdf>) |
-| TP3 — Práctico    | [InformeTP3.md](tps/practico/TP3/InformeTP3.md) · [InformeTP3.typ](tps/practico/TP3/InformeTP3.typ) | [RC - TP N3.pdf](<tps/practico/TP3/RC - TP N3.pdf>) |
-| Tarea 2 — Teórico | [tarea2.md](tps/tp-teorico/tarea2.md)               | —                                                 |
+| Informe                                               | Enunciado                                           |
+| ----------------------------------------------------- | --------------------------------------------------- |
+| [TP1 — Práctico](tps/practico/TP1/informe-tp-1.md)    | [RC - TP N1.pdf](<tps/practico/TP1/RC - TP N1.pdf>) |
+| [TP2 — Práctico](tps/practico/TP2/InformeTP2.md)      | [RC - TP N2.pdf](<tps/practico/TP2/RC - TP N2.pdf>) |
+| [TP3 — Práctico](tps/practico/TP3/InformeTP3.pdf)     | [RC - TP N3.pdf](<tps/practico/TP3/RC - TP N3.pdf>) |
+| [TP4 — Práctico](tps/practico/TP4/InformeTP4.md)      | [RC - TP N4.pdf](<tps/practico/TP4/RC - TP N4.pdf>) |
+| [Tarea 2 — Teórico](tps/tp-teorico/tarea2/tarea2.pdf) | [Tarea02.pdf](tps/tp-teorico/tarea2/Tarea02.pdf)    |
+| [Tarea 3 — Teórico](tps/tp-teorico/tarea3/main.pdf)   | —                                                   |
+| [Tarea 4 — Teórico](tps/tp-teorico/tarea4/main.pdf)   | —                                                   |
 
 ### Esquema de archivos
 
 ```
 tps/
-├── practico/
-│   ├── TP1/
-│   │   ├── informe-tp-1.md
-│   │   ├── RC - TP N1.pdf
-│   │   └── imagenes/
-│   ├── TP2/
-│   │   ├── InformeTP2.md
-│   │   └── RC - TP N2.pdf
-│   └── TP3/
-│       ├── InformeTP3.md
-│       ├── InformeTP3.typ # mismo informe, en Typst (ver "Informes en Typst")
-│       ├── InformeTP3.pdf
-│       ├── bibliografia.bib
-│       ├── assets/
-│       ├── imagenes/
-│       └── RC - TP N3.pdf
-├── tp-teorico/
-│   ├── tarea2.md
-│   └── imagenes/
-└── template/          # plantilla Typst para informes (práctico y teórico)
+├── practico/TP{N}/       # un TP del práctico
+├── tp-teorico/tarea{N}/  # una tarea del teórico
+└── template/             # plantilla Typst para informes
     ├── main.typ
     ├── bibliografia.bib
     └── assets/
@@ -95,7 +81,7 @@ Este repositorio guarda el material de estudio de la materia: trabajos práctico
 
 | Tipo de contenido                | Carpeta destino                      |
 | -------------------------------- | ------------------------------------ |
-| TP del práctico                 | `tps/practico/tpN/`                |
+| TP del práctico                 | `tps/practico/TPN/`                |
 | TP del teórico                  | `tps/tp-teorico/tareaN/`           |
 | Apuntes de clase teórica        | `Material/clases/teorico/claseN/`  |
 | Apuntes de clase práctica       | `Material/clases/practico/claseN/` |
