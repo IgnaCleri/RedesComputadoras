@@ -130,7 +130,7 @@ Teniendo esto en cuenta, podemos decir que las diferencias entre los requisitos 
 - Coste de la conexión a la red: En redes de computadoras personales el coste de acceso a la red debe ser significativamente menor que el coste del propio equipo, en general limitando la velocidad de la red.
 - Velocidad de la red: Como resultado del punto anterior las redes LAN de computadoras personales pueden estar limitadas en velocidad, mientras que para las redes de respaldo y almacenamiento la velocidad es un requisito clave.
 - Cobertura y cantidad de dispositivos: Una red LAN de computadoras personales puede abarcar una o varias oficinas y múltiples estaciones u otros dispositivos como impresoras, mientras que en redes _backend_ la cobertura suele limitarse a unos pocos dispositivos de alto rendimiento ubicados en un mismo lugar.
-- Fiabilidad: En redes de _backend_ se prioriza la fiabilidad para maximiza la productividad de los sistemas, mientas que en redes LAN la fiabilidad puede no ser crítica. Esto implica que para redes _backend_ puede implementarse un acceso al medio distribuido mas eficiente que el control centralizado típico de una red LAN personal.
+- Fiabilidad: En redes de _backend_ se prioriza la fiabilidad para maximizar la productividad de los sistemas, mientras que en redes LAN la fiabilidad puede no ser crítica. Esto implica que para redes _backend_ suele implementarse un acceso al medio distribuido mas eficiente.
 
 == ¿Qué diferencias hay entre una red LAN de respaldo, una red SAN y una red LAN troncal?
 
@@ -176,11 +176,11 @@ Las topologías mas comunes para redes LAN son cuatro:
 
 == ¿Cuál es el propósito del comité IEEE 802?
 
-Tener un estándares para regular las redes de área local (LAN) y redes de área metropolitana (MAN) segun su topologia
+El comité IEEE 802 normaliza la capa física y de enlace de datos para redes LAN y MAN. Para eso dividió la capa de enlace en dos subcapas, LLC (Control de Enlace Lógico) y MAC (Control de Acceso al Medio), lo que permite que un mismo protocolo LLC funcione sobre distintos esquemas de acceso al medio, como los que definen 802.3 (Ethernet) o 802.11 (WiFi). Así, distintas tecnologías de nivel físico y MAC pueden competir y evolucionar por separado sin afectar a la capa superior. Dentro del mismo comité, el subgrupo 802.1 se ocupa de la interconexión, incluyendo puentes y árbol de expansión.
 
 == ¿Por qué existen diferentes normativas para redes LAN?
 
-Éstas existen para cubrir los distintos medio físicos de forma óptima y los requerimentos del entorno (si es de bajo costo o máximo rendimiento).
+Existen varias normativas porque cada medio físico (cable coaxial, par trenzado, fibra óptica, medio inalámbrico) impone requisitos de acceso al medio distintos: Ethernet usa contención tipo CSMA/CD, las redes en anillo usan paso de testigo y las redes inalámbricas usan variantes de contención adaptadas a ese medio. También pesa que cada entorno de uso prioriza cosas distintas, como bajo costo, máximo rendimiento o tiempo real, algo que una sola normativa difícilmente podría cubrir bien en todos los casos. Por último, varias de estas tecnologías se desarrollaron de forma independiente y compitiendo entre sí, así que terminaron normalizándose por separado en vez de unificarse en un solo estándar.
 
 == Enumere y describa brevemente los servicios proporcionados por LLC.
 
@@ -196,7 +196,7 @@ Los servicios proporcionados por el Control de Enlace Logico son lo siguientes:
 
 === Operacion de Tipo 1:
 
-Transmite las tramas de datos sin establecer una sesión o conexión previa y sin requerir acuses de recibo. Tampoco implementa control de flujo ni corrección de errores en la subcapa LLC, aunque existe detección de errores y rechazo a nivel MAC.
+Transmite las tramas de datos sin establecer una sesión o conexión previa y sin requerir acuses de recibo. Tampoco implementa control de flujo ni control de errores en la subcapa LLC, aunque existe detección de errores y rechazo a nivel MAC.
 
 === Operacion de Tipo 2:
 
