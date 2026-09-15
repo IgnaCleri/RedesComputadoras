@@ -6,7 +6,7 @@
 
 | TP                  | Informe                                            | Enunciado                                          |
 | ------------------- | -------------------------------------------------- | -------------------------------------------------- |
-| TP1 — Práctico    | [informe-tp-1.md](tps/practico/tp1/informe-tp-1.md) | [RC - TP N1.pdf](<tps/practico/tp1/RC - TP N1.pdf>) |
+| TP1 — Práctico    | [informe-tp-1.md](tps/practico/TP1/informe-tp-1.md) | [RC - TP N1.pdf](<tps/practico/tp1/RC - TP N1.pdf>) |
 | TP2 — Práctico    | [InformeTP2.md](tps/practico/TP2/InformeTP2.md)     | [RC - TP N2.pdf](<tps/practico/TP2/RC - TP N2.pdf>) |
 | TP3 — Práctico    | [InformeTP3.md](tps/practico/TP3/InformeTP3.md) · [InformeTP3.typ](tps/practico/TP3/InformeTP3.typ) | [RC - TP N3.pdf](<tps/practico/TP3/RC - TP N3.pdf>) |
 | Tarea 2 — Teórico | [tarea2.md](tps/tp-teorico/tarea2.md)               | —                                                 |
@@ -16,7 +16,7 @@
 ```
 tps/
 ├── practico/
-│   ├── tp1/
+│   ├── TP1/
 │   │   ├── informe-tp-1.md
 │   │   ├── RC - TP N1.pdf
 │   │   └── imagenes/
