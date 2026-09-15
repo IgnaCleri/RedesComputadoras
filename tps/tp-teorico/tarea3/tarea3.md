@@ -25,7 +25,7 @@ Además, al ser dos conductores trenzados entre sí y muy próximos, ambos queda
 
 Comparado con otros medios guiados (cable coaxial y fibra óptica), el par trenzado presenta varias limitaciones:
 
-- **Menor ancho de banda, distancia y velocidad de transmisión**: su rango de frecuencias útil (hasta 1 MHz para cables multipar) y la separación entre repetidores (apenas 2 km) son mucho menores que los del cable coaxial (hasta 500 MHz, repetidores cada 1-9 km) o la fibra óptica (hasta 370 THz, repetidores cada 40 km).
+- **Menor ancho de banda, distancia y velocidad de transmisión**: su rango de frecuencias útil (hasta 1 MHz para cables multipar) y la separación entre repetidores (apenas 2 km) son mucho menores que los del cable coaxial (hasta 500 MHz, repetidores cada 1-9 km) o la fibra óptica (de 180 a 370 THz, repetidores cada 40 km).
 - **Atenuación fuertemente dependiente de la frecuencia**: a mayor frecuencia de la señal, mayor es la pérdida de energía por unidad de longitud.
 - **Alta susceptibilidad a interferencias y ruido**: al acoplarse fácilmente con campos electromagnéticos externos, un par trenzado tendido en paralelo a una línea de alta tensión, por ejemplo, capta la energía de 50/60 Hz de esa línea. También es vulnerable al ruido impulsivo.
 - **Necesidad frecuente de regeneración de la señal**: para transmisión analógica requiere amplificadores cada 5-6 km, y para transmisión digital, repetidores cada 2-3 km, un espaciado mucho más corto que el de otros medios guiados.
@@ -100,13 +100,13 @@ Su geometría consigue un haz paralelo sin dispersión. De igual forma, y en la 
 
 Los factores que determinan la ganancia de una antena pueden sacarse de la ecuacion para determinar la ganancia de una antena:
 
-$$ \frac{4\pi A_e}{\lambda²} = \frac{4 \pi f² A_e}{c^2}$$
+$$G = \frac{4\pi A_e}{\lambda²} = \frac{4 \pi f² A_e}{c^2}$$
 
 - $G$: ganancia de la antena.
 
 - $f$: frecuencia de la portadora.
 
-- $c$: velocidad de la luz ( $3 108 m s$).
+- $c$: velocidad de la luz ($3\times10^8 \text{ m/s}$).
 
 - $\lambda$: longitud de onda de la portadora
 
@@ -127,25 +127,21 @@ La refracción es el fenómeno físico que ocurre cuando una onda electromagnét
 
 ## 4.15 ¿Qué diferencia hay entre difracción y dispersión?
 
-La difracción es fenómeno físicoo en el que una onda se desvía, dobla o esparce al encontrar un obstáculo o al atravesar una abertura pequeña. En cambio la dispersion es el fenomeno en el que una onda se separa en distintas componentes de distinta frecuencia o longitud de onda cuando atraviesan un medio material.
+La difracción es fenómeno físico en el que una onda se desvía, dobla o esparce al encontrar un obstáculo o al atravesar una abertura pequeña. En cambio la dispersion es el fenomeno en el que una onda se separa en distintas componentes de distinta frecuencia o longitud de onda cuando atraviesan un medio material.
 
 # c) PROBLEMAS
 
 ## 4.1
-
-
 ### Pregunta
 
 Supóngase que unos datos se almacenan en disquetes de $1,4 Mb$ que pesan $30 g$ cada
-uno y que una compañía aérea transporta $10^4 kg$ de disquetes a una velocidad de $1.000 km/h$
-sobre una distancia de $5.000 km$. ¿Cuál es la velocidad de transmisión en bits por segundo
-de este sistema?
+uno y que una compañía aérea transporta $10^4 kg$ de disquetes a una velocidad de $1.000 km/h$ sobre una distancia de $5.000 km$. ¿Cuál es la velocidad de transmisión en bits por segundo de este sistema?
 
 ### Respuesta
 
 Primero tenemos que que ver cuantos disquetes se pueden tranportar en cada viaje:
 
-$$ \frac{30g}{(10⁴* 1000)g} = 333333.333$$
+$$ \frac{(10^4 \times 1000)\text{g}}{30\text{g}} = 333.333{,}33$$
 
 Entonces por cada viaje viajan: $$\text{Total de bytes} = 333.333{,}33 \text{ disquetes} \times (1{,}4 \times 10^6 \text{ bytes/disquete}) \approx 4{,}66667 \times 10^{11} \text{ bytes}$$
 
@@ -181,8 +177,7 @@ $$\text{SNR}_{\text{dB}} = 10 \log_{10}\left(\frac{0{,}005\text{ W}}{4{,}5 \time
 
 ### Pregunta
 
-Dada una fuente de 100 W, determine la máxima longitud alcanzable en los siguientes me-
-dios de transmisión, si la potencia a recibir es 1 vatio:
+Dada una fuente de 100 W, determine la máxima longitud alcanzable en los siguientes medios de transmisión, si la potencia a recibir es 1 vatio:
 - a) Un par trenzado de 0,5 mm (24 gauges) a 300 kHz.
 - b) Un par trenzado de 0,5 mm (24 gauges) a 1 MHz.
 - c) Un cable coaxial de 9,5 mm a 1 MHz.
@@ -314,15 +309,15 @@ $$\lambda = \frac{c}{f} \implies 2\text{m} = \frac{3*10⁸\text{m/s}}{f} \implie
 
 ### Respuesta
 Datos: 
-- Longitud de la antena = 0.025m
+- Longitud de la antena = 0.0025m
 - Velocidad de propagacion = $3*10^{8} \frac{m}{s}$
 
 $$L = \frac{\lambda}{2} \implies \lambda = 2 * 0.0025m = 0.005m$$
 
 Luego, sabiendo que: 
-$$c= \lambda * f \implies f = \frac{\lambda}{f} = \frac{3*10^8 \frac{m}{s}}{0.005m} = 6 * 10^{10}Hz$$
+$$c= \lambda * f \implies f = \frac{c}{\lambda} = \frac{3*10^8 \frac{m}{s}}{0.005m} = 6 * 10^{10}Hz$$
 
-La frecuencia que recibiraa travez de el empaste es de $60*10^{10} Hz$
+La frecuencia que recibiría a través del empaste es de $6*10^{10} Hz$
 
 ## 4.9
 
@@ -359,110 +354,41 @@ Sí, las dos ecuaciones son equivalentes y por tanto se obtiene lo mismo.
 ### Pregunta
  En la transmisión de radio en el espacio libre, la potencia de la señal se reduce proporcio nalmente al cuadrado de la distancia recorrida desde la fuente, mientras que en una transmisión en un cable, la atenuación es una cantidad fija en dB por kilómetro. En la siguiente tabla se muestra, en dB, la reducción relativa a una referencia dada para la transmisión en el espacio libre y en un cable uniforme. Rellene las celdas que faltan para completar la tabla.
 
-| Longitud  | Radio (dB)| Cable (dB) | 
-| -------   | --------- | ---------- | 
-|  1        |      -6   |     -3     |
-|  2        |           |            |
-|  4        |           |            |
-|  8        |           |            |
-|  16       |           |            |
+| Longitud | Radio (dB) | Cable (dB) |     |
+| -------- | ---------- | ---------- | --- |
+| 1        | -6         | -3         |     |
+| 2        |            |            |     |
+| 4        |            |            |     |
+| 8        |            |            |     |
+| 16       |            |            |     |
 
 ### Respuesta
 
-Como, en un cable se atenua una unidad fija por km (-6dB), el calculo es simple
-- $1Km \implies -3 dB$
-- $2Km \implies -6\ dB$
-- $4Km \implies -12\ dB$
-- $8Km \implies -24\ dB$
-- $16Km \implies -48\ dB$
+**Cable**: la atenuación es una cantidad fija en dB por unidad de longitud (modelo lineal). Con la referencia $\text{Cable}(1) = -3\text{ dB}$, la fórmula general es:
 
-Para el caso de la radio, como la potencia es inversamente proporiconal al cuadrado de la distancia, cada vez que se duplica la distancia la potencia se atenua:
+$$\text{Cable}(L) = -3 \times L \ \text{dB}$$
 
-$$ X = \frac{1}{d^2} \implies X = \frac{1}{4}$$
+**Radio (espacio libre)**: la potencia decae con el cuadrado de la distancia, por lo que cada vez que se duplica la distancia se pierden $20\log_{10}(2) \approx 6\text{ dB}$ adicionales. Con la referencia $\text{Radio}(1) = -6\text{ dB}$, la fórmula general es:
 
-Eso en dB se traduce a $10 \log_{10}(4) \approx 6\text{ dB}$.
+$$\text{Radio}(L) = -6 - 20\log_{10}(L) \ \text{dB}$$
 
-Por lo tanto cada vez que se duplica la distancia se atenuan 6dB aproximadamente, luego:
+Aplicando ambas fórmulas para cada longitud:
 
-- $1Km \implies -6 dB$
-- $2Km \implies -12\ dB$
-- $4Km \implies -18\ dB$
-- $8Km \implies -24\ dB$
-- $16Km \implies -30\ dB$
-
-La tabla resulta: 
-| Longitud  | Radio (dB)| Cable (dB) | 
-| -------   | --------- | ---------- | 
-|  1        |      -6   |     -3     |
-|  2        |    -12    |    -6      |
-|  4        |  -18      |     -12    |
-|  8        |   -24     |    -24     |
-|  16       |  -30      |  -48       |
-
-
-## 4.9
-
-### Pregunta
-
-
-### Respuesta
-
-## 4.10
-
-### Pregunta
-
-
-### Respuesta
+| Longitud | Radio (dB) | Cable (dB) |
+| :---: | :---: | :---: |
+| 1 | -6 | -3 |
+| 2 | -12 | -6 |
+| 4 | -18 | -12 |
+| 8 | -24 | -24 |
+| 16 | -30 | -48 |
 
 ## 4.11
 
 ### Pregunta
 
-
-### Respuesta
-
-## 4.12
-
-### Pregunta
-
-A menudo es más conveniente expresar las distancias en km en lugar de en m y las frecuencias en MHz en lugar de Hz. Rescriba la Ecuación (4.1) usando estas unidades.
-
-### Respuesta
-
-La ecuación 4.1 (página 111) describe la relación entre la ganancia de una antena y su area efectiva:
-
-$$
-G = \frac{4\pi A_e}{\lambda^2} = \frac{4\pi f^2 A_e}{c^2}
-$$
-
-Esta ecuación no es particularmente interesante para la consigna dada. Indagando un poco más, resulta que el problema 4.12 del libro tiene un error de traducción. En la versión en inglés de la 7ma edición del libro, el problema 4.12 hace referencia a la ecuación 4.2 (página 112), que describe la pérdida en el espacio libre:
-
-$$
-L=10 \log_{10} \left(\frac{4 \pi d}{\lambda}\right)^2 dB = 10 \log_{10} \left(\frac{4 \pi d f}{c}\right)^2 dB 
-$$
-
-Donde:
-- $L [dB]$: pérdida en el espacio libre.
-- $d [m]$: distancia.
-- $\lambda [m]$: longitud de onda.
-- $f [Hz]$: frecuencia de la onda.
-- $c [m/s]$: velocidad de la luz ($\approx 3 \times 10^8 m/s$).
-
-La ecuación equivalente expresando la distancia en $km$ y la frecuencia en $MHz$ es:
-
-$$\begin{aligned}
-
-L_{dB} &= 10 \log_{10} \left(\frac{4 \pi d f}{c}\right)^2 \\
-       &= 20 \log_{10} \left( \frac{4\pi (d_{km} \times 10^3) (f_{MHz} \times 10^6)}{3 \times 10^8} \right) \\
-       &= 20 \log_{10} \left( \frac{4\pi d_{km} f_{MHz} \times 10^9}{3 \times 10^8} \right) \\
-       &= 20 \log_{10} \left( \frac{40\pi}{3} \right) + 20 \log_{10}(d_{km}) + 20 \log_{10}(f_{MHz}) \\
-       &= 32,442 + 20 \log_{10}(d_{km}) + 20 \log_{10}(f_{MHz})
-
-\end{aligned}$$
-
 En la Sección 4.2 se ha establecido que si una fuente de energía electromagnética se sitúa en el foco de un paraboloide, y que si el paraboloide tiene una superficie reflectante, entonces, la onda se reflejará en líneas paralelas al eje del paraboloide. Para demostrar esto considérese, por ejemplo, la parábola mostrada en la Figura 4.12. Sea $P(x_1, y_1)$ un punto de la parábola y sea $PF$ la línea que une $P$ con el foco. Construya la línea $L$ que pasa por $P$ paralela al eje $x$ y la recta $M$ tangente a la parábola en $P$. El ángulo entre $L$ y $M$ es $\beta$ y el ángulo entre $PF$ y $M$ es $\alpha$. El ángulo $\alpha$ es el ángulo con el que el rayo que pasa por $F$ incide en la parábola en $P$. Debido a que el ángulo de incidencia es igual al ángulo de reflexión, el rayo reflejado por $P$ debe ser igual al ángulo $\alpha$. Por tanto, si se demuestra que $\alpha = \beta$, se habrá demostrado que los rayos que se emitan desde $F$ y sean reflejados por la parábola serán paralelos al eje $x$.
 
-![Parábola de reflexión](./assets/4_12-parabola_de_reflexion.png)
+![Parábola de reflexión|224](./assets/4_12-parabola_de_reflexion.png)
 
 a) Demuestre primero que $\tan \beta = (p/y_1)$. *Sugerencia*: recuérdese de trigonometría que la pendiente de una recta es igual a la tangente del ángulo que forma esa recta con el eje $x$ positivo. Igualmente, recuérdese que la pendiente de una recta tangente a una curva en un punto dado es igual a la derivada de la curva en ese punto.
 
@@ -521,19 +447,44 @@ $$\begin{aligned}
 
 Concluyendo en que el ángulo de incidencia es igual al ángulo de reflexión: $\alpha = \beta$.
 
-## 4.13
+## 4.12
 
 ### Pregunta
 
+A menudo es más conveniente expresar las distancias en km en lugar de en m y las frecuencias en MHz en lugar de Hz. Rescriba la Ecuación (4.1) usando estas unidades.
 
 ### Respuesta
 
-## 4.14
+La ecuación 4.1 (página 111) describe la relación entre la ganancia de una antena y su area efectiva:
 
-### Pregunta
+$$
+G = \frac{4\pi A_e}{\lambda^2} = \frac{4\pi f^2 A_e}{c^2}
+$$
 
+Esta ecuación no es particularmente interesante para la consigna dada. Indagando un poco más, resulta que el problema 4.12 del libro tiene un error de traducción. En la versión en inglés de la 7ma edición del libro, el problema 4.12 hace referencia a la ecuación 4.2 (página 112), que describe la pérdida en el espacio libre:
 
-### Respuesta
+$$
+L=10 \log_{10} \left(\frac{4 \pi d}{\lambda}\right)^2 dB = 10 \log_{10} \left(\frac{4 \pi d f}{c}\right)^2 dB 
+$$
+
+Donde:
+- $L [dB]$: pérdida en el espacio libre.
+- $d [m]$: distancia.
+- $\lambda [m]$: longitud de onda.
+- $f [Hz]$: frecuencia de la onda.
+- $c [m/s]$: velocidad de la luz ($\approx 3 \times 10^8 m/s$).
+
+La ecuación equivalente expresando la distancia en $km$ y la frecuencia en $MHz$ es:
+
+$$\begin{aligned}
+
+L_{dB} &= 10 \log_{10} \left(\frac{4 \pi d f}{c}\right)^2 \\
+       &= 20 \log_{10} \left( \frac{4\pi (d_{km} \times 10^3) (f_{MHz} \times 10^6)}{3 \times 10^8} \right) \\
+       &= 20 \log_{10} \left( \frac{4\pi d_{km} f_{MHz} \times 10^9}{3 \times 10^8} \right) \\
+       &= 20 \log_{10} \left( \frac{40\pi}{3} \right) + 20 \log_{10}(d_{km}) + 20 \log_{10}(f_{MHz}) \\
+       &= 32,442 + 20 \log_{10}(d_{km}) + 20 \log_{10}(f_{MHz})
+
+\end{aligned}$$
 
 ## 4.13
 
@@ -550,38 +501,37 @@ c) Repita el Apartado (b) para una distancia de 10 km.
 d) Repita (c) pero suponiendo una ganancia para la antena de recepción de 2.
 
 ### Respuesta
+#### a)
 
-#### a) 
+Referencias: **dBW** toma como referencia 1 W, y **dBm** toma como referencia 1 mW ($P=50\text{ W}=50000\text{ mW}$):
 
-$$P=50W=50000mW$$
 $$P(\mathrm{dBW}) = 10\times\log_{10}(50) = \text{ \textbf{16,98 dBW}}$$
 $$P(\mathrm{dBm}) = 10\times\log_{10}(50000) =  \text{ \textbf{46,98 dBm}} $$
 
 #### b)
 
-$$f=900\ MHz \quad y \quad d=100\ m$$
-
-Pérdida en el espacio libre:
+Primero se calcula la pérdida en el espacio libre ($L_p$) para $f=900\ MHz$ y $d=100\ m$:
 
 $$L_p(dB)=20\times log_{10} \frac{4\pi \times d \times f}{c}=20\times log_{10} \frac{4\pi \times 100 \times (900\times 10^6)}{3\times 10^8}=71,52\ dB$$
 
-Ya que las ganancias de las antenas son unitarias, es decir 0 dB, la potencia recibida es:
+Como las ganancias de ambas antenas son unitarias (0 dB), la potencia recibida es directamente la transmitida menos esa pérdida:
 
 $$P_r(dBm)=p_t(dBm)-L_p(dB)=46,98-71,52=\text{ \textbf{-24,54 dBm}}$$
 
 #### c)
 
-$$f=900\ MHz \quad y \quad distancia:d=10\ Km$$
+Se repite el cálculo anterior para $d=10\ Km$ (100 veces más lejos):
 
 $$L_p(dB)=20\times log_{10} \frac{4\pi \times d \times f}{c}=20\times log_{10} \frac{4\pi \times (10\times 10^3) \times (900\times 10^6)}{3\times 10^8}=111,52\ dB$$
 
-
 $$P_r(dBm)=p_t(dBm)-L_p(dB)=46,98-111,52=\text{ \textbf{-64,54 dBm}}$$
-
 #### d)
-**ganacia de antena de receocion = 2dB**
+
+Se repite el apartado (c), pero ahora la antena receptora no es unitaria: tiene una ganancia de **2** (valor lineal, no en dB). Para sumarla a la cuenta anterior primero hay que pasarla a dB:
 
 $$G_r(dB)=10\times log_{10}(2)=3,01\ dB$$
+
+A diferencia de la pérdida (que se resta), la ganancia de antena se **suma**, ya que una antena con ganancia concentra más energía en la dirección de interés que una antena isotrópica de referencia:
 
 $$P_r(dBm)=P_t(dBm)-L_p(dB)+G_r(dB)=46,98-111,52+3,01=\text{ \textbf{-61,53 dBm}}$$
 
@@ -615,14 +565,13 @@ $$G_p(\mathrm{dB})=10 \times \log_{10}\left(7 \times \frac{A}{\lambda^2}\right)=
 Como ambas antenass son identicas, tienen la misma ganacia:
 
 $$G_t=G_r=\text{ \textbf{25,45 dB}}$$
-
+La ganancia de cada antena es de 25,45dB.
 #### b)
 
 $$P_t(dBW)=10\times log_{10}(0,1)=-10\ dBW$$
 $$P_t(dBm)=-10+30=20\ dBm$$
 
-$$\text{ \textbf{Potencia efectiva radiada: }}EIRP(dBm)=P_t(dBm)+G_t(dB)=\text{ \textbf{45,45 dBm}}$$
-
+**Potencia efectiva radiada** = EIRP(dBm) = P_t(dBm) + G_t(dB) = **45,45dBm**
 #### c)
 
 $$\text{ \textbf{distancia: }} d=24\ Km$$
@@ -643,7 +592,7 @@ En la Sección 4.3 se afirma que si no hay obstáculos intermedios, la trayector
 
 Suponiendo que la antena es perpendicular a la superficie terrestre, se puede formar un triángulo rectángulo entre el centro de la Tierra, la base de la antena y el horizonte, ya que la línea de visión es tangente a la superficie y por lo tanto perpendicular al radio en ese punto.
 
-![Geometría de la línea de visión](imagenes/image1.jpg)
+![Geometría de la línea de visión|171](imagenes/image1.jpg)
  
 Aplicando el teorema de Pitágoras:
  
