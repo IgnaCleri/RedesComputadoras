@@ -17,6 +17,14 @@
   },
 )
 
+// Los emails de la carátula se renderizan como `raw` inline, que no corta en las
+// comas y se desborda del margen. Agregamos un espacio de ancho cero tras cada
+// coma para habilitar el salto de línea.
+#show raw.where(block: false): it => {
+  show ",": ",\u{200B}"
+  it
+}
+
 #show: informe.with(
   unidad-academica: image("assets/FCEFyN.png"),
   institucion: image("assets/UNC.jpg"),
