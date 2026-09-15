@@ -28,7 +28,7 @@
 #show: informe.with(
   unidad-academica: image("assets/FCEFyN.png"),
   institucion: image("assets/UNC.jpg"),
-  asignatura: "09807 - Redes de Computadoras",
+  asignatura: "Redes de Computadoras",
   trabajo: "Trabajo Práctico Nº 4",
   equipo: "WireGuardians",
   autores: (
