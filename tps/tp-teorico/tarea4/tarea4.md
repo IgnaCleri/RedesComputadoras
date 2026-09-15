@@ -23,7 +23,7 @@ Teniendo esto en cuenta, podemos decir que las diferencias entre los requisitos 
 - Coste de la conexión a la red: En redes de computadoras personales el coste de acceso a la red debe ser significativamente menor que el coste del propio equipo, en general limitando la velocidad de la red.
 - Velocidad de la red: Como resultado del punto anterior las redes LAN de computadoras personales pueden estar limitadas en velocidad, mientras que para las redes de respaldo y almacenamiento la velocidad es un requisito clave.
 - Cobertura y cantidad de dispositivos: Una red LAN de computadoras personales puede abarcar una o varias oficinas y múltiples estaciones u otros dispositivos como impresoras, mientras que en redes *backend* la cobertura suele limitarse a unos pocos dispositivos de alto rendimiento ubicados en un mismo lugar.
-- Fiabilidad: En redes de *backend* se prioriza la fiabilidad para maximiza la productividad de los sistemas, mientas que en redes LAN la fiabilidad puede no ser crítica. Esto implica que para redes *backend* puede implementarse un acceso al medio distribuido mas eficiente.
+- Fiabilidad: En redes de *backend* se prioriza la fiabilidad para maximizar la productividad de los sistemas, mientras que en redes LAN la fiabilidad puede no ser crítica. Esto implica que para redes *backend* suele implementarse un acceso al medio distribuido mas eficiente.
 
 ## 15.2. ¿Qué diferencias hay entre una red LAN de respaldo, una red SAN y una red LAN troncal?
 
