@@ -565,14 +565,13 @@ $$G_p(\mathrm{dB})=10 \times \log_{10}\left(7 \times \frac{A}{\lambda^2}\right)=
 Como ambas antenass son identicas, tienen la misma ganacia:
 
 $$G_t=G_r=\text{ \textbf{25,45 dB}}$$
-
+La ganancia de cada antena es de 24,45dB.
 #### b)
 
 $$P_t(dBW)=10\times log_{10}(0,1)=-10\ dBW$$
 $$P_t(dBm)=-10+30=20\ dBm$$
 
-$$\text{ \textbf{Potencia efectiva radiada: }}EIRP(dBm)=P_t(dBm)+G_t(dB)=\text{ \textbf{45,45 dBm}}$$
-
+**Potencia efectiva radiada** = EIRP(dBm) = P_t(dBm) + G_t(dB) = **45,45dBm**
 #### c)
 
 $$\text{ \textbf{distancia: }} d=24\ Km$$
