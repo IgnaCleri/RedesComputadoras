@@ -25,10 +25,11 @@
   it
 }
 
+
 #show: informe.with(
   unidad-academica: image("assets/FCEFyN.png"),
   institucion: image("assets/UNC.jpg"),
-  asignatura: "09807 - Redes de Computadoras",
+  asignatura: "Redes de Computadoras",
   trabajo: "Trabajo Práctico Nº 3",
   equipo: "WireGuardians",
   autores: (
@@ -67,7 +68,7 @@
   ),
 
   titulo: [Preguntas de repaso y Problemas --- Capítulo 4],
-  resumen: [*_Objetivo_ --- Resolver las preguntas de repaso y los problemas del Capítulo 4 de Stallings (2004)*],
+  resumen: none,
 
   fecha: datetime.today().display("[year]-[month]-[day]"),
 )
@@ -112,6 +113,13 @@
 )
 
 #set heading(numbering: none)
+
+#v(1fr)
+#align(center)[
+  #text(size: 10pt)[
+    *_Objetivo_ --- Resolver las preguntas de repaso y los problemas del Capítulo 4 de Stallings (2004)*
+  ]
+]
 
 #pagebreak()
 
@@ -259,7 +267,7 @@ En bits eso seria: $ "Total de bits" = 4.66667 times 10^11 " bytes" times 8 " bi
 
 Ahora el tiempo que le toma el avion para recorrer esa distancia es: $ "Tiempo" (t) = (5.000 " km")/(1.000 " km/h") = 5 " horas" $
 
-La velocidad de transmision en $"bps"$ es: 
+La velocidad de transmision en $"bps"$ es:
 
 $ "Velocidad" = (3.73333 times 10^12 " bits")/(5 h * 3600 "s/h") approx 207.407.407 " bps" $
 
@@ -276,7 +284,9 @@ señal ruido para la línea en $"dB"$.
 
 === Respuesta
 
-$ 10 * log_10(0.5/P_s) = 20 => 10^2 = 0.5/P_"salida" => 100 = 0.5/P_"salida" => P_"salida" = (0.5 " W")/100 = 0.005 " W" = 5 " mW" $
+$
+  10 * log_10(0.5/P_s) = 20 => 10^2 = 0.5/P_"salida" => 100 = 0.5/P_"salida" => P_"salida" = (0.5 " W")/100 = 0.005 " W" = 5 " mW"
+$
 
 Entonces la relacion señal ruido va a ser:
 
@@ -317,12 +327,12 @@ $ d = L_"máx" / alpha $
 - b) $d = (20 "dB")/(29 "dB/km") => d = 0.69 "Km"$
 - c) $d = (20 "dB")/(2.5 "dB/km") => d = 8 "Km"$
 - d) $d = (20 "dB")/(11 "dB/km") => d = 1.82 "Km"$
-- e) $alpha = 0.2 " a " 0.5 " dB/km"$ , 
+- e) $alpha = 0.2 " a " 0.5 " dB/km"$ ,
 
-    Distancia máxima: Para $alpha = 0.5 " dB/km"$: $d = (20 " dB")/(0.5 " dB/km") = bold("40 km")$
-    
-    Para $alpha = 0.2 " dB/km"$: $d = (20 " dB")/(0.2 " dB/km") = bold("100 km")$
-    Entonces va de 40km a 100km
+  Distancia máxima: Para $alpha = 0.5 " dB/km"$: $d = (20 " dB")/(0.5 " dB/km") = bold("40 km")$
+
+  Para $alpha = 0.2 " dB/km"$: $d = (20 " dB")/(0.2 " dB/km") = bold("100 km")$
+  Entonces va de 40km a 100km
 
 
 == 4.4
@@ -419,16 +429,16 @@ $ lambda = c/f => 2 "m" = (3 * 10^8 "m/s")/f => f = (3 * 10^8 "m/s")/(2 "m") = 1
 == 4.8
 
 === Pregunta
- Hay leyendas sobre gente que es capaz de recibir la señal de radio a través de los empastes de los dientes. Supóngase que tiene un empaste de 2,5 mm (0,0025 m) de largo que actuara a modo de antena, siendo igual su longitud a la mitad de la longitud de onda. ¿Qué frecuencia recibiría?
+Hay leyendas sobre gente que es capaz de recibir la señal de radio a través de los empastes de los dientes. Supóngase que tiene un empaste de 2,5 mm (0,0025 m) de largo que actuara a modo de antena, siendo igual su longitud a la mitad de la longitud de onda. ¿Qué frecuencia recibiría?
 
 === Respuesta
-Datos: 
+Datos:
 - Longitud de la antena = 0.0025m
 - Velocidad de propagacion = $3 * 10^8 "m/s"$
 
 $ L = lambda/2 => lambda = 2 * 0.0025 "m" = 0.005 "m" $
 
-Luego, sabiendo que: 
+Luego, sabiendo que:
 $ c = lambda * f => f = c/lambda = (3 * 10^8 "m/s")/(0.005 "m") = 6 * 10^10 "Hz" $
 
 #v(1em)
@@ -438,20 +448,20 @@ La frecuencia que recibiría a través del empaste es de $6 * 10^10 "Hz"$
 == 4.9
 
 === Pregunta
- Suponga una comunicación entre dos satélites que cumple la ley del espacio libre. Suponga que la señal es muy débil. Se disponen de dos alternativas de diseño. Una consiste en utilizar una frecuencia igual al doble de la frecuencia actual y la otra consiste en duplicar el área efectiva de las dos antenas. Manteniendo todos los demás parámetros inalterados, ¿se conseguirá la misma potencia recibida? o, en caso contrario, ¿cuál de las dos alternativas proporcionaría una potencia recibida superior? ¿Cuál sería el incremento de potencia recibida en el mejor de los casos?
+Suponga una comunicación entre dos satélites que cumple la ley del espacio libre. Suponga que la señal es muy débil. Se disponen de dos alternativas de diseño. Una consiste en utilizar una frecuencia igual al doble de la frecuencia actual y la otra consiste en duplicar el área efectiva de las dos antenas. Manteniendo todos los demás parámetros inalterados, ¿se conseguirá la misma potencia recibida? o, en caso contrario, ¿cuál de las dos alternativas proporcionaría una potencia recibida superior? ¿Cuál sería el incremento de potencia recibida en el mejor de los casos?
 === Respuesta
- La potencia recibida ($P_r$) en una comunicación en espacio libre expresada en función de las áreas efectivas de las antenas transmisora y receptora 
- ($A_"et"$ y $A_"er"$) es:
- 
- $ P_r = (P_t * A_"et" * A_"er")/(d^2 * lambda^2) $
- 
- Luego: $lambda = c/f$, sustituyendo:
- 
- $ P_r = (P_t * A_"et" * A_"er" * f^2)/(d^2 * c^2) $
- 
- 
- - Opcion 1 \
-Para 
+La potencia recibida ($P_r$) en una comunicación en espacio libre expresada en función de las áreas efectivas de las antenas transmisora y receptora
+($A_"et"$ y $A_"er"$) es:
+
+$ P_r = (P_t * A_"et" * A_"er")/(d^2 * lambda^2) $
+
+Luego: $lambda = c/f$, sustituyendo:
+
+$ P_r = (P_t * A_"et" * A_"er" * f^2)/(d^2 * c^2) $
+
+
+- Opcion 1 \
+Para
 $ f_1 = 2f => P_r = (P_t * A_"et" * A_"er" * (2f)^2)/(d^2 * c^2) $
 $ P_r = (P_t * A_"et" * A_"er" * 4 f^2)/(d^2 * c^2) $
 $ P_r = 4 * (P_t * A_"et" * A_"er" * f^2)/(d^2 * c^2) $
@@ -468,7 +478,7 @@ Sí, las dos ecuaciones son equivalentes y por tanto se obtiene lo mismo.
 
 == 4.10
 === Pregunta
- En la transmisión de radio en el espacio libre, la potencia de la señal se reduce proporcio nalmente al cuadrado de la distancia recorrida desde la fuente, mientras que en una transmisión en un cable, la atenuación es una cantidad fija en dB por kilómetro. En la siguiente tabla se muestra, en dB, la reducción relativa a una referencia dada para la transmisión en el espacio libre y en un cable uniforme. Rellene las celdas que faltan para completar la tabla.
+En la transmisión de radio en el espacio libre, la potencia de la señal se reduce proporcio nalmente al cuadrado de la distancia recorrida desde la fuente, mientras que en una transmisión en un cable, la atenuación es una cantidad fija en dB por kilómetro. En la siguiente tabla se muestra, en dB, la reducción relativa a una referencia dada para la transmisión en el espacio libre y en un cable uniforme. Rellene las celdas que faltan para completar la tabla.
 
 #align(center, table(
   columns: 3,
@@ -531,9 +541,9 @@ Se busca probar que $tan beta = (p \/ y_1)$. Siguiendo la sugerencia, $tan beta$
 Dado el foco de la parábola, esta se puede modelar como $y^2 = 2 p x$. Luego para obtener la recta tangente a la parábola para una abscisa arbitraria se deriva la ecuación en función de $x$:
 
 $
-(d y)/(d x) y^2 &= (d y)/(d x) 2 p x \
-2 y (d y)/(d x)(x) &= 2 p \
-(d y)/(d x)(x) &= p/y
+     (d y)/(d x) y^2 & = (d y)/(d x) 2 p x \
+  2 y (d y)/(d x)(x) & = 2 p \
+      (d y)/(d x)(x) & = p/y
 $
 
 La pendiente de la recta $M$ será la pendinte de la recta tangente a la parábola de reflexión en el punto $(x_1, y_1)$, y se obtiene evaluando la ecuación anterior en $x_1$:
@@ -551,21 +561,21 @@ Definiendo al ángulo $alpha_1$ como el ángulo entre el eje $x$ y la recta $P F
 La pendiente de $P F$ es $m_"PF" = y_1/(x_1-p/2)$. Despejando $x_1$ en la ecuación de la parábola tenemos que:
 
 $
-x_1 = (y_1^2)/(2p) => m_"PF" = y_1/((y_1^2)/(2p) - p/2) = (2p y_1)/(y_1^2 - p^2) \
-tan(alpha_1) = m_"PF" = (2p y_1)/(y_1^2 - p^2)
+  x_1 = (y_1^2)/(2p) => m_"PF" = y_1/((y_1^2)/(2p) - p/2) = (2p y_1)/(y_1^2 - p^2) \
+  tan(alpha_1) = m_"PF" = (2p y_1)/(y_1^2 - p^2)
 $
 
 Luego, aplicando la propiedad sugerida:
 
 $
-tan(alpha) &= tan(alpha_1 - beta) \
-&= (tan(alpha_1) - tan(beta))/(1 + tan(alpha_1) dot tan(beta)) \
-&= ((2p y_1)/(y_1^2 - p^2) - p/y_1)/(1 + (2p y_1)/(y_1^2 - p^2) dot p/y_1) \
-&= ((2p y_1^2 - p (y_1^2 - p^2))/(y_1 (y_1^2 - p^2)))/(1 + (2p^2)/(y_1^2 - p^2)) \
-&= ((p y_1^2 + p^3)/(y_1 (y_1^2 - p^2)))/(((y_1^2 - p^2) + 2p^2)/(y_1^2 - p^2)) \
-&= ((p (y_1^2 + p^2))/(y_1 (y_1^2 - p^2)))/((y_1^2 + p^2)/(y_1^2 - p^2)) \
-&= (p (y_1^2 + p^2))/(y_1 (y_1^2 - p^2)) dot (y_1^2 - p^2)/(y_1^2 + p^2) \
-tan(alpha) &= tan(beta) = p/y_1
+  tan(alpha) & = tan(alpha_1 - beta) \
+             & = (tan(alpha_1) - tan(beta))/(1 + tan(alpha_1) dot tan(beta)) \
+             & = ((2p y_1)/(y_1^2 - p^2) - p/y_1)/(1 + (2p y_1)/(y_1^2 - p^2) dot p/y_1) \
+             & = ((2p y_1^2 - p (y_1^2 - p^2))/(y_1 (y_1^2 - p^2)))/(1 + (2p^2)/(y_1^2 - p^2)) \
+             & = ((p y_1^2 + p^3)/(y_1 (y_1^2 - p^2)))/(((y_1^2 - p^2) + 2p^2)/(y_1^2 - p^2)) \
+             & = ((p (y_1^2 + p^2))/(y_1 (y_1^2 - p^2)))/((y_1^2 + p^2)/(y_1^2 - p^2)) \
+             & = (p (y_1^2 + p^2))/(y_1 (y_1^2 - p^2)) dot (y_1^2 - p^2)/(y_1^2 + p^2) \
+  tan(alpha) & = tan(beta) = p/y_1
 $
 
 Concluyendo en que el ángulo de incidencia es igual al ángulo de reflexión: $alpha = beta$.
@@ -581,13 +591,13 @@ A menudo es más conveniente expresar las distancias en km en lugar de en m y la
 La ecuación 4.1 (página 111) describe la relación entre la ganancia de una antena y su area efectiva:
 
 $
-G = (4 pi A_e)/lambda^2 = (4 pi f^2 A_e)/c^2
+  G = (4 pi A_e)/lambda^2 = (4 pi f^2 A_e)/c^2
 $
 
 Esta ecuación no es particularmente interesante para la consigna dada. Indagando un poco más, resulta que el problema 4.12 del libro tiene un error de traducción. En la versión en inglés de la 7ma edición del libro, el problema 4.12 hace referencia a la ecuación 4.2 (página 112), que describe la pérdida en el espacio libre:
 
 $
-L = 10 log_10((4 pi d)/lambda)^2 "dB" = 10 log_10((4 pi d f)/c)^2 "dB"
+  L = 10 log_10((4 pi d)/lambda)^2 "dB" = 10 log_10((4 pi d f)/c)^2 "dB"
 $
 
 Donde:
@@ -600,11 +610,11 @@ Donde:
 La ecuación equivalente expresando la distancia en $"km"$ y la frecuencia en $"MHz"$ es:
 
 $
-L_"dB" &= 10 log_10((4 pi d f)/c)^2 \
-&= 20 log_10((4 pi (d_"km" times 10^3) (f_"MHz" times 10^6))/(3 times 10^8)) \
-&= 20 log_10((4 pi d_"km" f_"MHz" times 10^9)/(3 times 10^8)) \
-&= 20 log_10((40 pi)/3) + 20 log_10(d_"km") + 20 log_10(f_"MHz") \
-&= 32.442 + 20 log_10(d_"km") + 20 log_10(f_"MHz")
+  L_"dB" & = 10 log_10((4 pi d f)/c)^2 \
+         & = 20 log_10((4 pi (d_"km" times 10^3) (f_"MHz" times 10^6))/(3 times 10^8)) \
+         & = 20 log_10((4 pi d_"km" f_"MHz" times 10^9)/(3 times 10^8)) \
+         & = 20 log_10((40 pi)/3) + 20 log_10(d_"km") + 20 log_10(f_"MHz") \
+         & = 32.442 + 20 log_10(d_"km") + 20 log_10(f_"MHz")
 $
 
 == 4.13
@@ -633,7 +643,9 @@ $ P("dBm") = 10 times log_10(50000) = bold("46.98 dBm") $
 
 Primero se calcula la pérdida en el espacio libre ($L_p$) para $f = 900 "MHz"$ y $d = 100 "m"$:
 
-$ L_p("dB") = 20 times log_10((4 pi times d times f)/c) = 20 times log_10((4 pi times 100 times (900 times 10^6))/(3 times 10^8)) = 71.52 "dB" $
+$
+  L_p("dB") = 20 times log_10((4 pi times d times f)/c) = 20 times log_10((4 pi times 100 times (900 times 10^6))/(3 times 10^8)) = 71.52 "dB"
+$
 
 Como las ganancias de ambas antenas son unitarias (0 dB), la potencia recibida es directamente la transmitida menos esa pérdida:
 
@@ -643,7 +655,9 @@ $ P_r("dBm") = p_t("dBm") - L_p("dB") = 46.98 - 71.52 = bold("-24.54 dBm") $
 
 Se repite el cálculo anterior para $d = 10 "Km"$ (100 veces más lejos):
 
-$ L_p("dB") = 20 times log_10((4 pi times d times f)/c) = 20 times log_10((4 pi times (10 times 10^3) times (900 times 10^6))/(3 times 10^8)) = 111.52 "dB" $
+$
+  L_p("dB") = 20 times log_10((4 pi times d times f)/c) = 20 times log_10((4 pi times (10 times 10^3) times (900 times 10^6))/(3 times 10^8)) = 111.52 "dB"
+$
 
 $ P_r("dBm") = p_t("dBm") - L_p("dB") = 46.98 - 111.52 = bold("-64.54 dBm") $
 ==== d)
@@ -699,7 +713,9 @@ $ P_t("dBm") = -10 + 30 = 20 "dBm" $
 
 $ bold("distancia:") d = 24 "Km" $
 
-$ L_p("dB") = 20 times log_10((4 pi times d times f)/c) = 20 times log_10((4 pi times (24 times 10^3) times (2 times 10^9))/(3 times 10^8)) = 126.06 "dB" $
+$
+  L_p("dB") = 20 times log_10((4 pi times d times f)/c) = 20 times log_10((4 pi times (24 times 10^3) times (2 times 10^9))/(3 times 10^8)) = 126.06 "dB"
+$
 
 $ P_r("dBm") = P_t("dBm") - L_p("dB") + G_t("dB") + G_r("dB") = 20 - 126.06 + 25.45 + 25.45 = bold("-55.16 dBm") $
 
@@ -718,21 +734,21 @@ Suponiendo que la antena es perpendicular a la superficie terrestre, se puede fo
   caption: [Geometría de la línea de visión],
   numbering: none,
 )
- 
+
 Aplicando el teorema de Pitágoras:
- 
+
 $ (R + h)^2 = R^2 + d^2 $
- 
+
 $ d^2 = 2 R h + h^2 $
- 
+
 Como h es despreciable frente a R = 6.370 km, queda:
- 
+
 $ d approx sqrt(2 R h) $
- 
+
 Ajustando unidades (h en metros → km, dividiendo por 1000):
- 
+
 $ d = sqrt(2 dot 6.370 dot h/1000) = sqrt(12.74) sqrt(h) approx 3.57 sqrt(h) $
- 
+
 Por eso se llega a la expresión *d = 3,57√h*, que después se usa para resolver los ejercicios de línea de visión óptica y de radio.
 
 #pagebreak()
@@ -748,9 +764,9 @@ Calcule la altura de una antena de una emisora de TV que sea capaz de alcanzar c
 Usando la fórmula de la línea de visión de radio con factor K = 4/3.
 
 $ d = 3.57 sqrt(K h) $
- 
+
 Despejando h:
- 
+
 $ h = (d \/ 3.57)^2 / K = (80 \/ 3.57)^2 / (4 \/ 3) = 22.41^2 / 1.333 = 502.2 / 1.333 approx 376.6 "m" $
 
 La altura de una antena de una emisora de TV debe ser de aproximadamente 376,6 metros.
@@ -764,25 +780,25 @@ Suponga que un rayo de luz visible pasa desde la atmósfera hasta el agua forman
 === Respuesta
 
 Usando la Ley de Snell
- 
+
 $ n_1 sin theta_i = n_2 sin theta_r $
- 
+
 Como el ángulo dado (30°) es respecto al horizonte, el ángulo de incidencia respecto a la normal es:
- 
+
 $ theta_i = 90° - 30° = 60° $
- 
+
 Con n₁ = 1,0003 (aire) y n₂ = 4/3 (agua):
- 
+
 $ 1.0003 dot sin(60°) = 4/3 sin theta_r $
- 
+
 $ 1.0003 dot 0.8660 = 0.8663 = 4/3 sin theta_r $
- 
+
 $ sin theta_r = 0.8663/(4 \/ 3) = 0.6497 $
- 
+
 $ theta_r = arcsin(0.6497) approx 40.5° $
- 
+
 Convirtiendo ese resultado a ángulo respecto al horizonte:
- 
+
 $ 90° - 40.5° approx 49.5° $
 
 El ángulo del rayo en el agua es de aproximadamente 40,5° respecto a la normal o 49,5° respecto al horizonte.
