@@ -1,3 +1,9 @@
+// 1. Copiar la plantilla al directorio del TP:
+//    cp -r tps/template tps/tp-teorico/tareaN   (o `tps/template/*` si ya existe)
+// 2. Actualizar "trabajo" en L38 (número de trabajo práctico) y "titulo" en L75
+// 3. Actualizar el "resumen" u objetivo en L76
+// 4. Al entregar, poner `drafting` en false para sacar la marca de BORRADOR
+
 // Template https://github.com/juanm04/barcala
 #import "@preview/barcala:0.3.0": apendice, informe, nomenclatura
 #import "@preview/lilaq:0.5.0" as lq // Paquete para gráficos, puede ser omitido
@@ -16,6 +22,14 @@
     ))
   }
 )
+
+// Los emails de la carátula se renderizan como `raw` inline, que no corta en las
+// comas y se desborda del margen. Agregamos un espacio de ancho cero tras cada
+// coma para habilitar el salto de línea.
+#show raw.where(block: false): it => {
+  show ",": ",\u{200B}"
+  it
+}
 
 #show: informe.with(
   unidad-academica: image("assets/FCEFyN.png"),
@@ -57,10 +71,10 @@
       email: "jorge.mendez@mi.unc.edu.ar",
     ),
   ),
-
+  
   titulo: [Preguntas de Repaso y Problemas],
-  resumen: none,
-
+  resumen: [*_Objetivo_ --- Resolver las preguntas de repaso y los problemas del Capítulo Y de @stallings2004.*],
+  
   fecha: datetime.today().display("[year]-[month]-[day]"),
 )
 
@@ -107,14 +121,6 @@
 #set par(
   spacing: 1.2em
 )
-
-#v(1fr)
-#align(center)[
-  #text(size: 10pt)[
-    *_Objetivo_ --- Resolver las preguntas de repaso y los problemas del Capítulo 4 de Stallings (2004)*
-  ]
-]
-#pagebreak()
 
 = Una Sección
 
