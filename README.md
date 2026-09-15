@@ -67,15 +67,12 @@ Sin `mise` también funciona instalando Typst a mano (`cargo install typst-cli -
 
 ## Modalidad de trabajo
 
-El repositorio cuenta con tareas asignadas en issues, cada una correspondiente a un punto de un trabajo práctico.
+Cada punto de un trabajo práctico es un issue del repo, y se asigna a quien lo toma.
 
-Se trabaja en ramas individuales (podés ponerle el nombre que prefieras) y se sube contenido a `master` mediante Pull Request con los entregables.
-
-Para trabajar en los TPs, buscá el archivo correspondiente y agregá los cambios ahí: no crees varios archivos del mismo TP, ni agregues apuntes auxiliares (para recordatorio o provisorios). Si los necesitás, creá una rama aparte con esos archivos auxiliares.
 
 ## Cómo contribuir
 
-Este repositorio guarda el material de estudio de la materia: trabajos prácticos (del práctico y del teórico), apuntes de clase, resúmenes y bibliografía. Esta sección explica cómo agregar contenido nuevo sin romper la organización existente.
+Este repositorio guarda el material de estudio de la materia: trabajos prácticos (del práctico y del teórico), apuntes de clase y bibliografía. Esta sección explica cómo agregar contenido nuevo sin romper la organización existente.
 
 ### Estructura de carpetas
 
@@ -83,9 +80,7 @@ Este repositorio guarda el material de estudio de la materia: trabajos práctico
 | -------------------------------- | ------------------------------------ |
 | TP del práctico                 | `tps/practico/TPN/`                |
 | TP del teórico                  | `tps/tp-teorico/tareaN/`           |
-| Apuntes de clase teórica        | `Material/clases/teorico/claseN/`  |
-| Apuntes de clase práctica       | `Material/clases/practico/claseN/` |
-| Resúmenes                       | `Material/resumenes/`              |
+| Apuntes de clase                 | `Material/clases/teorico/claseN/` o `.../practico/claseN/` |
 | Bibliografía (libros, programa) | `Material/Bibliografia/`           |
 
 Si un archivo no encaja en ninguna categoría existente, creá la carpeta que corresponda siguiendo el mismo criterio (tipo de contenido, no persona ni fecha) y documentala acá (ver [Mantener esto actualizado](#mantener-esto-actualizado)).
@@ -94,7 +89,7 @@ Si un archivo no encaja en ninguna categoría existente, creá la carpeta que co
 
 Los mensajes de commit siguen el formato `tipo: descripción breve`. Tipos usados en este repo:
 
-- `docs:` — agregar o modificar material de estudio (TPs, bibliografía, resúmenes).
+- `docs:` — agregar o modificar material de estudio (TPs, bibliografía).
 - `class:` — agregar o modificar apuntes de una clase puntual.
 - `feat:` — cambios estructurales del repo (nuevas carpetas, reorganización).
 - `fix:` — corregir un error en un archivo ya subido (typo, archivo corrupto, etc.).
@@ -105,16 +100,15 @@ Ejemplos:
 docs: agregar TP2 de práctico
 docs: agregar TP1 de teórico
 class: agregar apuntes clase 2
-docs: agregar resumen unidad 3
 fix: corregir enlace roto en apuntes clase 1
 ```
 
 ### Ramas
 
-Cada colaborador trabaja en su propia rama personal, con el patrón `trabajo-<nombre>` (por ejemplo `trabajo-igna`, `trabajo-aaron`). Antes de empezar a trabajar, actualizá tu rama con los últimos cambios de `master`:
+Cada colaborador trabaja en su propia rama. Lo único que importa es no trabajar sobre `master`.
 
 ```
-git checkout trabajo-<nombre>
+git checkout <tu-rama>
 git merge master
 ```
 
@@ -126,9 +120,9 @@ Hacé tus commits en esa rama.
 
 Cuando quieras subir contenido a `master`:
 
-1. Pusheá tu rama personal (`trabajo-<nombre>`).
-2. Abrí un Pull Request contra `master`.
-3. El PR necesita **2 aprobaciones** antes de poder mergearse.
+1. Pushear la rama propia.
+2. Abrir un Pull Request contra `master`.
+3. El PR necesita **1 aprobación** y que **todos los comentarios de review estén resueltos** antes de poder mergearse.
 
 ### Mantener esto actualizado
 
