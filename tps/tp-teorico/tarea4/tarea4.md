@@ -23,7 +23,7 @@ Teniendo esto en cuenta, podemos decir que las diferencias entre los requisitos 
 - Coste de la conexión a la red: En redes de computadoras personales el coste de acceso a la red debe ser significativamente menor que el coste del propio equipo, en general limitando la velocidad de la red.
 - Velocidad de la red: Como resultado del punto anterior las redes LAN de computadoras personales pueden estar limitadas en velocidad, mientras que para las redes de respaldo y almacenamiento la velocidad es un requisito clave.
 - Cobertura y cantidad de dispositivos: Una red LAN de computadoras personales puede abarcar una o varias oficinas y múltiples estaciones u otros dispositivos como impresoras, mientras que en redes *backend* la cobertura suele limitarse a unos pocos dispositivos de alto rendimiento ubicados en un mismo lugar.
-- Fiabilidad: En redes de *backend* se prioriza la fiabilidad para maximiza la productividad de los sistemas, mientas que en redes LAN la fiabilidad puede no ser crítica. Esto implica que para redes *backend* puede implementarse un acceso al medio distribuido mas eficiente que el control centralizado típico de una red LAN personal.
+- Fiabilidad: En redes de *backend* se prioriza la fiabilidad para maximiza la productividad de los sistemas, mientas que en redes LAN la fiabilidad puede no ser crítica. Esto implica que para redes *backend* puede implementarse un acceso al medio distribuido mas eficiente.
 
 ## 15.2. ¿Qué diferencias hay entre una red LAN de respaldo, una red SAN y una red LAN troncal?
 
@@ -56,11 +56,11 @@ Las topologías mas comunes para redes LAN son cuatro:
 
 ## 15.5. ¿Cuál es el propósito del comité IEEE 802?
 
-Tener un estándares para regular las redes de área local (LAN) y redes de área metropolitana (MAN) segun su topologia
+El comité IEEE 802 fue creado en 1980 para normalizar la capa física y de enlace de datos en redes LAN y MAN. Su aporte principal fue dividir la capa de enlace en dos subcapas: LLC (Control de Enlace Lógico) y MAC (Control de Acceso al Medio), de modo que un mismo protocolo LLC pueda operar sobre distintos esquemas de acceso al medio (por ejemplo 802.3 Ethernet, 802.11 WiFi o 802.16). De esta forma el objetivo de fondo es garantizar la interoperabilidad entre equipos de distintos fabricantes, permitiendo que compitan y evolucionen distintas tecnologías de nivel físico/MAC sin fragmentar la capa superior. Dentro del mismo comité, el subgrupo 802.1 se ocupa de aspectos de interconexión como los puentes y el árbol de expansión.
 
 ## 15.6. ¿Por qué existen diferentes normativas para redes LAN?
 
-Éstas existen para cubrir los distintos medio físicos de forma óptima y los requerimentos del entorno (si es de bajo costo o máximo rendimiento). 
+Existen varias normativas porque los distintos medios físicos (cable coaxial, par trenzado, fibra óptica, medio inalámbrico) imponen requisitos de acceso al medio muy distintos entre sí: contención tipo CSMA/CD en Ethernet, paso de testigo en redes en anillo, o CSMA/CA en redes inalámbricas, entre otros. A esto se suma que distintos entornos de uso priorizan cosas distintas —bajo costo, máximo rendimiento, determinismo o tiempo real— por lo que una única normativa no podría cubrir de forma óptima todos los casos. Además, varias de estas tecnologías se desarrollaron de manera independiente y compitiendo entre sí, y terminaron normalizándose por separado en lugar de unificarse en un solo estándar.
 
 ## 15.7. Enumere y describa brevemente los servicios proporcionados por LLC.
 
@@ -76,7 +76,7 @@ Los servicios proporcionados por el Control de Enlace Logico son lo siguientes:
 
 ### Operacion de Tipo 1:
 
-Transmite las tramas de datos sin establecer una sesión o conexión previa y sin requerir acuses de recibo. Tampoco implementa control de flujo ni corrección de errores en la subcapa LLC, aunque existe detección de errores y rechazo a nivel MAC.
+Transmite las tramas de datos sin establecer una sesión o conexión previa y sin requerir acuses de recibo. Tampoco implementa control de flujo ni control de errores en la subcapa LLC, aunque existe detección de errores y rechazo a nivel MAC.
 
 ### Operacion de Tipo 2:
 
