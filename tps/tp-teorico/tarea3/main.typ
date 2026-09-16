@@ -290,12 +290,19 @@ la entrada es de $0.5 W$ y el nivel del ruido a la salida es de $4.5 mu W$ Calcu
 señal ruido para la línea en $"dB"$.
 
 
+
 === Respuesta
-
-$
-  10 * log_10(0.5/P_s) = 20 => 10^2 = 0.5/P_"salida" => 100 = 0.5/P_"salida" => P_"salida" = (0.5 " W")/100 = 0.005 " W" = 5 " mW"
-$
-
+- Atenuacion = $-20"dB"$
+- Potencia de entrada: $p = 0.5W$
+- Ruido: $X = 4.5 mu W$
+\
+La formula de amplitud es: \
+$ A_"dB" = 10 times log_10 (p_e / p_s) $\
+Luego:
+$ A_"dB" / 10 = log_10(P_e/P_s) => 10^(A_"dB"/10) = P_e/P_s $
+Despejando $P_S$ y remplazando \
+$ P_"salida" = (0.5 " W")/100 = 0.005 " W" = 5 " mW" $
+\
 Entonces la relacion señal ruido va a ser:
 
 $ "SNR"_"dB" = 10 log_10((0.005 " W")/(4.5 times 10^(-6) " W")) = 10 log_10(1.111.11) approx bold("30.46 dB") $
