@@ -45,10 +45,11 @@ tps/
 Los informes se escriben en [Typst](https://typst.app/docs/) partiendo de `tps/template/`:
 
 ```
-cp -r tps/template tps/{teorico|practico}/TP{N}
+cp -r tps/template tps/{practico|tp-teorico}/{tareaN|TPN}     # crea la carpeta del TP con la plantilla adentro
+cp -r tps/template/* tps/{practico|tp-teorico}/{tareaN|TPN}/  # si la carpeta ya existe
 ```
 
-y se completan `asignatura`, `trabajo`, `titulo` y `resumen` al principio de `main.typ`.
+y se completan `trabajo`, `titulo` y `resumen` al principio de `main.typ` (los pasos están comentados arriba de todo en el archivo).
 
 ### Con VSCode (recomendado)
 
@@ -95,7 +96,7 @@ Este repositorio guarda el material de estudio de la materia: trabajos práctico
 | Tipo de contenido                | Carpeta destino                      |
 | -------------------------------- | ------------------------------------ |
 | TP del práctico                 | `tps/practico/tpN/`                |
-| TP del teórico                  | `tps/teorico/tpN/`                 |
+| TP del teórico                  | `tps/tp-teorico/tareaN/`           |
 | Apuntes de clase teórica        | `Material/clases/teorico/claseN/`  |
 | Apuntes de clase práctica       | `Material/clases/practico/claseN/` |
 | Resúmenes                       | `Material/resumenes/`              |
