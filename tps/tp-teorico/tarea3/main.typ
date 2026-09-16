@@ -491,9 +491,13 @@ $ P_r = 4 * (P_t * A_"et" * A_"er" * f^2)/(d^2 * c^2) $
 ¿Se conseguirá la misma potencia recibida?
 Sí, las dos ecuaciones son equivalentes y por tanto se obtiene lo mismo.
 
+#pagebreak()
+
 == 4.10
 === Pregunta
 En la transmisión de radio en el espacio libre, la potencia de la señal se reduce proporcio nalmente al cuadrado de la distancia recorrida desde la fuente, mientras que en una transmisión en un cable, la atenuación es una cantidad fija en dB por kilómetro. En la siguiente tabla se muestra, en dB, la reducción relativa a una referencia dada para la transmisión en el espacio libre y en un cable uniforme. Rellene las celdas que faltan para completar la tabla.
+
+
 
 #align(center, table(
   columns: 3,
@@ -510,11 +514,11 @@ En la transmisión de radio en el espacio libre, la potencia de la señal se red
 
 *Cable*: la atenuación es una cantidad fija en dB por unidad de longitud (modelo lineal). Con la referencia $"Cable"(1) = -3 " dB"$, la fórmula general es:
 
-$ "Cable"(L) = -3 times L \ "dB" $
+$ "Cable"(L) = -3 times L "dB" $
 
 *Radio (espacio libre)*: la potencia decae con el cuadrado de la distancia, por lo que cada vez que se duplica la distancia se pierden $20 log_10(2) approx 6 " dB"$ adicionales. Con la referencia $"Radio"(1) = -6 " dB"$, la fórmula general es:
 
-$ "Radio"(L) = -6 - 20 log_10(L) \ "dB" $
+$ "Radio"(L) = -6 - 20 log_10(L) "dB" $
 
 Aplicando ambas fórmulas para cada longitud:
 
