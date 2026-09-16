@@ -4,37 +4,23 @@
 
 ## Trabajos Prácticos
 
-| TP                  | Informe                                            | Enunciado                                          |
-| ------------------- | -------------------------------------------------- | -------------------------------------------------- |
-| TP1 — Práctico    | [informe-tp-1.md](tps/practico/tp1/informe-tp-1.md) | [RC - TP N1.pdf](<tps/practico/tp1/RC - TP N1.pdf>) |
-| TP2 — Práctico    | [InformeTP2.md](tps/practico/TP2/InformeTP2.md)     | [RC - TP N2.pdf](<tps/practico/TP2/RC - TP N2.pdf>) |
-| TP3 — Práctico    | [InformeTP3.md](tps/practico/TP3/InformeTP3.md) · [InformeTP3.typ](tps/practico/TP3/InformeTP3.typ) | [RC - TP N3.pdf](<tps/practico/TP3/RC - TP N3.pdf>) |
-| Tarea 2 — Teórico | [tarea2.md](tps/tp-teorico/tarea2.md)               | —                                                 |
+| Informe                                               | Enunciado                                           |
+| ----------------------------------------------------- | --------------------------------------------------- |
+| [TP1 — Práctico](tps/practico/TP1/informe-tp-1.md)    | [RC - TP N1.pdf](<tps/practico/TP1/RC - TP N1.pdf>) |
+| [TP2 — Práctico](tps/practico/TP2/InformeTP2.md)      | [RC - TP N2.pdf](<tps/practico/TP2/RC - TP N2.pdf>) |
+| [TP3 — Práctico](tps/practico/TP3/InformeTP3.pdf)     | [RC - TP N3.pdf](<tps/practico/TP3/RC - TP N3.pdf>) |
+| [TP4 — Práctico](tps/practico/TP4/InformeTP4.md)      | [RC - TP N4.pdf](<tps/practico/TP4/RC - TP N4.pdf>) |
+| [Tarea 2 — Teórico](tps/tp-teorico/tarea2/tarea2.pdf) | [Tarea02.pdf](tps/tp-teorico/tarea2/Tarea02.pdf)    |
+| [Tarea 3 — Teórico](tps/tp-teorico/tarea3/main.pdf)   | —                                                   |
+| [Tarea 4 — Teórico](tps/tp-teorico/tarea4/main.pdf)   | —                                                   |
 
 ### Esquema de archivos
 
 ```
 tps/
-├── practico/
-│   ├── tp1/
-│   │   ├── informe-tp-1.md
-│   │   ├── RC - TP N1.pdf
-│   │   └── imagenes/
-│   ├── TP2/
-│   │   ├── InformeTP2.md
-│   │   └── RC - TP N2.pdf
-│   └── TP3/
-│       ├── InformeTP3.md
-│       ├── InformeTP3.typ # mismo informe, en Typst (ver "Informes en Typst")
-│       ├── InformeTP3.pdf
-│       ├── bibliografia.bib
-│       ├── assets/
-│       ├── imagenes/
-│       └── RC - TP N3.pdf
-├── tp-teorico/
-│   ├── tarea2.md
-│   └── imagenes/
-└── template/          # plantilla Typst para informes (práctico y teórico)
+├── practico/TP{N}/       # un TP del práctico
+├── tp-teorico/tarea{N}/  # una tarea del teórico
+└── template/             # plantilla Typst para informes
     ├── main.typ
     ├── bibliografia.bib
     └── assets/
@@ -81,25 +67,20 @@ Sin `mise` también funciona instalando Typst a mano (`cargo install typst-cli -
 
 ## Modalidad de trabajo
 
-El repositorio cuenta con tareas asignadas en issues, cada una correspondiente a un punto de un trabajo práctico.
+Cada punto de un trabajo práctico es un issue del repo, y se asigna a quien lo toma.
 
-Se trabaja en ramas individuales (podés ponerle el nombre que prefieras) y se sube contenido a `master` mediante Pull Request con los entregables.
-
-Para trabajar en los TPs, buscá el archivo correspondiente y agregá los cambios ahí: no crees varios archivos del mismo TP, ni agregues apuntes auxiliares (para recordatorio o provisorios). Si los necesitás, creá una rama aparte con esos archivos auxiliares.
 
 ## Cómo contribuir
 
-Este repositorio guarda el material de estudio de la materia: trabajos prácticos (del práctico y del teórico), apuntes de clase, resúmenes y bibliografía. Esta sección explica cómo agregar contenido nuevo sin romper la organización existente.
+Este repositorio guarda el material de estudio de la materia: trabajos prácticos (del práctico y del teórico), apuntes de clase y bibliografía. Esta sección explica cómo agregar contenido nuevo sin romper la organización existente.
 
 ### Estructura de carpetas
 
 | Tipo de contenido                | Carpeta destino                      |
 | -------------------------------- | ------------------------------------ |
-| TP del práctico                 | `tps/practico/tpN/`                |
+| TP del práctico                 | `tps/practico/TPN/`                |
 | TP del teórico                  | `tps/tp-teorico/tareaN/`           |
-| Apuntes de clase teórica        | `Material/clases/teorico/claseN/`  |
-| Apuntes de clase práctica       | `Material/clases/practico/claseN/` |
-| Resúmenes                       | `Material/resumenes/`              |
+| Apuntes de clase                 | `Material/clases/teorico/claseN/` o `.../practico/claseN/` |
 | Bibliografía (libros, programa) | `Material/Bibliografia/`           |
 
 Si un archivo no encaja en ninguna categoría existente, creá la carpeta que corresponda siguiendo el mismo criterio (tipo de contenido, no persona ni fecha) y documentala acá (ver [Mantener esto actualizado](#mantener-esto-actualizado)).
@@ -108,7 +89,7 @@ Si un archivo no encaja en ninguna categoría existente, creá la carpeta que co
 
 Los mensajes de commit siguen el formato `tipo: descripción breve`. Tipos usados en este repo:
 
-- `docs:` — agregar o modificar material de estudio (TPs, bibliografía, resúmenes).
+- `docs:` — agregar o modificar material de estudio (TPs, bibliografía).
 - `class:` — agregar o modificar apuntes de una clase puntual.
 - `feat:` — cambios estructurales del repo (nuevas carpetas, reorganización).
 - `fix:` — corregir un error en un archivo ya subido (typo, archivo corrupto, etc.).
@@ -119,16 +100,15 @@ Ejemplos:
 docs: agregar TP2 de práctico
 docs: agregar TP1 de teórico
 class: agregar apuntes clase 2
-docs: agregar resumen unidad 3
 fix: corregir enlace roto en apuntes clase 1
 ```
 
 ### Ramas
 
-Cada colaborador trabaja en su propia rama personal, con el patrón `trabajo-<nombre>` (por ejemplo `trabajo-igna`, `trabajo-aaron`). Antes de empezar a trabajar, actualizá tu rama con los últimos cambios de `master`:
+Cada colaborador trabaja en su propia rama. Lo único que importa es no trabajar sobre `master`.
 
 ```
-git checkout trabajo-<nombre>
+git checkout <tu-rama>
 git merge master
 ```
 
@@ -140,9 +120,9 @@ Hacé tus commits en esa rama.
 
 Cuando quieras subir contenido a `master`:
 
-1. Pusheá tu rama personal (`trabajo-<nombre>`).
-2. Abrí un Pull Request contra `master`.
-3. El PR necesita **2 aprobaciones** antes de poder mergearse.
+1. Pushear la rama propia.
+2. Abrir un Pull Request contra `master`.
+3. El PR necesita **1 aprobación** y que **todos los comentarios de review estén resueltos** antes de poder mergearse.
 
 ### Mantener esto actualizado
 
