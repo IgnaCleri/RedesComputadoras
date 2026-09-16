@@ -256,11 +256,19 @@ uno y que una compañía aérea transporta $10^4 "kg"$ de disquetes a una veloci
 
 === Respuesta
 
+Datos:
+- Masa de cada disquete: $m = 30g = 0.03 "Kg"$
+- Masa de la cantidad total del disquetes = $10^4 "Kg"$
+-  Distancia: $d=5000 "Km"$
+- Velocidad: $v = 1000 "Km"/h$
 Primero tenemos que que ver cuantos disquetes se pueden tranportar en cada viaje:
 
-$ ((10^4 times 1000) "g")/(30 "g") = 333.333.33 $
+$ N = "Masa total" / "Masa individual"= (10^4 "Kg")/(0.03 "Kg") = 333.333.33 $
 
-Entonces por cada viaje viajan: $ "Total de bytes" = 333.333.33 " disquetes" times (1.4 times 10^6 " bytes/disquete") approx 4.66667 times 10^11 " bytes" $
+Entonces por cada viaje viajan: \ 
+$ "Total de bytes" =N times "Cantidad de bytes sobre disquetes" \ 
+= 333.333.33 " disquetes" times (1.4 times 10^6 " bytes/disquete")\
+ approx 4.66667 times 10^11 " bytes" $
 
 
 En bits eso seria: $ "Total de bits" = 4.66667 times 10^11 " bytes" times 8 " bits/byte" approx 3.73333 times 10^12 " bits" $
