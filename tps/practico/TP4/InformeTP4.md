@@ -90,57 +90,277 @@ Tabla de direccionamiento:
 
 > Desde cada computadora, ingresar a la terminal y configurar los switch. Nombrar a los mismos sw1 y sw2 respectivamente.
 
+#### Topologia implementada
+
+![Topologia](imagenes/topologia.jpg)
+
+```text
+Switch>enable
+Switch#configure terminal
+Switch(config)#hostname sw1
+```
+
+```text
+Switch>enable
+Switch#configure terminal
+Switch(config)#hostname sw2
+```
+
 ### b)
 
 > Asignar contraseñas privilegiadas, de consola y vty.
+
+```text
+sw1(config)#enable secret admin123
+sw1(config)#line console 0
+sw1(config-line)#password console123
+sw1(config-line)#login
+sw1(config-line)#exit
+sw1(config)#line vty 0 15
+sw1(config-line)#password vty123
+sw1(config-line)#login
+```
+```text
+sw2(config)#enable secret admin123
+sw2(config)#line console 0
+sw2(config-line)#password console123
+sw2(config-line)#login
+sw2(config-line)#exit
+sw2(config)#line vty 0 15
+sw2(config-line)#password vty123
+sw2(config-line)#login
+```
+
+Se verificó el funcionamiento al reingresar a la terminal: el sistema solicitó la contraseña de consola ("User Access Verification / Password:") antes de otorgar acceso al modo usuario (sw1>), y luego la contraseña de enable secret al ejecutar enable para acceder al modo privilegiado (sw1#).
+
+![Verificacion de acceso de datos](imagenes/password_sw1.jpg)
 
 ### c)
 
 > Encriptar las contraseñas (`service password-encryption`).
 
+#### SW-1
+```text
+sw1(config)#service password-encryption
+```
+
+#### SW-2
+```text
+sw2(config)#service password-encryption
+```
+
+![Contraseñas encriptadas](imagenes/encryp_sw1.jpg)
+
 ### d)
 
 > Configurar las redes VLAN para ambos switch según la tabla de direcciones provista.
+
+#### SW-1
+```text
+sw1(config)#interface vlan 1
+sw1(config-if)#ip address 192.168.1.11 255.255.255.0
+sw1(config-if)#no shutdown
+```
+
+#### SW-2
+```text
+sw2(config)#interface vlan 1
+sw2(config-if)#ip address 192.168.1.12 255.255.255.0
+sw2(config-if)#no shutdown
+```
 
 ### e)
 
 > Desconectar todas las interfaces que no estén siendo utilizadas.
 
+#### SW-1
+```text
+sw1(config)#interface range f0/2-5, f0/7-24
+sw1(config-if-range)#shutdown
+sw1(config)#interface range gi0/1-2
+sw1(config-if-range)#shutdown
+sw1(config-if-range)#exit
+```
+```text
+sw1#show ip interface brief
+```
+![Resultados del comando ping a PC-A](imagenes/e_sw1.jpg)
+
+#### SW-2
+```text
+sw2(config)#interface range f0/2-17, f0/19-24
+sw2(config-if-range)#shutdown
+sw1(config)#interface range gi0/1-2
+sw1(config-if-range)#shutdown
+sw1(config-if-range)#exit
+```
+```text
+sw2#show ip interface brief
+```
+![Resultados del comando ping a PC-A](imagenes/e_sw2.jpg)
+
+
+
 ### f)
 
 > Guardar la configuración (`write memory`).
+
+#### SW-1
+```text
+sw1#write memory
+```
+#### SW-2
+```text
+sw2#write memory
+```
 
 ### g)
 
 > Testear comunicación usando pings entre las computadoras.
 
+#### PC-A
+```text
+>ping 192.168.10.4
+```
+![Resultados del comando ping a PC-A](imagenes/g_PCA.jpg)
+
+
+#### PC-B
+```text
+>ping 192.168.10.3
+```
+![Resultados del comando ping a PC-B](imagenes/g_PCB.jpg)
+
+
+El ping fue exitoso en ambos sentidos: PC-A → PC-B y PC-B → PC-A.
+
 ### h)
 
 > Crear VLANs en ambos switches: 10 (Laboratorio), 20 (Bar), 99 (Management).
+
+#### SW-1
+
+```text
+sw1(config)#vlan 10
+sw1(config-vlan)#name Laboratorio
+sw1(config-vlan)#vlan 20
+sw1(config-vlan)#name Bar
+sw1(config-vlan)#vlan 99
+sw1(config-vlan)#name Management
+```
+
+#### SW-2
+
+```text
+sw2(config)#vlan 10
+sw2(config-vlan)#name Laboratorio
+sw2(config-vlan)#vlan 20
+sw2(config-vlan)#name Bar
+sw2(config-vlan)#vlan 99
+sw2(config-vlan)#name Management
+```
 
 ### i)
 
 > Utilizar `show vlan brief` para visualizar la lista de VLANs en alguno de los switch. ¿Cuál es la VLAN utilizada por defecto? Colocar el output en el informe.
 
+#### SW-1
+
+```text
+sw1#show vlan brief
+```
+![Resultados del comando show vlan brief sw1](imagenes/i_sw1.jpg)
+
+#### SW-2
+
+```text
+sw2#show vlan brief
+```
+![Resultados del comando show vlan brief sw2](imagenes/i_sw2.jpg)
+
+La VLAN 1 es la VLAN por defecto en dondde todos los puertos pertenecen a ella automáticamente si no se les asigna otra VLAN.
+
 ### j)
 
 > Asignar la PC-A a la VLAN Laboratorio.
+
+#### SW-1
+
+```text
+sw1(config)# interface f0/6
+sw1(config-if)# switchport mode access
+sw1(config-if)# switchport access vlan 10
+```
 
 ### k)
 
 > Desde la VLAN 1, remover la ip de Management y configurarla para funcionar en la VLAN 99 (que configuramos como Management).
 
+#### SW-1
+
+```text
+sw1(config)#interface vlan 1
+sw1(config-if)#no ip address
+sw1(config-if)#exit
+sw1(config)#interface vlan 99
+sw1(config-if)#ip address 192.168.1.11 255.255.255.0
+sw1(config-if)#no shutdown
+```
+
 ### l)
 
 > Verificar el estado de la VLAN utilizando `show vlan brief` y el estado de las interfaces utilizando `show ip interface brief`. Colocar los output en el informe e interpretar.
+
+#### SW-1
+```text
+sw1#show vlan brief
+```
+![Resultados del comando show vlan brief a sw1](imagenes/l_sw1_vlan.jpg)
+
+```text
+sw1#show ip interface brief
+```
+
+![Resultados del comando show ip interface brief a sw1](imagenes/l_sw1_ip.jpg)
+
+Se observa que la interfaz Vlan99 queda con **Status** "up" pero **Protocol** "down". El estado "up" indica que la interfaz fue habilitada administrativamente (no shutdown), mientras que el protocolo de línea solo pasa a "up" cuando existe al menos un puerto físico **activo** (up/up) asignado a esa misma VLAN. En este punto, ningún puerto físico de sw1 pertenece todavía a la VLAN 99 y su dirección IP administrativa (192.168.1.11) no es aún alcanzable por el comando **ping**.
 
 ### m)
 
 > Asignar la PC-B a la VLAN Laboratorio en el sw2. Repetir el inciso k) pero para el sw2.
 
+#### SW-2
+```text
+sw2(config)#interface f0/18
+sw2(config-if)#switchport mode access
+sw2(config-if)#switchport access vlan 10
+sw2(config-if)#exit
+sw2(config)#interface vlan 1
+sw2(config-if)#no ip address
+sw2(config-if)#exit
+sw2(config)#interface vlan 99
+sw2(config-if)#ip address 192.168.1.12 255.255.255.0
+sw2(config-if)#no shutdown
+```
+
+![Resultados del comando show vlan brief a sw2](imagenes/m_sw2.jpg)
+
 ### n)
 
 > Verificar la conectividad entre PC-A y PC-B utilizando pings. Verificar conectividad entre sw1 y sw2 utilizando pings. Interpretar los resultados.
+
+#### PC-A
+
+![Resultados del comando ping PC-A](imagenes/n_PCA.jpg)
+
+
+#### PC-B
+![Resultados del comando ping PC-B](imagenes/n_PCB.jpg)
+
+Ambas pruebas de conectividad fallan (Request timed out) ya que el enlace físico entre SW-1 y SW-2 (F0/1 de sw1 con F0/1 de sw2) permanece configurado como puerto de acceso (access) perteneciente únicamente a la VLAN 1, ya que en ningún paso del ejercicio se modificó su configuración. Un puerto de acceso solo puede transportar el tráfico de una única VLAN. En consecuencia:
+- El tráfico de la VLAN 10 (PC-A y PC-B) no puede atravesar el enlace entre switches, ya que dicho enlace únicamente transporta VLAN 1.
+- El tráfico de la VLAN 99 (direcciones de gestión 192.168.1.11 y 192.168.1.12) tampoco puede cruzar entre switches, por el mismo motivo.
+- Al haberse retirado además la dirección IP de la VLAN 1 en ambos switches, no queda ninguna VLAN común con IP configurada que permita una comunicación de respaldo.
 
 ## Consigna 3 — VLANs, NAT y ACLs: red LAN a bordo de una aeronave
 
