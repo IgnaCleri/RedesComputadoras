@@ -166,10 +166,62 @@ Pruebas a realizar:
 | Ping a Internet (ej: 8.8.8.8)         | PC Business | —                     | ✅ Funciona          |
 | Ping entre Admin y todos              | Admin PC    | —                     | ✅ Todos             |
 
-### Diagrama de red
-
-### Configuración (VLANs, NAT, ACLs)
-
-### Capturas de pantalla y pruebas
-
-### Conclusiones
+## Diagrama de red
+ 
+### a) Vista lógica de la topología
+ 
+![Topología general de la red](imagenes/image7.png)
+ 
+*Router Aircraft conectado al ISP y al switch. Del switch cuelgan las PCs de cada VLAN y el servidor de entretenimiento.*
+ 
+### b) Vista conceptual (segmentos a bordo)
+ 
+![Segmentos de la cabina y flujo de tráfico permitido](imagenes/image6.png)
+ 
+## Configuración
+ 
+### a) VLANs y puertos de acceso (Switch SW-Avion)
+ 
+Se crearon las VLANs 10 (Turista), 20 (Business) y 99 (Admin), se asignaron los puertos de acceso correspondientes y se configuró el puerto hacia el router.
+ 
+![Configuración de VLANs y puertos de acceso en el switch](imagenes/image1.png)
+ 
+### b) Subinterfaces y ruteo (Router-Aircraft)
+ 
+Se configuraron subinterfaces, una por cada VLAN.
+ 
+![Configuración de subinterfaces, ACL y ruta en el router](imagenes/image2.png)
+ 
+## Capturas de pantalla y pruebas
+ 
+Se ejecutaron las pruebas indicadas en la consigna, con el siguiente resultado:
+ 
+**Ping al servidor de entretenimiento desde PC-Turista** — ✅ Responde correctamente (0% de pérdida).
+ 
+![Ping al servidor desde Turista](imagenes/image8.png)
+ 
+**Acceso HTTP al servidor desde PC-Turista** — ✅ Carga la página correctamente.
+ 
+![HTTP al servidor desde Turista](imagenes/image9.png)
+ 
+**Ping a Internet bloqueado desde PC-Turista** — ❌ Bloqueado, tal como se esperaba (*Destination host unreachable*).
+ 
+![Ping bloqueado desde Turista](imagenes/image3.2.png)
+ 
+**Acceso HTTP al servidor desde PC-Business** — ✅ Carga la página correctamente.
+ 
+![HTTP al servidor desde Business](imagenes/image4.2.png)
+ 
+**Ping a Internet funcionando desde PC-Business** — ✅ Funciona, 0% de pérdida.
+ 
+![Ping a Internet desde Business](imagenes/image4.png)
+ 
+**Ping desde PC-Admin hacia todos los segmentos** — ✅ Responden todos los destinos.
+ 
+![Ping desde Admin a todos los segmentos](imagenes/image5.png)
+ 
+### Análisis de resultados
+ 
+- **Turista** queda restringido exclusivamente al servidor de entretenimiento.
+- **Business** puede tanto acceder al servidor de entretenimiento como navegar a Internet.
+- **Administración** tiene visibilidad total de la red: alcanza tanto a Turista como a Business y a Internet.
