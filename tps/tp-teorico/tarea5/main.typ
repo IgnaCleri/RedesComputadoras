@@ -216,12 +216,27 @@ Su beneficio es que evita que los segmentos SYN duplicados u obsoletos, que lleg
 
 == Defina las características de urgencia y forzado de TCP.
 
+TCP ofrece dos servicios para marcar los datos:
+
+- *Forzado (PSH):* normalmente TCP decide cuándo juntó suficientes datos para armar un segmento. Con el forzado, el usuario puede pedir que se envíen enseguida todos los datos pendientes, y el receptor también los entrega al usuario sin esperar.
+- *Urgencia (URG):* sirve para avisarle al usuario destino que en el flujo de datos hay datos importantes o urgentes. TCP marca el final de esos datos con el puntero urgente y los manda en el flujo normal. Después, el usuario destino decide qué hacer con ellos.
 
 == ¿Qué es una opción en los criterios de implementación de TCP?
 
+El estándar TCP proporciona una especificación precisa del protocolo que se va a utilizar entre entidades TCP. Sin embargo, ciertos aspectos del protocolo admiten varias opciones de implementación posibles. Aunque dos implementaciones que escojan opciones alternativas pueden interoperar, puede haber consecuencias en el rendimiento. Las áreas de diseño para las que se especifican opciones son las siguientes:
+
+- *Política de envío:* TCP puede construir un segmento por cada lote de datos del usuario, o esperar a acumular una cierta cantidad antes de enviar.
+- *Política de entrega:* el receptor puede entregar los datos al usuario a medida que llegan los segmentos en orden, o almacenar varios antes de entregarlos.
+- *Política de aceptación:* ante segmentos fuera de secuencia, el receptor puede usar aceptación ordenada o aceptación en ventana (acepta todo lo que caiga dentro de la ventana de recepción).
+- *Política de retransmisión:* hay tres estrategias: sólo el primero, por lotes o individual.
+- *Política de confirmación:* la confirmación puede ser inmediata, con un segmento vacío, o acumulada, incorporando el ACK en un segmento de datos de salida.
 
 == ¿Cómo puede utilizarse TCP para tratar la congestión de red o de interconexión de red?
 
+TCP usa su mecanismo de control de flujo por créditos para detectar la congestión, que se manifiesta como un aumento de los retardos y la pérdida de segmentos. Ante estas señales, reduce el envío de datos. Para esto se utilizan dos tipos de técnicas:
+
++ *Gestión de temporizadores de retransmisión:* se estima el RTT para ajustar el temporizador.
++ *Gestión de ventana:* con el arranque lento, la ventana crece gradualmente a medida que llegan las confirmaciones. Ante una pérdida, la ventana se reduce y vuelve a crecer de forma más lenta.
 
 == ¿Qué proporciona UDP que no ofrezca IP?
 
