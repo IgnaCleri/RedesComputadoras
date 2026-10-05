@@ -48,7 +48,10 @@ _Respuesta pendiente._
 
 ¿Cuál es el beneficio del mecanismo de diálogo en tres pasos?
 
-_Respuesta pendiente._
+
+###### Respuesta: 
+Su beneficio es que evita que los segmentos SYN duplicados u obsoletos, que llegan con retraso desde conexiones anteriores, generen conexiones falsas o confundan una conexión nueva. Para lograrlo, cada extremo confirma explícitamente el SYN y el número de secuencia inicial del otro antes de dar la conexión por establecida.
+
 
 ### Cuestión 20.8
 
