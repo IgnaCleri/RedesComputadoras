@@ -72,7 +72,11 @@ _Respuesta pendiente._
 
 ¿Qué proporciona UDP que no ofrezca IP?
 
-_Respuesta pendiente._
+UDP añade a IP dos cosas esenciales:
+
+Puertos: IP lleva el paquete hasta la computadora destino. En cambio UDP usa números de puerto para entregarlo a la aplicación exacta de destino.
+
+Detección de errores: IP solo revisa que su propia cabecera esté bien. UDP calcula un Checksum que verifica que el contenido de los datos no se haya corrompido en el camino.
 
 ---
 
