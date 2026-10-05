@@ -120,7 +120,15 @@ La discusión sobre control de flujo con un servicio de red fiable, referido com
 
 #### Respuesta
 
+El mecanismo de contrapresion en pocas palabras es esquema de control de flujo que cuando un nodo intermedio excede su capacidad le exige al anterior que detenga su transmision, este se propaga sucesivamente hasta la fuente original.
 
+Esta estrategia tiene desventajas como: 
+
+- Bloqueo de linea lo cual puede afectar a trafico que no tenia nada que ver en primer lugar.
+
+- La Detencion de el flujo en la capa inferior paraliza todas las comunicaciones entre los dos nodos, impidiendo que aplicaciones ligeras o prioritarias sigan operando.
+
+- En redes donde la propagacion del mecanismo es lenta puede agravarse la congestion ya que durante el tiempo en el que mecanismo tarde en llegar a la fuente original este va a seguir transfiriendo paquetes.
 
 ### Ejercicio 20.3
 
