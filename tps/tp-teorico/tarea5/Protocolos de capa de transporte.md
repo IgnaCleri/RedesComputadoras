@@ -80,15 +80,47 @@ _Respuesta pendiente._
 
 ### Ejercicio 20.1
 
+#### Consigna
+
 Es una práctica común en la mayoría de los protocolos de transporte (en realidad, en la mayoría de los protocolos de todas las capas) que los datos y la señalización de control se multiplexen sobre el mismo canal lógico en cada conexión por usuario. Una alternativa consiste en establecer una única conexión de control de transporte entre cada par de entidades de transporte que se comuniquen. Esta conexión se usaría para transmitir las señales de control de todas las conexiones de los usuarios de transporte entre las dos entidades. Discuta las implicaciones de esta estrategia.
 
-_Respuesta pendiente._
+#### Respuesta
+
+**1) Caso: Cada conexion multiplexada sobre la misma conexion logica.**
+
+Ventajas:
+
+- Es mas eficiente ya que las confirmaciones (ACK) y los ajustes de ventana de crédito se incluyen en los segmentos de datos de retorno, reduciendo la sobrecarga de las cabeceras y la cantidad de paquetes en la red.
+
+- Esta mantiene un orden estricto entre datos y control, los comandos (como FIN) se procesan en el punto exacto del flujo en el que fueron transmitidos.
+
+- Un problema en el canal de control de una conexión afecta únicamente a esa sesión de usuario, no a todas sesiones.
+
+Desventajas:
+
+- Es mas propenso a bloqueado debido a la saturacion del canal o control del flujo.
+
+**2) Caso establecimiento de una única conexión de control para llevar todas las señales de control para todas las conexiones de usuario**
+
+Ventajas:
+
+- Los mensajes de control no comparten colas con los datos, órdenes prioritarias (como reinicios RST) se transmiten inmediatamente sin ser retenidas por bloqueos en el canal de datos.
+
+Desventajas:
+
+- Hay un mayor trafico en la red al no poder hacer *piggybacking* 
+
+- Se pueden crear **condiciones de carrera** si existen redes con retardos variables, ya que estos retardos puedes "desfasar" las señales del canal de control con respecto a los datos.
+
+- Si el canal de control colapsa, se pierde las señales de control de todas las conexiones.
 
 ### Ejercicio 20.2
 
 La discusión sobre control de flujo con un servicio de red fiable, referido como mecanismo de contrapresión, utiliza un protocolo de control de flujo de una capa inferior. Discuta las desventajas de esta estrategia.
 
-_Respuesta pendiente._
+#### Respuesta
+
+
 
 ### Ejercicio 20.3
 
