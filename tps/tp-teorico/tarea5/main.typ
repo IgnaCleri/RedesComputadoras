@@ -65,10 +65,10 @@
       email: "jorge.mendez@mi.unc.edu.ar",
     ),
   ),
-
+  
   titulo: [Preguntas de repaso --- Capítulo 20],
   resumen: [*_Objetivo_ --- Resolver las preguntas de repaso del Capítulo 20 de @stallings2004, sobre protocolos de transporte: direccionamiento, multiplexación, control de flujo por créditos, establecimiento de conexión y los protocolos TCP y UDP.*],
-
+  
   fecha: datetime.today().display("[year]-[month]-[day]"),
 )
 
@@ -123,12 +123,36 @@
 
 == ¿Qué elementos de direccionamiento son necesarios para especificar un usuario de servicio de transporte (TS) destino?
 
+Para identificar al usuario destino se necesita la siguiente información:
+
+- Identificación del usuario.
+- Identificación de la entidad de transporte.
+- Dirección de la estación.
+- Número de la red.
+
+En la práctica la dirección se expresa como el par (estación, puerto), llamado _socket_ en TCP, donde el puerto identifica a un usuario TS particular dentro de la estación.
+
+Normalmente hay una única entidad de transporte por estación, por lo que no hace falta identificarla. Si hubiera más de una (por ejemplo TCP y UDP), la dirección debe indicar además el tipo de protocolo de transporte.
 
 == Describa cuatro estrategias por las que un usuario TS emisor pueda averiguar la dirección de un usuario TS receptor.
 
+Hay dos estrategias estáticas y dos dinámicas:
+
+Estáticas:
++ *El usuario conoce previamente la dirección que desea utilizar*: es una configuración del sistema. Sirve para procesos que interesan sólo a unos pocos usuarios y que no deben ser conocidos por todos.
++ *Direcciones conocidas*: a algunos servicios de uso común se les asignan direcciones fijas conocidas por todos, por ejemplo un servidor FTP o SMTP.
+
+Dinámicas:
++ *Servidor de nombres*: el usuario solicita mediante un nombre genérico o global la dirección de un usuario. El servidor de nombres devuelve la dirección, y luego la entidad de transporte establece la conexión. Es útil para servicios que cambian de localización de vez en cuando, por ejemplo para balancear la carga.
++ *Creación del proceso en el momento de la solicitud*: el emisor envía una petición a una dirección bien conocida, donde un proceso del sistema crea el proceso destino y devuelve su dirección. Por ejemplo, una cliente puede pedirle a un gestor de trabajos remoto que lance un programa de simulación en un servidor.
 
 == Explique el uso de la multiplexación en el contexto de un protocolo de transporte.
 
+El protocolo de transporte utiliza multiplexación en dos sentidos respecto de los protocolos de capas superiores y respecto de los servicios de red que usa.
+
+Respecto de las capas superiores, el protocolo de transporte multiplexa y demultiplexa múltiples usuarios sobre el mismo protocolo de transporte, distinguiéndose mediante números de puerto o puntos de acceso al servicio. En TCP, como una conexión queda determinada por los _sockets_ origen y destino, un mismo puerto puede admitir múltiples conexiones, cada una con un puerto diferente. UDP incorpora a IP esta capacidad de direccionamiento de puerto.
+
+Respecto de los servicios de red, la entidad de transporte puede usar multiplexación hacia arriba, que consiste en multiplexar múltiples conexiones sobre una única conexión de la capa inferior, o multiplexación hacia abajo, que consiste en dividir una única conexión entre múltiples conexiones de la capa inferior. Por ejemplo, en el caso de redes X.25, si un solo circuito tiene el rendimiento suficiente para varios usuarios conviene multiplexarlos sobre él. Por otra parte, cada circuito X.25 está restringido en números de secuencia, y en redes de alta velocidad y gran retardo podría requerirse un rango mayor, por lo que dividir la conexión entre varios circuitos puede mejorar el rendimiento.
 
 == Describa brevemente el esquema de créditos utilizado por TCP para el control de flujo.
 
