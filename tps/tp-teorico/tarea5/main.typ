@@ -211,6 +211,8 @@ Se agrega el estado SYN RECEIVED, para no declarar la conexión establecida hast
 
 == ¿Cuál es el beneficio del mecanismo de diálogo en tres pasos?
 
+Su beneficio es que evita que los segmentos SYN duplicados u obsoletos, que llegan con retraso desde conexiones anteriores, generen conexiones falsas o confundan una conexión nueva. Para lograrlo, cada extremo confirma explícitamente el SYN y el número de secuencia inicial del otro antes de dar la conexión por establecida.
+
 
 == Defina las características de urgencia y forzado de TCP.
 
