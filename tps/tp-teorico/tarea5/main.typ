@@ -65,10 +65,10 @@
       email: "jorge.mendez@mi.unc.edu.ar",
     ),
   ),
-
+  
   titulo: [Preguntas de repaso --- Capítulo 20],
   resumen: [*_Objetivo_ --- Resolver las preguntas de repaso del Capítulo 20 de @stallings2004, sobre protocolos de transporte: direccionamiento, multiplexación, control de flujo por créditos, establecimiento de conexión y los protocolos TCP y UDP.*],
-
+  
   fecha: datetime.today().display("[year]-[month]-[day]"),
 )
 
