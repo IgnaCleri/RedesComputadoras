@@ -134,7 +134,19 @@ Esta estrategia tiene desventajas como:
 
 Dos entidades de transporte se comunican a través de una red fiable. Supongamos que el tiempo normalizado para transmitir un segmento es igual a 1. Supongamos que el retardo de propagación extremo a extremo vale 3 y que la entrega de un segmento recibido al usuario de transporte requiere un tiempo de 2. El emisor tiene inicialmente concedido un crédito de siete segmentos. El receptor utiliza un criterio de control de flujo conservador y actualiza su asignación de créditos en cuanto puede. ¿Cuál es el máximo rendimiento alcanzable?
 
-_Respuesta pendiente._
+#### Respuesta 
+
+- $t_{\text{tx}} = 1$ Tiempo de transmision
+- $t_{\text{prop}} = 3$ Tiempo de propagacion
+- $t_{\text{proc}} = 2$ Tiempo de procesamiento
+- Credito inicial de 7 segmentos
+
+$$T_{\text{ciclo}} = t_{\text{tx}} + t_{\text{prop}} + t_{\text{proc}} + t_{\text{prop}} = 1 + 3 + 2 + 3 = 9 \text{ unidades de tiempo}$$
+
+El rendimiento maximo es la relación entre el tiempo en que el emisor transmite activamente y la duración total del ciclo:
+
+es la relación entre el tiempo en que el emisor transmite activamente y la duración total del ciclo:
+$$U = \frac{\text{Crédito disponible}}{\text{Tiempo total de ciclo}} = \frac{W}{T_{\text{ciclo}}} = \frac{7}{9} \approx 0,7778 \approx 77,78\% $$
 
 ### Ejercicio 20.4
 
