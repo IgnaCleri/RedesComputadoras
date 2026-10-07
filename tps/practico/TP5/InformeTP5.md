@@ -88,17 +88,26 @@
 
 > ¿Qué problema resuelve ARP? ¿En qué capa lo ubicarían y por qué es discutible?
 
+ARP (Address Resolution Protocol) resuelve el problema de traducir una dirección IP (capa de red) en la dirección MAC (capa de enlace) correspondiente dentro de una misma red local. Sin esa traducción, un host tiene la IP de destino pero no puede armar la trama Ethernet, ya que esta necesita una MAC destino para que el hardware de red la entregue al equipo correcto.
+Ubicar a ARP en una capa es discutible porque no encaja limpiamente en el modelo de capas: conceptualmente resuelve un problema de la capa de red (direccionamiento IP), pero sus mensajes se encapsulan directamente en tramas Ethernet, sin encabezado IP de por medio, igual que si fuera un protocolo de la capa de enlace. Por eso suele describirse como un protocolo "intermedio": algunos lo ubican en la capa de red, otros en la de enlace, y otros lo consideran una capa propia entre ambas.
+
 #### b)
 
 > ¿Qué es un ARP Request y un ARP Reply? ¿A quién se envía cada uno?
+
+Un **ARP Request** es un mensaje que pregunta "¿quién tiene esta dirección IP? decime tu MAC". Se envía a la dirección de broadcast de la LAN (`ff:ff:ff:ff:ff:ff`), porque el emisor todavía no sabe qué MAC corresponde a esa IP, así que no puede dirigirlo a nadie en particular: lo tiene que recibir toda la red para que el dueño de esa IP se reconozca y responda.
+Un **ARP Reply** es la respuesta del equipo que sí tiene esa IP, informando su propia MAC. A diferencia del Request, el Reply se envía de forma unicast, directamente a la MAC del equipo que preguntó (dato que ya viene incluido en el Request).
 
 #### c)
 
 > ¿Qué es la caché ARP y por qué existe?
 
+La caché ARP es una tabla que cada equipo mantiene localmente, con las asociaciones IP-MAC que ya resolvió previamente. Existe por una razón de eficiencia: resolver una IP a MAC mediante Request/Reply implica tráfico de broadcast y una espera por la respuesta. Si hubiera que repetir ese proceso para cada paquete enviado, se generaría tráfico innecesario en la red y se introduciría latencia en cada comunicación. Guardando el resultado en caché, solo se dispara un nuevo Request/Reply cuando la IP no está (o cuando la entrada caducó), y el resto de las veces la MAC se obtiene de forma inmediata consultando la tabla local.
+
 #### d)
 
 > Traten de responder con sus palabras: "Tengo la IP de una máquina de mi red local. ¿Cómo sé a qué dirección MAC debo enviarle la trama?"
+
 
 #### e)
 
