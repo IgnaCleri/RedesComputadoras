@@ -128,7 +128,14 @@ El valor el TTL se encuentra en la imagen (enmascarado en hexadecimal), son dos 
 
 > Dibujen la encapsulación del paquete que eligieron como "cajas dentro de cajas", indicando para cada caja qué tamaño en bytes tiene según Wireshark.
 
+![alt text](image-4.png)
 
+- La trama Ethernet ocupa 14 bytes
+- La trama IPV4 ocupa 20 bytes
+- La trama ICMP ocupa 8 bytes
+- La payload ocupa 32 bytes
+
+La suma de todo esto resulta 74 bytes que es el tamaño del paquete.
 
 ## Consigna 2 — ARP: de una IP a una dirección MAC
 
