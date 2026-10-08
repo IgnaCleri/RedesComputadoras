@@ -54,22 +54,22 @@ ICMP es uno de los protocolos principales del conjunto IP.  El mensaje ICMP se c
 
 | Parámetro      | Valor |
 | -------------- | ----- |
-| Interfaz       |       |
-| Dirección IPv4 |       |
-| Máscara        |       |
-| Gateway        |       |
-| Dirección MAC  |       |
+| Interfaz       |  WIFI     |
+| Dirección IPv4 |  192.168.1.4     |
+| Máscara        |  255.255.255.0     |
+| Gateway        |   192.168.1.1    |
+| Dirección MAC  |    BC-CD-99-AA-26-7F   |
 
 ### Capas del Echo Request
 
 > Seleccionar un Echo Request y desplegar el panel de detalles. Identificar las capas que muestra Wireshark y completar la tabla.
 
 | Capa (como la nombra Wireshark)   | Dirección/identificador origen | Dirección/identificador destino | ¿Qué campo indica qué protocolo viene "adentro"? |
-| --------------------------------- | ------------------------------ | ------------------------------- | ------------------------------------------------ |
-| Ethernet II                       |                                |                                 |                                                  |
-| Internet Protocol Version 4       |                                |                                 |                                                  |
-| Internet Control Message Protocol |                                |                                 |                                                  |
-| Datos / payload                   |                                |                                 |                                                  |
+| --------------------------------- | -------------------------------| ------------------------------- | ------------------------------------------------ |
+| Ethernet II                       |   bc:cd:99:aa:26:7f            | 38:a6:59:ea:01:77               |                    Type: IPv4 (0x0800)           |
+| Internet Protocol Version 4       |         192.168.1.4            |             8.8.8.8             |                          Protocol: ICMP (1)      |
+| Internet Control Message Protocol |             No dice              | No Dice                       | Type: Echo (ping) request (8)                    |
+| Datos / payload                   |              -                 |                          -      |       abcdefghijklmnopqrstuvwabcdefghi           |
 
 ### Análisis de la captura
 
@@ -77,6 +77,8 @@ ICMP es uno de los protocolos principales del conjunto IP.  El mensaje ICMP se c
 
 > La MAC destino del Echo Request enviado a 8.8.8.8, ¿es la MAC de 8.8.8.8? ¿De qué equipo es? Compárenla con la MAC destino del ping al gateway. ¿Qué conclusión sacan sobre el alcance de una dirección MAC frente al de una dirección IP?
 
+No, la mac 38:a6:59:ea:01:77 es la mac del router, 8.8.8.8 es el destino. 
+La conclusion final es que una dirección MAC tiene alcance local, solo sirve para llegar al próximo equipo dentro de la misma red, y en cada router la trama se rearma con nuevas MAC. Una dirección IP, en cambio, identifica el destino final.
 #### b)
 
 > Comparen un Echo Request con su Echo Reply (Wireshark los vincula en el campo `[Response frame: …]`). Hagan una lista de los campos que cambian y de los que se mantienen en Ethernet, IP e ICMP. ¿Por qué tiene sentido cada cambio? ¿Por qué el identificador y el número de secuencia se mantienen?
