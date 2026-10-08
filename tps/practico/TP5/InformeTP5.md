@@ -116,19 +116,28 @@ Hay 2 formas, y se hacen de manera secuencial:
 
 > Ver la caché ARP de su computadora y buscar la entrada del gateway. ¿La MAC asociada al gateway coincide con la MAC destino que vieron anteriormente?
 
-### Análisis de la captura
+EL QUE HIZO LA CONSIGNA 1 ES EL QUE TIENE QUE HACER ESTE PUNTO!!!!
+### f) Análisis de la captura
 
-> Analizar un ARP Request y su ARP Reply. Para cada uno completar la tabla.
+**Opción elegida para generar tráfico ARP:** Opción B (se borró la entrada del gateway de la caché ARP con `ip neigh del` y se volvió a hacer `ping` al gateway para forzar un nuevo ARP Request/Reply). Se capturó con Wireshark en la interfaz `enp7s0`, filtro `arp`, y se identificó el par generado por ese ping: el paquete #1624 (Request) y su correspondiente #1625 (Reply).
 
-| Campo                             | ARP Request | ARP Reply |
-| --------------------------------- | ----------- | --------- |
-| MAC destino (encabezado Ethernet) |             |           |
-| MAC origen (encabezado Ethernet)  |             |           |
-| Opcode                            |             |           |
-| Sender MAC address                |             |           |
-| Sender IP address                 |             |           |
-| Target MAC address                |             |           |
-| Target IP address                 |             |           |
+ARP Request (paquete #1624):
+
+![ARP Request](assets/consigna2-arp-request.png)
+
+ARP Reply (paquete #1625):
+
+![ARP Reply](assets/consigna2-arp-reply.png)
+
+| Campo                             | ARP Request                   | ARP Reply          |
+| --------------------------------- | ------------------------------ | ------------------- |
+| MAC destino (encabezado Ethernet) | ff:ff:ff:ff:ff:ff (Broadcast) | 58:11:22:48:01:66   |
+| MAC origen (encabezado Ethernet)  | 58:11:22:48:01:66             | f0:81:75:35:a4:4f   |
+| Opcode                            | 1 (request)                   | 2 (reply)            |
+| Sender MAC address                | 58:11:22:48:01:66             | f0:81:75:35:a4:4f   |
+| Sender IP address                 | 192.168.0.163                 | 192.168.0.1          |
+| Target MAC address                | 00:00:00:00:00:00             | 58:11:22:48:01:66   |
+| Target IP address                 | 192.168.0.1                   | 192.168.0.163        |
 
 #### a)
 
