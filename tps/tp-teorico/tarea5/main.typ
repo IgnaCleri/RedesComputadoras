@@ -328,6 +328,38 @@ El rendimiento maximo es la relación entre el tiempo en que el emisor transmite
 $ U = frac("Crédito disponible", "Tiempo total de ciclo") = W / T_"ciclo" = 7 / 9 ≈ "0,7778" ≈ "77,78%" $
 
 
+=== Ejercicio 20.7
+
+==== Consigna
+ La discusión de la política de retransmisión hizo referencia a tres problemas asociados con
+el cálculo dinámico del valor del temporizador. ¿Qué modificaciones sobre la política ayu
+darían a aliviar estos problemas?
+
+==== Respuesta
+Los problemas asociados con el calculo dinámico (tomando la media convencional) del temporizador son: 
+
+1. El calculo se realiza entre el tiempo de salida y de llegada, sin embargo no se tiene en cuenta el retraso que tiene el receptor al enviar la respuesta.
+2. El calculo que se realiza sobre los ACK no contempla si es de la llamada principal o de la retransmisión por lo tanto no garantiza que el tiempo medido sea fiel.
+3. Tomar la media simple no representa los cambios en el trafico de la red, es decir: Si la red estaba cargada al momento de hacer el calculo, la estimación es fiel para una red cargada, en el caso de que la red se alivie esta estimación resulta ser muy grande y genera perdidas de rendimiento. Para el caso de una red aliviada a la hora de hacer el calculo, el problema es análogo.
+
+
+Modificaciones: 
+
+- Para solucionar el problema 1, hay que estimar con el algoritmo de Jacobson la desviación media del RTT y no solo su media.
+  De esta manera el temporizador se amplía cuando las mediciones son muy dispersas y se ajusta cuando se estabilizan.
+
+- Mediante el algoritmo de Karn, se puede solucionar el problema numero 2:
+  El algoritmo de Karn resuelve este problema mediante las siguientes reglas:
+1. No utilizar el RTT medido para un segmento retransmitido para actualizar SRTT y SDEV.
+2. Calcular el RTO de decaimiento utilizando la Ecuación: $RTO= q*RTO$ cuando se produzca una re transmisión. 
+3. Utilizar el valor del RTO de decaimiento para segmentos sucesivos hasta que llegue una confirmación para un segmento que no se haya retransmitido. 
+   
+   Cuando se recibe una confirmación para un segmento que no se ha retransmitido, se activa de nuevo el algoritmo de Jacobson para calcular valores futuros de RTO
+
+- Para solucionar el problema numero 3, se utiliza:
+  - Promediado exponencial: Da más peso a las observaciones recientes, por lo que sigue los cambios más rápido que la media simple.
+  - Decaimiento exponencial del RTO: ante cada retransmisión se multiplica el RTO por una constante ($RTO = q·RTO$, normalmente $q = 2$). Si el vencimiento del temporizador se debe a congestión, esperar más tiempo antes de reintentar evita que todas las fuentes retransmitan a la vez y agraven la congestión.
+
 
 // Bibliografía. Si hay referencias bibliográficas se renderiza.
 // Si no, solamente con full: true se renderiza la bibliografía completa, aunque no haya referencias en el texto
