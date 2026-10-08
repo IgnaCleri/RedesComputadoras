@@ -249,6 +249,86 @@ Detección de errores: IP solo revisa que su propia cabecera esté bien. UDP cal
 
 // TODO Actividad 2: responder al menos 11 ejercicios (pág. 719) del Capítulo 20
 
+#show heading: set heading(numbering: none)
+
+#pagebreak()
+
+== Actividad 2: Ejercicios (pág. 719) — mínimo 11
+
+
+=== Ejercicio 20.1
+
+==== Consigna
+
+Es una práctica común en la mayoría de los protocolos de transporte (en realidad, en la mayoría de los protocolos de todas las capas) que los datos y la señalización de control se multiplexen sobre el mismo canal lógico en cada conexión por usuario. Una alternativa consiste en establecer una única conexión de control de transporte entre cada par de entidades de transporte que se comuniquen. Esta conexión se usaría para transmitir las señales de control de todas las conexiones de los usuarios de transporte entre las dos entidades. Discuta las implicaciones de esta estrategia.
+
+==== Respuesta
+
+*1) Caso: Cada conexion multiplexada sobre la misma conexion logica.*
+
+Ventajas:
+
+- Es mas eficiente ya que las confirmaciones (ACK) y los ajustes de ventana de crédito se incluyen en los segmentos de datos de retorno, reduciendo la sobrecarga de las cabeceras y la cantidad de paquetes en la red.
+
+- Esta mantiene un orden estricto entre datos y control, los comandos (como FIN) se procesan en el punto exacto del flujo en el que fueron transmitidos.
+
+- Un problema en el canal de control de una conexión afecta únicamente a esa sesión de usuario, no a todas sesiones.
+
+Desventajas:
+
+- Es mas propenso a bloqueado debido a la saturacion del canal o control del flujo.
+
+*2) Caso establecimiento de una única conexión de control para llevar todas las señales de control para todas las conexiones de usuario*
+
+Ventajas:
+
+- Los mensajes de control no comparten colas con los datos, órdenes prioritarias (como reinicios RST) se transmiten inmediatamente sin ser retenidas por bloqueos en el canal de datos.
+
+Desventajas:
+
+- Hay un mayor trafico en la red al no poder hacer _piggybacking_
+
+- Se pueden crear *condiciones de carrera* si existen redes con retardos variables, ya que estos retardos puedes "desfasar" las señales del canal de control con respecto a los datos.
+
+- Si el canal de control colapsa, se pierde las señales de control de todas las conexiones.
+
+=== Ejercicio 20.2
+
+La discusión sobre control de flujo con un servicio de red fiable, referido como mecanismo de contrapresión, utiliza un protocolo de control de flujo de una capa inferior. Discuta las desventajas de esta estrategia.
+
+==== Respuesta
+
+El mecanismo de contrapresion en pocas palabras es esquema de control de flujo que cuando un nodo intermedio excede su capacidad le exige al anterior que detenga su transmision, este se propaga sucesivamente hasta la fuente original.
+
+#pagebreak()
+
+Esta estrategia tiene desventajas como:
+
+- Bloqueo de linea lo cual puede afectar a trafico que no tenia nada que ver en primer lugar.
+
+- La Detencion de el flujo en la capa inferior paraliza todas las comunicaciones entre los dos nodos, impidiendo que aplicaciones ligeras o prioritarias sigan operando.
+
+- En redes donde la propagacion del mecanismo es lenta puede agravarse la congestion ya que durante el tiempo en el que mecanismo tarde en llegar a la fuente original este va a seguir transfiriendo paquetes.
+
+=== Ejercicio 20.3
+
+Dos entidades de transporte se comunican a través de una red fiable. Supongamos que el tiempo normalizado para transmitir un segmento es igual a 1. Supongamos que el retardo de propagación extremo a extremo vale 3 y que la entrega de un segmento recibido al usuario de transporte requiere un tiempo de 2. El emisor tiene inicialmente concedido un crédito de siete segmentos. El receptor utiliza un criterio de control de flujo conservador y actualiza su asignación de créditos en cuanto puede. ¿Cuál es el máximo rendimiento alcanzable?
+
+==== Respuesta
+
+- $t_"tx" = 1$ Tiempo de transmision
+- $t_"prop" = 3$ Tiempo de propagacion
+- $t_"proc" = 2$ Tiempo de procesamiento
+- Credito inicial de 7 segmentos
+
+$ T_"ciclo" = t_"tx" + t_"prop" + t_"proc" + t_"prop" = 1 + 3 + 2 + 3 = 9 "unidades de tiempo" $
+
+El rendimiento maximo es la relación entre el tiempo en que el emisor transmite activamente y la duración total del ciclo:
+
+$ U = frac("Crédito disponible", "Tiempo total de ciclo") = W / T_"ciclo" = 7 / 9 ≈ "0,7778" ≈ "77,78%" $
+
+
+
 // Bibliografía. Si hay referencias bibliográficas se renderiza.
 // Si no, solamente con full: true se renderiza la bibliografía completa, aunque no haya referencias en el texto
 #bibliography("bibliografia.bib", full: true)
