@@ -79,9 +79,34 @@ ICMP es uno de los protocolos principales del conjunto IP.  El mensaje ICMP se c
 
 No, la mac 38:a6:59:ea:01:77 es la mac del router, 8.8.8.8 es el destino. 
 La conclusion final es que una dirección MAC tiene alcance local, solo sirve para llegar al próximo equipo dentro de la misma red, y en cada router la trama se rearma con nuevas MAC. Una dirección IP, en cambio, identifica el destino final.
+
+![alt text](image.png)
 #### b)
 
 > Comparen un Echo Request con su Echo Reply (Wireshark los vincula en el campo `[Response frame: …]`). Hagan una lista de los campos que cambian y de los que se mantienen en Ethernet, IP e ICMP. ¿Por qué tiene sentido cada cambio? ¿Por qué el identificador y el número de secuencia se mantienen?
+
+- 1250: Echo Request
+- 1251: Echo Reply
+
+![alt text](image-1.png)
+
+En Ethernet cambiaron: 
+- Source 
+- Destination
+
+En IP cambiaron
+- Identification
+- Time to live
+- Hader checksum
+- Source adress
+- Desination adress
+
+En el ICMP cambiaron
+- Checksum
+
+Es logico porque ahora el que transimite es el router (sagemcom) y el que recibe es la Tarjeta de red (La intel).
+El identificador y la secuencia se mantienen para poder relacionar la pregunta con la respuesta, al enviarse muchas request al mismo tiempo y recibir las reply tambien al mismo tiempo, el router(en este caso) envia las respuestas con estos atributos iguales para poder saber a que respondio.
+
 
 #### c)
 
