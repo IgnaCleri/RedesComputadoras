@@ -120,10 +120,15 @@ El payload se encuentra al final de la trama. Contiene 32 bits y es: abcdefghijk
 
 > ¿Qué valor de TTL tiene el Echo Request que ustedes enviaron? ¿Y el Reply que llegó de 8.8.8.8? ¿Por qué no son iguales?
 
+![alt text](image-2.png)
+
+El valor el TTL se encuentra en la imagen (enmascarado en hexadecimal), son dos distintos ya que la informacion de cabecera cambia. Como vimos en el ejercicio b. 
 
 #### e)
 
 > Dibujen la encapsulación del paquete que eligieron como "cajas dentro de cajas", indicando para cada caja qué tamaño en bytes tiene según Wireshark.
+
+
 
 ## Consigna 2 — ARP: de una IP a una dirección MAC
 
