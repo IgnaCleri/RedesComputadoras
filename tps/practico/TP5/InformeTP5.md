@@ -180,6 +180,25 @@ Esto se debe a que como nadie en la red tiene asignada la IP `192.168.0.253`, ni
 
 > Volvieron a hacer ping al mismo destino un minuto después: ¿apareció ARP de nuevo? Revisen la caché ARP. ¿Qué ventaja tiene la caché y qué problema podría causar si una entrada quedara vieja?
 
+Se repitió el ping al gateway bastante más de un minuto después del original, revisando la caché antes y analizando la nueva captura de Wireshark para ver si se disparaba un nuevo ARP.
+
+Terminal: estado de la caché antes del segundo ping, y ejecución de `ping -c 2 192.168.0.1`:
+
+![Terminal: ip neigh show antes y ping al gateway](assets/consigna2-opcionD-terminal-ping2.png)
+
+Wireshark (nueva captura, filtro `arp`): no aparece ningún Request nuevo preguntando por el gateway, solo tráfico de fondo no relacionado:
+
+![Wireshark: sin ARP nuevo tras el segundo ping](assets/consigna2-opcionD-wireshark-sinnuevoarp.png)
+
+Terminal: estado de la caché después del segundo ping:
+
+![Terminal: ip neigh show después del segundo ping](assets/consigna2-opcionD-ip-neigh-despues.png)
+
+Antes de repetir el ping, `ip neigh show` ya mostraba la entrada del gateway como `REACHABLE` (y, de paso, quedó registrada como `FAILED` la IP inexistente usada en el punto c, la caché también guarda por un tiempo los intentos fallidos). Se volvió a ejecutar `ping -c 2 192.168.0.1` bastante más de un minuto después del ping original, y la resolución **no se repitió**: en la nueva captura de Wireshark (filtro `arp`) no apareció ningún "Who has 192.168.0.1? Tell 192.168.0.163". El ping funcionó igual, de forma exitosa (`ttl=64`, ~1.26 ms), usando directamente la MAC que ya estaba cacheada, y `ip neigh show` después del ping mostró exactamente el mismo estado (`REACHABLE`, misma MAC).
+Esto confirma el comportamiento esperado: mientras la entrada siga vigente (`REACHABLE`), el sistema la reutiliza directamente y no vuelve a disparar un ARP Request/Reply.
+**Ventaja de la caché:** evita repetir el proceso de broadcast Request/Reply antes de cada paquete, ahorrando tráfico de red y latencia. La trama se arma de inmediato con la MAC ya conocida, en vez de esperar una ronda completa de resolución.
+**Problema si una entrada queda vieja:** si el dispositivo dueño de esa IP cambia de MAC, pero la caché todavía apunta a la MAC anterior, las tramas seguirán enviándose a un destino que ya no corresponde. Los paquetes se perderían (o llegarían a un equipo distinto) hasta que esa entrada caduque o se invalide de alguna forma.
+
 ## Consigna 3 — TCP y UDP "a mano" con ncat
 
 ### Investigación
