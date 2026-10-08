@@ -119,6 +119,10 @@ La conclusion final es que una dirección MAC tiene alcance local, solo sirve pa
 
 > Ver la caché ARP de su computadora y buscar la entrada del gateway. ¿La MAC asociada al gateway coincide con la MAC destino que vieron anteriormente?
 
+![alt text](image.png)
+
+Al ejecutar arp -a, la entrada del gateway 192.168.1.1 tiene la dirección física 38-a6-59-ea-01-77, de tipo dinámico. Coincide con la MAC destino del Echo Request a 8.8.8.8 observada en el punto 1. Esto muestra que al hacer ping, la PC tomó la MAC del gateway de su caché ARP para armar la trama Ethernet.
+
 ### Análisis de la captura
 
 > Analizar un ARP Request y su ARP Reply. Para cada uno completar la tabla.
