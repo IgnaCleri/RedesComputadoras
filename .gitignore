@@ -2,6 +2,9 @@
 CLAUDE.md
 AGENTS.md
 
+# Guías de trabajo personales (no compartidas con el grupo)
+tps/practico/TP5/Guia-Consigna2-ARP.md
+
 # LaTeX (basado en https://github.com/github/gitignore/blob/main/TeX.gitignore)
 ## Core latex/pdflatex auxiliary files:
 *.aux
