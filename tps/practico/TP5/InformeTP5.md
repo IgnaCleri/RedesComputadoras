@@ -173,16 +173,11 @@ Hay 2 formas, y se hacen de manera secuencial:
 
 > Ver la caché ARP de su computadora y buscar la entrada del gateway. ¿La MAC asociada al gateway coincide con la MAC destino que vieron anteriormente?
 
-<<<<<<<<< Temporary merge branch 1
 ![alt text](image.png)
 
 Al ejecutar arp -a, la entrada del gateway 192.168.1.1 tiene la dirección física 38-a6-59-ea-01-77, de tipo dinámico. Coincide con la MAC destino del Echo Request a 8.8.8.8 observada en el punto 1. Esto muestra que al hacer ping, la PC tomó la MAC del gateway de su caché ARP para armar la trama Ethernet.
 
 ### Análisis de la captura
-=========
-EL QUE HIZO LA CONSIGNA 1 ES EL QUE TIENE QUE HACER ESTE PUNTO!!!!
-### f) Análisis de la captura
->>>>>>>>> Temporary merge branch 2
 
 **Opción elegida para generar tráfico ARP:** Opción B (se borró la entrada del gateway de la caché ARP con `ip neigh del` y se volvió a hacer `ping` al gateway para forzar un nuevo ARP Request/Reply). Se capturó con Wireshark en la interfaz `enp7s0`, filtro `arp`, y se identificó el par generado por ese ping: el paquete #1624 (Request) y su correspondiente #1625 (Reply).
 
