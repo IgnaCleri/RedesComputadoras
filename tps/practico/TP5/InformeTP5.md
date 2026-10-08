@@ -54,22 +54,22 @@ ICMP es uno de los protocolos principales del conjunto IP.  El mensaje ICMP se c
 
 | Parámetro      | Valor |
 | -------------- | ----- |
-| Interfaz       |       |
-| Dirección IPv4 |       |
-| Máscara        |       |
-| Gateway        |       |
-| Dirección MAC  |       |
+| Interfaz       |  WIFI     |
+| Dirección IPv4 |  192.168.1.4     |
+| Máscara        |  255.255.255.0     |
+| Gateway        |   192.168.1.1    |
+| Dirección MAC  |    BC-CD-99-AA-26-7F   |
 
 ### Capas del Echo Request
 
 > Seleccionar un Echo Request y desplegar el panel de detalles. Identificar las capas que muestra Wireshark y completar la tabla.
 
 | Capa (como la nombra Wireshark)   | Dirección/identificador origen | Dirección/identificador destino | ¿Qué campo indica qué protocolo viene "adentro"? |
-| --------------------------------- | ------------------------------ | ------------------------------- | ------------------------------------------------ |
-| Ethernet II                       |                                |                                 |                                                  |
-| Internet Protocol Version 4       |                                |                                 |                                                  |
-| Internet Control Message Protocol |                                |                                 |                                                  |
-| Datos / payload                   |                                |                                 |                                                  |
+| --------------------------------- | -------------------------------| ------------------------------- | ------------------------------------------------ |
+| Ethernet II                       |   bc:cd:99:aa:26:7f            | 38:a6:59:ea:01:77               |                    Type: IPv4 (0x0800)           |
+| Internet Protocol Version 4       |         192.168.1.4            |             8.8.8.8             |                          Protocol: ICMP (1)      |
+| Internet Control Message Protocol |             No dice              | No Dice                       | Type: Echo (ping) request (8)                    |
+| Datos / payload                   |              -                 |                          -      |       abcdefghijklmnopqrstuvwabcdefghi           |
 
 ### Análisis de la captura
 
@@ -77,21 +77,65 @@ ICMP es uno de los protocolos principales del conjunto IP.  El mensaje ICMP se c
 
 > La MAC destino del Echo Request enviado a 8.8.8.8, ¿es la MAC de 8.8.8.8? ¿De qué equipo es? Compárenla con la MAC destino del ping al gateway. ¿Qué conclusión sacan sobre el alcance de una dirección MAC frente al de una dirección IP?
 
+No, la mac 38:a6:59:ea:01:77 es la mac del router, 8.8.8.8 es el destino. 
+La conclusion final es que una dirección MAC tiene alcance local, solo sirve para llegar al próximo equipo dentro de la misma red, y en cada router la trama se rearma con nuevas MAC. Una dirección IP, en cambio, identifica el destino final.
+
+![alt text](image.png)
 #### b)
 
 > Comparen un Echo Request con su Echo Reply (Wireshark los vincula en el campo `[Response frame: …]`). Hagan una lista de los campos que cambian y de los que se mantienen en Ethernet, IP e ICMP. ¿Por qué tiene sentido cada cambio? ¿Por qué el identificador y el número de secuencia se mantienen?
+
+- 1250: Echo Request
+- 1251: Echo Reply
+
+![alt text](image-1.png)
+
+En Ethernet cambiaron: 
+- Source 
+- Destination
+
+En IP cambiaron
+- Identification
+- Time to live
+- Hader checksum
+- Source adress
+- Desination adress
+
+En el ICMP cambiaron
+- Checksum
+
+Es logico porque ahora el que transimite es el router (sagemcom) y el que recibe es la Tarjeta de red (La intel).
+El identificador y la secuencia se mantienen para poder relacionar la pregunta con la respuesta, al enviarse muchas request al mismo tiempo y recibir las reply tambien al mismo tiempo, el router(en este caso) envia las respuestas con estos atributos iguales para poder saber a que respondio.
+
 
 #### c)
 
 > ¿Dónde está el payload de ping? ¿Cuántos bytes tiene y qué contiene? ¿Es igual en el Reply? Si en el grupo hay una computadora con Windows y otra con Linux, compárenlos: ¿qué les sugiere que sean distintos?
 
+![alt text](image-3.png)
+
+El payload se encuentra al final de la trama. Contiene 32 bits y es: abcdefghijklmnopqrstuvwabcdefghi. Es igual en el request y en el reply.
+
 #### d)
 
 > ¿Qué valor de TTL tiene el Echo Request que ustedes enviaron? ¿Y el Reply que llegó de 8.8.8.8? ¿Por qué no son iguales?
 
+![alt text](image-2.png)
+
+El valor el TTL se encuentra en la imagen (enmascarado en hexadecimal), son dos distintos ya que la informacion de cabecera cambia. Como vimos en el ejercicio b. 
+
 #### e)
 
 > Dibujen la encapsulación del paquete que eligieron como "cajas dentro de cajas", indicando para cada caja qué tamaño en bytes tiene según Wireshark.
+
+![alt text](image-4.png)
+
+- La trama Ethernet ocupa 14 bytes
+- La trama IPV4 ocupa 20 bytes
+- La trama ICMP ocupa 8 bytes
+- La payload ocupa 32 bytes
+
+La suma de todo esto resulta 74 bytes que es el tamaño del paquete.
 
 ## Consigna 2 — ARP: de una IP a una dirección MAC
 
