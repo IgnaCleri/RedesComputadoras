@@ -112,9 +112,14 @@ El identificador y la secuencia se mantienen para poder relacionar la pregunta c
 
 > ¿Dónde está el payload de ping? ¿Cuántos bytes tiene y qué contiene? ¿Es igual en el Reply? Si en el grupo hay una computadora con Windows y otra con Linux, compárenlos: ¿qué les sugiere que sean distintos?
 
+![alt text](image-3.png)
+
+El payload se encuentra al final de la trama. Contiene 32 bits y es: abcdefghijklmnopqrstuvwabcdefghi. Es igual en el request y en el reply.
+
 #### d)
 
 > ¿Qué valor de TTL tiene el Echo Request que ustedes enviaron? ¿Y el Reply que llegó de 8.8.8.8? ¿Por qué no son iguales?
+
 
 #### e)
 
