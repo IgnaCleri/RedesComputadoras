@@ -68,7 +68,7 @@ ICMP es uno de los protocolos principales del conjunto IP.  El mensaje ICMP se c
 | --------------------------------- | -------------------------------| ------------------------------- | ------------------------------------------------ |
 | Ethernet II                       |   bc:cd:99:aa:26:7f            | 38:a6:59:ea:01:77               |                    Type: IPv4 (0x0800)           |
 | Internet Protocol Version 4       |         192.168.1.4            |             8.8.8.8             |                          Protocol: ICMP (1)      |
-| Internet Control Message Protocol |             No LLeva              | No Leva                      |           Ninguno (Contiene la Payload)                    |
+| Internet Control Message Protocol |             No lleva              | No lleva                      |           Ninguno (Contiene la Payload)                    |
 | Datos / payload                   |              -                 |                          -      |       abcdefghijklmnopqrstuvwabcdefghi           |
 
 ### Análisis de la captura
