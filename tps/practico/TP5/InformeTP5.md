@@ -101,51 +101,116 @@ ICMP es uno de los protocolos principales del conjunto IP.  El mensaje ICMP se c
 
 > ¿Qué problema resuelve ARP? ¿En qué capa lo ubicarían y por qué es discutible?
 
+ARP (Address Resolution Protocol) resuelve el problema de traducir una dirección IP (capa de red) en la dirección MAC (capa de enlace) correspondiente dentro de una misma red local. Sin esa traducción, un host tiene la IP de destino pero no puede armar la trama Ethernet, ya que esta necesita una MAC destino para que el hardware de red la entregue al equipo correcto.
+Ubicar a ARP en una capa es discutible porque no encaja limpiamente en el modelo de capas: conceptualmente resuelve un problema de la capa de red (direccionamiento IP), pero sus mensajes se encapsulan directamente en tramas Ethernet, sin encabezado IP de por medio, igual que si fuera un protocolo de la capa de enlace. Por eso suele describirse como un protocolo "intermedio": algunos lo ubican en la capa de red, otros en la de enlace, y otros lo consideran una capa propia entre ambas.
+
 #### b)
 
 > ¿Qué es un ARP Request y un ARP Reply? ¿A quién se envía cada uno?
+
+Un **ARP Request** es un mensaje que pregunta "¿quién tiene esta dirección IP? decime tu MAC". Se envía a la dirección de broadcast de la LAN (`ff:ff:ff:ff:ff:ff`), porque el emisor todavía no sabe qué MAC corresponde a esa IP, así que no puede dirigirlo a nadie en particular: lo tiene que recibir toda la red para que el dueño de esa IP se reconozca y responda.
+Un **ARP Reply** es la respuesta del equipo que sí tiene esa IP, informando su propia MAC. A diferencia del Request, el Reply se envía de forma unicast, directamente a la MAC del equipo que preguntó (dato que ya viene incluido en el Request).
 
 #### c)
 
 > ¿Qué es la caché ARP y por qué existe?
 
+La caché ARP es una tabla que cada equipo mantiene localmente, con las asociaciones IP-MAC que ya resolvió previamente. Existe por una razón de eficiencia: resolver una IP a MAC mediante Request/Reply implica tráfico de broadcast y una espera por la respuesta. Si hubiera que repetir ese proceso para cada paquete enviado, se generaría tráfico innecesario en la red y se introduciría latencia en cada comunicación. Guardando el resultado en caché, solo se dispara un nuevo Request/Reply cuando la IP no está (o cuando la entrada caducó), y el resto de las veces la MAC se obtiene de forma inmediata consultando la tabla local.
+
 #### d)
 
 > Traten de responder con sus palabras: "Tengo la IP de una máquina de mi red local. ¿Cómo sé a qué dirección MAC debo enviarle la trama?"
+
+Hay 2 formas, y se hacen de manera secuencial:
+1- Desde mi computadora se revisa mi caché ARP que coincida con dicha dirección IP. Si es así, se resuelve la trama de IP a MAC directo y se envía el paquete. Caso contrario, se ejecuta la segunda forma.
+2- Se hace un ARP Request, en el que se consulta a toda la red quién es al que le pertenece dicha IP. Aquellos que no, ignoran, y el que sí responde con un ARP Reply. Se envía la trama (IP a MAC) y se almacena en la caché dicha dirección IP.
 
 #### e)
 
 > Ver la caché ARP de su computadora y buscar la entrada del gateway. ¿La MAC asociada al gateway coincide con la MAC destino que vieron anteriormente?
 
-### Análisis de la captura
+EL QUE HIZO LA CONSIGNA 1 ES EL QUE TIENE QUE HACER ESTE PUNTO!!!!
+### f) Análisis de la captura
 
-> Analizar un ARP Request y su ARP Reply. Para cada uno completar la tabla.
+**Opción elegida para generar tráfico ARP:** Opción B (se borró la entrada del gateway de la caché ARP con `ip neigh del` y se volvió a hacer `ping` al gateway para forzar un nuevo ARP Request/Reply). Se capturó con Wireshark en la interfaz `enp7s0`, filtro `arp`, y se identificó el par generado por ese ping: el paquete #1624 (Request) y su correspondiente #1625 (Reply).
 
-| Campo                             | ARP Request | ARP Reply |
-| --------------------------------- | ----------- | --------- |
-| MAC destino (encabezado Ethernet) |             |           |
-| MAC origen (encabezado Ethernet)  |             |           |
-| Opcode                            |             |           |
-| Sender MAC address                |             |           |
-| Sender IP address                 |             |           |
-| Target MAC address                |             |           |
-| Target IP address                 |             |           |
+ARP Request (paquete #1624):
+
+![ARP Request](assets/consigna2-arp-request.png)
+
+ARP Reply (paquete #1625):
+
+![ARP Reply](assets/consigna2-arp-reply.png)
+
+| Campo                             | ARP Request                   | ARP Reply          |
+| --------------------------------- | ------------------------------ | ------------------- |
+| MAC destino (encabezado Ethernet) | ff:ff:ff:ff:ff:ff (Broadcast) | 58:11:22:48:01:66   |
+| MAC origen (encabezado Ethernet)  | 58:11:22:48:01:66             | f0:81:75:35:a4:4f   |
+| Opcode                            | 1 (request)                   | 2 (reply)            |
+| Sender MAC address                | 58:11:22:48:01:66             | f0:81:75:35:a4:4f   |
+| Sender IP address                 | 192.168.0.163                 | 192.168.0.1          |
+| Target MAC address                | 00:00:00:00:00:00             | 58:11:22:48:01:66   |
+| Target IP address                 | 192.168.0.1                   | 192.168.0.163        |
 
 #### a)
 
 > ¿Por qué el Request va a una dirección broadcast y el Reply no? ¿Qué valor tiene Target MAC address en el Request y por qué?
 
+El Request va a broadcast (`ff:ff:ff:ff:ff:ff`) porque el emisor todavía no sabe qué MAC corresponde a la IP que busca (`192.168.0.1`): ese es justamente el dato que está preguntando. Como no puede dirigirse a un destinatario puntual que desconoce, lo envía a toda la red local para que el dueño de esa IP se identifique (que es lo que hace el ARP Request).
+Por esa misma razón, el campo **Target MAC address** del Request viene en `00:00:00:00:00:00`: es un valor "relleno" que indica que esa dirección todavía no se conoce, es precisamente el dato que la Request busca obtener.
+El Reply, en cambio, se envía de forma unicast (`58:11:22:48:01:66`) porque para ese momento el que responde (el gateway) ya sabe exactamente quién preguntó: lo leyó directamente del Sender MAC del Request que recibió. No hace falta volver a preguntarle a toda la red, el Reply se dirige directo al interesado.
+
 #### b)
 
 > En el encabezado Ethernet de la trama ARP, ¿qué valor tiene el campo Type? ¿Hay un encabezado IP? ¿Qué les dice eso sobre dónde "vive" ARP?
+
+El campo **Type** del encabezado Ethernet vale `0x0806`, que es el EtherType reservado para identificar que lo que viene a continuación es una trama ARP (se puede ver en el hexdump de ambos paquetes capturados, el `08 06` justo después de las direcciones MAC).
+No hay encabezado IP: inmediatamente después de esos 14 bytes de encabezado Ethernet viene directo el contenido de ARP (HTYPE, PTYPE, HLEN, PLEN, opcode, direcciones), sin ningún datagrama IPv4 de por medio. Esto confirma lo que se planteaba como discutible en el punto a de la Investigación: ARP resuelve un problema que conceptualmente pertenece a la capa de red (direccionamiento IP), pero sus mensajes viajan encapsulados directamente en Ethernet, como si fuera un protocolo de la capa de enlace. A diferencia de ICMP (Consigna 1), que sí viaja dentro de un paquete IP, ARP no tiene ese nivel extra de encapsulamiento.
 
 #### c)
 
 > Con la Opción A (IP inexistente): ¿cuántos ARP Request aparecieron? ¿Hubo Reply? ¿Apareció algún ICMP Echo Request en la captura? Expliquen por qué.
 
+Para esta pregunta se volvió a generar tráfico ARP, esta vez usando específicamente la **Opción A** (ping a una IP inexistente de la subred), ya que es la que pide este punto en particular.
+
+Antes de pingear, se verificó con `ip neigh show` que la IP elegida (`192.168.0.253`) no estuviera ya en la caché:
+
+![ip neigh show antes del ping](assets/consigna2-opcionA-ip-neigh-antes.png)
+
+Se ejecutó el ping desde la Terminal:
+
+![ping a IP inexistente](assets/consigna2-opcionA-ping-terminal.png)
+
+Y se analizó la captura en Wireshark con el filtro `arp || icmp`:
+
+![Captura Wireshark Opción A](assets/consigna2-opcionA-wireshark.png)
+
+Se pingeó la IP `192.168.0.253` (verificada de antemano con `ip neigh show` como inexistente en la red) con `ping -c 3`. En la captura (filtro `arp || icmp`) aparecieron **3 ARP Request**, uno por cada intento de ping, todos a Broadcast preguntando *"Who has 192.168.0.253? Tell 192.168.0.163"*, espaciados aproximadamente 1 segundo entre sí.
+**No hubo ningún ARP Reply**, y **tampoco apareció ningún paquete ICMP** en toda la captura (ni Echo Request ni ningún otro).
+Esto se debe a que como nadie en la red tiene asignada la IP `192.168.0.253`, ningún equipo respondió al Request, por lo que nunca se pudo resolver una MAC destino para esa IP. Sin esa MAC, el sistema operativo no tiene forma de armar la trama Ethernet necesaria para sacar el Echo Request a la red, así que el ping ni siquiera llega a transmitirse a nivel de paquete. Por eso la Terminal mostró "Destination Host Unreachable": es un mensaje generado **localmente** por el propio sistema operativo al fallar la resolución ARP, no una respuesta real recibida de la red. Esto también explica por qué se repite el Request 3 veces (una por cada intento de `ping`): como nunca hay Reply, nunca se llega a cachear nada, y cada intento vuelve a disparar su propia resolución ARP desde cero.
+
 #### d)
 
 > Volvieron a hacer ping al mismo destino un minuto después: ¿apareció ARP de nuevo? Revisen la caché ARP. ¿Qué ventaja tiene la caché y qué problema podría causar si una entrada quedara vieja?
+
+Se repitió el ping al gateway bastante más de un minuto después del original, revisando la caché antes y analizando la nueva captura de Wireshark para ver si se disparaba un nuevo ARP.
+
+Terminal: estado de la caché antes del segundo ping, y ejecución de `ping -c 2 192.168.0.1`:
+
+![Terminal: ip neigh show antes y ping al gateway](assets/consigna2-opcionD-terminal-ping2.png)
+
+Wireshark (nueva captura, filtro `arp`): no aparece ningún Request nuevo preguntando por el gateway, solo tráfico de fondo no relacionado:
+
+![Wireshark: sin ARP nuevo tras el segundo ping](assets/consigna2-opcionD-wireshark-sinnuevoarp.png)
+
+Terminal: estado de la caché después del segundo ping:
+
+![Terminal: ip neigh show después del segundo ping](assets/consigna2-opcionD-ip-neigh-despues.png)
+
+Antes de repetir el ping, `ip neigh show` ya mostraba la entrada del gateway como `REACHABLE` (y, de paso, quedó registrada como `FAILED` la IP inexistente usada en el punto c, la caché también guarda por un tiempo los intentos fallidos). Se volvió a ejecutar `ping -c 2 192.168.0.1` bastante más de un minuto después del ping original, y la resolución **no se repitió**: en la nueva captura de Wireshark (filtro `arp`) no apareció ningún "Who has 192.168.0.1? Tell 192.168.0.163". El ping funcionó igual, de forma exitosa (`ttl=64`, ~1.26 ms), usando directamente la MAC que ya estaba cacheada, y `ip neigh show` después del ping mostró exactamente el mismo estado (`REACHABLE`, misma MAC).
+Esto confirma el comportamiento esperado: mientras la entrada siga vigente (`REACHABLE`), el sistema la reutiliza directamente y no vuelve a disparar un ARP Request/Reply.
+**Ventaja de la caché:** evita repetir el proceso de broadcast Request/Reply antes de cada paquete, ahorrando tráfico de red y latencia. La trama se arma de inmediato con la MAC ya conocida, en vez de esperar una ronda completa de resolución.
+**Problema si una entrada queda vieja:** si el dispositivo dueño de esa IP cambia de MAC, pero la caché todavía apunta a la MAC anterior, las tramas seguirán enviándose a un destino que ya no corresponde. Los paquetes se perderían (o llegarían a un equipo distinto) hasta que esa entrada caduque o se invalide de alguna forma.
 
 ## Consigna 3 — TCP y UDP "a mano" con ncat
 
