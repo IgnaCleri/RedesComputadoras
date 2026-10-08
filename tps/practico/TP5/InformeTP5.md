@@ -23,17 +23,30 @@
 
 > ¿Qué es ICMP y para qué se usa? ¿Transporta datos de aplicaciones como lo hacen TCP o UDP?
 
+ICMP (Protocolo de Mensajes de Control de Internet) es un protocolo de la capa de red que se utiliza para realizar diagnósticos y reportar errores. No transporta datos de aplicaciones de usuario, sino información de control exclusiva para el funcionamiento de la red.
+
 #### b)
 
 > ¿Qué relación tiene con IP? ¿Viaja dentro de IP, al lado de IP o debajo de IP? ¿Cómo sabe el receptor que el contenido de un paquete IP es ICMP?
+
+ICMP es uno de los protocolos principales del conjunto IP.  El mensaje ICMP se coloca dentro del área de datos de un paquete IP normal. El receptor identifica un mensaje ICMP por medio del encabezado del paquete IP que lo envuelve. Cuando el valor del campo 'Protocolo' del encabezado IPv4 es 1, el equipo receptor identifica que los datos que viajan dentro de ese paquete IP corresponden a un mensaje ICMP.
 
 #### c)
 
 > ¿Qué hace ping? ¿Qué son un Echo Request y un Echo Reply? ¿Qué campos de ICMP permiten distinguirlos?
 
+ El comando ping verifica la conectividad y mide el tiempo de latencia entre un emisor y un destino. Por ejemplo, una computadora envía un mensaje de consulta llamado Echo Request, y el equipo destino contesta con un mensaje de confirmación llamado Echo Reply. Se distinguen por el campo "Type" (Tipo) en la cabecera ICMP, en donde el valor 8 corresponde al Echo Request y el valor 0 al Echo Reply.
 #### d)
 
 > ¿Qué información mínima contiene un mensaje ICMP de tipo Echo?
+
+ El encabezado mínimo de un mensaje Echo contiene 5 campos esenciales:
+
+* Tipo (Type): 8 o 0.
+* Código (Code): Generalmente 0 para los Echo.
+* Suma de comprobación (Checksum): Para detectar errores de corrupción.
+* Identificador (Identifier): Para vincular las respuestas con el programa que las solicitó.
+* Número de secuencia (Sequence Number): Para saber qué paquete específico se está respondiendo.
 
 ### Configuración de red
 
