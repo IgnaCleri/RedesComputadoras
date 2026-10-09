@@ -360,6 +360,23 @@ Modificaciones:
   - Promediado exponencial: Da más peso a las observaciones recientes, por lo que sigue los cambios más rápido que la media simple.
   - Decaimiento exponencial del RTO: ante cada retransmisión se multiplica el RTO por una constante ($RTO = q·RTO$, normalmente $q = 2$). Si el vencimiento del temporizador se debe a congestión, esperar más tiempo antes de reintentar evita que todas las fuentes retransmitan a la vez y agraven la congestión.
 
+=== Ejercicio 20.8
+
+==== Consigna
+Considere un protocolo de transporte que usa un servicio de red orientado a conexión. Su
+ponga que ese protocolo de transporte utiliza un esquema de asignación de créditos para el
+control de flujo y que el protocolo de red usa un esquema de ventana deslizante. ¿Qué
+relación, si existe, debería haber entre la ventana dinámica del protocolo de transporte y la
+ventana fija del protocolo de red?
+
+==== Respuesta
+
+
+No hay una relación obligatoria porque son mecanismos independientes. Lo que se puede enviar en cada momento está limitado por la ventana de mayor tamaño entre las dos.
+
+Si el crédito de transporte es mayor que la ventana de red esta no deja salir más segmentos que su ventana, por lo que los segmentos esperan en cola en el emisor y el crédito extra es inútil.
+Si el crédito es menor que la ventana de red el límite lo pone la capa de transporte, y la ventana de red no se aprovecha del todo.
+
 
 // Bibliografía. Si hay referencias bibliográficas se renderiza.
 // Si no, solamente con full: true se renderiza la bibliografía completa, aunque no haya referencias en el texto
