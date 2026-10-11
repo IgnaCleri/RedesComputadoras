@@ -116,7 +116,15 @@ El identificador y la secuencia se mantienen para poder relacionar la pregunta c
 
 ![alt text](image-3.png)
 
-El payload se encuentra al final de la trama. Contiene 32 bytes y es: abcdefghijklmnopqrstuvwabcdefghi. Es igual en el request y en el reply.
+El payload se encuentra al final de la trama. Contiene 32 bytes y es: `abcdefghijklmnopqrstuvwabcdefghi` (la secuencia de `0x61` a `0x77` y vuelve a empezar). Es igual en el request y en el reply.
+
+Repitiendo el experimento en Linux, se notan algunas diferencias. Primeramente, el patrón por defecto de datos ICMP es la secuencia ascendente `0x10` a `0x37`, de 40 bytes, la cual puede ser elegida por el usuario. Por ejemplo, `ping -c 1 8.8.8.8 -p ab` envía 40 repeticiones de `0xab`.
+
+Luego, también varían otros campos como el TTL (128 en Windows y 64 en Linux, indicando que por defecto el timeout en Linux sucederá antes), ciertos flags IP, el identificador (siempre 1 en Windows y ascendente en Linux), y el header checksum IP (en Windows es cero, tal vez capturado antes de ser calculado, y en el mensaje en Linux fue calculado).
+
+[Captura con Wireshark en Linux](assets/consigna1-ping-linux.pcapng)
+
+![](assets/consigna1-payload-linux.png)
 
 #### d)
 
