@@ -133,8 +133,8 @@ El valor del TTL se encuentra en la imagen (enmascarado en hexadecimal), son dos
 ![alt text](image-4.png)
 
 - La trama Ethernet ocupa 14 bytes
-- La trama IPv4 ocupa 20 bytes
-- La trama ICMP ocupa 8 bytes
+- El datagrama IPv4 ocupa 20 bytes
+- El mensaje ICMP ocupa 8 bytes
 - La payload ocupa 32 bytes
 
 La suma de todo esto resulta 74 bytes que es el tamaño del paquete.
