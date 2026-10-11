@@ -77,8 +77,8 @@ ICMP es uno de los protocolos principales del conjunto IP.  El mensaje ICMP se c
 
 > La MAC destino del Echo Request enviado a 8.8.8.8, ¿es la MAC de 8.8.8.8? ¿De qué equipo es? Compárenla con la MAC destino del ping al gateway. ¿Qué conclusión sacan sobre el alcance de una dirección MAC frente al de una dirección IP?
 
-No, la mac 38:a6:59:ea:01:77 es la mac del router, 8.8.8.8 es el destino. 
-La conclusion final es que una dirección MAC tiene alcance local, solo sirve para llegar al próximo equipo dentro de la misma red, y en cada router la trama se rearma con nuevas MAC. Una dirección IP, en cambio, identifica el destino final.
+No, la MAC 38:a6:59:ea:01:77 es la MAC del router, 8.8.8.8 es el destino. 
+La conclusión final es que una dirección MAC tiene alcance local, solo sirve para llegar al próximo equipo dentro de la misma red, y en cada router la trama se rearma con nuevas MAC. Una dirección IP, en cambio, identifica el destino final.
 
 ![alt text](image.png)
 #### b)
@@ -97,15 +97,15 @@ En Ethernet cambiaron:
 En IP cambiaron
 - Identification
 - Time to live
-- Hader checksum
-- Source adress
-- Desination adress
+- Header checksum
+- Source address
+- Destination address
 
 En el ICMP cambiaron
 - Checksum
 
-Es logico porque ahora el que transimite es el router (sagemcom) y el que recibe es la Tarjeta de red (La intel).
-El identificador y la secuencia se mantienen para poder relacionar la pregunta con la respuesta, al enviarse muchas request al mismo tiempo y recibir las reply tambien al mismo tiempo, el router(en este caso) envia las respuestas con estos atributos iguales para poder saber a que respondio.
+Es lógico porque ahora el que transmite es el router (sagemcom) y el que recibe es la tarjeta de red (la Intel).
+El identificador y la secuencia se mantienen para poder relacionar la pregunta con la respuesta, al enviarse muchas request al mismo tiempo y recibir las reply también al mismo tiempo, el router (en este caso) envía las respuestas con estos atributos iguales para poder saber a qué respondió.
 
 
 #### c)
@@ -122,7 +122,7 @@ El payload se encuentra al final de la trama. Contiene 32 bits y es: abcdefghijk
 
 ![alt text](image-2.png)
 
-El valor el TTL se encuentra en la imagen (enmascarado en hexadecimal), son dos distintos ya que la informacion de cabecera cambia. Como vimos en el ejercicio b. 
+El valor del TTL se encuentra en la imagen (enmascarado en hexadecimal), son dos distintos ya que la información de cabecera cambia. Como vimos en el ejercicio b. 
 
 #### e)
 
@@ -131,7 +131,7 @@ El valor el TTL se encuentra en la imagen (enmascarado en hexadecimal), son dos 
 ![alt text](image-4.png)
 
 - La trama Ethernet ocupa 14 bytes
-- La trama IPV4 ocupa 20 bytes
+- La trama IPv4 ocupa 20 bytes
 - La trama ICMP ocupa 8 bytes
 - La payload ocupa 32 bytes
 
