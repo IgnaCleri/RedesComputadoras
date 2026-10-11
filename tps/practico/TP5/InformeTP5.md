@@ -116,7 +116,7 @@ El identificador y la secuencia se mantienen para poder relacionar la pregunta c
 
 ![alt text](image-3.png)
 
-El payload se encuentra al final de la trama. Contiene 32 bits y es: abcdefghijklmnopqrstuvwabcdefghi. Es igual en el request y en el reply.
+El payload se encuentra al final de la trama. Contiene 32 bytes y es: abcdefghijklmnopqrstuvwabcdefghi. Es igual en el request y en el reply.
 
 #### d)
 
