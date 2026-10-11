@@ -35,7 +35,8 @@ ICMP es uno de los protocolos principales del conjunto IP.  El mensaje ICMP se c
 
 > ¿Qué hace ping? ¿Qué son un Echo Request y un Echo Reply? ¿Qué campos de ICMP permiten distinguirlos?
 
- El comando ping verifica la conectividad y mide el tiempo de latencia entre un emisor y un destino. Por ejemplo, una computadora envía un mensaje de consulta llamado Echo Request, y el equipo destino contesta con un mensaje de confirmación llamado Echo Reply. Se distinguen por el campo "Type" (Tipo) en la cabecera ICMP, en donde el valor 8 corresponde al Echo Request y el valor 0 al Echo Reply.
+El comando ping verifica la conectividad y mide el tiempo de latencia entre un emisor y un destino. Por ejemplo, una computadora envía un mensaje de consulta llamado Echo Request, y el equipo destino contesta con un mensaje de confirmación llamado Echo Reply. Se distinguen por el campo "Type" (Tipo) en la cabecera ICMP, en donde el valor 8 corresponde al Echo Request y el valor 0 al Echo Reply.
+
 #### d)
 
 > ¿Qué información mínima contiene un mensaje ICMP de tipo Echo?
@@ -52,24 +53,24 @@ ICMP es uno de los protocolos principales del conjunto IP.  El mensaje ICMP se c
 
 > Averiguar la configuración de red de alguna de las computadoras del grupo: dirección IPv4, máscara, gateway por defecto y dirección MAC de la interfaz que usan (Wi-Fi o cableada).
 
-| Parámetro      | Valor |
-| -------------- | ----- |
-| Interfaz       |  WIFI     |
-| Dirección IPv4 |  192.168.1.4     |
-| Máscara        |  255.255.255.0     |
-| Gateway        |   192.168.1.1    |
-| Dirección MAC  |    BC-CD-99-AA-26-7F   |
+| Parámetro      | Valor             |
+| -------------- | ----------------- |
+| Interfaz       | WIFI              |
+| Dirección IPv4 | 192.168.1.4       |
+| Máscara        | 255.255.255.0     |
+| Gateway        | 192.168.1.1       |
+| Dirección MAC  | BC-CD-99-AA-26-7F |
 
 ### Capas del Echo Request
 
 > Seleccionar un Echo Request y desplegar el panel de detalles. Identificar las capas que muestra Wireshark y completar la tabla.
 
 | Capa (como la nombra Wireshark)   | Dirección/identificador origen | Dirección/identificador destino | ¿Qué campo indica qué protocolo viene "adentro"? |
-| --------------------------------- | -------------------------------| ------------------------------- | ------------------------------------------------ |
-| Ethernet II                       |   bc:cd:99:aa:26:7f            | 38:a6:59:ea:01:77               |                    Type: IPv4 (0x0800)           |
-| Internet Protocol Version 4       |         192.168.1.4            |             8.8.8.8             |                          Protocol: ICMP (1)      |
-| Internet Control Message Protocol |             No lleva              | No lleva                      |           Ninguno (Contiene la Payload)                    |
-| Datos / payload                   |              -                 |                          -      |       abcdefghijklmnopqrstuvwabcdefghi           |
+| --------------------------------- | ------------------------------ | ------------------------------- | ------------------------------------------------ |
+| Ethernet II                       | bc:cd:99:aa:26:7f              | 38:a6:59:ea:01:77               | Type: IPv4 (0x0800)                              |
+| Internet Protocol Version 4       | 192.168.1.4                    | 8.8.8.8                         | Protocol: ICMP (1)                               |
+| Internet Control Message Protocol | No lleva                       | No lleva                        | Ninguno (Contiene la Payload)                    |
+| Datos / payload                   | -                              | -                               | abcdefghijklmnopqrstuvwabcdefghi                 |
 
 ### Análisis de la captura
 
@@ -81,6 +82,7 @@ No, la MAC 38:a6:59:ea:01:77 es la MAC del router, 8.8.8.8 es el destino.
 La conclusión final es que una dirección MAC tiene alcance local, solo sirve para llegar al próximo equipo dentro de la misma red, y en cada router la trama se rearma con nuevas MAC. Una dirección IP, en cambio, identifica el destino final.
 
 ![alt text](image.png)
+
 #### b)
 
 > Comparen un Echo Request con su Echo Reply (Wireshark los vincula en el campo `[Response frame: …]`). Hagan una lista de los campos que cambian y de los que se mantienen en Ethernet, IP e ICMP. ¿Por qué tiene sentido cada cambio? ¿Por qué el identificador y el número de secuencia se mantienen?
@@ -189,15 +191,15 @@ ARP Reply (paquete #1625):
 
 ![ARP Reply](assets/consigna2-arp-reply.png)
 
-| Campo                             | ARP Request                   | ARP Reply          |
-| --------------------------------- | ------------------------------ | ------------------- |
-| MAC destino (encabezado Ethernet) | ff:ff:ff:ff:ff:ff (Broadcast) | 58:11:22:48:01:66   |
-| MAC origen (encabezado Ethernet)  | 58:11:22:48:01:66             | f0:81:75:35:a4:4f   |
-| Opcode                            | 1 (request)                   | 2 (reply)            |
-| Sender MAC address                | 58:11:22:48:01:66             | f0:81:75:35:a4:4f   |
-| Sender IP address                 | 192.168.0.163                 | 192.168.0.1          |
-| Target MAC address                | 00:00:00:00:00:00             | 58:11:22:48:01:66   |
-| Target IP address                 | 192.168.0.1                   | 192.168.0.163        |
+| Campo                             | ARP Request                   | ARP Reply         |
+| --------------------------------- | ----------------------------- | ----------------- |
+| MAC destino (encabezado Ethernet) | ff:ff:ff:ff:ff:ff (Broadcast) | 58:11:22:48:01:66 |
+| MAC origen (encabezado Ethernet)  | 58:11:22:48:01:66             | f0:81:75:35:a4:4f |
+| Opcode                            | 1 (request)                   | 2 (reply)         |
+| Sender MAC address                | 58:11:22:48:01:66             | f0:81:75:35:a4:4f |
+| Sender IP address                 | 192.168.0.163                 | 192.168.0.1       |
+| Target MAC address                | 00:00:00:00:00:00             | 58:11:22:48:01:66 |
+| Target IP address                 | 192.168.0.1                   | 192.168.0.163     |
 
 #### a)
 
@@ -338,18 +340,18 @@ La salida coincide con el comportamiento esperado: el puerto del cliente (55292)
 
 Los paquetes capturados fueron:
 
-| N°  | Tiempo (s) | Sentido | Flags    | Seq | Ack | Len | Descripción                                                    |
-| --- | ---------- | ------- | -------- | --- | --- | --- | -------------------------------------------------------------- |
-| 1   | 0.000000   | C → S   | SYN      | 0   | 0   | 0   | Handshake (1/3): el cliente pide abrir la conexión             |
-| 2   | 0.000037   | S → C   | SYN, ACK | 0   | 1   | 0   | Handshake (2/3): el servidor acepta y envía su ISN             |
-| 3   | 0.000059   | C → S   | ACK      | 1   | 1   | 0   | Handshake (3/3): el cliente confirma, conexión establecida     |
-| 4   | 0.000149   | C → S   | PSH, ACK | 1   | 1   | 13  | Datos del cliente: `"Hola servidor"`                           |
-| 5   | 0.000160   | S → C   | ACK      | 1   | 14  | 0   | El servidor confirma los 13 bytes recibidos                    |
-| 6   | 0.000388   | S → C   | PSH, ACK | 1   | 14  | 23  | Respuesta del servidor: `"Recibido: Hola servidor"`            |
-| 7   | 0.000407   | C → S   | ACK      | 14  | 24  | 0   | El cliente confirma los 23 bytes recibidos                     |
-| 8   | 0.000458   | C → S   | FIN, ACK | 14  | 24  | 0   | El cliente inicia el cierre (cierre activo)                    |
-| 9   | 0.000539   | S → C   | FIN, ACK | 24  | 15  | 0   | El servidor confirma el FIN del cliente y envía su propio FIN  |
-| 10  | 0.000584   | C → S   | ACK      | 15  | 25  | 0   | El cliente confirma el FIN del servidor                        |
+| N°  | Tiempo (s) | Sentido | Flags    | Seq | Ack | Len | Descripción                                                   |
+| --- | ---------- | ------- | -------- | --- | --- | --- | ------------------------------------------------------------- |
+| 1   | 0.000000   | C → S   | SYN      | 0   | 0   | 0   | Handshake (1/3): el cliente pide abrir la conexión            |
+| 2   | 0.000037   | S → C   | SYN, ACK | 0   | 1   | 0   | Handshake (2/3): el servidor acepta y envía su ISN            |
+| 3   | 0.000059   | C → S   | ACK      | 1   | 1   | 0   | Handshake (3/3): el cliente confirma, conexión establecida    |
+| 4   | 0.000149   | C → S   | PSH, ACK | 1   | 1   | 13  | Datos del cliente: `"Hola servidor"`                          |
+| 5   | 0.000160   | S → C   | ACK      | 1   | 14  | 0   | El servidor confirma los 13 bytes recibidos                   |
+| 6   | 0.000388   | S → C   | PSH, ACK | 1   | 14  | 23  | Respuesta del servidor: `"Recibido: Hola servidor"`           |
+| 7   | 0.000407   | C → S   | ACK      | 14  | 24  | 0   | El cliente confirma los 23 bytes recibidos                    |
+| 8   | 0.000458   | C → S   | FIN, ACK | 14  | 24  | 0   | El cliente inicia el cierre (cierre activo)                   |
+| 9   | 0.000539   | S → C   | FIN, ACK | 24  | 15  | 0   | El servidor confirma el FIN del cliente y envía su propio FIN |
+| 10  | 0.000584   | C → S   | ACK      | 15  | 25  | 0   | El cliente confirma el FIN del servidor                       |
 
 Toda la conexión, desde el SYN hasta el último ACK, duró menos de 0,6 ms. En el cierre, el servidor ejecutó `conexion.close()` apenas después de recibir el FIN del cliente, antes de que venciera el *delayed ACK*, por lo que el ACK del FIN y el FIN del servidor viajaron en un mismo segmento y el cierre se vio en 3 segmentos en lugar de 4.
 
@@ -414,11 +416,11 @@ En este paso únicamente se intenta la conexión con el servidor, y se imprime l
 
 Los paquetes capturados fueron:
 
-| N°  | Tiempo (s)   | Sentido | Flags    | Seq | Ack | Len | Descripción                                                |
-| --- | ------------ | ------- | -------- | --- | --- | --- | ---------------------------------------------------------- |
-| 338 | 642.028002   | C → S   | SYN      | 0   | 0   | 0   | Handshake (1/3): el cliente pide abrir la conexión         |
-| 339 | 642.028046   | S → C   | SYN, ACK | 0   | 1   | 0   | Handshake (2/3): el servidor acepta y envía su ISN         |
-| 340 | 642.028071   | C → S   | ACK      | 1   | 1   | 0   | Handshake (3/3): el cliente confirma, conexión establecida |
+| N°  | Tiempo (s) | Sentido | Flags    | Seq | Ack | Len | Descripción                                                |
+| --- | ---------- | ------- | -------- | --- | --- | --- | ---------------------------------------------------------- |
+| 338 | 642.028002 | C → S   | SYN      | 0   | 0   | 0   | Handshake (1/3): el cliente pide abrir la conexión         |
+| 339 | 642.028046 | S → C   | SYN, ACK | 0   | 1   | 0   | Handshake (2/3): el servidor acepta y envía su ISN         |
+| 340 | 642.028071 | C → S   | ACK      | 1   | 1   | 0   | Handshake (3/3): el cliente confirma, conexión establecida |
 
 Estos paquetes son el Three-Way-Handshake que inicia la conexión, generado completamente durante el `connect()` del cliente.
 
@@ -449,10 +451,10 @@ Cabe aclarar que no todas las llamadas de este paso generan tráfico. El paquete
 
 Los paquetes capturados en este paso fueron:
 
-| N°  | Tiempo (s)   | Sentido | Flags    | Seq | Ack | Len | Descripción                                                |
-| --- | ------------ | ------- | -------- | --- | --- | --- | ---------------------------------------------------------- |
-| 363 | 844.233631   | C → S   | PSH, ACK | 1   | 1   | 13  | Datos del cliente: `"Hola servidor"`                       |
-| 364 | 844.233663   | S → C   | ACK      | 1   | 14  | 0   | El servidor confirma los 13 bytes recibidos                |
+| N°  | Tiempo (s) | Sentido | Flags    | Seq | Ack | Len | Descripción                                 |
+| --- | ---------- | ------- | -------- | --- | --- | --- | ------------------------------------------- |
+| 363 | 844.233631 | C → S   | PSH, ACK | 1   | 1   | 13  | Datos del cliente: `"Hola servidor"`        |
+| 364 | 844.233663 | S → C   | ACK      | 1   | 14  | 0   | El servidor confirma los 13 bytes recibidos |
 
 #### Envío Servidor-Cliente
 
@@ -475,10 +477,10 @@ En este paso el servidor genera una respuesta y la envía, mientras que el clien
 
 Los paquetes capturados en este paso fueron:
 
-| N°  | Tiempo (s)   | Sentido | Flags    | Seq | Ack | Len | Descripción                                                |
-| --- | ------------ | ------- | -------- | --- | --- | --- | ---------------------------------------------------------- |
-| 365 | 1199.263997  | S → C   | PSH, ACK | 1   | 14  | 23  | Respuesta del servidor: `"Recibido: Hola servidor"`        |
-| 366 | 1199.264035  | C → S   | ACK      | 14  | 24  | 0   | El cliente confirma los 23 bytes recibidos                 |
+| N°  | Tiempo (s)  | Sentido | Flags    | Seq | Ack | Len | Descripción                                         |
+| --- | ----------- | ------- | -------- | --- | --- | --- | --------------------------------------------------- |
+| 365 | 1199.263997 | S → C   | PSH, ACK | 1   | 14  | 23  | Respuesta del servidor: `"Recibido: Hola servidor"` |
+| 366 | 1199.264035 | C → S   | ACK      | 14  | 24  | 0   | El cliente confirma los 23 bytes recibidos          |
 
 #### Cierre de Conexión
 
@@ -506,12 +508,12 @@ En este paso el cliente termina su conexión. Al recibir el FIN, el kernel del s
 
 Los paquetes capturados en este paso fueron:
 
-| N°  | Tiempo (s)   | Sentido | Flags    | Seq | Ack | Len | Descripción                                                |
-| --- | ------------ | ------- | -------- | --- | --- | --- | ---------------------------------------------------------- |
-| 369 | 1493.299798  | C → S   | FIN, ACK | 14  | 24  | 0   | El cliente inicia el cierre (cierre activo)                |
-| 370 | 1493.340865  | S → C   | ACK      | 24  | 15  | 0   | El servidor confirma el FIN del cliente                    |
-| 371 | 1514.113160  | S → C   | FIN, ACK | 24  | 15  | 0   | El servidor cierra su sentido de la conexión               |
-| 372 | 1514.113203  | C → S   | ACK      | 15  | 25  | 0   | El cliente confirma el FIN del servidor                    |
+| N°  | Tiempo (s)  | Sentido | Flags    | Seq | Ack | Len | Descripción                                  |
+| --- | ----------- | ------- | -------- | --- | --- | --- | -------------------------------------------- |
+| 369 | 1493.299798 | C → S   | FIN, ACK | 14  | 24  | 0   | El cliente inicia el cierre (cierre activo)  |
+| 370 | 1493.340865 | S → C   | ACK      | 24  | 15  | 0   | El servidor confirma el FIN del cliente      |
+| 371 | 1514.113160 | S → C   | FIN, ACK | 24  | 15  | 0   | El servidor cierra su sentido de la conexión |
+| 372 | 1514.113203 | C → S   | ACK      | 15  | 25  | 0   | El cliente confirma el FIN del servidor      |
 
 
 ### Llamadas y segmentos
