@@ -350,8 +350,8 @@ Modificaciones:
 - Para solucionar el problema 1, hay que estimar con el algoritmo de Jacobson la desviación media del RTT y no solo su media.
   De esta manera el temporizador se amplía cuando las mediciones son muy dispersas y se ajusta cuando se estabilizan.
 
-- Mediante el algoritmo de Karn, se puede solucionar el problema numero 2:
-  El algoritmo de Karn resuelve este problema mediante las siguientes reglas:
+- Mediante el algoritmo de Karn, se puede solucionar el problema numero 2, este resuelve el problema utilizando las
+las siguientes reglas:
 1. No utilizar el RTT medido para un segmento retransmitido para actualizar SRTT y SDEV.
 2. Calcular el RTO de decaimiento utilizando la Ecuación: $RTO= q*RTO$ cuando se produzca una re transmisión. 
 3. Utilizar el valor del RTO de decaimiento para segmentos sucesivos hasta que llegue una confirmación para un segmento que no se haya retransmitido. 
@@ -374,11 +374,13 @@ ventana fija del protocolo de red?
 
 ==== Respuesta
 
-No hay una relación obligatoria porque son mecanismos independientes. Lo que se puede enviar en cada momento está limitado por la ventana de menor tamaño entre las dos.
-
-Si el crédito de transporte es mayor que la ventana de red esta no deja salir más segmentos que su ventana, por lo que los segmentos esperan en cola en el emisor y el crédito extra es inútil.
-Si el crédito es menor que la ventana de red el límite lo pone la capa de transporte, y la ventana de red no se aprovecha del todo.
-
+La ventana de red actúa como mecanismo de contrapresión sobre el transporte: si la entidad receptora llena 
+su memoria temporal y rechaza datos del servicio de red, la ventana deslizante no avanza, el nivel de red del
+emisor agota su ventana y deja de aceptar segmentos del transporte emisor. Por lo tanto, la cantidad que puede 
+enviarse está acotada por la menor de ambas ventanas. Sin embargo, este mecanismo es tosco: si hay varias 
+conexiones de transporte multiplexadas sobre una conexión de red, el control se aplica sobre el agregado. 
+El crédito de transporte, ajustado dinámicamente al espacio libre del receptor, permite controlar cada conexión 
+individualmente y evita tener que recurrir al rechazo en el nivel de red, que debería quedar como último recurso.
 
 // Bibliografía. Si hay referencias bibliográficas se renderiza.
 // Si no, solamente con full: true se renderiza la bibliografía completa, aunque no haya referencias en el texto
