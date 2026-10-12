@@ -374,7 +374,7 @@ ventana fija del protocolo de red?
 
 ==== Respuesta
 
-No hay una relación obligatoria porque son mecanismos independientes. Lo que se puede enviar en cada momento está limitado por la ventana de mayor tamaño entre las dos.
+No hay una relación obligatoria porque son mecanismos independientes. Lo que se puede enviar en cada momento está limitado por la ventana de menor tamaño entre las dos.
 
 Si el crédito de transporte es mayor que la ventana de red esta no deja salir más segmentos que su ventana, por lo que los segmentos esperan en cola en el emisor y el crédito extra es inútil.
 Si el crédito es menor que la ventana de red el límite lo pone la capa de transporte, y la ventana de red no se aprovecha del todo.
