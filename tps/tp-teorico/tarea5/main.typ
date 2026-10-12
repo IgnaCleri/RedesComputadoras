@@ -365,6 +365,7 @@ Modificaciones:
 === Ejercicio 20.8
 
 ==== Consigna
+
 Considere un protocolo de transporte que usa un servicio de red orientado a conexión. Su
 ponga que ese protocolo de transporte utiliza un esquema de asignación de créditos para el
 control de flujo y que el protocolo de red usa un esquema de ventana deslizante. ¿Qué
