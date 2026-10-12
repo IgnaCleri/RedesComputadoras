@@ -81,7 +81,7 @@ El comando ping verifica la conectividad y mide el tiempo de latencia entre un e
 No, la MAC 38:a6:59:ea:01:77 es la MAC del router, 8.8.8.8 es el destino. 
 La conclusión final es que una dirección MAC tiene alcance local, solo sirve para llegar al próximo equipo dentro de la misma red, y en cada router la trama se rearma con nuevas MAC. Una dirección IP, en cambio, identifica el destino final.
 
-![alt text](image.png)
+![Echo Request a 8.8.8.8 con MAC destino del gateway](assets/consigna1-mac-destino-gateway.png)
 
 #### b)
 
@@ -90,7 +90,7 @@ La conclusión final es que una dirección MAC tiene alcance local, solo sirve p
 - 1250: Echo Request
 - 1251: Echo Reply
 
-![alt text](image-1.png)
+![Echo Request y Echo Reply](assets/consigna1-request-reply.png)
 
 En Ethernet cambiaron: 
 - Source 
@@ -114,7 +114,7 @@ El identificador y la secuencia se mantienen para poder relacionar la pregunta c
 
 > ¿Dónde está el payload de ping? ¿Cuántos bytes tiene y qué contiene? ¿Es igual en el Reply? Si en el grupo hay una computadora con Windows y otra con Linux, compárenlos: ¿qué les sugiere que sean distintos?
 
-![alt text](image-3.png)
+![Payload del ping](assets/consigna1-payload.png)
 
 El payload se encuentra al final de la trama. Contiene 32 bytes y es: `abcdefghijklmnopqrstuvwabcdefghi` (la secuencia de `0x61` a `0x77` y vuelve a empezar). Es igual en el request y en el reply.
 
@@ -130,7 +130,7 @@ Luego, también varían otros campos como el TTL (128 en Windows y 64 en Linux, 
 
 > ¿Qué valor de TTL tiene el Echo Request que ustedes enviaron? ¿Y el Reply que llegó de 8.8.8.8? ¿Por qué no son iguales?
 
-![alt text](image-2.png)
+![TTL del Request y del Reply](assets/consigna1-ttl.png)
 
 El valor del TTL se encuentra en la imagen (enmascarado en hexadecimal), son dos distintos ya que la información de cabecera cambia. Como vimos en el ejercicio b. 
 
@@ -138,7 +138,7 @@ El valor del TTL se encuentra en la imagen (enmascarado en hexadecimal), son dos
 
 > Dibujen la encapsulación del paquete que eligieron como "cajas dentro de cajas", indicando para cada caja qué tamaño en bytes tiene según Wireshark.
 
-![alt text](image-4.png)
+![Encapsulación del paquete](assets/consigna1-encapsulacion.png)
 
 - La trama Ethernet ocupa 14 bytes
 - El datagrama IPv4 ocupa 20 bytes
@@ -183,7 +183,7 @@ Hay 2 formas, y se hacen de manera secuencial:
 
 > Ver la caché ARP de su computadora y buscar la entrada del gateway. ¿La MAC asociada al gateway coincide con la MAC destino que vieron anteriormente?
 
-![alt text](image.png)
+![arp -a con la entrada del gateway](assets/consigna2-arp-cache-gateway.png)
 
 Al ejecutar arp -a, la entrada del gateway 192.168.1.1 tiene la dirección física 38-a6-59-ea-01-77, de tipo dinámico. Coincide con la MAC destino del Echo Request a 8.8.8.8 observada en el punto 1. Esto muestra que al hacer ping, la PC tomó la MAC del gateway de su caché ARP para armar la trama Ethernet.
 
@@ -277,35 +277,125 @@ Esto confirma el comportamiento esperado: mientras la entrada siga vigente (`REA
 
 > ¿Qué significa "establecer una conexión"? ¿Dónde "existe" una conexión TCP: en los cables, en los routers o en los extremos?
 
+Establecer una conexión TCP implica intercambiar segmentos entre las estaciones extremo de la conexión para que cada extremo confirme que existe, se negocien los parámetros de la comunicación y se reserven los recursos necesarios en cada extremo para mantenerla. Se realiza mediante el llamado "diálogo en tres pasos".
+
+Una vez la conexión está establecida, esta "existe" como estado lógico en las entidades de transporte extremo. Los nodos intermedios como routers no mantienen información de la conexión.
+
 #### b)
 
 > ¿Qué es un puerto? ¿Qué identifica el par (IP, puerto)?
+
+Un puerto identifica a un usuario de servicio de transporte en una estación o entidad de transporte. En el caso de TCP, el par _(IP, puerto)_ se denomina _socket_ e identifica a un extremo de la conexión, siendo la IP el identificador de la estación y el puerto el identificador del usuario en la estación. Una conexión TCP se identifica por el par de sockets de sus extremos.
 
 #### c)
 
 > ¿Qué significa que un proceso esté "escuchando" en un puerto?
 
+En el contexto de un protocolo de transporte, un proceso "escuchando" en un puerto está en estado de apertura pasiva, a la espera de que sea establecida una conexión en ese puerto de esa estación. En el caso de TCP y el "diálogo en tres pasos" el estado de la entidad de transporte que se genera ante una apertura pasiva de un proceso se denomina LISTEN y vuelve a CLOSED si se cierra la escucha o avanza a SYN RECEIVED si se recibe un SYN y se envía un SYN-ACK.
+
+Si un SYN llega a un puerto donde no hay un proceso escuchando, la entidad de transporte en general lo rechazará con un segmento RST.
+
 ### Análisis de las capturas
+
+Notas sobre las opciones de `ncat`:
+- `-v`: Configura el primer nivel de verbosidad
+- `-l <puerto>`: Escucha pasiva en el puerto dado
+- `-u`: Usar UDP en lugar de TCP
 
 #### a)
 
 > ¿Qué pasó en la red cuando ejecutaron el comando del cliente, antes de escribir el primer mensaje? Compárenlo con TCP.
 
+[Captura con Wireshark de la conversación TCP](./assets/consigna3-TCP.pcapng)
+
+![](./assets/consigna3-TCP.png)
+
+![](./assets/consigna3-UDP.png)
+
+[Captura con Wireshark de la conversación UDP](./assets/consigna3-UDP.pcapng)
+
+En el caso de UDP, una vez ambas sesiones de `ncat` estaban activas, no hubo tráfico de red antes del primer mensaje ya que no se debe establecer una conexión.
+
+En el caso de TCP, antes de enviar el primer mensaje se capturaron tres segmentos correspondientes al protocolo TCP:
+
+| Src. port | Dst. port | Flags        | Data |
+| --------- | --------- | ------------ | ---- |
+| 52726     | 12000     | `[SYN]`      | -    |
+| 12000     | 52726     | `[SYN, ACK]` | -    |
+| 52726     | 12000     | `[ACK]`      | -    |
+
+Estos segmentos corresponden al establecimiento de la conexión en tres pasos. Podemos observar que Linux le asignó al cliente (terminal B) el puerto `52726`.
+
 #### b)
 
 > ¿Cuántos datagramas generó cada mensaje? ¿Hay algo parecido a un ACK?
+
+La conversación mediante UDP produjo un datagrama por mensaje, sin nada parecido a un mensaje de confirmación ACK:
+
+| Src. port | Dst. port | Data                        |
+| --------- | --------- | --------------------------- |
+| 33937     | 12001     | `Hola, soy el terminal B\n` |
+| 12001     | 33937     | `Yo soy el terminal A\n`    |
+
+En el caso de TCP, cada mensaje produjo dos datagramas conteniendo segmentos TCP: uno proveniente del puerto desde donde se envía el mensaje, conteniendo el propio mensaje, y un segmento ACK en el sentido opuesto confirmando la recepción del mensaje.
+
+Para el primer mensaje:
+
+| Src. port | Dst. port | Flags        | Data                        |
+| --------- | --------- | ------------ | --------------------------- |
+| 52726     | 12000     | `[PSH, ACK]` | `Hola, soy el terminal B\n` |
+| 12000     | 52726     | `[ACK]`      | -                           |
+
+Notar que el segmento correspondiente al mensaje tiene seteadas dos flags. Una es el flag `PSH` que produce que el dato llegue inmediatamente al usuario en el extremo receptor sin esperar a llenar el buffer. La otra es el flag `ACK` indicando que el número de confirmación en el mismo segmento es válido (no quiere decir en este caso que el propio segmento sea un mensaje de tipo ACK).
+
+Otro detalle: Netcat, al menos en Linux, incluye en el campo de datos el carácter `0x0a` (LF o line feed) correspondiente a presionar Enter. Esto no sucede si el mensaje se envía con un EOF (Ctrl+D en lugar de Enter), ahorrando un byte.
 
 #### c)
 
 > Comparen el encabezado UDP con el encabezado TCP de un segmento con datos: ¿qué campos tiene cada uno? ¿Cuántos bytes ocupa cada encabezado?
 
+El encabezado UDP es de 8 bytes e incluye:
+- Puerto de origen: 2 bytes
+- Puerto de destino: 2 bytes
+- Length: 2 bytes. Indica el tamaño del datagrama UDP total (datos + cabecera)
+- Checksum: 2 bytes
+
+El encabezado TCP capturado es de 32 bytes, aunque el mínimo es de 20 si se omiten opciones:
+- Puerto de origen: 2 bytes
+- Puerto de destino: 2 bytes
+- Número de secuencia: 4 bytes
+- Número de confirmación: 4 bytes
+- Longitud del header: 4 bits
+- Reservado: 3 bits
+- Flags: 9 bits
+- Window: 2 bytes
+- Checksum: 2 bytes
+- Urgent pointer: 2 bytes
+- Options: 12 bytes
+
 #### d)
 
 > ¿Qué pasó en la red al cerrar el cliente con Ctrl+C? ¿Y en TCP?
 
+En el caso de UDP, no hubo tráfico ya que no hay una conexión que se deba cerrar. Habiendo finalizado un extremo, el otro extremo desconoce la situación y no decide finalizar solo.
+
+En el caso de TCP, cerrar un extremo inicia el diálogo de finalización en cuatro pasos de la conexión, que a su vez automáticamente cierra la sesión de netcat en el otro extremo. Este diálogo se ve como:
+
+| Src. port | Dst. port | Flags        | Data |
+| --------- | --------- | ------------ | ---- |
+| 52726     | 12000     | `[FIN, ACK]` | -    |
+| 12000     | 52726     | `[FIN, ACK]` | -    |
+| 52726     | 12000     | `[ACK]`      | -    |
+
+Un extremo pide la finalización de la conexión con un mensaje FIN. El otro extremo confirma el mensaje del cliente y manda su propio FIN (son dos pasos de forma comprimida), y luego el extremo que inicialmente pidió finalizar la conexión confirma la recepción del último FIN.
+
 #### e)
 
 > Para enviar la misma frase, ¿cuántos paquetes necesitaron en total con TCP y cuántos con UDP? ¿Qué "compran" con los paquetes extra de TCP?
+
+Con UDP se necesitó un datagrama por mensaje. Con TCP, se necesitaron tres datagramas para iniciar la conexión, luego dos datagramas por mensaje (aunque en otras conexiones podría haber confirmaciones espaciadas en lugar de una por mensaje) y luego tres datagramas más para cerrar la conexión, además de que cada datagrama TCP es de mayor tamaño debido a la cabecera más extensa, y que mantener la conexión TCP requiere de uso de recursos en cada extremo.
+
+La sobrecarga producida por TCP hace a una comunicación más fiable, donde se garantiza que no habrá pérdida de mensajes (y si los hay, es por una pérdida de conexión, caso en el que la conexión se finaliza) incluso en una red no fiable.
 
 #### f)
 
@@ -315,6 +405,14 @@ Esto confirma el comportamiento esperado: mientras la entrada siga vigente (`REA
 ncat -v 127.0.0.1 12000       # TCP a un puerto cerrado
 ncat -v -u 127.0.0.1 12001    # UDP a un puerto cerrado, escribir y enter
 ```
+
+Al intentar abrir una conexión con un socket que no está a la escucha, la entidad de transporte destino rechaza el SYN del cliente con un segmento RST dirigido al _socket_ de origen. No se puede enviar ningún mensaje, porque no se llega a establecer la conexión.
+
+En el caso de UDP, la entidad UDP de destino utiliza ICMP para devolver el mismo datagrama UDP a su origen, en un mensaje ICMP dirigido a la IP de origen y de tipo "Destination unreachable" con el código 3, indicando "Port unreachable". La entidad de origen notifica al proceso correcto extrayendo el puerto de origen del mensaje UDP original.
+
+[Captura con Wireshark](./assets/consigna3-f-nadie-escucha.pcapng)
+
+![](./assets/consigna3-f-nadie-escucha.png)
 
 ## Consigna 4 — Servidor TCP mínimo
 
