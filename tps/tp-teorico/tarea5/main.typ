@@ -331,7 +331,8 @@ $ U = frac("Crédito disponible", "Tiempo total de ciclo") = W / T_"ciclo" = 7 /
 === Ejercicio 20.7
 
 ==== Consigna
- La discusión de la política de retransmisión hizo referencia a tres problemas asociados con
+
+La discusión de la política de retransmisión hizo referencia a tres problemas asociados con
 el cálculo dinámico del valor del temporizador. ¿Qué modificaciones sobre la política ayu
 darían a aliviar estos problemas?
 
