@@ -80,7 +80,7 @@ ICMP es uno de los protocolos principales del conjunto IP.  El mensaje ICMP se c
 No, la mac 38:a6:59:ea:01:77 es la mac del router, 8.8.8.8 es el destino. 
 La conclusion final es que una dirección MAC tiene alcance local, solo sirve para llegar al próximo equipo dentro de la misma red, y en cada router la trama se rearma con nuevas MAC. Una dirección IP, en cambio, identifica el destino final.
 
-![alt text](image.png)
+![Echo Request a 8.8.8.8 con MAC destino del gateway](assets/consigna1-mac-destino-gateway.png)
 #### b)
 
 > Comparen un Echo Request con su Echo Reply (Wireshark los vincula en el campo `[Response frame: …]`). Hagan una lista de los campos que cambian y de los que se mantienen en Ethernet, IP e ICMP. ¿Por qué tiene sentido cada cambio? ¿Por qué el identificador y el número de secuencia se mantienen?
@@ -88,7 +88,7 @@ La conclusion final es que una dirección MAC tiene alcance local, solo sirve pa
 - 1250: Echo Request
 - 1251: Echo Reply
 
-![alt text](image-1.png)
+![Echo Request y Echo Reply](assets/consigna1-request-reply.png)
 
 En Ethernet cambiaron: 
 - Source 
@@ -112,7 +112,7 @@ El identificador y la secuencia se mantienen para poder relacionar la pregunta c
 
 > ¿Dónde está el payload de ping? ¿Cuántos bytes tiene y qué contiene? ¿Es igual en el Reply? Si en el grupo hay una computadora con Windows y otra con Linux, compárenlos: ¿qué les sugiere que sean distintos?
 
-![alt text](image-3.png)
+![Payload del ping](assets/consigna1-payload.png)
 
 El payload se encuentra al final de la trama. Contiene 32 bits y es: abcdefghijklmnopqrstuvwabcdefghi. Es igual en el request y en el reply.
 
@@ -120,7 +120,7 @@ El payload se encuentra al final de la trama. Contiene 32 bits y es: abcdefghijk
 
 > ¿Qué valor de TTL tiene el Echo Request que ustedes enviaron? ¿Y el Reply que llegó de 8.8.8.8? ¿Por qué no son iguales?
 
-![alt text](image-2.png)
+![TTL del Request y del Reply](assets/consigna1-ttl.png)
 
 El valor el TTL se encuentra en la imagen (enmascarado en hexadecimal), son dos distintos ya que la informacion de cabecera cambia. Como vimos en el ejercicio b. 
 
@@ -128,7 +128,7 @@ El valor el TTL se encuentra en la imagen (enmascarado en hexadecimal), son dos 
 
 > Dibujen la encapsulación del paquete que eligieron como "cajas dentro de cajas", indicando para cada caja qué tamaño en bytes tiene según Wireshark.
 
-![alt text](image-4.png)
+![Encapsulación del paquete](assets/consigna1-encapsulacion.png)
 
 - La trama Ethernet ocupa 14 bytes
 - La trama IPV4 ocupa 20 bytes
@@ -173,7 +173,7 @@ Hay 2 formas, y se hacen de manera secuencial:
 
 > Ver la caché ARP de su computadora y buscar la entrada del gateway. ¿La MAC asociada al gateway coincide con la MAC destino que vieron anteriormente?
 
-![alt text](image.png)
+![arp -a con la entrada del gateway](assets/consigna2-arp-cache-gateway.png)
 
 Al ejecutar arp -a, la entrada del gateway 192.168.1.1 tiene la dirección física 38-a6-59-ea-01-77, de tipo dinámico. Coincide con la MAC destino del Echo Request a 8.8.8.8 observada en el punto 1. Esto muestra que al hacer ping, la PC tomó la MAC del gateway de su caché ARP para armar la trama Ethernet.
 
