@@ -356,7 +356,7 @@ Modificaciones:
 2. Calcular el RTO de decaimiento utilizando la Ecuación: $RTO= q*RTO$ cuando se produzca una re transmisión. 
 3. Utilizar el valor del RTO de decaimiento para segmentos sucesivos hasta que llegue una confirmación para un segmento que no se haya retransmitido. 
    
-   Cuando se recibe una confirmación para un segmento que no se ha retransmitido, se activa de nuevo el algoritmo de Jacobson para calcular valores futuros de RTO
+Cuando se recibe una confirmación para un segmento que no se ha retransmitido, se activa de nuevo el algoritmo de Jacobson para calcular valores futuros de RTO.
 
 - Para solucionar el problema numero 3, se utiliza:
   - Promediado exponencial: Da más peso a las observaciones recientes, por lo que sigue los cambios más rápido que la media simple.
