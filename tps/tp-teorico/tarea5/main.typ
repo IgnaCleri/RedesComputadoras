@@ -336,6 +336,7 @@ el cálculo dinámico del valor del temporizador. ¿Qué modificaciones sobre la
 darían a aliviar estos problemas?
 
 ==== Respuesta
+
 Los problemas asociados con el calculo dinámico (tomando la media convencional) del temporizador son: 
 
 1. El calculo se realiza entre el tiempo de salida y de llegada, sin embargo no se tiene en cuenta el retraso que tiene el receptor al enviar la respuesta.
