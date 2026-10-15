@@ -353,7 +353,7 @@ Modificaciones:
 - Mediante el algoritmo de Karn se puede solucionar el problema número 2. Este algoritmo resuelve el problema utilizando las
 las siguientes reglas:
 1. No utilizar el RTT medido para un segmento retransmitido para actualizar SRTT y SDEV.
-2. Calcular el RTO de decaimiento utilizando la Ecuación: $RTO= q*RTO$ cuando se produzca una re transmisión. 
+2. Calcular el RTO de decaimiento utilizando la ecuación: $RTO= q*RTO$ cuando se produzca una re transmisión. 
 3. Utilizar el valor del RTO de decaimiento para segmentos sucesivos hasta que llegue una confirmación para un segmento que no se haya retransmitido. 
    
 Cuando se recibe una confirmación para un segmento que no se ha retransmitido, se activa de nuevo el algoritmo de Jacobson para calcular valores futuros de RTO.
