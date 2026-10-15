@@ -338,7 +338,7 @@ darían a aliviar estos problemas?
 
 ==== Respuesta
 
-Los problemas asociados con el calculo dinámico (tomando la media convencional) del temporizador son: 
+Los problemas asociados con el cálculo dinámico (tomando la media convencional) del temporizador son: 
 
 1. El cálculo se realiza entre el tiempo de salida y de llegada, sin embargo no se tiene en cuenta el retraso que tiene el receptor al enviar la respuesta.
 2. El calculo que se realiza sobre los ACK no contempla si es de la llamada principal o de la retransmisión por lo tanto no garantiza que el tiempo medido sea fiel.
