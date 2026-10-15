@@ -350,7 +350,7 @@ Modificaciones:
 - Para solucionar el problema 1, hay que estimar con el algoritmo de Jacobson la desviación media del RTT y no solo su media.
   De esta manera el temporizador se amplía cuando las mediciones son muy dispersas y se ajusta cuando se estabilizan.
 
-- Mediante el algoritmo de Karn, se puede solucionar el problema numero 2, este resuelve el problema utilizando las
+- Mediante el algoritmo de Karn se puede solucionar el problema número 2. Este algoritmo resuelve el problema utilizando las
 las siguientes reglas:
 1. No utilizar el RTT medido para un segmento retransmitido para actualizar SRTT y SDEV.
 2. Calcular el RTO de decaimiento utilizando la Ecuación: $RTO= q*RTO$ cuando se produzca una re transmisión. 
