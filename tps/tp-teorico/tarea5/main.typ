@@ -342,7 +342,7 @@ Los problemas asociados con el cálculo dinámico (tomando la media convencional
 
 1. El cálculo se realiza entre el tiempo de salida y de llegada, sin embargo no se tiene en cuenta el retraso que tiene el receptor al enviar la respuesta.
 2. El calculo que se realiza sobre los ACK no contempla si es de la llamada principal o de la retransmisión por lo tanto no garantiza que el tiempo medido sea fiel.
-3. Tomar la media simple no representa los cambios en el trafico de la red, es decir: Si la red estaba cargada al momento de hacer el calculo, la estimación es fiel para una red cargada, en el caso de que la red se alivie esta estimación resulta ser muy grande y genera perdidas de rendimiento. Para el caso de una red aliviada a la hora de hacer el calculo, el problema es análogo.
+3. Tomar la media simple no representa los cambios en el tráfico de la red, es decir: Si la red estaba cargada al momento de hacer el cálculo, la estimación es fiel para una red cargada. En el caso de que la red se alivie esta estimación resulta ser muy grande y genera pérdidas de rendimiento. Para el caso de una red aliviada a la hora de hacer el cálculo, el problema es análogo.
 
 
 Modificaciones: 
