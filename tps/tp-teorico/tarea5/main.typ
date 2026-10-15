@@ -358,7 +358,7 @@ las siguientes reglas:
    
 Cuando se recibe una confirmación para un segmento que no se ha retransmitido, se activa de nuevo el algoritmo de Jacobson para calcular valores futuros de RTO.
 
-- Para solucionar el problema numero 3, se utiliza:
+- Para solucionar el problema número 3, se utiliza:
   - Promediado exponencial: Da más peso a las observaciones recientes, por lo que sigue los cambios más rápido que la media simple.
   - Decaimiento exponencial del RTO: ante cada retransmisión se multiplica el RTO por una constante ($RTO = q·RTO$, normalmente $q = 2$). Si el vencimiento del temporizador se debe a congestión, esperar más tiempo antes de reintentar evita que todas las fuentes retransmitan a la vez y agraven la congestión.
 
