@@ -65,10 +65,10 @@
       email: "jorge.mendez@mi.unc.edu.ar",
     ),
   ),
-  
+
   titulo: [Preguntas de repaso --- Capítulo 20],
   resumen: [*_Objetivo_ --- Resolver las preguntas de repaso del Capítulo 20 de @stallings2004, sobre protocolos de transporte: direccionamiento, multiplexación, control de flujo por créditos, establecimiento de conexión y los protocolos TCP y UDP.*],
-  
+
   fecha: datetime.today().display("[year]-[month]-[day]"),
 )
 
@@ -326,6 +326,21 @@ $ T_"ciclo" = t_"tx" + t_"prop" + t_"proc" + t_"prop" = 1 + 3 + 2 + 3 = 9 "unida
 El rendimiento maximo es la relación entre el tiempo en que el emisor transmite activamente y la duración total del ciclo:
 
 $ U = frac("Crédito disponible", "Tiempo total de ciclo") = W / T_"ciclo" = 7 / 9 ≈ "0,7778" ≈ "77,78%" $
+
+
+=== Ejercicio 20.9
+En una red que tiene un tamaño máximo de paquete de 128 bytes, un tiempo de vida má-
+ximo de 30 s y un número de secuencia de paquetes de 8 bits, ¿cuál es la máxima tasa de
+transmisión de datos por conexión?
+==== Respuesta
+Para evitar ambigüedades en el receptor (donde paquete viejo podría confundirse con uno nuevo que reutilice el mismo número de secuencia), el emisor no debe agotar ni reiniciar el espacio de números de secuencia en un tiempo menor al tiempo de vida máximo del paquete ($30$ s).  La conexión puede enviar como máximo $256$ paquetes en un intervalo de $30$ segundos.
+
+Cálculo de bytes totales transmitibles en $30$segundos:
+$ "Bytes totales" = 256 "paquetes" times 128 "bytes/paquete" = 32.768 "bytes" $Cálculo de la tasa máxima de bytes por segundo ($B/s$):
+$ "Tasa" = (32.768 "bytes") / (30 "s") approx 1.092,27 "B/s" $Cálculo de la tasa máxima de datos en bits por segundo ("bps"):
+$ "Tasa" = 1.092,27 "B/s" times 8 "bits/byte" approx 8.738,13 "bps" approx 8,74 "kbps" $
+
+La máxima tasa de transmisión por conexión para garantizar la unicidad de los números de secuencia es de #text(weight: "bold")[8,74 kbps] (o $1.092,27$ B/s).
 
 
 
