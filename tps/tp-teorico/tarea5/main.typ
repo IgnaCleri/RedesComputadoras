@@ -342,22 +342,6 @@ $ "Tasa" = 1.092,27 "B/s" times 8 "bits/byte" approx 8.738,13 "bps" approx 8,74 
 
 La máxima tasa de transmisión por conexión para garantizar la unicidad de los números de secuencia es de #text(weight: "bold")[8,74 kbps] (o $1.092,27$ B/s).
 
-=== Ejercicio 20.10
-¿Es posible que se produzca un bloqueo mutuo utilizando un diálogo en dos pasos en lugar de un diálogo en tres pasos? Dé un ejemplo o demuéstrelo en caso contrario.
-==== Respuesta
-
-Sí porque un intercambio de dos pasos es susceptible a bloqueos mutuos (deadlock) o estados de conexión semiabierta no deseados producidos por paquetes retrasados o duplicados en la red.
-Ejemplo:
-
-- Envío de solicitud: El Host A envía una solicitud de conexión. Debido a retardos en la red, el paquete no llega inmediatamente.
-
-- Finalización de tiempo de respuesta: El Host A asume que la solicitud se perdió por falta de respuesta, cancela el intento de conexión y libera sus recursos.
-
-- Demora en llegar: Tiempo después, la solicitud enviada por A finalmente llega al Host B.
-
-- Apertura inmediata en 2 pasos: Al utilizar un protocolo de 2 pasos, el Host B responde inmediatamente con una confirmación(ACK) y pasa en ese instante al estado de conexión abierta.
-
-- Momento del bloqueo: El Host A recibe el ACK de una conexión que ya estaba descartada por lo que ignora la respuesta o la rechaza. Mientras que el Host B asume firmemente que la conexión está activa y queda en estado de espera activa, aguardando que A transmita datos.
 
 
 // Bibliografía. Si hay referencias bibliográficas se renderiza.
