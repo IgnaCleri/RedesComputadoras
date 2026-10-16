@@ -65,10 +65,10 @@
       email: "jorge.mendez@mi.unc.edu.ar",
     ),
   ),
-  
+
   titulo: [Preguntas de repaso --- Capítulo 20],
   resumen: [*_Objetivo_ --- Resolver las preguntas de repaso del Capítulo 20 de @stallings2004, sobre protocolos de transporte: direccionamiento, multiplexación, control de flujo por créditos, establecimiento de conexión y los protocolos TCP y UDP.*],
-  
+
   fecha: datetime.today().display("[year]-[month]-[day]"),
 )
 
@@ -327,6 +327,37 @@ El rendimiento maximo es la relación entre el tiempo en que el emisor transmite
 
 $ U = frac("Crédito disponible", "Tiempo total de ciclo") = W / T_"ciclo" = 7 / 9 ≈ "0,7778" ≈ "77,78%" $
 
+
+=== Ejercicio 20.9
+En una red que tiene un tamaño máximo de paquete de 128 bytes, un tiempo de vida má-
+ximo de 30 s y un número de secuencia de paquetes de 8 bits, ¿cuál es la máxima tasa de
+transmisión de datos por conexión?
+==== Respuesta
+Para evitar ambigüedades en el receptor (donde paquete viejo podría confundirse con uno nuevo que reutilice el mismo número de secuencia), el emisor no debe agotar ni reiniciar el espacio de números de secuencia en un tiempo menor al tiempo de vida máximo del paquete ($30$ s).  La conexión puede enviar como máximo $256$ paquetes en un intervalo de $30$ segundos.
+
+Cálculo de bytes totales transmitibles en $30$segundos:
+$ "Bytes totales" = 256 "paquetes" times 128 "bytes/paquete" = 32.768 "bytes" $Cálculo de la tasa máxima de bytes por segundo ($B/s$):
+$ "Tasa" = (32.768 "bytes") / (30 "s") approx 1.092,27 "B/s" $Cálculo de la tasa máxima de datos en bits por segundo ("bps"):
+$ "Tasa" = 1.092,27 "B/s" times 8 "bits/byte" approx 8.738,13 "bps" approx 8,74 "kbps" $
+
+La máxima tasa de transmisión por conexión para garantizar la unicidad de los números de secuencia es de #text(weight: "bold")[8,74 kbps] (o $1.092,27$ B/s).
+
+=== Ejercicio 20.10
+¿Es posible que se produzca un bloqueo mutuo utilizando un diálogo en dos pasos en lugar de un diálogo en tres pasos? Dé un ejemplo o demuéstrelo en caso contrario.
+==== Respuesta
+
+Sí porque un intercambio de dos pasos es susceptible a bloqueos mutuos (deadlock) o estados de conexión semiabierta no deseados producidos por paquetes retrasados o duplicados en la red.
+Ejemplo:
+
+- Envío de solicitud: El Host A envía una solicitud de conexión. Debido a retardos en la red, el paquete no llega inmediatamente.
+
+- Finalización de tiempo de respuesta: El Host A asume que la solicitud se perdió por falta de respuesta, cancela el intento de conexión y libera sus recursos.
+
+- Demora en llegar: Tiempo después, la solicitud enviada por A finalmente llega al Host B.
+
+- Apertura inmediata en 2 pasos: Al utilizar un protocolo de 2 pasos, el Host B responde inmediatamente con una confirmación(ACK) y pasa en ese instante al estado de conexión abierta.
+
+- Momento del bloqueo: El Host A recibe el ACK de una conexión que ya estaba descartada por lo que ignora la respuesta o la rechaza. Mientras que el Host B asume firmemente que la conexión está activa y queda en estado de espera activa, aguardando que A transmita datos.
 
 
 // Bibliografía. Si hay referencias bibliográficas se renderiza.
